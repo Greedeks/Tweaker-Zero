@@ -41,7 +41,7 @@ namespace Tweaker
             var _animation = new DoubleAnimation();
             _animation.From = Slider.Opacity;
             _animation.To = 0;
-            _animation.Duration = TimeSpan.FromSeconds(0.1);
+            _animation.Duration = TimeSpan.FromSeconds(0.12);
 
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Slider.Opacity = 0;
@@ -52,7 +52,7 @@ namespace Tweaker
             var _animation = new DoubleAnimation();
             _animation.From = Slider.Opacity;
             _animation.To = 1;
-            _animation.Duration = TimeSpan.FromSeconds(0.1);
+            _animation.Duration = TimeSpan.FromSeconds(0.12);
 
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Slider.Opacity = 1;
