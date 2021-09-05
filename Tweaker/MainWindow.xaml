@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Tweaker" Height="620" Width="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Border>
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="0" Opacity="0.8" 
+                Color="red" />
+        </Border.Effect>
+
+        <Grid Background="#121215" Margin="20">
+       
     </Grid>
+    </Border>
 </Window>
