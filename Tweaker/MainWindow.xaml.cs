@@ -107,7 +107,6 @@ namespace Tweaker
 
         private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
             DeffStyleButtons();
             if (!_confidentialityB)
             {
@@ -128,7 +127,6 @@ namespace Tweaker
 
         private void Button_Interface_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
             DeffStyleButtons();
             if (!_interfaceB)
             {
