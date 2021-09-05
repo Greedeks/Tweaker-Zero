@@ -22,6 +22,40 @@
             <!--#region Шапка-->
             <Grid Grid.Row="0">
                 <Border x:Name="Header" CornerRadius="15,15,0,0" Background="#121212" MouseDown="Header_MouseDown"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="261*"/>
+                        <ColumnDefinition Width="261*"/>
+                        <ColumnDefinition Width="251*"/>
+                        <ColumnDefinition Width="271*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image x:Name="Button_Exit" Stretch="None" Grid.Column="3" Margin="229,0,12,0" MouseDown="Button_Exit_MouseDown">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="Image/BExit.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Exit}" Value="true">
+                                        <Setter Property="Source" Value="Image/BExit_A.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+
+                    <Image x:Name="Button_Minimized" Stretch="None" Grid.Column="3" Margin="196,0,45,0" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Minimized_MouseDown">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="Image/BMinimized.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Minimized}" Value="true">
+                                        <Setter Property="Source" Value="Image/BMinimized_A.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </Grid>
             </Grid>
             <!--#endregion-->
 

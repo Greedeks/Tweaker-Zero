@@ -94,5 +94,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BExit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BExit_A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BMinimized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BMinimized_A.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

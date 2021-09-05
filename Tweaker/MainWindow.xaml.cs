@@ -26,12 +26,25 @@ namespace Tweaker
             InitializeComponent();
         }
 
-        /* Перемещения Формы */
+        #region Перемещения/Закрытие/Сворачивание Формы
         private void Header_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        private void Button_Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.Close();
+        }
+
+        private void Button_Minimized_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.WindowState = WindowState.Minimized;
+        }
+        #endregion
 
         #region Кнопки Навигации
 
