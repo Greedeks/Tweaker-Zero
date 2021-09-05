@@ -106,5 +106,9 @@
   <ItemGroup>
     <Resource Include="Image\BMinimized_A.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BSettings.png" />
+    <Resource Include="Image\BSettings_A.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
