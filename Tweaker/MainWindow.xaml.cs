@@ -54,7 +54,7 @@ namespace Tweaker
             var _animation = new DoubleAnimation();
             _animation.From = Slider.Opacity;
             _animation.To = 0;
-            _animation.Duration = TimeSpan.FromSeconds(0.12);
+            _animation.Duration = TimeSpan.FromSeconds(0.15);
 
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Slider.Opacity = 0;
@@ -63,14 +63,13 @@ namespace Tweaker
         private void SliderON()
         {
             var _animation = new DoubleAnimation();
-            _animation.From = Slider.Opacity;
+            _animation.From = 0;
             _animation.To = 1;
-            _animation.Duration = TimeSpan.FromSeconds(0.12);
+            _animation.Duration = TimeSpan.FromSeconds(0.15);
 
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Slider.Opacity = 1;
         }
-
 
 
         /* Активность Кнопак */
@@ -108,13 +107,13 @@ namespace Tweaker
 
         private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
-            Button_Confidentiality.Style = (Style)Application.Current.Resources["CustomB1"];
             if (!_confidentialityB)
             {
-
-                SliderON();
+                Button_Confidentiality.Style = (Style)Application.Current.Resources["CustomB1"];
                 Grid.SetColumn(Slider, 0);
+                SliderON();
 
                 NavButtonsOFF();
                 _confidentialityB = true;
@@ -129,12 +128,13 @@ namespace Tweaker
 
         private void Button_Interface_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_interfaceB)
             {
                 Button_Interface.Style = (Style)Application.Current.Resources["CustomB1"];
-                SliderON();
                 Grid.SetColumn(Slider, 1);
+                SliderON();
 
                 NavButtonsOFF();
                 _interfaceB = true;
@@ -153,8 +153,8 @@ namespace Tweaker
             if (!_applicationB)
             {
                 Button_Application.Style = (Style)Application.Current.Resources["CustomB1"];
-                SliderON();
                 Grid.SetColumn(Slider, 2);
+                SliderON();
 
                 NavButtonsOFF();
                 _applicationB = true;
@@ -173,8 +173,8 @@ namespace Tweaker
             if (!_servicesB)
             {
                 Button_Services.Style = (Style)Application.Current.Resources["CustomB1"];
-                SliderON();
                 Grid.SetColumn(Slider, 3);
+                SliderON();
 
                 NavButtonsOFF();
                 _servicesB = true;
@@ -193,8 +193,8 @@ namespace Tweaker
             if (!_systemB)
             {
                 Button_System.Style = (Style)Application.Current.Resources["CustomB1"];
-                SliderON();
                 Grid.SetColumn(Slider, 4);
+                SliderON();
 
                 NavButtonsOFF();
                 _systemB = true;
@@ -213,8 +213,8 @@ namespace Tweaker
             if (!_systeminfoB)
             {
                 Button_SystemInfo.Style = (Style)Application.Current.Resources["CustomB1"];
-                SliderON();
                 Grid.SetColumn(Slider, 5);
+                SliderON();
 
                 NavButtonsOFF();
                 _systeminfoB = true;
@@ -233,8 +233,8 @@ namespace Tweaker
             if (!_moreB)
             {
                 Button_More.Style = (Style)Application.Current.Resources["CustomB1"];
-                SliderON();
                 Grid.SetColumn(Slider, 6);
+                SliderON();
 
                 NavButtonsOFF();
                 _moreB = true;
