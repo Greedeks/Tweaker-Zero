@@ -11,6 +11,8 @@
             <Setter Property="FontFamily" Value="Raleway"/>
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="12.3px"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -34,6 +36,8 @@
             <Setter Property="FontFamily" Value="Raleway"/>
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="12.3px"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
