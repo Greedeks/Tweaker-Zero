@@ -83,8 +83,6 @@ namespace Tweaker
             _systemB = false;
             _systeminfoB = false;
             _moreB = false;
-
-            SliderOFF();
         }
 
         /* Обычный Стиль Кнопак */
@@ -118,17 +116,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 0);
 
+                NavButtonsOFF();
                 _confidentialityB = true;
-                _interfaceB = false;
-                _applicationB = false;
-                _servicesB = false;
-                _systemB = false;
-                _systeminfoB = false;
-                _moreB = false;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }
@@ -142,17 +136,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 1);
 
-                _confidentialityB = false;
+                NavButtonsOFF();
                 _interfaceB = true;
-                _applicationB = false;
-                _servicesB = false;
-                _systemB = false;
-                _systeminfoB = false;
-                _moreB = false;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }
@@ -166,17 +156,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 2);
 
-                _confidentialityB = false;
-                _interfaceB = false;
+                NavButtonsOFF();
                 _applicationB = true;
-                _servicesB = false;
-                _systemB = false;
-                _systeminfoB = false;
-                _moreB = false;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }
@@ -190,17 +176,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 3);
 
-                _confidentialityB = false;
-                _interfaceB = false;
-                _applicationB = false;
+                NavButtonsOFF();
                 _servicesB = true;
-                _systemB = false;
-                _systeminfoB = false;
-                _moreB = false;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }
@@ -214,17 +196,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 4);
 
-                _confidentialityB = false;
-                _interfaceB = false;
-                _applicationB = false;
-                _servicesB = false;
+                NavButtonsOFF();
                 _systemB = true;
-                _systeminfoB = false;
-                _moreB = false;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }
@@ -238,17 +216,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 5);
 
-                _confidentialityB = false;
-                _interfaceB = false;
-                _applicationB = false;
-                _servicesB = false;
-                _systemB = false;
+                NavButtonsOFF();
                 _systeminfoB = true;
-                _moreB = false;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }
@@ -262,17 +236,13 @@ namespace Tweaker
                 SliderON();
                 Grid.SetColumn(Slider, 6);
 
-                _confidentialityB = false;
-                _interfaceB = false;
-                _applicationB = false;
-                _servicesB = false;
-                _systemB = false;
-                _systeminfoB = false;
+                NavButtonsOFF();
                 _moreB = true;
             }
             else
             {
                 NavButtonsOFF();
+                SliderOFF();
                 DeffStyleButtons();
             }
         }

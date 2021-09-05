@@ -136,7 +136,7 @@
                     </Button.Resources>
                 </Button>
 
-                <Border x:Name="Slider" Background="red" Height="2" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
+                <Border x:Name="Slider" Background="red" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
             </Grid>
             <!--#endregion-->
 
