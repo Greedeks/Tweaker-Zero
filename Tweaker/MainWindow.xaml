@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker" Height="620" Width="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Tweaker" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
     <Window.Effect>
         <DropShadowEffect BlurRadius="30" ShadowDepth="0" Opacity="0.7" 
                 Color="red" />
