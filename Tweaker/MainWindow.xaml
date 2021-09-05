@@ -5,15 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker" Height="620" Width="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+        Title="Tweaker" Height="620" Width="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Effect>
         <DropShadowEffect BlurRadius="30" ShadowDepth="0" Opacity="0.7" 
                 Color="red" />
     </Window.Effect>
-    <Border CornerRadius="15" Background="#121215" Margin="20">
-        
+    <Border CornerRadius="15" Background="#141416" Margin="20">
+
         <Grid>
-       
+            <Grid.RowDefinitions>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="473*"/>
+                <RowDefinition Height="76*"/>
+            </Grid.RowDefinitions>
+
+            <!--#region Шапка-->
+            <Grid Grid.Row="0">
+                <Border x:Name="Header" CornerRadius="10,10,0,0" Background="#121212" MouseDown="Header_MouseDown">
+                </Border>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Тело-->
+            <Grid Grid.Row="1">
+
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Навигация-->
+            <Grid Grid.Row="2">
+
+            </Grid>
+            <!--#endregion-->
+
         </Grid>
         
     </Border>

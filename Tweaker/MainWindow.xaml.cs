@@ -24,5 +24,11 @@ namespace Tweaker
         {
             InitializeComponent();
         }
+
+        private void Header_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }
