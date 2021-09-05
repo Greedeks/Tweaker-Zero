@@ -45,7 +45,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_Confidentiality_Click">
+                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource CustomB}" Margin="0" Click="Button_Confidentiality_Click" Content="Конфиденциальность">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="0,0,0,15"/>
@@ -53,22 +53,22 @@
                     </Button.Resources>
                 </Button>
 
-                <Button x:Name="Button_Interface" Grid.Column="1" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_Interface_Click">
+                <Button x:Name="Button_Interface" Grid.Column="1" Style="{StaticResource CustomB}" Margin="0" Click="Button_Interface_Click" Content="Интерфейс">
                 </Button>
 
-                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_Application_Click">
+                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource CustomB}" Margin="0" Click="Button_Application_Click" Content="Приложение">
                 </Button>
 
-                <Button x:Name="Button_Services" Grid.Column="3" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_Services_Click">
+                <Button x:Name="Button_Services" Grid.Column="3" Style="{StaticResource CustomB}" Margin="0" Click="Button_Services_Click" Content="Службы">
                 </Button>
 
-                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_System_Click">
+                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource CustomB}" Margin="0" Click="Button_System_Click" Content="Система">
                 </Button>
 
-                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_SystemInfo_Click">
+                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource CustomB}" Margin="0" Click="Button_SystemInfo_Click" Content="Системная информация">
                 </Button>
 
-                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource CustomB}" Margin="0,1,0,0" Click="Button_More_Click">
+                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource CustomB}" Margin="0" Click="Button_More_Click" Content="Прочее">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="0,0,15,0"/>

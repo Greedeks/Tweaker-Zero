@@ -26,6 +26,7 @@ namespace Tweaker
             InitializeComponent();
         }
 
+        /* Перемещения Формы */
         private void Header_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -73,6 +74,18 @@ namespace Tweaker
             SliderOFF();
         }
 
+        /* Обычный Стиль Кнопак */
+        private void DeffStyleButtons()
+        {
+            Button_Confidentiality.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_Interface.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_Application.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_Services.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_System.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_SystemInfo.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_More.Style = (Style)Application.Current.Resources["CustomB"];
+        }
+
 
         bool _confidentialityB = false;
         bool _interfaceB = false;
@@ -84,8 +97,11 @@ namespace Tweaker
 
         private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
+            Button_Confidentiality.Style = (Style)Application.Current.Resources["CustomB1"];
             if (!_confidentialityB)
             {
+
                 SliderON();
                 Grid.SetColumn(Slider, 0);
 
@@ -100,13 +116,16 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
 
         private void Button_Interface_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
             if (!_interfaceB)
             {
+                Button_Interface.Style = (Style)Application.Current.Resources["CustomB1"];
                 SliderON();
                 Grid.SetColumn(Slider, 1);
 
@@ -121,13 +140,16 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
 
         private void Button_Application_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
             if (!_applicationB)
             {
+                Button_Application.Style = (Style)Application.Current.Resources["CustomB1"];
                 SliderON();
                 Grid.SetColumn(Slider, 2);
 
@@ -142,13 +164,16 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
 
         private void Button_Services_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
             if (!_servicesB)
             {
+                Button_Services.Style = (Style)Application.Current.Resources["CustomB1"];
                 SliderON();
                 Grid.SetColumn(Slider, 3);
 
@@ -163,13 +188,16 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
 
         private void Button_System_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
             if (!_systemB)
             {
+                Button_System.Style = (Style)Application.Current.Resources["CustomB1"];
                 SliderON();
                 Grid.SetColumn(Slider, 4);
 
@@ -184,13 +212,16 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
 
         private void Button_SystemInfo_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
             if (!_systeminfoB)
             {
+                Button_SystemInfo.Style = (Style)Application.Current.Resources["CustomB1"];
                 SliderON();
                 Grid.SetColumn(Slider, 5);
 
@@ -205,13 +236,16 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
 
         private void Button_More_Click(object sender, RoutedEventArgs e)
         {
+            DeffStyleButtons();
             if (!_moreB)
             {
+                Button_More.Style = (Style)Application.Current.Resources["CustomB1"];
                 SliderON();
                 Grid.SetColumn(Slider, 6);
 
@@ -226,6 +260,7 @@ namespace Tweaker
             else
             {
                 NavButtonsOFF();
+                DeffStyleButtons();
             }
         }
         #endregion
