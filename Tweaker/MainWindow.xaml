@@ -78,7 +78,7 @@
                         </Image.Style>
                     </Image>
                     
-                    <Label Content="Tweaker" Grid.Column="0" Foreground="#CC0605" FontFamily="Raleway" FontStretch="Medium" FontSize="15" FontWeight="Medium" Margin="10,0,178,0" MouseDown="Header_MouseDown">
+                    <Label Content="Tweaker" Grid.Column="0" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15" FontWeight="Medium" Margin="10,0,178,0" MouseDown="Header_MouseDown">
                         <Label.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Label.Effect>

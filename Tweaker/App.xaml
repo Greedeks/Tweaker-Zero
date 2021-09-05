@@ -8,7 +8,7 @@
         <Style TargetType="{x:Type Button}" x:Key="CustomB">
             <Setter Property="Foreground" Value="#A5A5A5"/>
             <Setter Property="Background" Value="#121212"/>
-            <Setter Property="FontFamily" Value="Raleway"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="12.3px"/>
             <Setter Property="IsTabStop" Value="False"/>
@@ -33,7 +33,7 @@
         <Style TargetType="{x:Type Button}" x:Key="CustomB1">
             <Setter Property="Foreground" Value="#CC0605"/>
             <Setter Property="Background" Value="#121212"/>
-            <Setter Property="FontFamily" Value="Raleway"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="12.3px"/>
             <Setter Property="IsTabStop" Value="False"/>
