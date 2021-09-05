@@ -32,7 +32,7 @@
 
                     <Image x:Name="Button_Exit" Height="30" Stretch="None" Grid.Column="3" Margin="229,0,12,0" MouseDown="Button_Exit_MouseDown">
                         <Image.Effect>
-                            <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
@@ -48,7 +48,7 @@
 
                     <Image x:Name="Button_Minimized" Height="30" Stretch="None" Grid.Column="3" Margin="196,0,45,0" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Minimized_MouseDown">
                         <Image.Effect>
-                            <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
@@ -64,7 +64,7 @@
 
                     <Image x:Name="Button_Settings" Height="30" Stretch="None" Grid.Column="3" Margin="163,0,78,0" RenderTransformOrigin="1.833,0.366">
                         <Image.Effect>
-                            <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
