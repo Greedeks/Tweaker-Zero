@@ -107,6 +107,7 @@ namespace Tweaker
 
         private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_confidentialityB)
             {
@@ -127,6 +128,7 @@ namespace Tweaker
 
         private void Button_Interface_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_interfaceB)
             {
@@ -147,6 +149,7 @@ namespace Tweaker
 
         private void Button_Application_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_applicationB)
             {
@@ -167,6 +170,7 @@ namespace Tweaker
 
         private void Button_Services_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_servicesB)
             {
@@ -187,6 +191,7 @@ namespace Tweaker
 
         private void Button_System_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_systemB)
             {
@@ -207,6 +212,7 @@ namespace Tweaker
 
         private void Button_SystemInfo_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_systeminfoB)
             {
@@ -227,6 +233,7 @@ namespace Tweaker
 
         private void Button_More_Click(object sender, RoutedEventArgs e)
         {
+            SliderOFF();
             DeffStyleButtons();
             if (!_moreB)
             {
