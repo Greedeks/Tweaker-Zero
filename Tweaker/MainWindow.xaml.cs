@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,5 +31,203 @@ namespace Tweaker
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        #region Кнопки Навигации
+
+        /* Анимация Слайдера */
+        private void SliderOFF()
+        {
+            var _animation = new DoubleAnimation();
+            _animation.From = Slider.Opacity;
+            _animation.To = 0;
+            _animation.Duration = TimeSpan.FromSeconds(0.01);
+
+            Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
+            Slider.Opacity = 0;
+        }
+
+        private void SliderON()
+        {
+            var _animation = new DoubleAnimation();
+            _animation.From = Slider.Opacity;
+            _animation.To = 1;
+            _animation.Duration = TimeSpan.FromSeconds(0.01);
+
+            Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
+            Slider.Opacity = 1;
+        }
+
+
+
+        /* Активность Кнопак */
+        private void NavButtonsOFF()
+        {
+            _confidentialityB = false;
+            _interfaceB = false;
+            _applicationB = false;
+            _servicesB = false;
+            _systemB = false;
+            _systeminfoB = false;
+            _moreB = false;
+
+            SliderOFF();
+        }
+
+
+        bool _confidentialityB = false;
+        bool _interfaceB = false;
+        bool _applicationB = false;
+        bool _servicesB = false;
+        bool _systemB = false;
+        bool _systeminfoB = false;
+        bool _moreB = false;
+
+        private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_confidentialityB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 0);
+
+                _confidentialityB = true;
+                _interfaceB = false;
+                _applicationB = false;
+                _servicesB = false;
+                _systemB = false;
+                _systeminfoB = false;
+                _moreB = false;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+
+        private void Button_Interface_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_interfaceB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 1);
+
+                _confidentialityB = false;
+                _interfaceB = true;
+                _applicationB = false;
+                _servicesB = false;
+                _systemB = false;
+                _systeminfoB = false;
+                _moreB = false;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+
+        private void Button_Application_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_applicationB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 2);
+
+                _confidentialityB = false;
+                _interfaceB = false;
+                _applicationB = true;
+                _servicesB = false;
+                _systemB = false;
+                _systeminfoB = false;
+                _moreB = false;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+
+        private void Button_Services_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_servicesB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 3);
+
+                _confidentialityB = false;
+                _interfaceB = false;
+                _applicationB = false;
+                _servicesB = true;
+                _systemB = false;
+                _systeminfoB = false;
+                _moreB = false;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+
+        private void Button_System_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_systemB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 4);
+
+                _confidentialityB = false;
+                _interfaceB = false;
+                _applicationB = false;
+                _servicesB = false;
+                _systemB = true;
+                _systeminfoB = false;
+                _moreB = false;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+
+        private void Button_SystemInfo_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_systeminfoB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 5);
+
+                _confidentialityB = false;
+                _interfaceB = false;
+                _applicationB = false;
+                _servicesB = false;
+                _systemB = false;
+                _systeminfoB = true;
+                _moreB = false;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+
+        private void Button_More_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_moreB)
+            {
+                SliderON();
+                Grid.SetColumn(Slider, 6);
+
+                _confidentialityB = false;
+                _interfaceB = false;
+                _applicationB = false;
+                _servicesB = false;
+                _systemB = false;
+                _systeminfoB = false;
+                _moreB = true;
+            }
+            else
+            {
+                NavButtonsOFF();
+            }
+        }
+        #endregion
     }
 }
