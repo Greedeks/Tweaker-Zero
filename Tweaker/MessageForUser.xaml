@@ -26,11 +26,17 @@
                 </Button.Resources>
             </Button>
 
-            <Label Content="Приложение уже запущено!" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="14" FontWeight="Medium" Margin="54,27,54,22">
+            <Label Content="Приложение уже запущено!" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="14" FontWeight="Medium" Margin="54,17,54,33">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="White" />
                 </Label.Effect>
             </Label>
+            <Label x:Name="TextTimer" Content="Автозакрытия  окна через 10 секунд." Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="14" FontWeight="Medium" Margin="22,44,22,5">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="White" />
+                </Label.Effect>
+            </Label>
+            
 
             <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212"/>
             
