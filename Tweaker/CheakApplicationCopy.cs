@@ -21,7 +21,7 @@ namespace Tweaker
             #region Проверка запущенного приложения
             if (!mutex.WaitOne(150, false))
             {
-                MessageBox.Show("Приложение уже запущено!", "Ошибка");
+                new MessageForUser().ShowDialog();
                 string processName = Process.GetCurrentProcess().ProcessName;
                 Process process = Process.GetProcesses().Where(p => p.ProcessName == processName).FirstOrDefault();
                 if (process != null)

@@ -15,6 +15,7 @@ namespace Tweaker
             CheakApplicationCopy.CheakAC();
 
             InitializeComponent();
+
         }
 
         #region Перемещения/Закрытие/Сворачивание Формы
