@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Tweaker.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -113,9 +114,6 @@
   <ItemGroup>
     <Resource Include="Image\BSettings.png" />
     <Resource Include="Image\BSettings_A.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Tweaker.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
