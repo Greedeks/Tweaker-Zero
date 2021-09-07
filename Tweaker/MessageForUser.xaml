@@ -31,7 +31,7 @@
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.5" Color="White" />
                 </Label.Effect>
                 <Label.Content>
-                    <TextBlock TextWrapping="Wrap" Width="284" Height="30">Создание копий приложения запрещено</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Width="261" Height="30">Создание копий программы запрещено</TextBlock>
                 </Label.Content>
             </Label>
             <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" x:Name="TextTimer"  Content="Автозакрытия  окна через 10 секунд." Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Normal" FontSize="13.5" FontWeight="Medium" Width="258" Height="26">
