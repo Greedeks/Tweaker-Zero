@@ -12,6 +12,7 @@
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="12.3px"/>
             <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -37,6 +38,7 @@
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="12.3px"/>
             <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -65,6 +67,7 @@
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="13px"/>
             <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
