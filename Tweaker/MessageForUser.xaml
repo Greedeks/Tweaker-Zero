@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="Warning" Height="200" Width="350" MinHeight="200" MinWidth="350" MaxHeight="200" MaxWidth="350" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Effect>
-        <DropShadowEffect BlurRadius="30" ShadowDepth="0" Opacity="0.7" 
+        <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" 
                 Color="red" />
     </Window.Effect>
     <Border CornerRadius="15" Background="#141416" Margin="20">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="19*"/>
-                <RowDefinition Height="59*"/>
-                <RowDefinition Height="27*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="73*"/>
+                <RowDefinition Height="52*"/>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="2" Style="{StaticResource ButtonsTW}" Content="Понятно" Margin="81,0,81,8" Click="Button_Click">
+            <Button HorizontalAlignment="Center" Grid.Row="2" Style="{StaticResource ButtonsTW}" Content="Понятно" Margin="0,10,0,12" Click="Button_Click" Width="156">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15,15,15,15"/>
@@ -26,21 +26,24 @@
                 </Button.Resources>
             </Button>
 
-            <Label Content="Приложение уже запущено!" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="14" FontWeight="Medium" Margin="54,17,54,33">
+            <Label Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="13.5" FontWeight="Bold" Width="290" Height="46">
                 <Label.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="White" />
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.4" Color="White" />
+                </Label.Effect>
+                <Label.Content>
+                    <TextBlock TextWrapping="Wrap" Width="284" Height="30">Создание копий приложения запрещено</TextBlock>
+                </Label.Content>
+            </Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" x:Name="TextTimer"  Content="Автозакрытия  окна через 10 секунд." Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Normal" FontSize="13.5" FontWeight="Bold" Width="258" Height="26">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.4" Color="White" />
                 </Label.Effect>
             </Label>
-            <Label x:Name="TextTimer" Content="Автозакрытия  окна через 10 секунд." Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="14" FontWeight="Medium" Margin="22,44,22,5">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="White" />
-                </Label.Effect>
-            </Label>
-            
 
-            <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212"/>
-            
-            <Label Content="Tweaker" Grid.Row="0" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15" FontWeight="Medium" Margin="118,0,118,90" Grid.RowSpan="2">
+
+            <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212" Margin="0,0,0,10"/>
+
+            <Label Content="Tweaker" Grid.Row="0" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15" FontWeight="Medium" Margin="118,0,118,0">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
                 </Label.Effect>
