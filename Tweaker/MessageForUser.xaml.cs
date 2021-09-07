@@ -33,7 +33,7 @@ namespace Tweaker
             {
                 string _texttimer = _time.ToString("ss");
                 TextTimer.Content = "Автозакрытия  окна через "+_texttimer+" секунд";
-                if (_time == TimeSpan.FromSeconds(-1)) { _timer.Stop(); this.Close(); }
+                if (_time == TimeSpan.Zero) { _timer.Stop(); this.Close(); }
                 _time = _time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
 
