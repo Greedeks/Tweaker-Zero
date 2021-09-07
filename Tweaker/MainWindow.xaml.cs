@@ -247,8 +247,8 @@ namespace Tweaker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            double _leftInit = Canvas.GetLeft(TweakerWPF);
-            double _topInit = Canvas.GetTop(TweakerWPF);
+            var _leftInit = Canvas.GetLeft(TweakerWPF);
+            var _topInit = Canvas.GetTop(TweakerWPF);
 
             var _animationLeft = new DoubleAnimation();
             _animationLeft.From = -1000;
