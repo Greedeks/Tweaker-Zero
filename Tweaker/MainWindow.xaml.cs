@@ -244,5 +244,24 @@ namespace Tweaker
             }
         }
         #endregion
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            double _leftInit = Canvas.GetLeft(TweakerWPF);
+            double _topInit = Canvas.GetTop(TweakerWPF);
+
+            var _animationLeft = new DoubleAnimation();
+            _animationLeft.From = -1000;
+            _animationLeft.To = _leftInit;
+            _animationLeft.Duration = TimeSpan.FromSeconds(0.17);
+
+            var _animationTop = new DoubleAnimation();
+            _animationTop.From = 1000;
+            _animationTop.To = _topInit;
+            _animationTop.Duration = TimeSpan.FromSeconds(0.17);
+
+            TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
+            TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
+        }
     }
 }
