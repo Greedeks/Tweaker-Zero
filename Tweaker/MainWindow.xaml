@@ -31,33 +31,15 @@
                     </Grid.ColumnDefinitions>
 
                     <Image x:Name="Button_Exit" Height="30" Stretch="None" Grid.Column="3" Margin="229,0,12,0" MouseDown="Button_Exit_MouseDown">
-                        <Image.Triggers>
-                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Button_Exit" Storyboard.TargetProperty="Effect.BlurRadius" From="1" To="10" Duration="0:0:0.200"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-
-                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Button_Exit" Storyboard.TargetProperty="Effect.BlurRadius" From="10" To="1" Duration="0:0:0.150"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Image.Triggers>
-                        
                         <Image.Effect>
-                            <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="red" />
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
-                                <Setter Property="Source" Value="Image/BExit.png"/>
+                                <Setter Property="Source" Value="Image/BExit_A.png"/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Exit}" Value="true">
-                                        <Setter Property="Source" Value="Image/BExit_A.png"/>
+                                        <Setter Property="Source" Value="Image/BExit.png"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -65,33 +47,15 @@
                     </Image>
 
                     <Image x:Name="Button_Minimized" Height="30" Stretch="None" Grid.Column="3" Margin="196,0,45,0" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Minimized_MouseDown">
-                        <Image.Triggers>
-                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Button_Minimized" Storyboard.TargetProperty="Effect.BlurRadius" From="1" To="10" Duration="0:0:0.200"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-
-                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Button_Minimized" Storyboard.TargetProperty="Effect.BlurRadius" From="10" To="1" Duration="0:0:0.150"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Image.Triggers>
-                        
                         <Image.Effect>
-                            <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="red" />
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
-                                <Setter Property="Source" Value="Image/BMinimized.png"/>
+                                <Setter Property="Source" Value="Image/BMinimized_A.png"/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Minimized}" Value="true">
-                                        <Setter Property="Source" Value="Image/BMinimized_A.png"/>
+                                        <Setter Property="Source" Value="Image/BMinimized.png"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -99,33 +63,15 @@
                     </Image>
 
                     <Image x:Name="Button_Settings" Height="30" Stretch="None" Grid.Column="3" Margin="163,0,78,0" RenderTransformOrigin="1.833,0.366">
-                        <Image.Triggers>
-                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Button_Settings" Storyboard.TargetProperty="Effect.BlurRadius" From="1" To="10" Duration="0:0:0.200"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-
-                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Button_Settings" Storyboard.TargetProperty="Effect.BlurRadius" From="10" To="1" Duration="0:0:0.150"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Image.Triggers>
-                        
                         <Image.Effect>
-                            <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="red" />
+                            <DropShadowEffect BlurRadius="4" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
-                                <Setter Property="Source" Value="Image/BSettings.png"/>
+                                <Setter Property="Source" Value="Image/BSettings_A.png"/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Settings}" Value="true">
-                                        <Setter Property="Source" Value="Image/BSettings_A.png"/>
+                                        <Setter Property="Source" Value="Image/BSettings.png"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
