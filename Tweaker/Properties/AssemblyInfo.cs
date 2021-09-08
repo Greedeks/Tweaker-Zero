@@ -14,7 +14,7 @@ using System.Windows;
 [assembly: AssemblyProduct("Tweaker")]
 [assembly: AssemblyCopyright("Copyright © Greedeks")]
 [assembly: AssemblyTrademark("Greedeks")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyCulture("en")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
 // для компонентов COM. Если необходимо обратиться к типу в этой сборке через
