@@ -15,8 +15,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="31*"/>
-                <RowDefinition Height="507*"/>
-                <RowDefinition Height="42*"/>
+                <RowDefinition Height="509*"/>
+                <RowDefinition Height="40*"/>
             </Grid.RowDefinitions>
 
             <!--#region Шапка-->
@@ -77,7 +77,7 @@
                             </Style>
                         </Image.Style>
                     </Image>
-                    
+
                     <Label Content="Tweaker" Grid.Column="0" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15" FontWeight="Medium" Margin="10,0,178,0" MouseDown="Header_MouseDown">
                         <Label.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
@@ -94,7 +94,7 @@
             <!--#endregion-->
 
             <!--#region Навигация-->
-            <Border Background="#121212" CornerRadius="0,0,15,15" Width="1000" Grid.Row="2" Margin="0,1,0,0"/>
+            <Border Background="#121212" CornerRadius="0,0,15,15" Grid.Row="2" Margin="22,1,22,0"/>
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -107,7 +107,7 @@
                     <ColumnDefinition Width="119*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource CustomB}" Click="Button_Confidentiality_Click" Content=" Конфиденциальность">
+                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource ButtonNav}" Click="Button_Confidentiality_Click" Content=" Конфиденциальность">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="0,0,0,15"/>
@@ -115,20 +115,20 @@
                     </Button.Resources>
                 </Button>
 
-                <Button x:Name="Button_Interface" Style="{StaticResource CustomB}" Margin="155,0,0,0" Click="Button_Interface_Click" Content="Интерфейс" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_Interface" Style="{StaticResource ButtonNav}" Margin="155,0,0,0" Click="Button_Interface_Click" Content="Интерфейс" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource CustomB}" Margin="1,0,0,0" Click="Button_Application_Click" Content="Приложение"/>
+                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="1,0,0,0" Click="Button_Application_Click" Content="Приложение"/>
 
-                <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource CustomB}" Margin="149,0,149,0" Click="Button_Services_Click" Content="Службы" Grid.ColumnSpan="3">
+                <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="149,0,149,0" Click="Button_Services_Click" Content="Службы" Grid.ColumnSpan="3">
                 </Button>
 
-                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource CustomB}" Margin="0,0,179,0" Click="Button_System_Click" Content="Система" Grid.ColumnSpan="2">
+                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" Margin="0,0,179,0" Click="Button_System_Click" Content="Система" Grid.ColumnSpan="2">
                 </Button>
 
-                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource CustomB}" Margin="0,0,119,0" Click="Button_SystemInfo_Click" Content="Системная информация" Grid.ColumnSpan="2">
+                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" Click="Button_SystemInfo_Click" Content="Системная информация" Grid.ColumnSpan="2">
                 </Button>
 
-                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource CustomB}" Click="Button_More_Click" Content="Прочее">
+                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" Click="Button_More_Click" Content="Прочее">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="0,0,15,0"/>

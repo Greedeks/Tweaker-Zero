@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <Style TargetType="{x:Type Button}" x:Key="CustomB">
+        <Style TargetType="{x:Type Button}" x:Key="ButtonNav">
             <Setter Property="Foreground" Value="#A5A5A5"/>
             <Setter Property="Background" Value="#121212"/>
             <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>
@@ -31,7 +31,7 @@
             </Style.Triggers>
         </Style>
 
-        <Style TargetType="{x:Type Button}" x:Key="CustomB1">
+        <Style TargetType="{x:Type Button}" x:Key="ButtonNav_S">
             <Setter Property="Foreground" Value="#CC0605"/>
             <Setter Property="Background" Value="#121212"/>
             <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>

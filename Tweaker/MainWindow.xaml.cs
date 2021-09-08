@@ -41,7 +41,7 @@ namespace Tweaker
         #region Кнопки Навигации
 
         /* Анимация Слайдера */
-            private void SliderOFF()
+        private void SliderOFF()
         {
             var _animation = new DoubleAnimation();
             _animation.From = Slider.Opacity;
@@ -79,13 +79,13 @@ namespace Tweaker
         /* Обычный Стиль Кнопак */
         private void DeffStyleButtons()
         {
-            Button_Confidentiality.Style = (Style)Application.Current.Resources["CustomB"];
-            Button_Interface.Style = (Style)Application.Current.Resources["CustomB"];
-            Button_Application.Style = (Style)Application.Current.Resources["CustomB"];
-            Button_Services.Style = (Style)Application.Current.Resources["CustomB"];
-            Button_System.Style = (Style)Application.Current.Resources["CustomB"];
-            Button_SystemInfo.Style = (Style)Application.Current.Resources["CustomB"];
-            Button_More.Style = (Style)Application.Current.Resources["CustomB"];
+            Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_Application.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_Services.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_System.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
         }
 
 
@@ -103,7 +103,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_confidentialityB)
             {
-                Button_Confidentiality.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 0);
                 SliderON();
 
@@ -124,7 +124,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_interfaceB)
             {
-                Button_Interface.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 1);
                 SliderON();
 
@@ -145,7 +145,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_applicationB)
             {
-                Button_Application.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_Application.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 2);
                 SliderON();
 
@@ -166,7 +166,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_servicesB)
             {
-                Button_Services.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_Services.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 3);
                 SliderON();
 
@@ -187,7 +187,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_systemB)
             {
-                Button_System.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_System.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 4);
                 SliderON();
 
@@ -208,7 +208,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_systeminfoB)
             {
-                Button_SystemInfo.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 5);
                 SliderON();
 
@@ -229,7 +229,7 @@ namespace Tweaker
             DeffStyleButtons();
             if (!_moreB)
             {
-                Button_More.Style = (Style)Application.Current.Resources["CustomB1"];
+                Button_More.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 6);
                 SliderON();
 
