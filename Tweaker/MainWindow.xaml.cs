@@ -247,6 +247,7 @@ namespace Tweaker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            #region Анимация загрузки
             var _leftInit = Canvas.GetLeft(TweakerWPF);
             var _topInit = Canvas.GetTop(TweakerWPF);
 
@@ -262,6 +263,7 @@ namespace Tweaker
 
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
+            #endregion
         }
     }
 }
