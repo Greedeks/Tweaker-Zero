@@ -12,8 +12,8 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Tweaker")]
-[assembly: AssemblyCopyright("Copyright ©  2021 by Greedeks")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Greedeks")]
+[assembly: AssemblyTrademark("Greedeks")]
 [assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
@@ -51,6 +51,6 @@ using System.Windows;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.3.0")]
-[assembly: AssemblyFileVersion("2.1.3.0")]
+[assembly: AssemblyVersion("2.1.0.0")]
+[assembly: AssemblyFileVersion("2.1.4.0")]
 [assembly: NeutralResourcesLanguage("en-US")]
