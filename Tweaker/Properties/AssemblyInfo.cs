@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -14,7 +13,7 @@ using System.Windows;
 [assembly: AssemblyProduct("Tweaker")]
 [assembly: AssemblyCopyright("Copyright © Greedeks")]
 [assembly: AssemblyTrademark("Greedeks")]
-[assembly: AssemblyCulture("en")]
+[assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
 // для компонентов COM. Если необходимо обратиться к типу в этой сборке через
@@ -52,5 +51,6 @@ using System.Windows;
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.1")]
+[assembly: AssemblyInformationalVersion("2.1")]
 [assembly: AssemblyFileVersion("2.1.4.0")]
 [assembly: NeutralResourcesLanguage("en-US")]
