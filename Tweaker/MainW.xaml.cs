@@ -86,6 +86,7 @@ namespace Tweaker
             Button_System.Style = (Style)Application.Current.Resources["ButtonNav"];
             Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav"];
             Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
+            MainContainer.Children.Clear();
         }
 
 
@@ -106,7 +107,7 @@ namespace Tweaker
                 Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 0);
                 SliderON();
-
+                MainContainer.Children.Add(new ConfidentialityW());
                 NavButtonsOFF();
                 _confidentialityB = true;
             }
