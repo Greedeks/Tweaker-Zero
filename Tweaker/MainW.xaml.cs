@@ -10,7 +10,7 @@ namespace Tweaker
     public partial class MainWindow : Window
     {
         #region Переменные
-        private bool _confidentialityB= false, _interfaceB = false, _applicationB = false, _servicesB = false, 
+        private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false, 
             _systemB = false, _systeminfoB = false, _moreB = false;
         #endregion
 
