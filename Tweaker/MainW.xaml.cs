@@ -10,13 +10,8 @@ namespace Tweaker
     public partial class MainWindow : Window
     {
         #region Переменные
-        private bool _confidentialityB = false;
-        private bool _interfaceB = false;
-        private bool _applicationB = false;
-        private bool _servicesB = false;
-        private bool _systemB = false;
-        private bool _systeminfoB = false;
-        private bool _moreB = false;
+        private bool _confidentialityB= false, _interfaceB = false, _applicationB = false, _servicesB = false, 
+            _systemB = false, _systeminfoB = false, _moreB = false;
         #endregion
 
         public MainWindow()
@@ -73,7 +68,7 @@ namespace Tweaker
         #endregion
 
         private void ResetButtonsNav()=> _confidentialityB = _interfaceB = _applicationB 
-        = _servicesB = _systemB = _systeminfoB = _moreB = false;
+            = _servicesB = _systemB = _systeminfoB = _moreB = false;
 
         private void DeffStyleButtons()
         {
