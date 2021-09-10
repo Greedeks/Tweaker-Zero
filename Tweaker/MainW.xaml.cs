@@ -9,13 +9,23 @@ namespace Tweaker
 {
     public partial class MainWindow : Window
     {
+        #region Переменные
+        private bool _confidentialityB = false;
+        private bool _interfaceB = false;
+        private bool _applicationB = false;
+        private bool _servicesB = false;
+        private bool _systemB = false;
+        private bool _systeminfoB = false;
+        private bool _moreB = false;
+        #endregion
+
         public MainWindow()
         {
             /* Проверка запущенного приложения */
-            CheakApplicationCopy.CheakAC();
+            CheakApplicationCopy cheakApplicationCopy= new CheakApplicationCopy();
+            cheakApplicationCopy.CheakAC();
 
             InitializeComponent();
-
         }
 
         #region Перемещения/Закрытие/Сворачивание Формы
@@ -38,9 +48,7 @@ namespace Tweaker
         }
         #endregion
 
-        #region Кнопки Навигации
-
-        /* Анимация Слайдера */
+        #region Анимация Слайдера
         private void SliderOFF()
         {
             var _animation = new DoubleAnimation();
@@ -62,42 +70,19 @@ namespace Tweaker
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Slider.Opacity = 1;
         }
+        #endregion
 
+        private void NavButtonsOFF()=> _confidentialityB = _interfaceB = _applicationB 
+        = _servicesB = _systemB = _systeminfoB = _moreB = false;
 
-        /* Активность Кнопак */
-        private void NavButtonsOFF()
-        {
-            _confidentialityB = false;
-            _interfaceB = false;
-            _applicationB = false;
-            _servicesB = false;
-            _systemB = false;
-            _systeminfoB = false;
-            _moreB = false;
-        }
-
-        /* Обычный Стиль Кнопак */
         private void DeffStyleButtons()
         {
-            Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav"];
-            Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav"];
-            Button_Application.Style = (Style)Application.Current.Resources["ButtonNav"];
-            Button_Services.Style = (Style)Application.Current.Resources["ButtonNav"];
-            Button_System.Style = (Style)Application.Current.Resources["ButtonNav"];
-            Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav"];
-            Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
+            Button_Confidentiality.Style = Button_Interface.Style = Button_Application.Style = Button_Services.Style = Button_System.Style
+            = Button_SystemInfo.Style = Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
             MainContainer.Children.Clear();
         }
 
-
-        bool _confidentialityB = false;
-        bool _interfaceB = false;
-        bool _applicationB = false;
-        bool _servicesB = false;
-        bool _systemB = false;
-        bool _systeminfoB = false;
-        bool _moreB = false;
-
+        #region Кнопки Навигации
         private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
         {
             SliderOFF();
@@ -249,8 +234,8 @@ namespace Tweaker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             #region Анимация загрузки
-            var _leftInit = Canvas.GetLeft(TweakerWPF);
-            var _topInit = Canvas.GetTop(TweakerWPF);
+            double _leftInit = Canvas.GetLeft(TweakerWPF);
+            double _topInit = Canvas.GetTop(TweakerWPF);
 
             var _animationLeft = new DoubleAnimation();
             _animationLeft.From = -1000;

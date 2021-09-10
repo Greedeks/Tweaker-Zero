@@ -4,9 +4,6 @@ using System.Windows.Threading;
 
 namespace Tweaker
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageForUser.xaml
-    /// </summary>
     public partial class MessageForUser : Window
     {
         DispatcherTimer _timer;

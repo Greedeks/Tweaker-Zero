@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Tweaker
 {
-    public static class CheakApplicationCopy
+    public class CheakApplicationCopy
     {
         [DllImport("user32.dll")]
         private static extern bool _ShowWindow(IntPtr handle, int cmdShow);
@@ -15,14 +15,13 @@ namespace Tweaker
 
         private static Mutex mutex = new Mutex(false, "Tweaker");
 
-        public static void CheakAC()
+        public void CheakAC()
         {
-            #region Проверка запущенного приложения
             if (!mutex.WaitOne(150, false))
             {
                 new MessageForUser().ShowDialog();
-                string processName = Process.GetCurrentProcess().ProcessName;
-                Process process = Process.GetProcesses().Where(p => p.ProcessName == processName).FirstOrDefault();
+                string _processName = Process.GetCurrentProcess().ProcessName;
+                Process process = Process.GetProcesses().Where(p => p.ProcessName == _processName).FirstOrDefault();
                 if (process != null)
                 {
                     IntPtr handle = process.MainWindowHandle;
@@ -30,7 +29,6 @@ namespace Tweaker
                     _SetForegroundWindow(handle);
                 }
             }
-            #endregion
         }
     }
 }
