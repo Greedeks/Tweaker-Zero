@@ -15,7 +15,7 @@
 
         <!--#region Твики-->
         <Grid Grid.Row="1">
-            <Label Style="{StaticResource Tweaks}" Cursor="Hand" Margin="10,10,788,354">
+            <Label Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="10,10,788,354">
                 <Label.Content>
                     <TextBlock TextWrapping="Wrap">Отключение рекламного идентификатора и рекламы</TextBlock>
                 </Label.Content>

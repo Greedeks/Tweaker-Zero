@@ -72,7 +72,7 @@ namespace Tweaker
         }
         #endregion
 
-        private void NavButtonsOFF()=> _confidentialityB = _interfaceB = _applicationB 
+        private void ResetButtonsNav()=> _confidentialityB = _interfaceB = _applicationB 
         = _servicesB = _systemB = _systeminfoB = _moreB = false;
 
         private void DeffStyleButtons()
@@ -93,12 +93,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 0);
                 SliderON();
                 MainContainer.Children.Add(new ConfidentialityW());
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _confidentialityB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
@@ -114,12 +114,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 1);
                 SliderON();
 
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _interfaceB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
@@ -135,12 +135,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 2);
                 SliderON();
 
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _applicationB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
@@ -156,12 +156,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 3);
                 SliderON();
 
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _servicesB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
@@ -177,12 +177,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 4);
                 SliderON();
 
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _systemB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
@@ -198,12 +198,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 5);
                 SliderON();
 
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _systeminfoB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
@@ -219,12 +219,12 @@ namespace Tweaker
                 Grid.SetColumn(Slider, 6);
                 SliderON();
 
-                NavButtonsOFF();
+                ResetButtonsNav();
                 _moreB = true;
             }
             else
             {
-                NavButtonsOFF();
+                ResetButtonsNav();
                 SliderOFF();
                 DeffStyleButtons();
             }
