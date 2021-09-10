@@ -16,7 +16,6 @@ namespace Tweaker
 
         public MainWindow()
         {
-            /* Проверка запущенного приложения */
             CheakApplicationCopy cheakApplicationCopy= new CheakApplicationCopy();
             cheakApplicationCopy.CheakAC();
 
