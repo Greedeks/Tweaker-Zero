@@ -79,7 +79,7 @@
 
         <!--#region Описание-->
         <Grid Grid.Row="2" Margin="0,5,0,0">
-            <Label Content="Наведите мышь на любую функциию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="410" Height="28"/>
+            <Label Content="Наведите мышь на любую функцию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="410" Height="28"/>
 
             <Label Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="700" Height="63">
                 <Label.Content>
