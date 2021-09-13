@@ -104,7 +104,7 @@
 
 
         <Style TargetType="{x:Type Label}" x:Key="Tweaks_ON">
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#CC0605"/>
             <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="11.5px"/>
@@ -113,7 +113,7 @@
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#CC0605"/>
+                    <Setter Property="Foreground" Value="White"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

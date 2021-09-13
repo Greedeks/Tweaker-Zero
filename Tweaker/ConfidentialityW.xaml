@@ -60,7 +60,7 @@
             <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,215,591,143"/>
             <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,261,591,100"/>
 
-            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,31,130,330"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="596,31,130,330"/>
             <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,77,130,279"/>
             <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,123,130,236"/>
             <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,169,130,184"/>
