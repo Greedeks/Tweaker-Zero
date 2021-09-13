@@ -6,25 +6,88 @@
              xmlns:local="clr-namespace:Tweaker"
              mc:Ignorable="d" 
              d:DesignHeight="509" d:DesignWidth="1044">
+
+    <UserControl.Style>
+        <Style>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="0:0:0.1" From="0.5" To="1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <Trigger Property="FrameworkElement.Visibility" Value="Visible">
+                    <Setter Property="FrameworkElement.Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="400*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="386*"/>
             <RowDefinition Height="74*"/>
         </Grid.RowDefinitions>
 
+        <!--#region Цвета знач-->
+        <Grid Grid.Row="0">
+            <Label Content="Красный цвет - означает, что функция включена" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" Margin="223,6,527,17">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.7" Color="red" />
+                </Label.Effect>
+            </Label>
+            <Label Content="Серий цвет - означает, что функция выключена" Foreground="#A5A5A5" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" HorizontalAlignment="Left" Width="278" Margin="522,6,0,17">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="3" ShadowDepth="0" Opacity="0.7" Color="LightGray" />
+                </Label.Effect>
+            </Label>
+
+            <Border Background="red" Height="1"  Width="700" VerticalAlignment="Top" Grid.Column="0" CornerRadius="50" Margin="172,35,172,0"/>
+        </Grid>
+        <!--#endregion-->
+
         <!--#region Твики-->
         <Grid Grid.Row="1">
-            <Label Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="10,10,788,354">
-                <Label.Content>
-                    <TextBlock TextWrapping="Wrap">Отключение рекламного идентификатора и рекламы</TextBlock>
-                </Label.Content>
-            </Label>
+
+
+
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,31,591,330"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,77,591,279"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,123,591,236"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,169,591,181"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,215,591,143"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,261,591,100"/>
+
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,31,130,330"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,77,130,279"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,123,130,236"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,169,130,184"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,215,130,143"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,261,130,100"/>
+
+            <Button HorizontalAlignment="Center" Style="{StaticResource ButtonsTW}" Content="Применить" Margin="0,346,0,10" Width="156" Height="30" Cursor="Hand">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15,15,15,15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
         <!--#endregion-->
 
         <!--#region Описание-->
-        <Grid Grid.Row="2" Margin="0,22,0,0">
+        <Grid Grid.Row="2" Margin="0,5,0,0">
+            <Label Content="Наведите мышь на любую функциию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="410" Height="28"/>
+
+            <Label Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="700" Height="63">
+                <Label.Content>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Width="690" Height="63"></TextBlock>
+                </Label.Content>
+            </Label>
+
+            <Border Background="red" Height="1"  Width="700" VerticalAlignment="Top" Grid.Column="0" CornerRadius="50" Margin="172,0,172,0"/>
         </Grid>
         <!--#endregion-->
     </Grid>
