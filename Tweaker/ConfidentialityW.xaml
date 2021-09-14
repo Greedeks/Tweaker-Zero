@@ -33,14 +33,14 @@
 
         <!--#region Цвета знач-->
         <Grid Grid.Row="0">
-            <Label Content="Красный цвет - означает, что функция включена" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" Margin="223,6,527,17">
+            <Label Content="Красный цвет - означает, что функция включена" Foreground="red" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" Margin="223,6,527,17">
                 <Label.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.7" Color="red" />
+                    <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.7" Color="red" />
                 </Label.Effect>
             </Label>
             <Label Content="Серий цвет - означает, что функция выключена" Foreground="#A5A5A5" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" HorizontalAlignment="Left" Width="278" Margin="522,6,0,17">
                 <Label.Effect>
-                    <DropShadowEffect BlurRadius="3" ShadowDepth="0" Opacity="0.7" Color="LightGray" />
+                    <DropShadowEffect BlurRadius="3" ShadowDepth="2" Opacity="0.7" Color="#B1A9A9" />
                 </Label.Effect>
             </Label>
 
