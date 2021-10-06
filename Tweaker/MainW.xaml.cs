@@ -228,8 +228,7 @@ namespace Tweaker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             #region Анимация загрузки
-            double _leftInit = Canvas.GetLeft(TweakerWPF);
-            double _topInit = Canvas.GetTop(TweakerWPF);
+            double _topInit = Canvas.GetTop(TweakerWPF), _leftInit = Canvas.GetLeft(TweakerWPF);
 
             var _animationLeft = new DoubleAnimation();
             _animationLeft.From = -1000;
