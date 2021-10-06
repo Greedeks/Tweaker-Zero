@@ -10,7 +10,11 @@
         <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" 
                 Color="red" />
     </Window.Effect>
-    <Border CornerRadius="15" Background="#141416" Margin="20">
+    <Border Background="#141416" Margin="20">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,310,160" />
+        </Border.Clip>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35*"/>
@@ -41,9 +45,9 @@
             </Label>
 
 
-            <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212" Margin="0,0,0,10"/>
+            <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212" Margin="0,0,0,10" MouseDown="Header_MouseDown"/>
 
-            <Label Content="Tweaker" Grid.Row="0" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.3" FontWeight="Medium" Margin="118,0,118,0">
+            <Label Content="Tweaker" Grid.Row="0" Foreground="#CC0605" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.3" FontWeight="Medium" Margin="118,0,118,0" MouseDown="Header_MouseDown">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="red" />
                 </Label.Effect>
