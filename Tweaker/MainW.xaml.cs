@@ -234,12 +234,12 @@ namespace Tweaker
             var _animationLeft = new DoubleAnimation();
             _animationLeft.From = -1000;
             _animationLeft.To = _leftInit;
-            _animationLeft.Duration = TimeSpan.FromSeconds(0.25);
+            _animationLeft.Duration = TimeSpan.FromSeconds(0.20);
 
             var _animationTop = new DoubleAnimation();
             _animationTop.From = 1000;
             _animationTop.To = _topInit;
-            _animationTop.Duration = TimeSpan.FromSeconds(0.25);
+            _animationTop.Duration = TimeSpan.FromSeconds(0.20);
 
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
