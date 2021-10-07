@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Warning" Height="200" Width="350" MinHeight="200" MinWidth="350" MaxHeight="200" MaxWidth="350" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" Opacity="0.97">
+        Title="Warning" Height="200" Width="350" MinHeight="200" MinWidth="350" MaxHeight="200" MaxWidth="350" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" Opacity="1">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="red" />
+    </Window.Effect>
     <Border Background="#141416" Margin="20">
         <Border.Clip>
             <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,310,160" />
