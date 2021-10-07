@@ -13,7 +13,7 @@ namespace Tweaker
         [DllImport("user32.dll")]
         private static extern int _SetForegroundWindow(IntPtr handle);
 
-        private static Mutex mutex = new Mutex(false, "Tweaker");
+        private readonly static Mutex mutex = new Mutex(false, "Tweaker");
 
         internal void CheakAC()
         {

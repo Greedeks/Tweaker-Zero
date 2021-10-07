@@ -7,8 +7,8 @@ namespace Tweaker
 {
     public partial class MessageForUser : Window
     {
-        DispatcherTimer _timer;
-        TimeSpan _time; 
+        private readonly DispatcherTimer _timer;
+        private TimeSpan _time; 
 
         public MessageForUser()
         {
