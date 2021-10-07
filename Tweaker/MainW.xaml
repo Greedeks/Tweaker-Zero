@@ -5,11 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
-    <Window.Effect>
-        <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" 
-                Color="red" />
-    </Window.Effect>
+        Title="Tweaker" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="0.97">
+
     <Border Background="#141416" Margin="20">
         <Border.Clip>
             <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,1044,580" />
