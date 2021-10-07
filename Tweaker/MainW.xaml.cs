@@ -42,29 +42,18 @@ namespace Tweaker
         }
         #endregion
 
-        #region Анимация Слайдера
-        private void SliderOFF()
+        private void SliderAnim(bool _stateAnimSlider)
         {
-            var _animation = new DoubleAnimation();
-            _animation.From = Slider.Opacity;
-            _animation.To = 0;
-            _animation.Duration = TimeSpan.FromSeconds(0.15);
+            var _animation = new DoubleAnimation
+            {
+                From = !_stateAnimSlider ? Slider.Opacity : 0,
+                To = !_stateAnimSlider ? 0 : 1,
+                Duration = TimeSpan.FromSeconds(0.15)
+            };
 
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
-            Slider.Opacity = 0;
+            Slider.Opacity = !_stateAnimSlider ? 0 : 1;
         }
-
-        private void SliderON()
-        {
-            var _animation = new DoubleAnimation();
-            _animation.From = 0;
-            _animation.To = 1;
-            _animation.Duration = TimeSpan.FromSeconds(0.15);
-
-            Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
-            Slider.Opacity = 1;
-        }
-        #endregion
 
         private void ResetButtonsNav()=> _confidentialityB = _interfaceB = _applicationB 
             = _servicesB = _systemB = _systeminfoB = _moreB = false;
@@ -79,13 +68,13 @@ namespace Tweaker
         #region Кнопки Навигации
         private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_confidentialityB)
             {
                 Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 0);
-                SliderON();
+                SliderAnim(true);
                 MainContainer.Children.Add(new ConfidentialityW());
                 ResetButtonsNav();
                 _confidentialityB = true;
@@ -93,20 +82,20 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
 
         private void Button_Interface_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_interfaceB)
             {
                 Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 1);
-                SliderON();
+                SliderAnim(true);
 
                 ResetButtonsNav();
                 _interfaceB = true;
@@ -114,20 +103,20 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
 
         private void Button_Application_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_applicationB)
             {
                 Button_Application.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 2);
-                SliderON();
+                SliderAnim(true);
 
                 ResetButtonsNav();
                 _applicationB = true;
@@ -135,20 +124,20 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
 
         private void Button_Services_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_servicesB)
             {
                 Button_Services.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 3);
-                SliderON();
+                SliderAnim(true);
 
                 ResetButtonsNav();
                 _servicesB = true;
@@ -156,20 +145,20 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
 
         private void Button_System_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_systemB)
             {
                 Button_System.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 4);
-                SliderON();
+                SliderAnim(true);
 
                 ResetButtonsNav();
                 _systemB = true;
@@ -177,20 +166,20 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
 
         private void Button_SystemInfo_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_systeminfoB)
             {
                 Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 5);
-                SliderON();
+                SliderAnim(true);
 
                 ResetButtonsNav();
                 _systeminfoB = true;
@@ -198,20 +187,20 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
 
         private void Button_More_Click(object sender, RoutedEventArgs e)
         {
-            SliderOFF();
+            SliderAnim(false);
             DeffStyleButtons();
             if (!_moreB)
             {
                 Button_More.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 6);
-                SliderON();
+                SliderAnim(true);
 
                 ResetButtonsNav();
                 _moreB = true;
@@ -219,7 +208,7 @@ namespace Tweaker
             else
             {
                 ResetButtonsNav();
-                SliderOFF();
+                SliderAnim(false);
                 DeffStyleButtons();
             }
         }
@@ -230,15 +219,19 @@ namespace Tweaker
             #region Анимация загрузки
             double _topInit = Canvas.GetTop(TweakerWPF), _leftInit = Canvas.GetLeft(TweakerWPF);
 
-            var _animationLeft = new DoubleAnimation();
-            _animationLeft.From = -1000;
-            _animationLeft.To = _leftInit;
-            _animationLeft.Duration = TimeSpan.FromSeconds(0.20);
+            var _animationLeft = new DoubleAnimation
+            {
+                From = -1000,
+                To = _leftInit,
+                Duration = TimeSpan.FromSeconds(0.20)
+            };
 
-            var _animationTop = new DoubleAnimation();
-            _animationTop.From = 1000;
-            _animationTop.To = _topInit;
-            _animationTop.Duration = TimeSpan.FromSeconds(0.20);
+            var _animationTop = new DoubleAnimation
+            {
+                From = 1000,
+                To = _topInit,
+                Duration = TimeSpan.FromSeconds(0.20)
+            };
 
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
