@@ -5,6 +5,7 @@
              StartupUri="MainW.xaml">
     <Application.Resources>
 
+        <!--#region Кнопки -->
         <Style TargetType="{x:Type Button}" x:Key="ButtonNav">
             <Setter Property="Foreground" Value="#A5A5A5"/>
             <Setter Property="Background" Value="#121212"/>
@@ -79,11 +80,13 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#151517"/>
                     <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="red"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-
+        <!--#endregion-->
+        
+        <!--#region  Твики-->
         <Style TargetType="{x:Type Label}" x:Key="Tweaks_OFF">
             <Setter Property="Foreground" Value="#A5A5A5"/>
             <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>
@@ -99,7 +102,6 @@
             </Style.Triggers>
         </Style>
 
-
         <Style TargetType="{x:Type Label}" x:Key="Tweaks_ON">
             <Setter Property="Foreground" Value="#CC0605"/>
             <Setter Property="FontFamily" Value="/Fonts/#Raleway"/>
@@ -114,6 +116,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
+        <!--#endregion-->
+        
     </Application.Resources>
 </Application>
