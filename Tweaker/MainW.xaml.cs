@@ -44,7 +44,7 @@ namespace Tweaker
 
         private void SliderAnim(bool _stateAnimSlider)
         {
-            var _animation = new DoubleAnimation
+            DoubleAnimation _animation = new DoubleAnimation
             {
                 From = !_stateAnimSlider ? Slider.Opacity : 0,
                 To = !_stateAnimSlider ? 0 : 1,
@@ -219,14 +219,14 @@ namespace Tweaker
             #region Анимация загрузки
             double _topInit = Canvas.GetTop(TweakerWPF), _leftInit = Canvas.GetLeft(TweakerWPF);
 
-            var _animationLeft = new DoubleAnimation
+            DoubleAnimation _animationLeft = new DoubleAnimation
             {
                 From = -1000,
                 To = _leftInit,
                 Duration = TimeSpan.FromSeconds(0.20)
             };
 
-            var _animationTop = new DoubleAnimation
+            DoubleAnimation _animationTop = new DoubleAnimation
             {
                 From = 1000,
                 To = _topInit,
