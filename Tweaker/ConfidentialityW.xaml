@@ -53,21 +53,21 @@
 
 
 
-            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,10,591,350"/>
-            <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,54,591,308"/>
-            <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,98,591,263"/>
-            <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,142,591,220"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,10,600,350"/>
+            <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,54,623,308"/>
+            <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,98,640,263"/>
+            <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,142,580,220"/>
             <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,186,563,173"/>
             <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,230,563,130"/>
-            <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,274,563,85"/>
+            <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,274,574,85"/>
 
-            <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,10,112,350"/>
+            <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,10,138,350"/>
             <Label Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,54,112,308"/>
             <Label Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,98,112,263"/>
-            <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,142,100,220"/>
-            <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,186,100,173"/>
-            <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,230,130,130"/>
-            <Label Content="Отключение шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,274,130,85"/>
+            <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,142,112,220"/>
+            <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,186,184,173"/>
+            <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,230,173,130"/>
+            <Label Content="Отключение шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,274,196,85"/>
             
             <Button HorizontalAlignment="Center" Style="{StaticResource ButtonsTW}" Content="Применить" Margin="0,346,0,10" Width="156" Height="30" Cursor="Hand">
                 <Button.Resources>
