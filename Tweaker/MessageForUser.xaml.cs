@@ -28,9 +28,10 @@ namespace Tweaker
             #endregion
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.Close();
         }
 
         private void Header_MouseDown(object sender, MouseButtonEventArgs e)
