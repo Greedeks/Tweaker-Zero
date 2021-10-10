@@ -64,7 +64,7 @@
                         </Image.Style>
                     </Image>
 
-                    <Image x:Name="Button_Settings" Height="18" Width="18" Stretch="Fill"  Cursor="Hand" Grid.Column="3" Margin="163,0,70,0" RenderTransformOrigin="1.833,0.366">
+                    <Image x:Name="Button_Settings" Height="18" Width="18" Stretch="Fill"  Cursor="Hand" Grid.Column="3" Margin="163,0,70,0" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Settings_MouseDown">
                         <Image.Effect>
                             <DropShadowEffect BlurRadius="4" ShadowDepth="0" Opacity="0.7" Color="red" />
                         </Image.Effect>
@@ -109,19 +109,19 @@
                     <ColumnDefinition Width="119*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource ButtonNav}" Click="Button_Confidentiality_Click" Content=" Конфиденциальность"/>
+                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Confidentiality_PreviewMouseDown" Content=" Конфиденциальность"/>
 
-                <Button x:Name="Button_Interface" Style="{StaticResource ButtonNav}" Margin="155,0,0,0" Click="Button_Interface_Click" Content="Интерфейс" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_Interface" Style="{StaticResource ButtonNav}" Margin="155,0,0,0" PreviewMouseDown="Button_Interface_PreviewMouseDown" Content="Интерфейс" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="1,0,0,0" Click="Button_Application_Click" Content="Приложение"/>
+                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="1,0,0,0" PreviewMouseDown="Button_Application_PreviewMouseDown" Content="Приложение"/>
 
-                <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="149,0,149,0" Click="Button_Services_Click" Content="Службы" Grid.ColumnSpan="3"/>
+                <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="149,0,149,0" PreviewMouseDown="Button_Services_PreviewMouseDown" Content="Службы" Grid.ColumnSpan="3"/>
 
-                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" Margin="0,0,179,0" Click="Button_System_Click" Content="Система" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" Margin="0,0,179,0" PreviewMouseDown="Button_System_PreviewMouseDown" Content="Система" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" Click="Button_SystemInfo_Click" Content="Системная информация" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" PreviewMouseDown="Button_SystemInfo_PreviewMouseDown" Content="Системная информация" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" Click="Button_More_Click" Content="Прочее"/>
+                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_More_PreviewMouseDown" Content="Прочее" Cursor="Hand"/>
 
 
                 <Border x:Name="Slider" Background="red" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>

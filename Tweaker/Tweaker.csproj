@@ -138,8 +138,5 @@
   <ItemGroup>
     <Resource Include="TweakerIcon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\BSettings_Open.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

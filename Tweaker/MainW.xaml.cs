@@ -11,7 +11,7 @@ namespace Tweaker
     {
         #region Переменные
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false, 
-            _systemB = false, _systeminfoB = false, _moreB = false;
+            _systemB = false, _systeminfoB = false, _moreB = false, _settings=false;
         #endregion
 
         public MainWindow()
@@ -56,7 +56,7 @@ namespace Tweaker
         }
 
         private void ResetButtonsNav()=> _confidentialityB = _interfaceB = _applicationB 
-            = _servicesB = _systemB = _systeminfoB = _moreB = false;
+            = _servicesB = _systemB = _systeminfoB = _moreB = _settings = false;
 
         private void DeffStyleButtons()
         {
@@ -66,11 +66,11 @@ namespace Tweaker
         }
 
         #region Кнопки Навигации
-        private void Button_Confidentiality_Click(object sender, RoutedEventArgs e)
+        private void Button_Confidentiality_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (!_confidentialityB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_confidentialityB)
             {
                 Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 0);
@@ -87,11 +87,11 @@ namespace Tweaker
             }
         }
 
-        private void Button_Interface_Click(object sender, RoutedEventArgs e)
+        private void Button_Interface_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (!_interfaceB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_interfaceB)
             {
                 Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 1);
@@ -108,11 +108,11 @@ namespace Tweaker
             }
         }
 
-        private void Button_Application_Click(object sender, RoutedEventArgs e)
+        private void Button_Application_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (!_applicationB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_applicationB)
             {
                 Button_Application.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 2);
@@ -129,11 +129,11 @@ namespace Tweaker
             }
         }
 
-        private void Button_Services_Click(object sender, RoutedEventArgs e)
+        private void Button_Services_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (!_servicesB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_servicesB)
             {
                 Button_Services.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 3);
@@ -150,11 +150,11 @@ namespace Tweaker
             }
         }
 
-        private void Button_System_Click(object sender, RoutedEventArgs e)
+        private void Button_System_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (!_systemB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_systemB)
             {
                 Button_System.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 4);
@@ -171,11 +171,11 @@ namespace Tweaker
             }
         }
 
-        private void Button_SystemInfo_Click(object sender, RoutedEventArgs e)
+        private void Button_SystemInfo_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (!_systeminfoB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_systeminfoB)
             {
                 Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 5);
@@ -192,12 +192,13 @@ namespace Tweaker
             }
         }
 
-        private void Button_More_Click(object sender, RoutedEventArgs e)
+        private void Button_More_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            SliderAnim(false);
-            DeffStyleButtons();
-            if (!_moreB)
+            if (e.LeftButton == MouseButtonState.Pressed && !_moreB)
             {
+                SliderAnim(false);
+                DeffStyleButtons();
+
                 Button_More.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                 Grid.SetColumn(Slider, 6);
                 SliderAnim(true);
@@ -209,6 +210,22 @@ namespace Tweaker
             {
                 ResetButtonsNav();
                 SliderAnim(false);
+                DeffStyleButtons();
+            }
+        }
+
+        private void Button_Settings_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && !_settings)
+            {
+                SliderAnim(false);
+                DeffStyleButtons();
+
+                ResetButtonsNav();
+            }
+            else
+            {
+                ResetButtonsNav();
                 DeffStyleButtons();
             }
         }
