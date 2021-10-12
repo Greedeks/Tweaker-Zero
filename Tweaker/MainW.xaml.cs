@@ -240,14 +240,14 @@ namespace Tweaker
             {
                 From = -1000,
                 To = _leftInit,
-                Duration = TimeSpan.FromSeconds(0.20)
+                Duration = TimeSpan.FromSeconds(0.25)
             };
 
             DoubleAnimation _animationTop = new DoubleAnimation
             {
                 From = 1000,
                 To = _topInit,
-                Duration = TimeSpan.FromSeconds(0.20)
+                Duration = TimeSpan.FromSeconds(0.25)
             };
 
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
