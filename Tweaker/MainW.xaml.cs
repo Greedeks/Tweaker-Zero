@@ -65,152 +65,142 @@ namespace Tweaker
             MainContainer.Children.Clear();
         }
 
-        #region Кнопки Навигации
-        private void Button_Confidentiality_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        #region Кнопки Навигации + Настройка
+        private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
             DeffStyleButtons();
-            if (e.LeftButton == MouseButtonState.Pressed && !_confidentialityB)
-            {
-                Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 0);
-                SliderAnim(true);
-                MainContainer.Children.Add(new ConfidentialityW());
-                ResetButtonsNav();
-                _confidentialityB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
-            }
-        }
 
-        private void Button_Interface_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SliderAnim(false);
-            DeffStyleButtons();
-            if (e.LeftButton == MouseButtonState.Pressed && !_interfaceB)
+            Button btn = (Button)sender;
+            switch (btn.Name)
             {
-                Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 1);
-                SliderAnim(true);
+                case "Button_Confidentiality":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_confidentialityB)
+                    {
+                        Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 0);
+                        SliderAnim(true);
+                        MainContainer.Children.Add(new ConfidentialityW());
+                        ResetButtonsNav();
+                        _confidentialityB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                case "Button_Interface":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_interfaceB)
+                    {
+                        Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 1);
+                        SliderAnim(true);
 
-                ResetButtonsNav();
-                _interfaceB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
-            }
-        }
+                        ResetButtonsNav();
+                        _interfaceB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                case "Button_Application":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_applicationB)
+                    {
+                        Button_Application.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 2);
+                        SliderAnim(true);
 
-        private void Button_Application_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SliderAnim(false);
-            DeffStyleButtons();
-            if (e.LeftButton == MouseButtonState.Pressed && !_applicationB)
-            {
-                Button_Application.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 2);
-                SliderAnim(true);
+                        ResetButtonsNav();
+                        _applicationB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                case "Button_Services":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_servicesB)
+                    {
+                        Button_Services.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 3);
+                        SliderAnim(true);
 
-                ResetButtonsNav();
-                _applicationB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
-            }
-        }
+                        ResetButtonsNav();
+                        _servicesB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                case "Button_System":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_systemB)
+                    {
+                        Button_System.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 4);
+                        SliderAnim(true);
 
-        private void Button_Services_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SliderAnim(false);
-            DeffStyleButtons();
-            if (e.LeftButton == MouseButtonState.Pressed && !_servicesB)
-            {
-                Button_Services.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 3);
-                SliderAnim(true);
+                        ResetButtonsNav();
+                        _systemB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                case "Button_SystemInfo":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_systeminfoB)
+                    {
+                        Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 5);
+                        SliderAnim(true);
 
-                ResetButtonsNav();
-                _servicesB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
-            }
-        }
+                        ResetButtonsNav();
+                        _systeminfoB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                case "Button_More":
+                    if (e.LeftButton == MouseButtonState.Pressed && !_moreB)
+                    {
+                        SliderAnim(false);
+                        DeffStyleButtons();
 
-        private void Button_System_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SliderAnim(false);
-            DeffStyleButtons();
-            if (e.LeftButton == MouseButtonState.Pressed && !_systemB)
-            {
-                Button_System.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 4);
-                SliderAnim(true);
+                        Button_More.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        Grid.SetColumn(Slider, 6);
+                        SliderAnim(true);
 
-                ResetButtonsNav();
-                _systemB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
-            }
-        }
-
-        private void Button_SystemInfo_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SliderAnim(false);
-            DeffStyleButtons();
-            if (e.LeftButton == MouseButtonState.Pressed && !_systeminfoB)
-            {
-                Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 5);
-                SliderAnim(true);
-
-                ResetButtonsNav();
-                _systeminfoB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
-            }
-        }
-
-        private void Button_More_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && !_moreB)
-            {
-                SliderAnim(false);
-                DeffStyleButtons();
-
-                Button_More.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                Grid.SetColumn(Slider, 6);
-                SliderAnim(true);
-
-                ResetButtonsNav();
-                _moreB = true;
-            }
-            else
-            {
-                ResetButtonsNav();
-                SliderAnim(false);
-                DeffStyleButtons();
+                        ResetButtonsNav();
+                        _moreB = true;
+                    }
+                    else
+                    {
+                        ResetButtonsNav();
+                        SliderAnim(false);
+                        DeffStyleButtons();
+                    }
+                    break;
+                default:
+                    ResetButtonsNav();
+                    SliderAnim(false);
+                    DeffStyleButtons();
+                    break;
             }
         }
 

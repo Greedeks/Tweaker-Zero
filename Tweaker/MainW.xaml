@@ -100,19 +100,19 @@
                     <ColumnDefinition Width="119*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Confidentiality_PreviewMouseDown" Content=" Конфиденциальность"/>
+                <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content=" Конфиденциальность"/>
 
-                <Button x:Name="Button_Interface" Style="{StaticResource ButtonNav}" Margin="155,0,0,0" PreviewMouseDown="Button_Interface_PreviewMouseDown" Content="Интерфейс" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_Interface" Style="{StaticResource ButtonNav}" Margin="155,0,0,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Интерфейс" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="1,0,0,0" PreviewMouseDown="Button_Application_PreviewMouseDown" Content="Приложение"/>
+                <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="1,0,0,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Приложение"/>
 
-                <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="149,0,149,0" PreviewMouseDown="Button_Services_PreviewMouseDown" Content="Службы" Grid.ColumnSpan="3"/>
+                <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="149,0,149,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Службы" Grid.ColumnSpan="3"/>
 
-                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" Margin="0,0,179,0" PreviewMouseDown="Button_System_PreviewMouseDown" Content="Система" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" Margin="0,0,179,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Система" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" PreviewMouseDown="Button_SystemInfo_PreviewMouseDown" Content="Системная информация" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Системная информация" Grid.ColumnSpan="2"/>
 
-                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_More_PreviewMouseDown" Content="Прочее" Cursor="Hand"/>
+                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Прочее" Cursor="Hand"/>
 
 
                 <Border x:Name="Slider" Background="red" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
