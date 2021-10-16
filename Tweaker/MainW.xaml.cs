@@ -65,7 +65,7 @@ namespace Tweaker
             MainContainer.Children.Clear();
         }
 
-        #region Кнопки Навигации + Настройка
+        #region Кнопки
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
