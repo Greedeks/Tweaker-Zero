@@ -18,7 +18,6 @@ namespace Tweaker
         {
             CheakApplicationCopy cheakApplicationCopy= new CheakApplicationCopy();
             cheakApplicationCopy.CheakAC();
-
             InitializeComponent();
         }
 
@@ -219,25 +218,31 @@ namespace Tweaker
                 DeffStyleButtons();
             }
         }
+
+        private void Button_TextHeader_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
+                TextHeader.Content = "Tweaker Zero";
+        }
         #endregion
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             #region Анимация загрузки
-            double _topInit = Canvas.GetTop(TweakerWPF), _leftInit = Canvas.GetLeft(TweakerWPF);
+            double _topInit = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2), _leftInit = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2);
 
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
                 From = -1000,
                 To = _leftInit,
-                Duration = TimeSpan.FromSeconds(0.25)
+                Duration = TimeSpan.FromSeconds(0.2)
             };
 
             DoubleAnimation _animationTop = new DoubleAnimation
             {
                 From = 1000,
                 To = _topInit,
-                Duration = TimeSpan.FromSeconds(0.25)
+                Duration = TimeSpan.FromSeconds(0.2)
             };
 
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);

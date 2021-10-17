@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1">
+        Title="Tweaker Z" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1">
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
     </Window.Effect>
@@ -71,7 +71,7 @@
                         </Image.Style>
                     </Image>
 
-                    <Label Content="Tweaker" Grid.Column="0" Foreground="red" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.3" FontWeight="Medium" Margin="12,0,178,0" MouseDown="Header_MouseDown">
+                    <Label x:Name="TextHeader" Content="Tweaker Z" Grid.Column="0" Foreground="red" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.3" FontWeight="Medium" Margin="12,0,131,0" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown">
                         <Label.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF0000" />
                         </Label.Effect>
