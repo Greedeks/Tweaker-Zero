@@ -222,7 +222,7 @@ namespace Tweaker
         private void Button_TextHeader_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
-                TextHeader.Content = "Tweaker Zero";
+                TextHeader.Content += "ero";
         }
         #endregion
 
