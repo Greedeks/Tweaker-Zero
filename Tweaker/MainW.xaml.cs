@@ -227,7 +227,7 @@ namespace Tweaker
         private void Button_TextHeader_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
-                TextHeader.Content += "ero";
+                TextHeader.Content = "Tweaker Zero";
             else if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3) 
                 TextHeader.Content = "Tweaker Z";
         }
