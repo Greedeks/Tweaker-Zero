@@ -228,7 +228,7 @@ namespace Tweaker
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
                 TextHeader.Content = "Tweaker Zero";
-            else if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3) 
+            if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3) 
                 TextHeader.Content = "Tweaker Z";
         }
         #endregion
