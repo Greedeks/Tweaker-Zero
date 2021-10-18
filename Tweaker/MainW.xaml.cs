@@ -61,7 +61,12 @@ namespace Tweaker
         {
             Button_Confidentiality.Style = Button_Interface.Style = Button_Application.Style = Button_Services.Style = Button_System.Style
             = Button_SystemInfo.Style = Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
+
             MainContainer.Children.Clear();
+            if(MainContainer.Children.Count!=0) 
+                MainContainer.Children.RemoveAt(MainContainer.Children.Count);
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         #region Кнопки
@@ -76,7 +81,7 @@ namespace Tweaker
                 case "Button_Confidentiality":
                     if (e.LeftButton == MouseButtonState.Pressed && !_confidentialityB)
                     {
-                        Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 0);
                         SliderAnim(true);
                         MainContainer.Children.Add(new ConfidentialityW());
@@ -93,7 +98,7 @@ namespace Tweaker
                 case "Button_Interface":
                     if (e.LeftButton == MouseButtonState.Pressed && !_interfaceB)
                     {
-                        Button_Interface.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 1);
                         SliderAnim(true);
 
@@ -110,7 +115,7 @@ namespace Tweaker
                 case "Button_Application":
                     if (e.LeftButton == MouseButtonState.Pressed && !_applicationB)
                     {
-                        Button_Application.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 2);
                         SliderAnim(true);
 
@@ -127,7 +132,7 @@ namespace Tweaker
                 case "Button_Services":
                     if (e.LeftButton == MouseButtonState.Pressed && !_servicesB)
                     {
-                        Button_Services.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 3);
                         SliderAnim(true);
 
@@ -144,7 +149,7 @@ namespace Tweaker
                 case "Button_System":
                     if (e.LeftButton == MouseButtonState.Pressed && !_systemB)
                     {
-                        Button_System.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 4);
                         SliderAnim(true);
 
@@ -161,7 +166,7 @@ namespace Tweaker
                 case "Button_SystemInfo":
                     if (e.LeftButton == MouseButtonState.Pressed && !_systeminfoB)
                     {
-                        Button_SystemInfo.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 5);
                         SliderAnim(true);
 
@@ -181,7 +186,7 @@ namespace Tweaker
                         SliderAnim(false);
                         DeffStyleButtons();
 
-                        Button_More.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 6);
                         SliderAnim(true);
 
