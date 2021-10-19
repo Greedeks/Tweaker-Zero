@@ -6,11 +6,11 @@ using System.Windows;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набор атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Tweaker")]
+[assembly: AssemblyTitle("Tweaker Z")]
 [assembly: AssemblyDescription("Utility")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Tweaker")]
+[assembly: AssemblyProduct("Tweaker Z")]
 [assembly: AssemblyCopyright("Copyright © Greedeks")]
 [assembly: AssemblyTrademark("Greedeks")]
 [assembly: AssemblyCulture("")]
