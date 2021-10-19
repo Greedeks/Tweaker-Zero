@@ -63,11 +63,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ConfidentialityW.xaml">
+    <Page Include="Windows\ConfidentialityW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainW.xaml">
+    <Page Include="Windows\MainW.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -75,21 +75,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CheakApplicationCopy.cs" />
-    <Compile Include="ConfidentialityW.xaml.cs">
+    <Compile Include="Сlasses\CheakApplicationCopy.cs" />
+    <Compile Include="Windows\ConfidentialityW.xaml.cs">
       <DependentUpon>ConfidentialityW.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainW.xaml.cs">
+    <Compile Include="Windows\MainW.xaml.cs">
       <DependentUpon>MainW.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MessageForUser.xaml">
+    <Page Include="Windows\MessageForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageForUser.xaml.cs">
+    <Compile Include="Windows\MessageForUser.xaml.cs">
       <DependentUpon>MessageForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -138,5 +138,6 @@
   <ItemGroup>
     <Resource Include="TweakerIcon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
