@@ -54,14 +54,17 @@ namespace Tweaker
             Slider.Opacity = !_stateAnimSlider ? 0 : 1;
         }
 
-        private void ResetButtonsNav()=> _confidentialityB = _interfaceB = _applicationB 
+        private void StandStateBtnN()
+        {
+            _confidentialityB = _interfaceB = _applicationB
             = _servicesB = _systemB = _systeminfoB = _moreB = _settings = false;
 
-        private void DeffStyleButtons()
-        {
             Button_Confidentiality.Style = Button_Interface.Style = Button_Application.Style = Button_Services.Style = Button_System.Style
             = Button_SystemInfo.Style = Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
+        }
 
+        private void CleaningWindows()
+        {
             MainContainer.Children.Clear();
             if(MainContainer.Children.Count!=0) 
                 MainContainer.Children.RemoveAt(MainContainer.Children.Count);
@@ -73,7 +76,7 @@ namespace Tweaker
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
-            DeffStyleButtons();
+            CleaningWindows();
 
             Button btn = (Button)sender;
             switch (btn.Name)
@@ -81,129 +84,127 @@ namespace Tweaker
                 case "Button_Confidentiality":
                     if (e.LeftButton == MouseButtonState.Pressed && !_confidentialityB)
                     {
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 0);
+
                         SliderAnim(true);
                         MainContainer.Children.Add(new ConfidentialityW());
-                        ResetButtonsNav();
                         _confidentialityB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 case "Button_Interface":
                     if (e.LeftButton == MouseButtonState.Pressed && !_interfaceB)
                     {
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 1);
-                        SliderAnim(true);
 
-                        ResetButtonsNav();
+                        SliderAnim(true);
                         _interfaceB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 case "Button_Application":
                     if (e.LeftButton == MouseButtonState.Pressed && !_applicationB)
                     {
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 2);
-                        SliderAnim(true);
 
-                        ResetButtonsNav();
+                        SliderAnim(true);
                         _applicationB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 case "Button_Services":
                     if (e.LeftButton == MouseButtonState.Pressed && !_servicesB)
                     {
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 3);
-                        SliderAnim(true);
 
-                        ResetButtonsNav();
+                        SliderAnim(true);
                         _servicesB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 case "Button_System":
                     if (e.LeftButton == MouseButtonState.Pressed && !_systemB)
                     {
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 4);
-                        SliderAnim(true);
 
-                        ResetButtonsNav();
+                        SliderAnim(true);
                         _systemB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 case "Button_SystemInfo":
                     if (e.LeftButton == MouseButtonState.Pressed && !_systeminfoB)
                     {
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 5);
-                        SliderAnim(true);
 
-                        ResetButtonsNav();
+                        SliderAnim(true);
                         _systeminfoB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 case "Button_More":
                     if (e.LeftButton == MouseButtonState.Pressed && !_moreB)
                     {
-                        SliderAnim(false);
-                        DeffStyleButtons();
-
+                        StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                         Grid.SetColumn(Slider, 6);
-                        SliderAnim(true);
 
-                        ResetButtonsNav();
+                        SliderAnim(true);
                         _moreB = true;
                     }
                     else
                     {
-                        ResetButtonsNav();
+                        StandStateBtnN();
                         SliderAnim(false);
-                        DeffStyleButtons();
+                        CleaningWindows();
                     }
                     break;
                 default:
-                    ResetButtonsNav();
+                    StandStateBtnN();
                     SliderAnim(false);
-                    DeffStyleButtons();
+                    CleaningWindows();
                     break;
             }
         }
@@ -212,15 +213,15 @@ namespace Tweaker
         {
             if (e.LeftButton == MouseButtonState.Pressed && !_settings)
             {
+                StandStateBtnN();
                 SliderAnim(false);
-                DeffStyleButtons();
+                CleaningWindows();
 
-                ResetButtonsNav();
             }
             else
             {
-                ResetButtonsNav();
-                DeffStyleButtons();
+                StandStateBtnN();
+                CleaningWindows();
             }
         }
 
