@@ -65,9 +65,9 @@ namespace Tweaker
 
         private void CleaningWindows()
         {
+            MainContainer.Children.Clear();
             if (MainContainer.Children.Count != 0)
                 MainContainer.Children.RemoveAt(MainContainer.Children.Count);
-            MainContainer.Children.Clear();
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
