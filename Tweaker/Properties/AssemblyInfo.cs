@@ -50,7 +50,7 @@ using System.Windows;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1")]
-[assembly: AssemblyInformationalVersion("2.1")]
-[assembly: AssemblyFileVersion("2.1.9.0")]
-[assembly: NeutralResourcesLanguage("en-US")]
+[assembly: AssemblyVersion("2.2")]
+[assembly: AssemblyInformationalVersion("2.2")]
+[assembly: AssemblyFileVersion("2.2.0.0")]
+[assembly: NeutralResourcesLanguage("en")]
