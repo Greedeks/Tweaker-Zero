@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Windows;
 
 namespace Tweaker
 {
@@ -20,7 +19,7 @@ namespace Tweaker
         {
             if (!mutex.WaitOne(150, false))
             {
-                using (Mutex mutex = new Mutex(false, @"Global\" + "Warning"))
+                using (Mutex mutex = new Mutex(false, @"Global\" + "Tweaker"))
                 {
                     if (mutex.WaitOne(0, false))
                     {
