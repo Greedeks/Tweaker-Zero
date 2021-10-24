@@ -66,8 +66,6 @@ namespace Tweaker
         private void CleaningWindows()
         {
             MainContainer.Children.Clear();
-            if (MainContainer.Children.Count != 0)
-                MainContainer.Children.RemoveAt(MainContainer.Children.Count);
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -237,13 +235,6 @@ namespace Tweaker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             #region Анимация загрузки
-            DoubleAnimation _animationLeft = new DoubleAnimation
-            {
-                From = -SystemParameters.PrimaryScreenWidth,
-                To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
-                Duration = TimeSpan.FromSeconds(0.2)
-            };
-
             DoubleAnimation _animationTop = new DoubleAnimation
             {
                 From = SystemParameters.PrimaryScreenHeight,
@@ -251,8 +242,15 @@ namespace Tweaker
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
-            TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
+            DoubleAnimation _animationLeft = new DoubleAnimation
+            {
+                From = -SystemParameters.PrimaryScreenWidth,
+                To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
+                Duration = TimeSpan.FromSeconds(0.2)
+            };
+
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
+            TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
             #endregion
         }
     }
