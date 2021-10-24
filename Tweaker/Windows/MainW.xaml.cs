@@ -237,19 +237,17 @@ namespace Tweaker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             #region Анимация загрузки
-            double _topInit = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2), _leftInit = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2);
-
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
-                From = -1000,
-                To = _leftInit,
+                From = -SystemParameters.PrimaryScreenWidth,
+                To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
             DoubleAnimation _animationTop = new DoubleAnimation
             {
-                From = 1000,
-                To = _topInit,
+                From = SystemParameters.PrimaryScreenHeight,
+                To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
