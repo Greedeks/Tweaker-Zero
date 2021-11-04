@@ -24,7 +24,7 @@ namespace ToggleSwitch
         Thickness LeftSide = new Thickness(-39, 0, 0, 0);
         Thickness RightSide = new Thickness(0, 0, -39, 0);
         SolidColorBrush Off = new SolidColorBrush(Color.FromRgb(115, 115, 115));
-        SolidColorBrush On = new SolidColorBrush(Colors.Red);
+        SolidColorBrush On = new SolidColorBrush(Color.FromRgb(184, 32, 21));
         private bool Toggled = false;
 
         public ToggleButton()
@@ -81,7 +81,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? RightSide : LeftSide,
                 To = !cheack ? LeftSide : RightSide,
-                Duration = TimeSpan.FromSeconds(0.15)
+                Duration = TimeSpan.FromSeconds(0.1)
             };
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
