@@ -1,75 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ToggleSwitch
 {
-    /// <summary>
-    /// Interaction logic for ToggleButton.xaml
-    /// </summary>
     public partial class ToggleButton : UserControl
     {
-        Thickness LeftSide = new Thickness(-39, 0, 0, 0);
-        Thickness RightSide = new Thickness(0, 0, -39, 0);
-        SolidColorBrush Off = new SolidColorBrush(Color.FromRgb(115, 115, 115));
-        SolidColorBrush On = new SolidColorBrush(Color.FromRgb(184, 32, 21));
-        private bool Toggled = false;
+        Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
+        Thickness _RightSide = new Thickness(0, 0, -39, 0);
+        SolidColorBrush _OffColor = new SolidColorBrush(Color.FromRgb(115, 115, 115));
+        SolidColorBrush _OnColor = new SolidColorBrush(Color.FromRgb(184, 32, 21));
+        private bool _Toggle = false;
 
         public ToggleButton()
         {
             InitializeComponent();
-            Back.Fill = Off;
-            Toggled = false;
-            Dot.Margin = LeftSide;
         }
 
-        public bool State { get => Toggled; set => Toggled = value; }
+        internal bool State { get => _Toggle; set => _Toggle = value; }
 
-        private void Dot_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Toggle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (!Toggled)
+            if (!_Toggle)
             {
-                Back.Fill = On;
-                Toggled = true;
+                Back.Fill = _OnColor;
+                _Toggle = true;
                 AnimMargin(true);
 
             }
             else
             {
 
-                Back.Fill = Off;
-                Toggled = false;
-                AnimMargin(false);
-
-            }
-        }
-
-        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!Toggled)
-            {
-                Back.Fill = On;
-                Toggled = true;
-                AnimMargin(true);
-
-            }
-            else
-            {
-
-                Back.Fill = Off;
-                Toggled = false;
+                Back.Fill = _OffColor;
+                _Toggle = false;
                 AnimMargin(false);
 
             }
@@ -79,12 +45,33 @@ namespace ToggleSwitch
         {
             ThicknessAnimation _animation = new ThicknessAnimation
             {
-                From = !cheack ? RightSide : LeftSide,
-                To = !cheack ? LeftSide : RightSide,
-                Duration = TimeSpan.FromSeconds(0.1)
+                From = !cheack ? _RightSide : _LeftSide,
+                To = !cheack ? _LeftSide : _RightSide,
+                Duration = TimeSpan.FromSeconds(0.15)
             };
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+        }
+
+        private void CheckState()
+        {
+            if (!_Toggle)
+            {
+                Back.Fill = _OffColor;
+                _Toggle = false;
+                Dot.Margin = _LeftSide;
+            }
+            else
+            {
+                Back.Fill = _OnColor;
+                _Toggle = true;
+                Dot.Margin = _RightSide;
+            }
+        }
+
+        private void Dot_Loaded(object sender, RoutedEventArgs e)
+        {
+            CheckState();
         }
     }
 }
