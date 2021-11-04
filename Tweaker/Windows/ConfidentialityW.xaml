@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="Tweaker.ConfidentialityW"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tweaker"
+             xmlns:ToggleSwitch="clr-namespace:ToggleSwitch" x:Class="Tweaker.ConfidentialityW"
              mc:Ignorable="d" 
              d:DesignHeight="509" d:DesignWidth="1044">
 
@@ -17,8 +18,8 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
-                <Trigger Property="FrameworkElement.Visibility" Value="Visible">
-                    <Setter Property="FrameworkElement.Opacity" Value="1"/>
+                <Trigger Property="UIElement.Visibility" Value="Visible">
+                    <Setter Property="UIElement.Opacity" Value="1"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -68,14 +69,18 @@
             <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,186,184,173"/>
             <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,230,173,130"/>
             <Label Content="Отключение шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,274,196,85"/>
-            
-            <Button HorizontalAlignment="Center" Style="{StaticResource ButtonsTW}" Content="Применить" Margin="0,346,0,10" Width="156" Height="30" Cursor="Hand">
+
+            <Button HorizontalAlignment="Center" Content="Применить" Margin="0,346,0,10" Width="156" Height="30" Cursor="Hand">
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="15,15,15,15"/>
                     </Style>
                 </Button.Resources>
+                <Button.Style>
+                    <StaticResource ResourceKey="ButtonsTW"/>
+                </Button.Style>
             </Button>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="81,9,0,0" VerticalAlignment="Top" Height="27" Width="65"/>
         </Grid>
         <!--#endregion-->
 
@@ -84,9 +89,7 @@
             <Label Content="Наведите мышь на любую функцию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="410" Height="28"/>
 
             <Label Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="700" Height="63">
-                <Label.Content>
-                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Width="690" Height="63"></TextBlock>
-                </Label.Content>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Width="690" Height="63"/>
             </Label>
 
             <Border Background="#FF0000" Height="1"  Width="700" VerticalAlignment="Top" Grid.Column="0" CornerRadius="50" Margin="172,0,172,0"/>
