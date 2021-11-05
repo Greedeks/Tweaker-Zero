@@ -11,7 +11,7 @@
     </Window.Effect>
     <Border Background="#141416" Margin="20">
         <Border.Clip>
-            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,310,160" />
+            <RectangleGeometry RadiusX="17" RadiusY="17" Rect="0,0,310,160" />
         </Border.Clip>
         
         <Grid>
