@@ -48,9 +48,15 @@ namespace ToggleSwitch
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
                 Duration = TimeSpan.FromSeconds(0.15)
-            };
+        };
+            ElasticEase _elasticEase = new ElasticEase();
+            _elasticEase.EasingMode = EasingMode.EaseOut;
+            _elasticEase.Springiness = 8;
+            _elasticEase.Oscillations = 2;
+            _animation.EasingFunction = _elasticEase;
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+
         }
 
         private void CheckState()
