@@ -34,14 +34,14 @@
 
         <!--#region Цвета знач-->
         <Grid Grid.Row="0">
-            <Label Content="Красный цвет - означает, что функция включена" Foreground="red" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" Margin="223,6,527,17">
+            <Label Content="Красный - означает, что функция включена" Foreground="red" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="13px" Margin="223,6,527,17">
                 <Label.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.7" Color="red" />
+                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="red" />
                 </Label.Effect>
             </Label>
-            <Label Content="Серий цвет - означает, что функция выключена" Foreground="#A5A5A5" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="11.5px" HorizontalAlignment="Left" Width="278" Margin="522,6,0,17">
+            <Label Content="Серий цвет - означает, что функция выключена" Foreground="#A5A5A5" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="13px" HorizontalAlignment="Left" Width="311" Margin="522,6,0,17">
                 <Label.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.7" Color="#B1A9A9" />
+                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="#B1A9A9" />
                 </Label.Effect>
             </Label>
 
@@ -54,33 +54,38 @@
 
 
 
-            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,10,600,350"/>
-            <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,54,623,308"/>
-            <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,98,640,263"/>
-            <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,142,580,220"/>
-            <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,186,563,173"/>
-            <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,230,563,130"/>
-            <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="135,274,574,85"/>
+            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="70,10,587,350"/>
+            <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,54,628,308"/>
+            <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,98,645,263"/>
+            <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,142,567,220"/>
+            <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,186,554,173"/>
+            <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="70,230,554,130"/>
+            <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,274,567,85"/>
 
-            <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,10,138,350"/>
-            <Label Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,54,112,308"/>
-            <Label Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,98,112,263"/>
-            <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,142,112,220"/>
-            <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,186,184,173"/>
-            <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,230,173,130"/>
-            <Label Content="Отключение шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="596,274,196,85"/>
+            <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,10,43,350"/>
+            <Label Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,54,16,308"/>
+            <Label Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,98,25,263"/>
+            <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="618,142,16,220"/>
+            <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="618,186,107,173"/>
+            <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,230,90,130"/>
+            <Label Content="Отключение шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,274,116,85"/>
 
-            <Button HorizontalAlignment="Center" Content="Применить" Margin="0,346,0,10" Width="156" Height="30" Cursor="Hand">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="15,15,15,15"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <StaticResource ResourceKey="ButtonsTW"/>
-                </Button.Style>
-            </Button>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="81,9,0,0" VerticalAlignment="Top" Height="27" Width="65"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,54,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,98,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,142,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,186,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,275,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,53,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,98,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,140,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,186,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,230,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,271,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
         </Grid>
         <!--#endregion-->
 
