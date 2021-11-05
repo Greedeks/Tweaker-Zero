@@ -12,12 +12,15 @@ namespace ToggleSwitch
         Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
         Thickness _RightSide = new Thickness(0, 0, -39, 0);
         SolidColorBrush _OffColor = new SolidColorBrush(Color.FromRgb(115, 115, 115));
-        SolidColorBrush _OnColor = new SolidColorBrush(Colors.Red);
+        LinearGradientBrush _OnColor = new LinearGradientBrush();
+
         private bool _Toggle = false;
 
         public ToggleButton()
         {
             InitializeComponent();
+            _OnColor.GradientStops.Add(new GradientStop(Colors.Red, 0.0));
+            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 243, 57, 138), 1.0));
         }
 
         internal bool State { get => _Toggle; set => _Toggle = value; }
