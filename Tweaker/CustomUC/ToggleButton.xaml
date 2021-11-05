@@ -17,7 +17,7 @@
             </Rectangle>
             <Ellipse x:Name="Dot" Fill="White" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded">
                 <Ellipse.Effect>
-                    <BlurEffect Radius="1"/>
+                    <DropShadowEffect Direction="250" ShadowDepth="0" BlurRadius="10" Opacity="0.9"/>
                 </Ellipse.Effect>
             </Ellipse>
         </Grid>
