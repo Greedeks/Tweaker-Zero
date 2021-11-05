@@ -12,12 +12,12 @@
         <Grid HorizontalAlignment="Left" Height="60" Margin="0" VerticalAlignment="Top" Width="100">
             <Rectangle x:Name="Back" Fill="#737373" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="96" Margin="2,2,0,0" RadiusY="29" RadiusX="29" MouseLeftButtonDown="Toggle_MouseLeftButtonDown">
                 <Rectangle.Effect>
-                    <BlurEffect Radius="5" KernelType="Gaussian"/>
+                    <BlurEffect Radius="6" KernelType="Gaussian"/>
                 </Rectangle.Effect>
             </Rectangle>
             <Ellipse x:Name="Dot" Fill="White" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded">
                 <Ellipse.Effect>
-                    <DropShadowEffect Direction="250" ShadowDepth="0" BlurRadius="10" Opacity="0.9"/>
+                    <DropShadowEffect Direction="250" ShadowDepth="0" BlurRadius="11" Opacity="0.9"/>
                 </Ellipse.Effect>
             </Ellipse>
         </Grid>

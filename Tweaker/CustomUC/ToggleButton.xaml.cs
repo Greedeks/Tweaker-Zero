@@ -61,7 +61,7 @@ namespace ToggleSwitch
             _elasticEase.Springiness = 9;
             _elasticEase.Oscillations = 2;
             _animation.EasingFunction = _elasticEase;
-            Timeline.SetDesiredFrameRate(_animation, 240);
+            Timeline.SetDesiredFrameRate(_animation, 244);
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
 

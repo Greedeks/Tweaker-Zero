@@ -49,7 +49,7 @@ namespace Tweaker
                 To = !_stateAnimSlider ? 0 : 1,
                 Duration = TimeSpan.FromSeconds(0.15)
             };
-            Timeline.SetDesiredFrameRate(_animation, 240);
+            Timeline.SetDesiredFrameRate(_animation, 244);
             Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Slider.Opacity = !_stateAnimSlider ? 0 : 1;
         }
