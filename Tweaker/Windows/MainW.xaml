@@ -82,7 +82,7 @@
 
             <!--#region Тело-->
             <Grid Grid.Row="1">
-                <Grid x:Name="MainContainer" Background="#141416" Margin="0,0,0,0"/>
+                <Frame x:Name="MainContainer" Background="#141416" Margin="0,0,0,0" NavigationUIVisibility="Hidden"/>
             </Grid>
             <!--#endregion-->
 

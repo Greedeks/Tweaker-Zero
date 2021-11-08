@@ -65,9 +65,7 @@ namespace Tweaker
 
         private void CleaningWindows()
         {
-            MainContainer.Children.Clear();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+            MainContainer.Content=null;
         }
 
         #region Кнопки
@@ -87,7 +85,7 @@ namespace Tweaker
                         Grid.SetColumn(Slider, 0);
 
                         SliderAnim(true);
-                        MainContainer.Children.Add(new ConfidentialityW());
+                        MainContainer.Content = new Pages.Confidentiality();
                         _confidentialityB = true;
                     }
                     else
