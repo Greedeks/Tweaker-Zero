@@ -63,8 +63,9 @@ namespace Tweaker
             = Button_SystemInfo.Style = Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
         }
 
-        private void CleaningWindows()
+        private void CleaningPages()
         {
+            while (MainContainer.NavigationService.RemoveBackEntry() != null);
             MainContainer.Content=null;
         }
 
@@ -72,7 +73,7 @@ namespace Tweaker
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SliderAnim(false);
-            CleaningWindows();
+            CleaningPages();
 
             Button btn = (Button)sender;
             switch (btn.Name)
@@ -92,7 +93,7 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 case "Button_Interface":
@@ -109,7 +110,7 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 case "Button_Application":
@@ -126,7 +127,7 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 case "Button_Services":
@@ -143,7 +144,7 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 case "Button_System":
@@ -160,7 +161,7 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 case "Button_SystemInfo":
@@ -177,7 +178,7 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 case "Button_More":
@@ -194,13 +195,13 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         SliderAnim(false);
-                        CleaningWindows();
+                        CleaningPages();
                     }
                     break;
                 default:
                     StandStateBtnN();
                     SliderAnim(false);
-                    CleaningWindows();
+                    CleaningPages();
                     break;
             }
         }
@@ -211,13 +212,13 @@ namespace Tweaker
             {
                 StandStateBtnN();
                 SliderAnim(false);
-                CleaningWindows();
+                CleaningPages();
 
             }
             else
             {
                 StandStateBtnN();
-                CleaningWindows();
+                CleaningPages();
             }
         }
 
