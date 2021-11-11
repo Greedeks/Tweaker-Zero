@@ -9,10 +9,10 @@ namespace ToggleSwitch
 {
     public partial class ToggleButton : UserControl
     {
-        Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
-        Thickness _RightSide = new Thickness(0, 0, -39, 0);
-        LinearGradientBrush _OffColor = new LinearGradientBrush();
-        LinearGradientBrush _OnColor = new LinearGradientBrush();
+        readonly Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
+        readonly Thickness _RightSide = new Thickness(0, 0, -39, 0);
+        readonly LinearGradientBrush _OffColor = new LinearGradientBrush();
+        readonly LinearGradientBrush _OnColor = new LinearGradientBrush();
 
         private bool _Toggle = false;
 
@@ -54,16 +54,19 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.65)
+                Duration = TimeSpan.FromSeconds(0.45)
             };
-            ElasticEase _elasticEase = new ElasticEase();
-            _elasticEase.EasingMode = EasingMode.EaseOut;
-            _elasticEase.Springiness = 9;
-            _elasticEase.Oscillations = 2;
+            ElasticEase _elasticEase = new ElasticEase
+            {
+                EasingMode = EasingMode.EaseOut,
+                Springiness = 9,
+                Oscillations = 2
+            };
             _animation.EasingFunction = _elasticEase;
-            Timeline.SetDesiredFrameRate(_animation, 244);
+            Timeline.SetDesiredFrameRate(_animation, 340);
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+            DotShadow.BeginAnimation(ContentControl.MarginProperty, _animation);
 
         }
 
@@ -74,17 +77,21 @@ namespace ToggleSwitch
                 Back.Fill = _OffColor;
                 _Toggle = false;
                 Dot.Margin = _LeftSide;
+                DotShadow.Margin = _LeftSide;
+                
             }
             else
             {
                 Back.Fill = _OnColor;
                 _Toggle = true;
                 Dot.Margin = _RightSide;
+                DotShadow.Margin = _RightSide;
             }
         }
 
         private void Dot_Loaded(object sender, RoutedEventArgs e)
         {
+
             CheckState();
         }
     }
