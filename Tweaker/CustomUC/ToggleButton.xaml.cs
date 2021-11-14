@@ -4,9 +4,12 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using Tweaker.Сlasses;
 
 namespace ToggleSwitch
 {
+    
     public partial class ToggleButton : UserControl
     {
         readonly Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
@@ -35,7 +38,7 @@ namespace ToggleSwitch
             {
                 Back.Fill = _OnColor;
                 _Toggle = true;
-                AnimMargin(true);
+                AnimMarginBrush(true);
 
             }
             else
@@ -43,18 +46,18 @@ namespace ToggleSwitch
 
                 Back.Fill = _OffColor;
                 _Toggle = false;
-                AnimMargin(false);
+                AnimMarginBrush(false);
 
             }
         }
 
-        private void AnimMargin(bool cheack)
+        private void AnimMarginBrush(bool cheack)
         {
             ThicknessAnimation _animation = new ThicknessAnimation
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.45)
+                Duration = TimeSpan.FromSeconds(0.55)
             };
             ElasticEase _elasticEase = new ElasticEase
             {
@@ -67,6 +70,16 @@ namespace ToggleSwitch
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
             DotShadow.BeginAnimation(ContentControl.MarginProperty, _animation);
+
+            BrushAnimation _brushanimation = new BrushAnimation
+            {
+                From = !cheack ? _OnColor : _OffColor,
+                To = !cheack ? _OffColor : _OnColor,
+                Duration = TimeSpan.FromSeconds(0.3)
+            };
+
+            Timeline.SetDesiredFrameRate(_brushanimation, 340);
+            Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
 
         }
 
