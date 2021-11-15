@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker Z" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1">
+        Title="Tweaker Z" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1" SnapsToDevicePixels="True">
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
     </Window.Effect>
@@ -82,7 +82,7 @@
 
             <!--#region Тело-->
             <Grid Grid.Row="1">
-                <Frame x:Name="MainContainer" Background="#141416" Margin="0,0,0,0" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="MainContainer" Background="#141416" Margin="0,0,0,0" NavigationUIVisibility="Hidden" SnapsToDevicePixels="True"/>
             </Grid>
             <!--#endregion-->
 
