@@ -60,10 +60,10 @@ namespace Tweaker.Сlasses
             Brush _toVal = ((Brush)GetValue(BrushAnimation.ToProperty)).CloneCurrentValue();
 
             if ((double)animationClock.CurrentProgress == 0.0)
-                return _fromVal; //Here it workes fine.
+                return _fromVal;
 
             if ((double)animationClock.CurrentProgress == 1.0)
-                return _toVal;  //It workes also here fine.
+                return _toVal;
 
             _toVal.Opacity = (double)animationClock.CurrentProgress;
 

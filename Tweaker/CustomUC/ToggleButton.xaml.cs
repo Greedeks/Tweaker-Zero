@@ -12,10 +12,10 @@ namespace ToggleSwitch
     
     public partial class ToggleButton : UserControl
     {
-        readonly Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
-        readonly Thickness _RightSide = new Thickness(0, 0, -39, 0);
-        readonly LinearGradientBrush _OffColor = new LinearGradientBrush();
-        readonly LinearGradientBrush _OnColor = new LinearGradientBrush();
+        private readonly Thickness _LeftSide = new Thickness(-39, 0, 0, 0);
+        private readonly Thickness _RightSide = new Thickness(0, 0, -39, 0);
+        private readonly LinearGradientBrush _OffColor = new LinearGradientBrush();
+        private readonly LinearGradientBrush _OnColor = new LinearGradientBrush();
 
         private bool _Toggle = false;
 
@@ -38,7 +38,7 @@ namespace ToggleSwitch
             {
                 Back.Fill = _OnColor;
                 _Toggle = true;
-                AnimMarginBrush(true);
+                AnimToggleB(true);
 
             }
             else
@@ -46,18 +46,18 @@ namespace ToggleSwitch
 
                 Back.Fill = _OffColor;
                 _Toggle = false;
-                AnimMarginBrush(false);
+                AnimToggleB(false);
 
             }
         }
 
-        private void AnimMarginBrush(bool cheack)
+        private void AnimToggleB(bool cheack)
         {
             ThicknessAnimation _animation = new ThicknessAnimation
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.5)
+                Duration = TimeSpan.FromSeconds(0.45)
             };
             ElasticEase _elasticEase = new ElasticEase
             {
@@ -75,7 +75,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.25)
+                Duration = TimeSpan.FromSeconds(0.1)
             };
 
             Timeline.SetDesiredFrameRate(_brushanimation, 340);
