@@ -21,7 +21,7 @@
                     <Setter Property="UIElement.Opacity" Value="1"/>
                 </Trigger>
             </Style.Triggers>
-        </Style> 
+        </Style>
     </Page.Style>
     <Grid>
         <Grid.RowDefinitions>
@@ -42,6 +42,17 @@
                     <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="#B1A9A9" />
                 </Label.Effect>
             </Label>
+
+            <Button HorizontalAlignment="Center" Style="{StaticResource ButtonsTW}" Content="Понятно" Margin="0,374,0,-352" Width="156" Cursor="Hand">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10,10,10,10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="12" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
+                </Button.Effect>
+            </Button>
 
             <Border Background="#FF0000" Height="1"  Width="700" VerticalAlignment="Top" Grid.Column="0" CornerRadius="50" Margin="172,35,172,0"/>
         </Grid>
