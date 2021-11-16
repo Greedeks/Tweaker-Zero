@@ -83,7 +83,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <ColorAnimation To="#B32428" 
-                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" SpeedRatio="3" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" SpeedRatio="5" 
                                     Duration="0:0:01"/>
                         </Storyboard>
                     </BeginStoryboard>
@@ -92,7 +92,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <ColorAnimation To="#121212" 
-                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"  SpeedRatio="6"
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"  SpeedRatio="7"
                                     Duration="0:0:01"/>
                         </Storyboard>
                     </BeginStoryboard>
