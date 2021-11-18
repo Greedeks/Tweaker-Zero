@@ -80,7 +80,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <ColorAnimation To="#B32428" 
-                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" SpeedRatio="5" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" SpeedRatio="8" 
                                     Duration="0:0:01"/>
                         </Storyboard>
                     </BeginStoryboard>
