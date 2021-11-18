@@ -6,7 +6,7 @@ using System.Windows.Media.Animation;
 
 namespace Tweaker.Сlasses
 {
-    internal class BrushAnimation : AnimationTimeline
+    internal sealed class BrushAnimation : AnimationTimeline
     {
         protected override Freezable CreateInstanceCore()
         {
