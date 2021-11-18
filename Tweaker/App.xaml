@@ -69,7 +69,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="#B32428" BorderThickness="1.4">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#D90000" BorderThickness="1.4">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -79,7 +79,7 @@
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
-                            <ColorAnimation To="#B32428" 
+                            <ColorAnimation To="#D90000" 
                                     Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" SpeedRatio="10" 
                                     Duration="0:0:01"/>
                         </Storyboard>
