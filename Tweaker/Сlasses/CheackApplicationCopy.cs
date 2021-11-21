@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Tweaker
 {
-    internal sealed class CheakApplicationCopy
+    internal sealed class CheackApplicationCopy
     {
         [DllImport("user32.dll")]
         private static extern bool _ShowWindow(IntPtr handle, int cmdShow);
@@ -15,7 +15,7 @@ namespace Tweaker
 
         private readonly static Mutex mutex = new Mutex(false, "Tweaker");
 
-        internal void CheakAC()
+        internal void CheackAC()
         {
             if (!mutex.WaitOne(150, false))
             {

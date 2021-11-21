@@ -16,8 +16,8 @@ namespace Tweaker
 
         public MainWindow()
         {
-            CheakApplicationCopy cheakApplicationCopy= new CheakApplicationCopy();
-            cheakApplicationCopy.CheakAC();
+            CheackApplicationCopy cheackApplicationCopy= new CheackApplicationCopy();
+            cheackApplicationCopy.CheackAC();
             InitializeComponent();
         }
 
