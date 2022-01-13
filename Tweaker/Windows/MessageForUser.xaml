@@ -13,11 +13,11 @@
         <Border.Clip>
             <RectangleGeometry RadiusX="17" RadiusY="17" Rect="0,0,310,160" />
         </Border.Clip>
-        
+
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="73*"/>
+                <RowDefinition Height="39*"/>
+                <RowDefinition Height="69*"/>
                 <RowDefinition Height="52*"/>
             </Grid.RowDefinitions>
 
@@ -32,24 +32,15 @@
                 </Button.Effect>
             </Button>
 
-            <Label Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="13.5" FontWeight="Medium" Width="290" Height="46">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.5" Color="White" />
-                </Label.Effect>
-                <Label.Content>
-                    <TextBlock TextWrapping="Wrap" Width="261" Height="30">Создание копий программы запрещено</TextBlock>
-                </Label.Content>
+            <Label Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#NotoSans" FontStretch="Medium" FontSize="14.5" FontWeight="Normal" Width="282" Height="25" Content="Создание копий программы запрещено">
             </Label>
-            <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" x:Name="TextTimer"  Content="Автозакрытия  окна через 05 секунд" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Normal" FontSize="13.5" FontWeight="Medium" Width="258" Height="26">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.5" Color="White" />
-                </Label.Effect>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,42,0,0" x:Name="TextTimer"  Content="Автозакрытия  окна через 05 секунд" Grid.Row="1" Foreground="White" FontFamily="/Fonts/#NotoSans" FontStretch="Medium" FontSize="14.5" FontWeight="Normal" Width="278" Height="26">
             </Label>
 
 
             <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212" Margin="0,0,0,10" MouseDown="Header_MouseDown"/>
 
-            <Label Content="Tweaker Z" Grid.Row="0" Foreground="red" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.3" FontWeight="Medium" Margin="112,0,112,0" MouseDown="Header_MouseDown">
+            <Label Content="Tweaker Z" Grid.Row="0" Foreground="red" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="16" FontWeight="Medium" Margin="112,0,112,0" MouseDown="Header_MouseDown">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF0000" />
                 </Label.Effect>
