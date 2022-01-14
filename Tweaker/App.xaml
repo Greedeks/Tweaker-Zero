@@ -79,18 +79,14 @@
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
-                            <ColorAnimation To="#D90000" 
-                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" SpeedRatio="10" 
-                                    Duration="0:0:01"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="0" To="12" Duration="0:0:01" SpeedRatio="6"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
                 <EventTrigger RoutedEvent="Button.MouseLeave">
                     <BeginStoryboard>
                         <Storyboard>
-                            <ColorAnimation To="#121212" 
-                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"  SpeedRatio="7"
-                                    Duration="0:0:01"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="0" Duration="0:0:01" SpeedRatio="6"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>

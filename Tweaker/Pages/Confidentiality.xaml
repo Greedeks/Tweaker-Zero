@@ -50,7 +50,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="12" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
+                    <DropShadowEffect BlurRadius="0" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
                 </Button.Effect>
             </Button>
 
