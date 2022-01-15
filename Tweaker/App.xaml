@@ -3,128 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Tweaker"
              StartupUri="Windows/MainW.xaml">
+ 
     <Application.Resources>
-
-        <!--#region Кнопки -->
-        <Style TargetType="{x:Type Button}" x:Key="ButtonNav">
-            <Setter Property="Foreground" Value="#A5A5A5"/>
-            <Setter Property="Background" Value="#121212"/>
-            <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontSize" Value="13px"/>
-            <Setter Property="IsTabStop" Value="False"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="1">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#151517"/>
-                    <Setter Property="Foreground" Value="White"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style TargetType="{x:Type Button}" x:Key="ButtonNav_S">
-            <Setter Property="Foreground" Value="red"/>
-            <Setter Property="Background" Value="#121212"/>
-            <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontSize" Value="13px"/>
-            <Setter Property="IsTabStop" Value="False"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="1">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#151517"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style TargetType="{x:Type Button}" x:Key="ButtonsTW">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#121212"/>
-            <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontSize" Value="14px"/>
-            <Setter Property="IsTabStop" Value="False"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="#D90000" BorderThickness="1.4">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="Button.MouseEnter">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="0" To="12" Duration="0:0:01" SpeedRatio="6"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="Button.MouseLeave">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="0" Duration="0:0:01" SpeedRatio="6"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-        <!--#endregion-->
-        
-        <!--#region  Твики-->
-        <Style TargetType="{x:Type Label}" x:Key="Tweaks_OFF">
-            <Setter Property="Foreground" Value="#A5A5A5"/>
-            <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontSize" Value="14px"/>
-            <Setter Property="IsTabStop" Value="False"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="White"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style TargetType="{x:Type Label}" x:Key="Tweaks_ON">
-            <Setter Property="Foreground" Value="red"/>
-            <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="FontSize" Value="14px"/>
-            <Setter Property="IsTabStop" Value="False"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#FF0000"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <!--#endregion-->
-        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/ButtonsNav.xaml" />
+                <ResourceDictionary Source="Styles/ButtonsTW.xaml" />
+                <ResourceDictionary Source="Styles/Tweaks.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

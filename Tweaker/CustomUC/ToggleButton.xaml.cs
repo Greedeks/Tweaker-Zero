@@ -9,7 +9,7 @@ using Tweaker.Сlasses;
 
 namespace ToggleSwitch
 {
-    
+
     public partial class ToggleButton : UserControl
     {
         private readonly Thickness _LeftSide = new Thickness(-38, 0, 0, 0);
@@ -91,7 +91,7 @@ namespace ToggleSwitch
                 _Toggle = false;
                 Dot.Margin = _LeftSide;
                 DotShadow.Margin = _LeftSide;
-                
+
             }
             else
             {

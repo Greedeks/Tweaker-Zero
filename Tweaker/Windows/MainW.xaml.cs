@@ -10,13 +10,13 @@ namespace Tweaker
     public partial class MainWindow : Window
     {
         #region Переменные
-        private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false, 
-            _systemB = false, _systeminfoB = false, _moreB = false, _settings=false;
+        private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
+            _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         #endregion
 
         public MainWindow()
         {
-            CheackApplicationCopy cheackApplicationCopy= new CheackApplicationCopy();
+            CheackApplicationCopy cheackApplicationCopy = new CheackApplicationCopy();
             cheackApplicationCopy.CheackAC();
             InitializeComponent();
         }
@@ -65,8 +65,8 @@ namespace Tweaker
 
         private void CleaningPages()
         {
-            while (MainContainer.NavigationService.RemoveBackEntry() != null);
-            MainContainer.Content=null;
+            while (MainContainer.NavigationService.RemoveBackEntry() != null) ;
+            MainContainer.Content = null;
         }
 
         #region Кнопки
@@ -226,7 +226,7 @@ namespace Tweaker
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
                 TextHeader.Content = "Tweaker Zero";
-            if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3) 
+            if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3)
                 TextHeader.Content = "Tweaker Z";
         }
         #endregion
