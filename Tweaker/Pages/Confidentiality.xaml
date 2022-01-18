@@ -33,45 +33,45 @@
 
         <!--#region Left Tweks-->
 
-        <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,24,558,321"/>
-        <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,64,558,281"/>
-        <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,104,558,241"/>
-        <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,144,558,201"/>
-        <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,184,558,161"/>
-        <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,226,558,118"/>
-        <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,264,558,80"/>
-        <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,306,558,39"/>
+        <Label x:Name="Tweak1" Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,24,558,321"/>
+        <Label x:Name="Tweak2" Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,64,558,281"/>
+        <Label x:Name="Tweak3" Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,104,558,241"/>
+        <Label x:Name="Tweak4" Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,144,558,201"/>
+        <Label x:Name="Tweak5" Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,184,558,161"/>
+        <Label x:Name="Tweak6" Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,226,558,118"/>
+        <Label x:Name="Tweak7" Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,264,558,80"/>
+        <Label x:Name="Tweak8" Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,306,558,39"/>
 
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,184,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,224,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,304,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton1_PreviewMouseDown"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton3" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,184,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,224,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton7" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="42,304,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
 
         <!--#endregion-->
 
         <!--#region Right Tweaks-->
 
-        <Label Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,24,26,321"/>
-        <Label Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,64,26,281"/>
-        <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,104,26,241"/>
-        <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,144,26,201"/>
-        <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,184,26,161"/>
-        <Label Content="Отключение и выпиливание шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,226,26,118"/>
-        <Label Content="Отключение «журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,264,26,80"/>
-        <Label Content="Отключение телеметрии NVIDIA" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,306,26,39"/>
+        <Label x:Name="Tweak9" Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,24,26,321" Cursor="Hand"/>
+        <Label x:Name="Tweak10" Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,64,26,281"/>
+        <Label x:Name="Tweak11" Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,104,26,241"/>
+        <Label x:Name="Tweak12" Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,144,26,201"/>
+        <Label x:Name="Tweak13" Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,184,26,161"/>
+        <Label x:Name="Tweak14" Content="Отключение и выпиливание шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,226,26,118"/>
+        <Label x:Name="Tweak15" Content="Отключение «журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,264,26,80"/>
+        <Label x:Name="Tweak16" Content="Отключение телеметрии NVIDIA" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,306,26,39"/>
 
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,104,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,144,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,184,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,224,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,264,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
-        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,304,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,104,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,144,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,184,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,224,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,264,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,304,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
 
         <!--#endregion-->
 
