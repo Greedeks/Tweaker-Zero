@@ -25,88 +25,46 @@
     </Page.Style>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="49*"/>
-            <RowDefinition Height="386*"/>
-            <RowDefinition Height="74*"/>
+            <RowDefinition Height="370*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
 
-        <!--#region Цвета знач-->
-        <Grid Grid.Row="0">
-            <Label Content="Красный - означает, что функция включена" Foreground="red" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="13px" Margin="223,6,527,17">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="red" />
-                </Label.Effect>
-            </Label>
-            <Label Content="Серий цвет - означает, что функция выключена" Foreground="#A5A5A5" FontFamily="/Fonts/#Raleway" FontWeight="Medium" FontSize="13px" HorizontalAlignment="Left" Width="311" Margin="522,6,0,17">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.7" Color="#B1A9A9" />
-                </Label.Effect>
-            </Label>
 
-            <Button HorizontalAlignment="Center" Style="{StaticResource ButtonsTW}" Content="Понятно" Margin="0,374,0,-352" Width="156" Cursor="Hand">
+        <!--#region Tweaks-->
+
+        <!--#endregion-->
+
+        <!--#region Buttons-->
+        <Grid Grid.Row="1">
+
+            <Button HorizontalAlignment="Left" Style="{StaticResource ButtonsTW}" Content="Включить всё" Width="156" Height="26" Cursor="Hand" Margin="291,8,0,9">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10,10,10,10"/>
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="0" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
+                    <DropShadowEffect BlurRadius="2" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
                 </Button.Effect>
             </Button>
 
-            <Border Background="#FF0000" Height="1"  Width="700" VerticalAlignment="Top" Grid.Column="0" CornerRadius="50" Margin="172,35,172,0"/>
+            <Button HorizontalAlignment="Left" Style="{StaticResource ButtonsTW_R}" Content="Выключить всё" Width="156" Height="26" Cursor="Hand" Margin="575,8,0,9">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10,10,10,10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="2" ShadowDepth="0" Opacity="0.9" Color="#EBE9E5" />
+                </Button.Effect>
+            </Button>
         </Grid>
         <!--#endregion-->
 
-        <!--#region Твики-->
-        <Grid Grid.Row="1">
-
-
-
-            <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="70,10,587,350"/>
-            <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,54,628,308"/>
-            <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,98,645,263"/>
-            <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,142,567,220"/>
-            <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,186,554,173"/>
-            <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="70,230,554,130"/>
-            <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="70,274,567,85"/>
-
-            <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,10,43,350"/>
-            <Label Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,54,16,308"/>
-            <Label Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,98,25,263"/>
-            <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="618,142,16,220"/>
-            <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_ON}" Cursor="Hand" Margin="618,186,107,173"/>
-            <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,230,90,130"/>
-            <Label Content="Отключение шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Cursor="Hand" Margin="618,274,116,85"/>
-
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,54,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,98,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,142,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,186,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="28,275,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,53,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,98,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,140,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,186,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,230,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="572,271,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-        </Grid>
-        <!--#endregion-->
-
-        <!--#region Описание-->
-        <Grid Grid.Row="2" Margin="0,5,0,0">
-            <Label Content="Наведите мышь на любую функцию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="410" Height="28"/>
-
-            <Label Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="700" Height="63">
-                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Width="690" Height="63"/>
-            </Label>
-
-            <Border Background="#FF0000" Height="1"  Width="700" VerticalAlignment="Top" Grid.Column="0" CornerRadius="50" Margin="172,0,172,0"/>
+        <!--#region -->
+        <Grid Grid.Row="2">
+            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top"/>
         </Grid>
         <!--#endregion-->
     </Grid>
