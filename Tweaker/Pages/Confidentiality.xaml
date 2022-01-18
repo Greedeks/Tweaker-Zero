@@ -32,6 +32,17 @@
 
 
         <!--#region Tweaks-->
+        <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,24,551,321"/>
+        <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,64,549,281"/>
+        <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,104,563,241"/>
+        <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="95,144,549,201"/>
+        <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,184,549,162"/>
+        <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,224,549,116"/>
+        <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,264,549,80"/>
+        <Label Content="Отключение сетевого доступа к доменам сбора данных" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,304,549,37"/>
+        
+        
+
 
         <!--#endregion-->
 
@@ -49,7 +60,7 @@
                 </Button.Effect>
             </Button>
 
-            <Button HorizontalAlignment="Left" Style="{StaticResource ButtonsTW_R}" Content="Выключить всё" Width="156" Height="26" Cursor="Hand" Margin="575,8,0,9">
+            <Button HorizontalAlignment="Left" Style="{StaticResource ButtonsTW_R}" Content="Отключить всё" Width="156" Height="26" Cursor="Hand" Margin="575,8,0,9">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10,10,10,10"/>
@@ -62,10 +73,11 @@
         </Grid>
         <!--#endregion-->
 
-        <!--#region -->
+        <!--#region Description-->
         <Grid Grid.Row="2">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top"/>
         </Grid>
         <!--#endregion-->
+
     </Grid>
 </Page>

@@ -9,7 +9,7 @@
     <Viewbox Margin="0,2,2,1">
         <Grid HorizontalAlignment="Left" Height="60" Margin="0" VerticalAlignment="Top" Width="100">
             <Rectangle x:Name="Back" Fill="#737373" Cursor="Hand" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="96" Margin="2,2,0,0" RadiusY="29" RadiusX="29" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" SnapsToDevicePixels="True"/>
-            <Ellipse x:Name="DotShadow" Fill="Black" Cursor="Hand" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded" Opacity="0.2" SnapsToDevicePixels="True"/>
+            <Ellipse x:Name="DotShadow" Fill="Black" Cursor="Hand" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="56" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded" Opacity="0.2" SnapsToDevicePixels="True"/>
             <Ellipse x:Name="Dot" Fill="White" Cursor="Hand" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded" SnapsToDevicePixels="True"/>
         </Grid>
     </Viewbox>
