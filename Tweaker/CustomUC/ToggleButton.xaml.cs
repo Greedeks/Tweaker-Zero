@@ -83,7 +83,7 @@ namespace ToggleSwitch
 
         }
 
-        private void CheckState()
+        internal void CheckState()
         {
             if (!_Toggle)
             {
