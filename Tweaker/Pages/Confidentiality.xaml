@@ -31,25 +31,54 @@
         </Grid.RowDefinitions>
 
 
-        <!--#region Tweaks-->
-        <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,24,551,321"/>
-        <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,64,549,281"/>
-        <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,104,563,241"/>
-        <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="95,144,549,201"/>
-        <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,184,549,162"/>
-        <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,224,549,116"/>
-        <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,264,549,80"/>
-        <Label Content="Отключение сетевого доступа к доменам сбора данных" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="95,304,549,37"/>
-        
-        
+        <!--#region Left Tweks-->
 
+        <Label Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,24,558,321"/>
+        <Label Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,64,558,281"/>
+        <Label Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,104,558,241"/>
+        <Label Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,144,558,201"/>
+        <Label Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,184,558,161"/>
+        <Label Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,226,558,118"/>
+        <Label Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,264,558,80"/>
+        <Label Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,306,558,39"/>
+
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,184,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,224,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="42,304,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+
+        <!--#endregion-->
+
+        <!--#region Right Tweaks-->
+
+        <Label Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,24,26,321"/>
+        <Label Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,64,26,281"/>
+        <Label Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,104,26,241"/>
+        <Label Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,144,26,201"/>
+        <Label Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,184,26,161"/>
+        <Label Content="Отключение и выпиливание шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,226,26,118"/>
+        <Label Content="Отключение «журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,264,26,80"/>
+        <Label Content="Отключение телеметрии NVIDIA" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="618,306,26,39"/>
+
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,104,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,144,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,184,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,224,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,264,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+        <ToggleSwitch:ToggleButton HorizontalAlignment="Left" Margin="574,304,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
 
         <!--#endregion-->
 
         <!--#region Buttons-->
         <Grid Grid.Row="1">
 
-            <Button HorizontalAlignment="Left" Style="{StaticResource ButtonsTW}" Content="Включить всё" Width="156" Height="26" Cursor="Hand" Margin="291,8,0,9">
+            <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="338,12,550,12">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10,10,10,10"/>
@@ -60,7 +89,7 @@
                 </Button.Effect>
             </Button>
 
-            <Button HorizontalAlignment="Left" Style="{StaticResource ButtonsTW_R}" Content="Отключить всё" Width="156" Height="26" Cursor="Hand" Margin="575,8,0,9">
+            <Button Style="{StaticResource ButtonsTW_R}" Content="Отключить всё" Height="26" Cursor="Hand" Margin="547,12,338,12">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10,10,10,10"/>
@@ -75,7 +104,12 @@
 
         <!--#region Description-->
         <Grid Grid.Row="2">
-            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top"/>
+            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Label x:Name="DescriptionPrompt" Content="Наведите мышь на любую функцию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#NotoSans" FontStretch="Medium" FontSize="14" FontWeight="Normal" Width="440" Height="28"/>
+
+            <Label Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="/Fonts/#NotoSans" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="700" Height="63">
+                <TextBlock x:Name="DescriptionTweaks" HorizontalAlignment="Center" TextWrapping="Wrap" Width="900" Height="76"/>
+            </Label>
         </Grid>
         <!--#endregion-->
 

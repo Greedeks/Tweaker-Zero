@@ -12,8 +12,8 @@ namespace ToggleSwitch
 
     public partial class ToggleButton : UserControl
     {
-        private readonly Thickness _LeftSide = new Thickness(-38, 0, 0, 0);
-        private readonly Thickness _RightSide = new Thickness(0, 0, -38, 0);
+        private readonly Thickness _LeftSide = new Thickness(-40, 0, 0, 0);
+        private readonly Thickness _RightSide = new Thickness(0, 0, -40, 0);
         private readonly LinearGradientBrush _OffColor = new LinearGradientBrush();
         private readonly LinearGradientBrush _OnColor = new LinearGradientBrush();
 
