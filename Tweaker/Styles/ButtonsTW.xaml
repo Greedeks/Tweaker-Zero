@@ -23,14 +23,14 @@
             <EventTrigger RoutedEvent="Button.MouseEnter">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="2" To="12" Duration="0:0:01" SpeedRatio="6"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="1" To="12" Duration="0:0:01" SpeedRatio="11"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
             <EventTrigger RoutedEvent="Button.MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="2" Duration="0:0:01" SpeedRatio="6"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="1" Duration="0:0:01" SpeedRatio="10"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
@@ -59,14 +59,14 @@
             <EventTrigger RoutedEvent="Button.MouseEnter">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="2" To="12" Duration="0:0:01" SpeedRatio="6"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="1" To="12" Duration="0:0:01" SpeedRatio="11"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
             <EventTrigger RoutedEvent="Button.MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="2" Duration="0:0:01" SpeedRatio="6"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="1" Duration="0:0:01" SpeedRatio="10"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

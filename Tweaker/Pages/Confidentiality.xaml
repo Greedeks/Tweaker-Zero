@@ -85,7 +85,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="2" ShadowDepth="0" Opacity="0.7" Color="#FF0000" />
+                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
             </Button>
 
@@ -96,7 +96,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="2" ShadowDepth="0" Opacity="0.7" Color="#EBE9E5" />
+                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.8" Color="#EBE9E5" />
                 </Button.Effect>
             </Button>
         </Grid>

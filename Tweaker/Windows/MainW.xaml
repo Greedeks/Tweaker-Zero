@@ -32,7 +32,7 @@
                         <ColumnDefinition Width="271*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image x:Name="Button_Exit" Height="16" Width="16" Stretch="fill" Cursor="Hand" Grid.Column="3" Margin="229,0,10,0" MouseDown="Button_Exit_MouseDown">
+                    <Image x:Name="Button_Exit" Height="16" Width="16" Stretch="fill" Cursor="Hand" Grid.Column="3" Margin="229,0,10,0" MouseDown="Button_Exit_MouseDown" RenderOptions.BitmapScalingMode="HighQuality">
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
                                 <Setter Property="Source" Value="/Image/BExit.png"/>
@@ -45,7 +45,7 @@
                         </Image.Style>
                     </Image>
 
-                    <Image x:Name="Button_Minimized" Height="17" Width="16" Stretch="Fill" Cursor="Hand" Grid.Column="3" Margin="212,8,43,7" MouseDown="Button_Minimized_MouseDown"  RenderTransformOrigin="1.833,0.366">
+                    <Image x:Name="Button_Minimized" Height="17" Width="16" Stretch="Fill" Cursor="Hand" Grid.Column="3" Margin="212,8,43,7" MouseDown="Button_Minimized_MouseDown"  RenderTransformOrigin="1.833,0.366"  RenderOptions.BitmapScalingMode="HighQuality">
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
                                 <Setter Property="Source" Value="/Image/BMinimized.png"/>
@@ -58,7 +58,7 @@
                         </Image.Style>
                     </Image>
 
-                    <Image x:Name="Button_Settings" Height="20" Width="20" Stretch="Fill"  Cursor="Hand" Grid.Column="3" Margin="177,6,74,5" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Settings_MouseDown">
+                    <Image x:Name="Button_Settings" Height="20" Width="20" Stretch="Fill"  Cursor="Hand" Grid.Column="3" Margin="177,6,74,5" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Settings_MouseDown"  RenderOptions.BitmapScalingMode="HighQuality">
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
                                 <Setter Property="Source" Value="/Image/BSettings.png"/>
