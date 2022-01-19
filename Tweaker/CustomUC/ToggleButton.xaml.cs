@@ -75,7 +75,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.1)
+                Duration = TimeSpan.FromSeconds(0.15)
             };
 
             Timeline.SetDesiredFrameRate(_brushanimation, 340);

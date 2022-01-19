@@ -159,6 +159,5 @@
   <ItemGroup>
     <Resource Include="TweakerIcon.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
