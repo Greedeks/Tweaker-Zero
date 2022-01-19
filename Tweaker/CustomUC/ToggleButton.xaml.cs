@@ -57,7 +57,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.35)
+                Duration = TimeSpan.FromSeconds(0.27)
             };
             ElasticEase _elasticEase = new ElasticEase
             {
@@ -75,7 +75,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.15)
+                Duration = TimeSpan.FromSeconds(0.05)
             };
 
             Timeline.SetDesiredFrameRate(_brushanimation, 340);

@@ -78,7 +78,7 @@
         <!--#region Buttons-->
         <Grid Grid.Row="1">
 
-            <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="344,12,544,12">
+            <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="350,12,538,12">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10,10,10,10"/>
@@ -89,14 +89,14 @@
                 </Button.Effect>
             </Button>
 
-            <Button Style="{StaticResource ButtonsTW_R}" Content="Отключить всё" Height="26" Cursor="Hand" Margin="540,12,345,12">
+            <Button Style="{StaticResource ButtonsTW_R}" Content="Отключить всё" Height="26" Cursor="Hand" Margin="546,12,339,12">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10,10,10,10"/>
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.8" Color="#EBE9E5" />
+                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.8" Color="#EF3958" />
                 </Button.Effect>
             </Button>
         </Grid>
