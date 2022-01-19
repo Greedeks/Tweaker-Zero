@@ -238,14 +238,14 @@ namespace Tweaker
             {
                 From = SystemParameters.PrimaryScreenHeight,
                 To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
-                Duration = TimeSpan.FromSeconds(0.2)
+                Duration = TimeSpan.FromSeconds(0.15)
             };
 
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
                 From = -SystemParameters.PrimaryScreenWidth,
                 To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
-                Duration = TimeSpan.FromSeconds(0.2)
+                Duration = TimeSpan.FromSeconds(0.15)
             };
 
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);

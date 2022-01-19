@@ -57,7 +57,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.45)
+                Duration = TimeSpan.FromSeconds(0.35)
             };
             ElasticEase _elasticEase = new ElasticEase
             {
