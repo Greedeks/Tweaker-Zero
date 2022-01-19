@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Warning" Height="200" Width="350" MinHeight="200" MinWidth="350" MaxHeight="200" MaxWidth="350" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" Opacity="1" SnapsToDevicePixels="True">
+        Title="Warning" Height="200" Width="350" MinHeight="200" MinWidth="350" MaxHeight="200" MaxWidth="350" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
     </Window.Effect>
@@ -28,7 +28,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="2" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
                 </Button.Effect>
             </Button>
 

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="Confidentiality" SnapsToDevicePixels="True">
+      Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True">
     <Page.Style>
         <Style>
             <Style.Triggers>
@@ -85,7 +85,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
             </Button>
 
@@ -96,7 +96,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="1" ShadowDepth="0" Opacity="0.8" Color="#EF3958" />
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#EF3958" />
                 </Button.Effect>
             </Button>
         </Grid>

@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CustomUC\ToggleButton.xaml">
+    <Page Include="CustomsUC\ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -92,7 +92,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CustomUC\ToggleButton.xaml.cs">
+    <Compile Include="CustomsUC\ToggleButton.xaml.cs">
       <DependentUpon>ToggleButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Confidentiality.xaml.cs">
@@ -142,20 +142,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\BExit.png" />
+    <Resource Include="Images\BExit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\BExit_A.png" />
+    <Resource Include="Images\BExit_A.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\BMinimized.png" />
+    <Resource Include="Images\BMinimized.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\BMinimized_A.png" />
+    <Resource Include="Images\BMinimized_A.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\BSettings.png" />
-    <Resource Include="Image\BSettings_A.png" />
+    <Resource Include="Images\BSettings.png" />
+    <Resource Include="Images\BSettings_A.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TweakerIcon.ico" />
