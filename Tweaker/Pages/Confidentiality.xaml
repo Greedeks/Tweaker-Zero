@@ -105,11 +105,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <Label x:Name="DescriptionPrompt" Content="Наведите мышь на любую функцию, чтобы получить её описание" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#NotoSans" FontStretch="Medium" FontSize="14" FontWeight="Normal" Width="440" Height="28"/>
-
-            <Label Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="/Fonts/#NotoSans" FontStretch="Medium" FontSize="12.3" FontWeight="Medium" Width="700" Height="63">
-                <TextBlock x:Name="DescriptionTweaks" HorizontalAlignment="Center" TextWrapping="Wrap" Width="900" Height="76"/>
-            </Label>
+            <TextBlock x:Name="DescriptionT" TextAlignment="Center" HorizontalAlignment="Center" Text="Наведите мышь на любую функцию, чтобы получить её описание" TextWrapping="Wrap" Width="1024" Height="76" Foreground="LightGray" FontSize="14px" FontFamily="/Fonts/#NotoSans" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 
