@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="{x:Type Button}" x:Key="ButtonsTW">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#121212"/>
+        <Setter Property="Foreground" Value="{DynamicResource ColorWhite}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
         <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="14px"/>
@@ -44,8 +44,8 @@
     </Style>
 
     <Style TargetType="{x:Type Button}" x:Key="ButtonsTW_R">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#121212"/>
+        <Setter Property="Foreground" Value="{DynamicResource ColorWhite}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
         <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="14px"/>

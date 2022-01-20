@@ -102,10 +102,7 @@ namespace ToggleSwitch
             }
         }
 
-        private void Dot_Loaded(object sender, RoutedEventArgs e)
-        {
+        private void Dot_Loaded(object sender, RoutedEventArgs e) => CheckState();
 
-            CheckState();
-        }
     }
 }

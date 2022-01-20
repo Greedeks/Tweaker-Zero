@@ -9,7 +9,7 @@
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
     </Window.Effect>
-    <Border Background="#141416" Margin="20">
+    <Border Background="{DynamicResource BackgroundColor}" Margin="20">
         <Border.Clip>
             <RectangleGeometry RadiusX="17" RadiusY="17" Rect="0,0,310,160" />
         </Border.Clip>
@@ -33,9 +33,9 @@
             </Label>
 
 
-            <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="#121212" Margin="0,0,0,10" MouseDown="Header_MouseDown"/>
+            <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="{DynamicResource BackgroundButtonHead}" Margin="0,0,0,10" MouseDown="Header_MouseDown"/>
 
-            <Label Content="Tweaker Z" Grid.Row="0" Foreground="red" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="112,0,112,0" MouseDown="Header_MouseDown">
+            <Label Content="Tweaker Z" Grid.Row="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="112,0,112,0" MouseDown="Header_MouseDown">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF0000" />
                 </Label.Effect>
