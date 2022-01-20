@@ -79,24 +79,14 @@
         <Grid Grid.Row="1">
 
             <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="350,12,538,12">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10,10,10,10"/>
-                    </Style>
-                </Button.Resources>
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
             </Button>
 
             <Button Style="{StaticResource ButtonsTW_R}" Content="Отключить всё" Height="26" Cursor="Hand" Margin="546,12,339,12">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10,10,10,10"/>
-                    </Style>
-                </Button.Resources>
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#EF3958" />
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#B0B0B0" />
                 </Button.Effect>
             </Button>
         </Grid>
@@ -105,7 +95,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DescriptionT" TextAlignment="Center" HorizontalAlignment="Center" Text="Наведите мышь на любую функцию, чтобы получить её описание" TextWrapping="Wrap" Width="1024" Height="76" Foreground="LightGray" FontSize="14px" FontFamily="/Fonts/#NotoSans" Margin="0,6,0,7"/>
+            <TextBlock x:Name="DescriptionT" TextAlignment="Center" HorizontalAlignment="Center" Text="Наведите курсор на любую функцию, чтобы получить её описание" TextWrapping="Wrap" Width="1024" Height="76" Foreground="LightGray" FontSize="14px" FontFamily="/Fonts/#NotoSans" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 
