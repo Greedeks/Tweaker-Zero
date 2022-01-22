@@ -3,8 +3,8 @@
 
     <SolidColorBrush x:Key="BackgroundButtonHead" Color="#121212"/>
     <SolidColorBrush x:Key="BackgroundColor" Color="#141416"/>
-    <SolidColorBrush x:Key="ColorRed" Color="red"/>
-    <SolidColorBrush x:Key="ColorRedLight" Color="#FF0000"/>
+    <SolidColorBrush x:Key="ColorRed" Color="#FF2400"/>
+    <SolidColorBrush x:Key="ColorRedLight" Color="#FF0D00"/>
     <SolidColorBrush x:Key="ColorWhite" Color="white"/>
 
 </ResourceDictionary>

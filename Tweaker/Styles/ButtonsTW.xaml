@@ -17,7 +17,7 @@
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                <GradientStop Color="#D90000" Offset="0" />
+                                <GradientStop Color="#FF0D00" Offset="0" />
                                 <GradientStop Color="#EF3965" Offset="1" />
                             </LinearGradientBrush>
                         </Border.BorderBrush>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Warning" Height="200" Width="350" MinHeight="200" MinWidth="350" MaxHeight="200" MaxWidth="350" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
     <Window.Effect>
-        <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
+        <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF2400" />
     </Window.Effect>
     <Border Background="{DynamicResource BackgroundColor}" Margin="20">
         <Border.Clip>
@@ -35,11 +35,11 @@
 
             <Border Grid.Row="0" x:Name="Header" CornerRadius="15,15,0,0" Background="{DynamicResource BackgroundButtonHead}" Margin="0,0,0,10" MouseDown="Header_MouseDown"/>
 
-            <Label Content="Tweaker Z" Grid.Row="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="112,0,112,0" MouseDown="Header_MouseDown">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF0000" />
-                </Label.Effect>
-            </Label>
+            <TextBlock Text="Tweaker Z"  Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="117,4,117,3" MouseDown="Header_MouseDown">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                </TextBlock.Effect>
+            </TextBlock>
         </Grid>
     </Border>
 </Window>

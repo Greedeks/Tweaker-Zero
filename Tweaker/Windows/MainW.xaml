@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Tweaker Z" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
     <Window.Effect>
-        <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF0000" />
+        <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF2400" />
     </Window.Effect>
     <Border Background="{DynamicResource BackgroundColor}" Margin="20">
         <Border.Clip>
             <RectangleGeometry RadiusX="17" RadiusY="17" Rect="0,0,1044,580" />
         </Border.Clip>
 
-        <Grid Cursor="Hand">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="31*"/>
                 <RowDefinition Height="509*"/>
@@ -71,11 +71,11 @@
                         </Image.Style>
                     </Image>
 
-                    <Label x:Name="TextHeader" Content="Tweaker Z" Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="12,0,131,0" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown">
-                        <Label.Effect>
-                            <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF0000" />
-                        </Label.Effect>
-                    </Label>
+                    <TextBlock  x:Name="TextHeader" Text="Tweaker Z"  Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="16,4,127,3" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                        </TextBlock.Effect>
+                    </TextBlock>
                 </Grid>
             </Grid>
             <!--#endregion-->

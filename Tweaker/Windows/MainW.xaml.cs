@@ -225,32 +225,32 @@ namespace Tweaker
         private void Button_TextHeader_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
-                TextHeader.Content = "Tweaker Zero";
+                TextHeader.Text = "Tweaker Zero";
             if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3)
-                TextHeader.Content = "Tweaker Z";
+                TextHeader.Text = "Tweaker Z";
         }
         #endregion
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            #region Анимация загрузки
-            DoubleAnimation _animationTop = new DoubleAnimation
-            {
-                From = SystemParameters.PrimaryScreenHeight,
-                To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
-                Duration = TimeSpan.FromSeconds(0.15)
-            };
+            //#region Анимация загрузки
+            //DoubleAnimation _animationTop = new DoubleAnimation
+            //{
+            //    From = SystemParameters.PrimaryScreenHeight,
+            //    To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
+            //    Duration = TimeSpan.FromSeconds(0.15)
+            //};
 
-            DoubleAnimation _animationLeft = new DoubleAnimation
-            {
-                From = -SystemParameters.PrimaryScreenWidth,
-                To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
-                Duration = TimeSpan.FromSeconds(0.15)
-            };
+            //DoubleAnimation _animationLeft = new DoubleAnimation
+            //{
+            //    From = -SystemParameters.PrimaryScreenWidth,
+            //    To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
+            //    Duration = TimeSpan.FromSeconds(0.15)
+            //};
 
-            TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
-            TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
-            #endregion
+            //TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
+            //TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
+            //#endregion
         }
     }
 }
