@@ -21,7 +21,7 @@
                 <RowDefinition Height="38*"/>
             </Grid.RowDefinitions>
 
-            <!--#region Шапка-->
+            <!--#region Head-->
             <Grid Grid.Row="0">
                 <Border x:Name="Header" CornerRadius="15,15,0,0" Background="{DynamicResource BackgroundButtonHead}" MouseDown="Header_MouseDown"/>
                 <Grid>
@@ -80,13 +80,13 @@
             </Grid>
             <!--#endregion-->
 
-            <!--#region Тело-->
+            <!--#region Body-->
             <Grid Grid.Row="1">
                 <Frame x:Name="MainContainer" Background="{DynamicResource BackgroundColor}" Margin="0,0,0,0" NavigationUIVisibility="Hidden" SnapsToDevicePixels="True"/>
             </Grid>
             <!--#endregion-->
 
-            <!--#region Навигация-->
+            <!--#region Navigation-->
             <Border Background="{DynamicResource BackgroundButtonHead}" CornerRadius="0,0,15,15" Grid.Row="2" Margin="22,1,22,0"/>
 
             <Grid Grid.Row="2">
@@ -101,25 +101,17 @@
                 </Grid.ColumnDefinitions>
 
                 <Button x:Name="Button_Confidentiality" Grid.Column="0" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content=" Конфиденциальность"/>
-
                 <Button x:Name="Button_Interface" Style="{StaticResource ButtonNav}" Margin="155,0,0,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Интерфейс" Grid.ColumnSpan="2"/>
-
                 <Button x:Name="Button_Application" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="1,0,0,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Приложение"/>
-
                 <Button x:Name="Button_Services" Grid.Column="2" Style="{StaticResource ButtonNav}" Margin="149,0,149,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Службы" Grid.ColumnSpan="3"/>
-
                 <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" Margin="0,0,179,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Система" Grid.ColumnSpan="2"/>
-
                 <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Системная информация" Grid.ColumnSpan="2"/>
-
                 <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Прочее" Cursor="Hand"/>
-
 
                 <Border x:Name="Slider" Background="{DynamicResource ColorRed}" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
             </Grid>
             <!--#endregion-->
 
         </Grid>
-
     </Border>
 </Window>
