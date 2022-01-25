@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -231,26 +232,31 @@ namespace Tweaker
         }
         #endregion
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //#region Анимация загрузки
-            //DoubleAnimation _animationTop = new DoubleAnimation
-            //{
-            //    From = SystemParameters.PrimaryScreenHeight,
-            //    To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
-            //    Duration = TimeSpan.FromSeconds(0.15)
-            //};
+            #region Анимация загрузки
 
-            //DoubleAnimation _animationLeft = new DoubleAnimation
-            //{
-            //    From = -SystemParameters.PrimaryScreenWidth,
-            //    To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
-            //    Duration = TimeSpan.FromSeconds(0.15)
-            //};
+            this.Opacity = 0;
+            await Task.Delay(150);
+            this.Opacity = 1;
 
-            //TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
-            //TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
-            //#endregion
+            DoubleAnimation _animationTop = new DoubleAnimation
+            {
+                From = SystemParameters.PrimaryScreenHeight,
+                To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
+                Duration = TimeSpan.FromSeconds(0.15)
+            };
+
+            DoubleAnimation _animationLeft = new DoubleAnimation
+            {
+                From = -SystemParameters.PrimaryScreenWidth,
+                To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
+                Duration = TimeSpan.FromSeconds(0.15)
+            };
+
+            TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
+            TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
+            #endregion
         }
     }
 }
