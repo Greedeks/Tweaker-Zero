@@ -71,7 +71,7 @@
                         </Image.Style>
                     </Image>
 
-                    <TextBlock  x:Name="TextHeader" Text="Tweaker Z"  Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="16,4,127,3" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown">
+                    <TextBlock  x:Name="TextHeader" Text="Tweaker Z"  Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="16,4,127,3" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown" Opacity="1">
                         <TextBlock.Effect>
                             <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                         </TextBlock.Effect>

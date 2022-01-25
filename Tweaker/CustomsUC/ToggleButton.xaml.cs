@@ -12,19 +12,16 @@ namespace ToggleSwitch
 
     public partial class ToggleButton : UserControl
     {
-        private readonly Thickness _LeftSide = new Thickness(-40, 0, 0, 0);
-        private readonly Thickness _RightSide = new Thickness(0, 0, -40, 0);
-        private readonly LinearGradientBrush _OffColor = new LinearGradientBrush();
-        private readonly LinearGradientBrush _OnColor = new LinearGradientBrush();
-
+        private readonly Thickness _LeftSide = new Thickness(-40, 0, 0, 0), _RightSide = new Thickness(0, 0, -40, 0);
+        private readonly LinearGradientBrush _OffColor = new LinearGradientBrush(), _OnColor = new LinearGradientBrush();
         private bool _Toggle = false;
 
         public ToggleButton()
         {
             InitializeComponent();
 
-            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 13, 0), 1.0));
             _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 36, 0), 1.0));
+            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 13, 0), 1.0));
 
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 80, 80, 80), 1.0));
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 105, 105, 105), 1.0));
@@ -57,16 +54,16 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.27)
+                Duration = TimeSpan.FromSeconds(0.5)
             };
             ElasticEase _elasticEase = new ElasticEase
             {
                 EasingMode = EasingMode.EaseOut,
-                Springiness = 9,
+                Springiness = 8,
                 Oscillations = 2
             };
             _animation.EasingFunction = _elasticEase;
-            Timeline.SetDesiredFrameRate(_animation, 340);
+            Timeline.SetDesiredFrameRate(_animation, 60);
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
             DotShadow.BeginAnimation(ContentControl.MarginProperty, _animation);
@@ -75,10 +72,10 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.05)
+                Duration = TimeSpan.FromSeconds(0.1)
             };
 
-            Timeline.SetDesiredFrameRate(_brushanimation, 340);
+            Timeline.SetDesiredFrameRate(_brushanimation, 60);
             Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
 
         }
