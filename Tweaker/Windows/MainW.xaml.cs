@@ -29,13 +29,13 @@ namespace Tweaker
                 DragMove();
         }
 
-        private void Button_Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Exit_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.Close();
         }
 
-        private void Button_Minimized_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Minimized_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.WindowState = WindowState.Minimized;
@@ -207,7 +207,7 @@ namespace Tweaker
             }
         }
 
-        private void Button_Settings_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Settings_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && !_settings)
             {

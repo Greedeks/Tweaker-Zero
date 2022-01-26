@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\SVG.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,23 +150,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\BExit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\BExit_A.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\BMinimized.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\BMinimized_A.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\BSettings.png" />
-    <Resource Include="Images\BSettings_A.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="TweakerIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

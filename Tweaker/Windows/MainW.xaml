@@ -32,44 +32,58 @@
                         <ColumnDefinition Width="271*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image x:Name="Button_Exit" Height="15" Width="15" Stretch="fill" Cursor="Hand" Grid.Column="3" Margin="229,0,10,0" MouseDown="Button_Exit_MouseDown">
-                        <Image.Style>
-                            <Style TargetType="{x:Type Image}">
-                                <Setter Property="Source" Value="/Images/BExit.png"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Exit}" Value="true">
-                                        <Setter Property="Source" Value="/Images/BExit_A.png"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
+                    <Button x:Name="Button_Exit" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="233,6,16,5" PreviewMouseDown="Button_Exit_PreviewMouseDown">
+                        <Image Width="13">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="{StaticResource BExit}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Exit}" Value="true">
+                                            <Setter Property="Source" Value="{StaticResource BExit_A}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
 
-                    <Image x:Name="Button_Minimized" Height="17" Width="17" Stretch="Fill" Cursor="Hand" Grid.Column="3" Margin="214,8,40,6" MouseDown="Button_Minimized_MouseDown"  RenderTransformOrigin="1.833,0.366">
-                        <Image.Style>
-                            <Style TargetType="{x:Type Image}">
-                                <Setter Property="Source" Value="/Images/BMinimized.png"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Minimized}" Value="true">
-                                        <Setter Property="Source" Value="/Images/BMinimized_A.png"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
+                    <Button x:Name="Button_Minimized" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="208,0,42,0" Height="20" VerticalAlignment="Center" PreviewMouseDown="Button_Minimized_PreviewMouseDown">
+                        <Image Height="2" Width="3" Grid.Column="3" Margin="-12,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="5" ScaleY="-7"/>
+                                    <SkewTransform AngleX="1"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="{StaticResource BMinimized}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Minimized}" Value="true">
+                                            <Setter Property="Source" Value="{StaticResource BMinimized_A}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
 
-                    <Image x:Name="Button_Settings" Height="18" Width="18" Stretch="Fill"  Cursor="Hand" Grid.Column="3" Margin="180,7,73,6" RenderTransformOrigin="1.833,0.366" MouseDown="Button_Settings_MouseDown"  RenderOptions.BitmapScalingMode="HighQuality">
-                        <Image.Style>
-                            <Style TargetType="{x:Type Image}">
-                                <Setter Property="Source" Value="/Images/BSettings.png"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Settings}" Value="true">
-                                        <Setter Property="Source" Value="/Images/BSettings_A.png"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
+                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="170,4,77,4" PreviewMouseDown="Button_Settings_PreviewMouseDown">
+                        <Image Width="19" Height="19">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="{StaticResource BSettings}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=Button_Settings}" Value="true">
+                                            <Setter Property="Source" Value="{StaticResource BSettings_A}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
 
                     <TextBlock  x:Name="TextHeader" Text="Tweaker Z"  Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="16,4,127,3" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown" Opacity="1">
                         <TextBlock.Effect>

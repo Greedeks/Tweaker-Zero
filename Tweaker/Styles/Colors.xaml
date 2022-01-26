@@ -5,6 +5,7 @@
     <SolidColorBrush x:Key="BackgroundColor" Color="#141416"/>
     <SolidColorBrush x:Key="ColorRed" Color="#FF2400"/>
     <SolidColorBrush x:Key="ColorRedLight" Color="#FF0D00"/>
+    <SolidColorBrush x:Key="ColorRedNotActive" Color="#B93926"/>
     <SolidColorBrush x:Key="ColorWhite" Color="white"/>
 
 </ResourceDictionary>
