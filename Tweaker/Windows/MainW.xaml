@@ -71,7 +71,7 @@
                         </Image>
                     </Button>
 
-                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="174,4,73,4" PreviewMouseDown="Button_Settings_PreviewMouseDown">
+                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="174,5,73,3" PreviewMouseDown="Button_Settings_PreviewMouseDown">
                         <Image Width="18" Height="18">
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
