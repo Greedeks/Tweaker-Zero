@@ -53,16 +53,8 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.5)
+                Duration = TimeSpan.FromSeconds(0.05)
             };
-            ElasticEase _elasticEase = new ElasticEase
-            {
-                EasingMode = EasingMode.EaseOut,
-                Springiness = 8,
-                Oscillations = 2
-            };
-            _animation.EasingFunction = _elasticEase;
-            Timeline.SetDesiredFrameRate(_animation, 60);
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
             DotShadow.BeginAnimation(ContentControl.MarginProperty, _animation);
@@ -76,7 +68,6 @@ namespace ToggleSwitch
 
             Timeline.SetDesiredFrameRate(_brushanimation, 60);
             Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
-
         }
 
         internal void CheckState()
