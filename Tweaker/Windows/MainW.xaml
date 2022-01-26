@@ -71,8 +71,8 @@
                         </Image>
                     </Button>
 
-                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="170,4,77,4" PreviewMouseDown="Button_Settings_PreviewMouseDown">
-                        <Image Width="19" Height="19">
+                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="174,4,73,4" PreviewMouseDown="Button_Settings_PreviewMouseDown">
+                        <Image Width="18" Height="18">
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
                                     <Setter Property="Source" Value="{StaticResource BSettings}"/>
@@ -86,7 +86,7 @@
                         </Image>
                     </Button>
 
-                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="10,-30,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="107" Width="103" MouseDown="Header_MouseDown">
+                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="10,-29,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="107" Width="103" MouseDown="Header_MouseDown">
                         <Image.Effect>
                             <DropShadowEffect BlurRadius="10" Color="#FF2400" ShadowDepth="0"/>
                         </Image.Effect>
