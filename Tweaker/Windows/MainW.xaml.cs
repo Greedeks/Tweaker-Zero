@@ -222,14 +222,6 @@ namespace Tweaker
                 CleaningPages();
             }
         }
-
-        private void Button_TextHeader_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 3)
-                TextHeader.Text = "Tweaker Zero";
-            if (e.RightButton == MouseButtonState.Pressed && e.ClickCount == 3)
-                TextHeader.Text = "Tweaker Z";
-        }
         #endregion
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
@@ -237,7 +229,7 @@ namespace Tweaker
             #region Анимация загрузки
 
             this.Opacity = 0;
-            await Task.Delay(120);
+            await Task.Delay(150);
             this.Opacity = 1;
 
             DoubleAnimation _animationTop = new DoubleAnimation

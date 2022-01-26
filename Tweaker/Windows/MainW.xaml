@@ -14,7 +14,7 @@
             <RectangleGeometry RadiusX="17" RadiusY="17" Rect="0,0,1044,580" />
         </Border.Clip>
 
-        <Grid Cursor="Hand">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="31*"/>
                 <RowDefinition Height="509*"/>
@@ -22,6 +22,7 @@
             </Grid.RowDefinitions>
 
             <!--#region Head-->
+
             <Grid Grid.Row="0">
                 <Border x:Name="Header" CornerRadius="15,15,0,0" Background="{DynamicResource BackgroundButtonHead}" MouseDown="Header_MouseDown"/>
                 <Grid>
@@ -33,7 +34,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="Button_Exit" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="233,6,16,5" PreviewMouseDown="Button_Exit_PreviewMouseDown">
-                        <Image Width="13">
+                        <Image Width="12">
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
                                     <Setter Property="Source" Value="{StaticResource BExit}"/>
@@ -47,7 +48,7 @@
                         </Image>
                     </Button>
 
-                    <Button x:Name="Button_Minimized" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="208,0,42,0" Height="20" VerticalAlignment="Center" PreviewMouseDown="Button_Minimized_PreviewMouseDown">
+                    <Button x:Name="Button_Minimized" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="210,0,40,0" Height="20" VerticalAlignment="Center" PreviewMouseDown="Button_Minimized_PreviewMouseDown">
                         <Image Height="2" Width="3" Grid.Column="3" Margin="-12,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Image.RenderTransform>
                                 <TransformGroup>
@@ -85,11 +86,11 @@
                         </Image>
                     </Button>
 
-                    <TextBlock  x:Name="TextHeader" Text="Tweaker Z"  Grid.Column="0" Foreground="{DynamicResource ColorRed}" FontFamily="/Fonts/#Raleway" FontStretch="Medium" FontSize="15.4" FontWeight="Medium" Margin="16,4,127,3" MouseDown="Header_MouseDown" PreviewMouseDown="Button_TextHeader_PreviewMouseDown" Opacity="1">
-                        <TextBlock.Effect>
-                            <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
-                        </TextBlock.Effect>
-                    </TextBlock>
+                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="10,-32,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="107" Width="103" MouseDown="Header_MouseDown">
+                        <Image.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="#FF2400" ShadowDepth="0"/>
+                        </Image.Effect>
+                    </Image>
                 </Grid>
             </Grid>
             <!--#endregion-->
