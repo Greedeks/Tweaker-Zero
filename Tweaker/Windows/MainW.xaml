@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="271*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="Button_Exit" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="233,6,16,5" PreviewMouseDown="Button_Exit_PreviewMouseDown">
+                    <Button x:Name="Button_Exit" Grid.Column="3" Style="{StaticResource ButtonsHead}" Margin="233,6,16,5" PreviewMouseDown="Button_Exit_PreviewMouseDown">
                         <Image Width="12">
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -48,7 +48,7 @@
                         </Image>
                     </Button>
 
-                    <Button x:Name="Button_Minimized" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="210,0,40,0" Height="20" VerticalAlignment="Center" PreviewMouseDown="Button_Minimized_PreviewMouseDown">
+                    <Button x:Name="Button_Minimized" Grid.Column="3" Style="{StaticResource ButtonsHead}" Margin="210,0,40,0" Height="20" VerticalAlignment="Center" PreviewMouseDown="Button_Minimized_PreviewMouseDown">
                         <Image Height="2" Width="3" Grid.Column="3" Margin="-12,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Image.RenderTransform>
                                 <TransformGroup>
@@ -71,7 +71,7 @@
                         </Image>
                     </Button>
 
-                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonHead}" Margin="174,5,73,3" PreviewMouseDown="Button_Settings_PreviewMouseDown">
+                    <Button x:Name="Button_Settings" Grid.Column="3" Style="{StaticResource ButtonsHead}" Margin="174,5,73,3" PreviewMouseDown="Button_Settings_PreviewMouseDown">
                         <Image Width="18" Height="18">
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">

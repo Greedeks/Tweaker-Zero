@@ -6,19 +6,19 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
         <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
         <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="14px"/>
+        <Setter Property="FontSize" Value="13.5px"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1.4">
+                    <Border CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="1.4">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
                                 <GradientStop Color="#FF0D00" Offset="0" />
-                                <GradientStop Color="#EF3965" Offset="1" />
+                                <GradientStop Color="#D90D11" Offset="0.5" />
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                     </Border>
@@ -29,64 +29,21 @@
             <EventTrigger RoutedEvent="Button.MouseEnter">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="5" To="12" Duration="0:0:01" SpeedRatio="11"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="5" To="10" Duration="0:0:01" SpeedRatio="13"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
             <EventTrigger RoutedEvent="Button.MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="5" Duration="0:0:01" SpeedRatio="10"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="10" To="5" Duration="0:0:01" SpeedRatio="12"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type Button}" x:Key="ButtonsTW_R">
-        <Setter Property="Foreground" Value="{DynamicResource ColorWhite}"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
-        <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="14px"/>
-        <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1.4">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Border.BorderBrush>
-                            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                <GradientStop Color="#D1D1D1" Offset="0" />
-                                <GradientStop Color="LightGray" Offset="1" />
-                            </LinearGradientBrush>
-                        </Border.BorderBrush>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <EventTrigger RoutedEvent="Button.MouseEnter">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="5" To="12" Duration="0:0:01" SpeedRatio="11"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="Button.MouseLeave">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="5" Duration="0:0:01" SpeedRatio="10"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Style.Triggers>
-    </Style>
-
-
-    <Style TargetType="{x:Type Button}" x:Key="ButtonHead">
+    <Style TargetType="{x:Type Button}" x:Key="ButtonsHead">
         <Setter Property="Foreground" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
