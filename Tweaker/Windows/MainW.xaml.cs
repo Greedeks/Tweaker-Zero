@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-
 namespace Tweaker
 {
     public partial class MainWindow : Window
@@ -19,6 +18,7 @@ namespace Tweaker
         {
             CheackApplicationCopy cheackApplicationCopy = new CheackApplicationCopy();
             cheackApplicationCopy.CheackAC();
+
             InitializeComponent();
         }
 

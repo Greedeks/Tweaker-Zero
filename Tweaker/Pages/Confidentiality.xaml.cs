@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
 {
@@ -199,6 +200,40 @@ namespace Tweaker.Pages
             else
             {
                 Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            GetSettingConfidentiality();
+        }
+
+        private void GetSettingConfidentiality()
+        {
+            SettingsWindows settingsWindows = new SettingsWindows();
+            settingsWindows.GetSettingConfidentiality();
+            if (settingsWindows.key[0].GetValue("Enabled").ToString() != "0")
+            {
+                TButton1.State = true;
+                Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                TButton1.State = false;
+                Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            if (settingsWindows.key[1].GetValue("Enabled").ToString() != "0" || settingsWindows.key[2].GetValue("Enabled").ToString() != "0" ||
+                settingsWindows.key[3].GetValue("Enabled").ToString() != "0" || settingsWindows.key[4].GetValue("Enabled").ToString() != "0" ||
+                settingsWindows.key[5].GetValue("Enabled").ToString() != "0")
+            {
+                TButton2.State = true;
+                Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                TButton2.State = false;
+                Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
         }
     }

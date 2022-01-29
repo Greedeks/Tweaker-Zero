@@ -19,7 +19,7 @@ namespace Tweaker
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 string _texttimer = _time.ToString("ss");
-                TextTimer.Content = "Автозакрытия  окна через " + _texttimer + " секунд";
+                ButtonOK.Content = "Понятно (" + _texttimer + ")";
                 if (_time == TimeSpan.Zero) { _timer.Stop(); Application.Current.Shutdown(); }
                 _time = _time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
