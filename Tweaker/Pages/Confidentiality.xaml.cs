@@ -7,6 +7,7 @@ namespace Tweaker.Pages
 {
     public partial class Confidentiality : Page
     {
+        private readonly SettingsWindows settingsWindows = new SettingsWindows();
         public Confidentiality()
         {
             InitializeComponent();
@@ -205,7 +206,6 @@ namespace Tweaker.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            SettingsWindows settingsWindows = new SettingsWindows();
             settingsWindows.GetSettingConfidentiality(this);
         }
     }

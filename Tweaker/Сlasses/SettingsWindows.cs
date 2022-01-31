@@ -29,7 +29,6 @@ namespace Tweaker.Сlasses
 
             #endregion
 
-
             #region Cheack/Set
             if (_key[0].GetValue("Enabled").ToString() != "0")
             {
