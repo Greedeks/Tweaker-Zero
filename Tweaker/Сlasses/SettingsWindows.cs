@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using System;
+using System.Diagnostics;
 using System.Windows;
 using Tweaker.Pages;
 
@@ -13,24 +15,11 @@ namespace Tweaker.Сlasses
 
         internal void GetSettingConfidentiality(Confidentiality confidentiality)
         {
-            #region Get
             //#1
             _key[0] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
-            //#2
-            _key[1] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings");
-            _key[2] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials");
-            _key[3] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language");
-            _key[4] = currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization");
-            _key[5] = currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows");
-            //#3
-            _key[6] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener");
-            _key[7] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments");
-            //#4
+            _key[1] = localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth");
 
-            #endregion
-
-            #region Cheack/Set
-            if (_key[0].GetValue("Enabled").ToString() != "0")
+            if (_key[0] != null && _key[0].GetValue("Enabled").ToString() != "0" || _key[1] != null && _key[1].GetValue("AllowAdvertising").ToString() != "0")
             {
                 confidentiality.TButton1.State = true;
                 confidentiality.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -40,11 +29,20 @@ namespace Tweaker.Сlasses
                 confidentiality.TButton1.State = false;
                 confidentiality.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
-            if (_key[1].GetValue("Enabled").ToString() != "0" || _key[2].GetValue("Enabled").ToString() != "0" ||
-                _key[3].GetValue("Enabled").ToString() != "0" || _key[4].GetValue("Enabled").ToString() != "0" ||
-                _key[5].GetValue("Enabled").ToString() != "0")
+
+            //#2
+            _key[2] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings");
+            _key[3] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials");
+            _key[4] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language");
+            _key[5] = currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization");
+            _key[6] = currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows");
+            _key[7] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility");
+
+            if (_key[2] != null && _key[2].GetValue("Enabled").ToString() != "0" || _key[3] != null && _key[3].GetValue("Enabled").ToString() != "0" ||
+                _key[4] != null && _key[4].GetValue("Enabled").ToString() != "0" || _key[5] != null && _key[5].GetValue("Enabled").ToString() != "0" ||
+                _key[6] != null && _key[6].GetValue("Enabled").ToString() != "0" || _key[7] != null && _key[7].GetValue("Enabled").ToString() != "0")
             {
-                confidentiality. TButton2.State = true;
+                confidentiality.TButton2.State = true;
                 confidentiality.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
@@ -52,7 +50,15 @@ namespace Tweaker.Сlasses
                 confidentiality.TButton2.State = false;
                 confidentiality.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
-            if (_key[6].GetValue("Start").ToString() != "0" || _key[7].GetValue("SaveZoneInformation").ToString() != "1")
+
+            //#3
+            _key[8] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener");
+            _key[9] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments");
+            _key[10] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
+            _key[11] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+
+            if (_key[8] != null && _key[8].GetValue("Start").ToString() != "0" || _key[9] != null && _key[9].GetValue("SaveZoneInformation").ToString() != "1" || 
+                _key[10] != null && _key[10].GetValue("Start").ToString() != "4" || _key[11] != null && _key[11].GetValue("Start").ToString() != "4")
             {
                 confidentiality.TButton3.State = true;
                 confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -62,7 +68,17 @@ namespace Tweaker.Сlasses
                 confidentiality.TButton3.State = false;
                 confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
-            #endregion
+
+            //#4
+            //Process process = Process.Start(new ProcessStartInfo
+            //{
+            //    FileName="cmd",
+            //    Arguments = @"schtasks /tn Microsoft\Windows\Maintenance\WinSAT",
+            //    UseShellExecute=false,
+            //    CreateNoWindow=true,
+            //    RedirectStandardError=true,
+            //});
+            //MessageBox.Show(process.StandardOutput.ReadToEnd());
         }
     }
 }
