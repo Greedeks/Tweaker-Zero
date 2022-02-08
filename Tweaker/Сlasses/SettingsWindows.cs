@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using Tweaker.Pages;
 
@@ -70,15 +71,7 @@ namespace Tweaker.Сlasses
             }
 
             //#4
-            //Process process = Process.Start(new ProcessStartInfo
-            //{
-            //    FileName="cmd",
-            //    Arguments = @"schtasks /tn Microsoft\Windows\Maintenance\WinSAT",
-            //    UseShellExecute=false,
-            //    CreateNoWindow=true,
-            //    RedirectStandardError=true,
-            //});
-            //MessageBox.Show(process.StandardOutput.ReadToEnd());
+
         }
     }
 }

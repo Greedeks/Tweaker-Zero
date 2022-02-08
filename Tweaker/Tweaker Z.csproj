@@ -108,7 +108,7 @@
       <DependentUpon>Confidentiality.xaml</DependentUpon>
     </Compile>
     <Compile Include="Сlasses\BrushAnimation.cs" />
-    <Compile Include="Сlasses\CheackApplicationCopy.cs" />
+    <Compile Include="Сlasses\CheckApplicationCopy.cs" />
     <Compile Include="Windows\MainW.xaml.cs">
       <DependentUpon>MainW.xaml</DependentUpon>
       <SubType>Code</SubType>
