@@ -1,8 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
-using System.Globalization;
-using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using Tweaker.Pages;
@@ -15,6 +14,7 @@ namespace Tweaker.Сlasses
             localMachineKey = Registry.LocalMachine, usersKey = Registry.Users,
             currentConfigKey = Registry.CurrentConfig;  
         private readonly RegistryKey[] _key = new RegistryKey[100];
+        private string _state = default;
 
         internal void GetSettingConfidentiality(Confidentiality confidentiality)
         {
@@ -73,10 +73,21 @@ namespace Tweaker.Сlasses
             }
 
             //#4
-            test(@"""Microsoft\Windows\Maintenance\WinSAT""");
+            TaskCheackState(@"""Microsoft\Windows\Maintenance\WinSAT""");
+            if (_state == "Ready" || _state == "Готово")
+            {
+                confidentiality.TButton4.State = true;
+                confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton4.State = false;
+                confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+            
         }
 
-        private void test(string ScheduledTaskName)
+        private void TaskCheackState(string ScheduledTaskName)
         {
             Process p = new Process();
             p.StartInfo.UseShellExecute = false;
@@ -84,15 +95,14 @@ namespace Tweaker.Сlasses
             p.StartInfo.RedirectStandardError = true;
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.CreateNoWindow = true;
-            p.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866); //437 //Running
+            p.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.StartInfo.Arguments = String.Format("/TN {0}", ScheduledTaskName);
             p.Start();
             p.StandardOutput.ReadLine();
             string tbl = p.StandardOutput.ReadToEnd();
             p.WaitForExit();
-
-            MessageBox.Show(Convert.ToString(tbl.Split(new String[] { "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries)[1].Trim().EndsWith("Состояние")));
+            _state = tbl.Split('A').Last().Trim();
         }
     }
 }
