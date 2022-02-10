@@ -167,6 +167,108 @@ namespace Tweaker.Сlasses
                 confidentiality.TButton9.State = false;
                 confidentiality.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
+
+            //#10
+            _key[23] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules");
+            _key[24] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection");
+
+            if (_key[23] != null && _key[23].GetValue("NumberOfSIUFInPeriod", null) != null && _key[23].GetValue("NumberOfSIUFInPeriod").ToString() != "0" || _key[23] != null && _key[23].GetValue("PeriodInNanoSeconds", null) != null && _key[23].GetValue("PeriodInNanoSeconds").ToString() != "0" ||
+            _key[24] != null && _key[24].GetValue("DoNotShowFeedbackNotifications", null) != null && _key[24].GetValue("DoNotShowFeedbackNotifications").ToString() != "1")
+            {
+                confidentiality.TButton10.State = true;
+                confidentiality.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton10.State = false;
+                confidentiality.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#11
+            _key[25] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech");
+
+            if (_key[25] != null && _key[25].GetValue("AllowSpeechModelUpdate", null) != null && _key[25].GetValue("AllowSpeechModelUpdate").ToString() != "0")
+            {
+                confidentiality.TButton11.State = true;
+                confidentiality.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton11.State = false;
+                confidentiality.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#12
+            _key[26] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc");
+
+            if (_key[26] != null && _key[26].GetValue("AllowSpeechModelUpdate", null) != null && _key[26].GetValue("AllowSpeechModelUpdate").ToString() != "4")
+            {
+                confidentiality.TButton12.State = true;
+                confidentiality.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton12.State = false;
+                confidentiality.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#13
+            _key[27] = localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System");
+
+            if (_key[27] != null && _key[27].GetValue("AllowExperimentation", null) != null && _key[27].GetValue("AllowExperimentation").ToString() != "0")
+            {
+                confidentiality.TButton13.State = true;
+                confidentiality.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton13.State = false;
+                confidentiality.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#14
+            _key[28] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
+            _key[29] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+
+            if (_key[28] != null && _key[28].GetValue("Start", null) != null && _key[28].GetValue("Start").ToString() != "4" ||
+                _key[29] != null && _key[28].GetValue("Start", null) != null && _key[29].GetValue("Start").ToString() != "4")
+            {
+                confidentiality.TButton14.State = true;
+                confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton14.State = false;
+                confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#15
+            _key[30] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service");
+
+            if (_key[30] != null && _key[30].GetValue("Start", null) != null && _key[30].GetValue("Start").ToString() != "4")
+            {
+                confidentiality.TButton15.State = true;
+                confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton15.State = false;
+                confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#16
+            _key[31] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer");
+
+            if (_key[31] != null && _key[31].GetValue("Start", null) != null && _key[31].GetValue("Start").ToString() != "4")
+            {
+                confidentiality.TButton15.State = true;
+                confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                confidentiality.TButton15.State = false;
+                confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
         }
 
         private void TaskCheckState(params string[] TaskName)
