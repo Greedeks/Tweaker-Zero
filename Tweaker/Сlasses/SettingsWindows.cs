@@ -91,25 +91,26 @@ namespace Tweaker.Сlasses
 
         private void TaskCheckState(params string[] TaskName)
         {
-            Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.FileName = "SCHTASKS.exe";
-            p.StartInfo.RedirectStandardError = true;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.CreateNoWindow = true;
-            p.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            Process process = Process.Start(new ProcessStartInfo
+            {
+                UseShellExecute = false,
+                FileName = "schtasks.exe",
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true,
+                StandardOutputEncoding = Encoding.GetEncoding(866),
+                WindowStyle = ProcessWindowStyle.Hidden
+            });
             for (int i = 0; i < TaskName.Length; i++)
             {
-                p.StartInfo.Arguments = String.Format("/TN {0}", TaskName[i]);
-                p.Start();
-                p.StandardOutput.ReadLine();
-                string tbl = p.StandardOutput.ReadToEnd();
-                p.WaitForExit();
-                if (tbl.Split('A').Last().Trim() == "Ready" || tbl.Split('A').Last().Trim() == "Готово")
-                _counTasks++;
+                 process.StartInfo.Arguments = String.Format("/TN {0}", TaskName[i]);
+                 process.Start();
+                 process.StandardOutput.ReadLine();
+                 string tbl = process.StandardOutput.ReadToEnd();
+                 process.WaitForExit();
+                 if (tbl.Split('A').Last().Trim() == "Ready" || tbl.Split('A').Last().Trim() == "Готово")
+                    _counTasks++;
             }
-            
         }
     }
 }
