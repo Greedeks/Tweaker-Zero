@@ -22,7 +22,7 @@ namespace Tweaker.Сlasses
             _key[0] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
             _key[1] = localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth");
 
-            if (_key[0].GetValue("Enabled", null) != null && _key[0].GetValue("Enabled").ToString() != "0" || _key[1].GetValue("AllowAdvertising", null) != null && _key[1].GetValue("AllowAdvertising").ToString() != "0")
+            if (_key[0] != null && _key[0].GetValue("Enabled", null) != null && _key[0].GetValue("Enabled").ToString() != "0" || _key[1] != null && _key[1].GetValue("AllowAdvertising", null) != null && _key[1].GetValue("AllowAdvertising").ToString() != "0")
             {
                 confidentiality.TButton1.State = true;
                 confidentiality.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -41,9 +41,9 @@ namespace Tweaker.Сlasses
             _key[6] = currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows");
             _key[7] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility");
 
-            if (_key[2].GetValue("Enabled", null) != null && _key[2].GetValue("Enabled").ToString() != "0" || _key[3].GetValue("Enabled", null) != null && _key[3].GetValue("Enabled").ToString() != "0" ||
-                _key[4].GetValue("Enabled", null) != null && _key[4].GetValue("Enabled").ToString() != "0" || _key[5].GetValue("Enabled", null) != null && _key[5].GetValue("Enabled").ToString() != "0" ||
-                _key[6].GetValue("Enabled", null) != null && _key[6].GetValue("Enabled").ToString() != "0" || _key[7].GetValue("Enabled", null) != null && _key[7].GetValue("Enabled").ToString() != "0")
+            if (_key[2] != null && _key[2].GetValue("Enabled", null) != null && _key[2].GetValue("Enabled").ToString() != "0" || _key[3] != null && _key[3].GetValue("Enabled", null) != null && _key[3].GetValue("Enabled").ToString() != "0" ||
+                _key[4] != null && _key[4].GetValue("Enabled", null) != null && _key[4].GetValue("Enabled").ToString() != "0" || _key[5] != null && _key[5].GetValue("Enabled", null) != null && _key[5].GetValue("Enabled").ToString() != "0" ||
+                _key[6] != null && _key[6].GetValue("Enabled", null) != null && _key[6].GetValue("Enabled").ToString() != "0" || _key[7] != null && _key[7].GetValue("Enabled", null) != null && _key[7].GetValue("Enabled").ToString() != "0")
             {
                 confidentiality.TButton2.State = true;
                 confidentiality.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -60,8 +60,8 @@ namespace Tweaker.Сlasses
             _key[10] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
             _key[11] = localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
 
-            if (_key[8].GetValue("Start", null) != null && _key[8].GetValue("Start").ToString() != "0" || _key[9].GetValue("SaveZoneInformation", null) != null && _key[9].GetValue("SaveZoneInformation").ToString() != "1" || 
-                _key[10].GetValue("Start", null) != null && _key[10].GetValue("Start").ToString() != "4" || _key[11].GetValue("Start", null) != null && _key[11].GetValue("Start").ToString() != "4")
+            if (_key[8] != null && _key[8].GetValue("Start", null) != null && _key[8].GetValue("Start").ToString() != "0" || _key[9] != null && _key[9].GetValue("SaveZoneInformation", null) != null && _key[9].GetValue("SaveZoneInformation").ToString() != "1" ||
+                _key[10] != null && _key[10].GetValue("Start", null) != null && _key[10].GetValue("Start").ToString() != "4" || _key[11] != null && _key[11].GetValue("Start", null) != null && _key[11].GetValue("Start").ToString() != "4")
             {
                 confidentiality.TButton3.State = true;
                 confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -92,7 +92,7 @@ namespace Tweaker.Сlasses
             //#5
             _key[12] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat");
 
-            if(_key[12].GetValue("DisableInventory", null) != null && _key[12].GetValue("DisableInventory").ToString() != "1")
+            if(_key[12] != null && _key[12].GetValue("DisableInventory", null) != null && _key[12].GetValue("DisableInventory").ToString() != "1")
             {
                 confidentiality.TButton5.State = true;
                 confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -109,8 +109,8 @@ namespace Tweaker.Сlasses
             _key[15] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection");
             _key[16] = currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
 
-            if(_key[13].GetValue("AllowTelemetry", null) != null && _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14].GetValue("AITEnable", null) != null && _key[14].GetValue("AITEnable").ToString() != "0" ||
-            _key[15].GetValue("AllowDeviceNameInTelemetry", null) != null && _key[15].GetValue("AllowDeviceNameInTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) != null && _key[16].GetValue("Start_TrackProgs").ToString() != "0")
+            if(_key[13] != null && _key[13].GetValue("AllowTelemetry", null) != null && _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14] != null && _key[14].GetValue("AITEnable", null) != null && _key[14].GetValue("AITEnable").ToString() != "0" ||
+            _key[15] != null && _key[15].GetValue("AllowDeviceNameInTelemetry", null) != null && _key[15].GetValue("AllowDeviceNameInTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) != null && _key[16].GetValue("Start_TrackProgs").ToString() != "0")
             {
                 confidentiality.TButton6.State = true;
                 confidentiality.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -126,8 +126,8 @@ namespace Tweaker.Сlasses
             _key[18] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports");
             _key[19] = currentUserKey.OpenSubKey(@"Software\Microsoft\Input\TIPC");
 
-            if (_key[17].GetValue("PreventHandwritingDataSharing", null) != null && _key[17].GetValue("AllowTelemetry").ToString() != "1" || _key[18].GetValue("AllowTelemetry", null) != null && _key[18].GetValue("PreventHandwritingErrorReports").ToString() != "1" ||
-            _key[19].GetValue("Enabled", null) != null && _key[19].GetValue("Enabled").ToString() != "0")
+            if (_key[17] != null && _key[17].GetValue("AllowTelemetry", null) != null && _key[17].GetValue("AllowTelemetry").ToString() != "1" || _key[18] != null && _key[18].GetValue("AllowTelemetry", null) != null && _key[18].GetValue("PreventHandwritingErrorReports").ToString() != "1" ||
+            _key[19] != null && _key[19].GetValue("Enabled", null) != null && _key[19].GetValue("Enabled").ToString() != "0")
             {
                 confidentiality.TButton7.State = true;
                 confidentiality.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -142,7 +142,7 @@ namespace Tweaker.Сlasses
             _key[20] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat");
             _key[21] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization");
 
-            if (_key[20].GetValue("DisableUAR", null) != null && _key[20].GetValue("DisableUAR").ToString() != "1" || _key[21].GetValue("NoLockScreenCamera", null) != null && _key[21].GetValue("NoLockScreenCamera").ToString() != "1")
+            if (_key[20] != null && _key[20].GetValue("DisableUAR", null) != null && _key[20].GetValue("DisableUAR").ToString() != "1" || _key[21] != null && _key[21].GetValue("NoLockScreenCamera", null) != null && _key[21].GetValue("NoLockScreenCamera").ToString() != "1")
             {
                 confidentiality.TButton8.State = true;
                 confidentiality.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -156,8 +156,8 @@ namespace Tweaker.Сlasses
             //#9
             _key[22] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors");
 
-            if (_key[22].GetValue("DisableLocationScripting", null) != null && _key[22].GetValue("DisableLocationScripting").ToString() != "1" || _key[22].GetValue("DisableLocation", null) != null && _key[22].GetValue("DisableLocation").ToString() != "1" ||
-            _key[22].GetValue("DisableWindowsLocationProvider", null) != null && _key[22].GetValue("DisableWindowsLocationProvider").ToString() != "1")
+            if (_key[22] != null && _key[22].GetValue("DisableLocationScripting", null) != null && _key[22].GetValue("DisableLocationScripting").ToString() != "1" || _key[22] != null && _key[22].GetValue("DisableLocation", null) != null && _key[22].GetValue("DisableLocation").ToString() != "1" ||
+            _key[22] != null && _key[22].GetValue("DisableWindowsLocationProvider", null) != null && _key[22].GetValue("DisableWindowsLocationProvider").ToString() != "1")
             {
                 confidentiality.TButton9.State = true;
                 confidentiality.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
