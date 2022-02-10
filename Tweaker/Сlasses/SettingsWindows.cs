@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Windows;
 using Tweaker.Pages;
 
@@ -71,7 +73,26 @@ namespace Tweaker.Сlasses
             }
 
             //#4
+            test(@"""Microsoft\Windows\Maintenance\WinSAT""");
+        }
 
+        private void test(string ScheduledTaskName)
+        {
+            Process p = new Process();
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.FileName = "SCHTASKS.exe";
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866); //437 //Running
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.StartInfo.Arguments = String.Format("/TN {0}", ScheduledTaskName);
+            p.Start();
+            p.StandardOutput.ReadLine();
+            string tbl = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+
+            MessageBox.Show(Convert.ToString(tbl.Split(new String[] { "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries)[1].Trim().EndsWith("Состояние")));
         }
     }
 }
