@@ -14,7 +14,7 @@ namespace Tweaker.Сlasses
             localMachineKey = Registry.LocalMachine, usersKey = Registry.Users,
             currentConfigKey = Registry.CurrentConfig;  
         private readonly RegistryKey[] _key = new RegistryKey[100];
-        private string _state = default;
+        private byte _counTasks = 0;
 
         internal void GetSettingConfidentiality(Confidentiality confidentiality)
         {
@@ -73,8 +73,10 @@ namespace Tweaker.Сlasses
             }
 
             //#4
-            TaskCheackState(@"""Microsoft\Windows\Maintenance\WinSAT""");
-            if (_state == "Ready" || _state == "Готово")
+            _counTasks=0;
+            TaskCheckState(@"""Microsoft\Windows\Maintenance\WinSAT""", @"""Microsoft\Windows\Autochk\Proxy""", @"""Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser""", @"""Microsoft\Windows\Application Experience\ProgramDataUpdater""", @"""Microsoft\Windows\Application Experience\StartupAppTask""", @"""Microsoft\Windows\PI\Sqm-Tasks""",
+                @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""", @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector""");
+            if (_counTasks>0)
             {
                 confidentiality.TButton4.State = true;
                 confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -87,7 +89,7 @@ namespace Tweaker.Сlasses
             
         }
 
-        private void TaskCheackState(string ScheduledTaskName)
+        private void TaskCheckState(params string[] TaskName)
         {
             Process p = new Process();
             p.StartInfo.UseShellExecute = false;
@@ -97,12 +99,17 @@ namespace Tweaker.Сlasses
             p.StartInfo.CreateNoWindow = true;
             p.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.StartInfo.Arguments = String.Format("/TN {0}", ScheduledTaskName);
-            p.Start();
-            p.StandardOutput.ReadLine();
-            string tbl = p.StandardOutput.ReadToEnd();
-            p.WaitForExit();
-            _state = tbl.Split('A').Last().Trim();
+            for (int i = 0; i < TaskName.Length; i++)
+            {
+                p.StartInfo.Arguments = String.Format("/TN {0}", TaskName[i]);
+                p.Start();
+                p.StandardOutput.ReadLine();
+                string tbl = p.StandardOutput.ReadToEnd();
+                p.WaitForExit();
+                if (tbl.Split('A').Last().Trim() == "Ready" || tbl.Split('A').Last().Trim() == "Готово")
+                _counTasks++;
+            }
+            
         }
     }
 }
