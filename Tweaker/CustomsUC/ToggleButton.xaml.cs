@@ -62,7 +62,7 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.1)
+                Duration = TimeSpan.FromSeconds(0.07)
             };
             Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
         }
