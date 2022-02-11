@@ -53,20 +53,17 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
-                Duration = TimeSpan.FromSeconds(0.05)
+                Duration = TimeSpan.FromSeconds(0.07)
             };
 
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
-            DotShadow.BeginAnimation(ContentControl.MarginProperty, _animation);
 
             BrushAnimation _brushanimation = new BrushAnimation
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.1)
+                Duration = TimeSpan.FromSeconds(0.15)
             };
-
-            Timeline.SetDesiredFrameRate(_brushanimation, 60);
             Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
         }
 
@@ -77,7 +74,6 @@ namespace ToggleSwitch
                 Back.Fill = _OffColor;
                 _Toggle = false;
                 Dot.Margin = _LeftSide;
-                DotShadow.Margin = _LeftSide;
 
             }
             else
@@ -85,7 +81,6 @@ namespace ToggleSwitch
                 Back.Fill = _OnColor;
                 _Toggle = true;
                 Dot.Margin = _RightSide;
-                DotShadow.Margin = _RightSide;
             }
         }
 
