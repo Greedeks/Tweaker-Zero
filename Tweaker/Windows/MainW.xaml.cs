@@ -13,8 +13,8 @@ namespace Tweaker
         #region Параметры
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
-        private CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
-        private SettingsWindows settingsWindows = new SettingsWindows();
+        private readonly CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
+        private readonly SettingsWindows settingsWindows = new SettingsWindows();
         #endregion
 
         public MainWindow()

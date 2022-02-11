@@ -16,7 +16,7 @@ namespace Tweaker.Сlasses
         private readonly RegistryKey[] _key = new RegistryKey[100];
         private static byte _counTasksConfidentiality = default;
 
-        internal void GetSetSettingConfidentialityR(Confidentiality confidentiality)
+        internal void GetSettingConfidentiality(Confidentiality confidentiality)
         {
             //#1
             _key[0] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
