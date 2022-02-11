@@ -206,7 +206,7 @@ namespace Tweaker.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            settingsWindows.GetSettingConfidentiality(this);
+            settingsWindows.GetSetSettingConfidentialityR(this);
         }
     }
 }

@@ -14,9 +14,9 @@ namespace Tweaker.Сlasses
             localMachineKey = Registry.LocalMachine, usersKey = Registry.Users,
             currentConfigKey = Registry.CurrentConfig;  
         private readonly RegistryKey[] _key = new RegistryKey[100];
-        private byte _counTasks = 0;
+        private static byte _counTasksConfidentiality = default;
 
-        internal void GetSettingConfidentiality(Confidentiality confidentiality)
+        internal void GetSetSettingConfidentialityR(Confidentiality confidentiality)
         {
             //#1
             _key[0] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
@@ -73,12 +73,7 @@ namespace Tweaker.Сlasses
             }
 
             //#4
-            TaskCheckState(@"""Microsoft\Windows\Maintenance\WinSAT""", @"""Microsoft\Windows\Autochk\Proxy""", @"""Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser""", 
-                @"""Microsoft\Windows\Application Experience\ProgramDataUpdater""", @"""Microsoft\Windows\Application Experience\StartupAppTask""", @"""Microsoft\Windows\PI\Sqm-Tasks""",
-                @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""", 
-                @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector""");
-
-            if (_counTasks>0)
+            if (_counTasksConfidentiality > 0)
             {
                 confidentiality.TButton4.State = true;
                 confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -271,8 +266,14 @@ namespace Tweaker.Сlasses
             }
         }
 
-        private void TaskCheckState(params string[] TaskName)
+        internal void TaskCheckStateConfidentiality()
         {
+            string[] TaskName = {@"""Microsoft\Windows\Maintenance\WinSAT""", @"""Microsoft\Windows\Autochk\Proxy""", @"""Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser""",
+                @"""Microsoft\Windows\Application Experience\ProgramDataUpdater""", @"""Microsoft\Windows\Application Experience\StartupAppTask""", @"""Microsoft\Windows\PI\Sqm-Tasks""",
+                @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
+                @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
+            byte test = 0;
+
             Process process = Process.Start(new ProcessStartInfo
             {
                 UseShellExecute = false,
@@ -283,7 +284,6 @@ namespace Tweaker.Сlasses
                 StandardOutputEncoding = Encoding.GetEncoding(866),
                 WindowStyle = ProcessWindowStyle.Hidden
             });
-            _counTasks = 0;
             for (int i = 0; i < TaskName.Length; i++)
             {
                  process.StartInfo.Arguments = String.Format("/TN {0}", TaskName[i]);
@@ -291,9 +291,10 @@ namespace Tweaker.Сlasses
                  process.StandardOutput.ReadLine();
                  string tbl = process.StandardOutput.ReadToEnd();
                  process.WaitForExit();
-                 if (tbl.Split('A').Last().Trim() == "Ready" || tbl.Split('A').Last().Trim() == "Готово")
-                    _counTasks++;
+                if (tbl.Split('A').Last().Trim() == "Ready" || tbl.Split('A').Last().Trim() == "Готово")
+                    test++;
             }
+            _counTasksConfidentiality = test;
         }
     }
 }

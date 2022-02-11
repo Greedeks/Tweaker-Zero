@@ -4,19 +4,21 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using Tweaker.Сlasses;
 
 namespace Tweaker
 {
     public partial class MainWindow : Window
     {
-        #region Переменные
+        #region Параметры
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
+        private CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
+        private SettingsWindows settingsWindows = new SettingsWindows();
         #endregion
 
         public MainWindow()
         {
-            CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
             checkApplicationCopy.CheckAC();
 
             InitializeComponent();
@@ -226,6 +228,8 @@ namespace Tweaker
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            settingsWindows.TaskCheckStateConfidentiality();
+
             #region Анимация загрузки
 
             this.Opacity = 0;
