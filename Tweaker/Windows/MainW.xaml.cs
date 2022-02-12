@@ -231,9 +231,8 @@ namespace Tweaker
             settingsWindows.TaskCheckStateConfidentiality();
 
             #region Анимация загрузки
-
             this.Opacity = 0;
-            await Task.Delay(150);
+            await Task.Delay(200);
             this.Opacity = 1;
 
             DoubleAnimation _animationTop = new DoubleAnimation

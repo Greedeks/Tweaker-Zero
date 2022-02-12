@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -20,7 +21,7 @@ namespace Tweaker
             {
                 string _texttimer = _time.ToString("ss");
                 ButtonOK.Content = "Понятно (" + _texttimer + ")";
-                if (_time == TimeSpan.Zero) { _timer.Stop(); Application.Current.Shutdown(); }
+                if (_time == TimeSpan.Zero) { _timer.Stop(); foreach (Process proc in Process.GetProcessesByName("Tweaker Z")) { proc.Kill(); } }
                 _time = _time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
 

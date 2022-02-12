@@ -102,7 +102,7 @@ namespace Tweaker.Сlasses
             _key[13] = localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection");
             _key[14] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat");
             _key[15] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection");
-            _key[16] = currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+            _key[16] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
 
             if(_key[13] != null && _key[13].GetValue("AllowTelemetry", null) != null && _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14] != null && _key[14].GetValue("AITEnable", null) != null && _key[14].GetValue("AITEnable").ToString() != "0" ||
             _key[15] != null && _key[15].GetValue("AllowDeviceNameInTelemetry", null) != null && _key[15].GetValue("AllowDeviceNameInTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) != null && _key[16].GetValue("Start_TrackProgs").ToString() != "0")
@@ -119,7 +119,7 @@ namespace Tweaker.Сlasses
             //#7
             _key[17] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\TabletPC");
             _key[18] = localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports");
-            _key[19] = currentUserKey.OpenSubKey(@"Software\Microsoft\Input\TIPC");
+            _key[19] = currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Input\TIPC");
 
             if (_key[17] != null && _key[17].GetValue("AllowTelemetry", null) != null && _key[17].GetValue("AllowTelemetry").ToString() != "1" || _key[18] != null && _key[18].GetValue("AllowTelemetry", null) != null && _key[18].GetValue("PreventHandwritingErrorReports").ToString() != "1" ||
             _key[19] != null && _key[19].GetValue("Enabled", null) != null && _key[19].GetValue("Enabled").ToString() != "0")
