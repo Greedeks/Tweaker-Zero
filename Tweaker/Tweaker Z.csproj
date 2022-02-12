@@ -139,7 +139,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Raleway-VariableFont_wght.ttf" />
     <None Include="app.manifest" />
     <Resource Include="Fonts\NotoSans-Regular.ttf" />
     <None Include="Properties\Settings.settings">
