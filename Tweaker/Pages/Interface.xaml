@@ -107,34 +107,52 @@
             </Style>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Grid>
-        <ScrollViewer>
-            <Grid Width="1034">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="370*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="89*"/>
-                </Grid.RowDefinitions>
-            </Grid>
-        </ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="370*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="89*"/>
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <ScrollViewer>
+                <Grid Width="1034">
+                    <!--#region Left Tweks-->
+                    
+                    <!--#endregion-->
 
-        <!--#region Left Tweks-->
+                    <!--#region Right Tweaks-->
 
-
-
-        <!--#endregion-->
+                    <!--#endregion-->
+                    
+                </Grid>
+            </ScrollViewer>
+        </Grid>
 
         <!--#region Buttons-->
+        <Grid Grid.Row="1">
 
+            <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
+                </Button.Effect>
+            </Button>
 
-
+            <Button Style="{StaticResource ButtonsTW}" Content="Отключить всё" Height="26" Cursor="Hand" Margin="546,12,349.5,12">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
+                </Button.Effect>
+            </Button>
+        </Grid>
         <!--#endregion-->
 
         <!--#region Description-->
-
+        <Grid Grid.Row="2">
+            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="DescriptionT" TextAlignment="Center" HorizontalAlignment="Center" Text="Наведите курсор на любую функцию, чтобы получить её описание" TextWrapping="Wrap" Width="1024" Height="76" Foreground="LightGray" FontSize="14px" FontFamily="/Fonts/#NotoSans" Margin="0,6,0,7"/>
+        </Grid>
         <!--#endregion-->
-
+        
     </Grid>
 </Page>
