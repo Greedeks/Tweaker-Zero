@@ -107,6 +107,7 @@ namespace Tweaker
                         Grid.SetColumn(Slider, 1);
 
                         SliderAnim(true);
+                        MainContainer.Content = new Pages.Interface();
                         _interfaceB = true;
                     }
                     else
