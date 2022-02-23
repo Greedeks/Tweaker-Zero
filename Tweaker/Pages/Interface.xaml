@@ -117,15 +117,51 @@
 
         <Grid Grid.Row="0">
             <ScrollViewer>
-                <Grid Width="1034">
+                <Grid Width="1034" Height="396">
                     <!--#region Left Tweks-->
-                    
+                    <Label x:Name="Tweak1" Content="Убрать задержку появления контекстного меню" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,25,616,346" Cursor="Hand"/>
+                    <Label x:Name="Tweak2" Content="Удалить мусорные пункты контекстного меню" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,65,634,306"/>
+                    <Label x:Name="Tweak3" Content="Удалить мусорные пункты из контекстного меню Создать" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,105,548,266"/>
+                    <Label x:Name="Tweak4" Content="Нормальный цвет всплывающей подсказки" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,145,651,226"/>
+                    <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,185,594,186"/>
+                    <Label x:Name="Tweak6" Content="Удаление «Объёмные объекты» из проводника" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,228,616,143"/>
+                    <Label x:Name="Tweak7" Content="Удаление папок из «Этот компьютер»" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,266,687,105"/>
+                    <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,307,748,64"/>
+                    <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,344,567,27"/>
+
+                    <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton3" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,184,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,224,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton7" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="42,304,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="42,344,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
+                    <Label x:Name="Tweak10" Content="Ускорение частоты мерцания курсора" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,25,152,346" Cursor="Hand"/>
+                    <Label x:Name="Tweak11" Content="Ускорение появления превью на панели задач" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,65,93,306"/>
+                    <Label x:Name="Tweak12" Content="Отображение всех значков в трее" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,105,175,266"/>
+                    <Label x:Name="Tweak13" Content="Нормальный цвет всплывающей подсказки" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,145,120,226"/>
+                    <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,185,93,186"/>
+                    <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,228,24,143"/>
+                    <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,266,24,105"/>
+                    <Label x:Name="Tweak17" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,307,120,64"/>
+                    <Label x:Name="Tweak18" Content="Переместить панель задач вверх (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,344,103,27"/>
 
+                    <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,104,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,144,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,184,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,224,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,264,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton17" HorizontalAlignment="Left" Margin="574,304,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton18" HorizontalAlignment="Left" Margin="574,344,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
                     <!--#endregion-->
-                    
+
                 </Grid>
             </ScrollViewer>
         </Grid>
@@ -153,6 +189,6 @@
             <TextBlock x:Name="DescriptionT" TextAlignment="Center" HorizontalAlignment="Center" Text="Наведите курсор на любую функцию, чтобы получить её описание" TextWrapping="Wrap" Width="1024" Height="76" Foreground="LightGray" FontSize="14px" FontFamily="/Fonts/#NotoSans" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
-        
+
     </Grid>
 </Page>

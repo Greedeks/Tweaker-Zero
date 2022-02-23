@@ -119,7 +119,7 @@
                 <Grid Width="1034">
                     <!--#region Left Tweks-->
 
-            <Label x:Name="Tweak1" Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,24,558,321" Cursor="Hand"/>
+        <Label x:Name="Tweak1" Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,24,558,321" Cursor="Hand"/>
         <Label x:Name="Tweak2" Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,64,558,281"/>
         <Label x:Name="Tweak3" Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,104,558,241"/>
         <Label x:Name="Tweak4" Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,144,558,201"/>
