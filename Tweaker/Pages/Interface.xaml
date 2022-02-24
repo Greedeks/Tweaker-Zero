@@ -130,16 +130,16 @@
                     <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,347,567,53"/>
                     <Label x:Name="Tweak10" Content="Ускорение частоты мерцания курсора" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,380,567,1"/>
 
-                    <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton3" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,184,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,224,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton7" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="42,304,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="42,344,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="42,384,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton1_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton2_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton3" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton3_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton4_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,184,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton5_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,224,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton6_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton7" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton7_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="42,304,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton8_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="42,344,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="42,384,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton10_PreviewMouseDown"/>
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
@@ -154,16 +154,16 @@
                     <Label x:Name="Tweak19" Content="Классическое контекстное меню (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,344,103,51"/>
                     <Label x:Name="Tweak20" Content="Отключить «Рекомендуем» в меню пуска (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,384,45,11"/>
 
-                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,104,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,144,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,184,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,224,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton17" HorizontalAlignment="Left" Margin="574,264,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton18" HorizontalAlignment="Left" Margin="574,304,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton19" HorizontalAlignment="Left" Margin="574,344,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton20" HorizontalAlignment="Left" Margin="574,384,0,0" VerticalAlignment="Top" Height="25" Width="39"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,104,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,144,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton14_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,184,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,224,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton16_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton17" HorizontalAlignment="Left" Margin="574,264,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton17_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton18" HorizontalAlignment="Left" Margin="574,304,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton18_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton19" HorizontalAlignment="Left" Margin="574,344,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton19_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton20" HorizontalAlignment="Left" Margin="574,384,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
                     <!--#endregion-->
 
                 </Grid>

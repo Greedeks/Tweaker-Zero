@@ -13,6 +13,7 @@ namespace Tweaker.Pages
             InitializeComponent();
         }
 
+        #region Tweaks
         private void TButton1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (!TButton1.State)
@@ -203,6 +204,7 @@ namespace Tweaker.Pages
                 Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
         }
+        #endregion
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
