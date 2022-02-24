@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="Interface" SnapsToDevicePixels="True" UseLayoutRounding="True">
+      Title="Interface" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded">
     <Page.Style>
         <Style>
             <Style.Triggers>

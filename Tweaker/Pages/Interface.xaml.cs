@@ -13,6 +13,9 @@ namespace Tweaker.Pages
             InitializeComponent();
         }
 
-
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            settingsWindows.GetSettingInterface(this);
+        }
     }
 }

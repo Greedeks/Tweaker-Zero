@@ -13,7 +13,7 @@ namespace Tweaker.Сlasses
         private readonly RegistryKey classesRootKey = Registry.ClassesRoot, currentUserKey = Registry.CurrentUser,
             localMachineKey = Registry.LocalMachine, usersKey = Registry.Users,
             currentConfigKey = Registry.CurrentConfig;  
-        private readonly RegistryKey[] _key = new RegistryKey[100];
+        private readonly RegistryKey[] _key = new RegistryKey[500];
         private static byte _counTasksConfidentiality = default;
 
         internal void GetSettingConfidentiality(Confidentiality _confidentiality)
@@ -299,7 +299,55 @@ namespace Tweaker.Сlasses
 
         internal void GetSettingInterface(Interface _interface)
         {
+            //#1
+            _key[32] = currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
+            if (_key[32] != null && _key[32].GetValue("MenuShowDelay", null) != null && _key[32].GetValue("MenuShowDelay").ToString() != "20")
+            {
+                _interface.TButton1.State = true;
+                _interface.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton1.State = false;
+                _interface.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#2
+
+            //#3
+
+            //#4
+            _key[33] = usersKey.OpenSubKey(@".DEFAULT\Control Panel\Colors");
+            _key[34] = usersKey.OpenSubKey(@"S-1-5-19\Control Panel\Colors");
+            _key[35] = usersKey.OpenSubKey(@"S-1-5-20\Control Panel\Colors");
+
+            if (_key[33] != null && _key[33].GetValue("InfoWindow", null) != null && _key[33].GetValue("InfoWindow").ToString() != "246 253 255" || _key[34] != null && _key[34].GetValue("InfoWindow", null) != null && _key[34].GetValue("InfoWindow").ToString() != "246 253 255" ||
+            _key[35] != null && _key[35].GetValue("InfoWindow", null) != null && _key[35].GetValue("InfoWindow").ToString() != "246 253 255")
+            {
+                _interface.TButton4.State = true;
+                _interface.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton4.State = false;
+                _interface.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#5
+            _key[36] = currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+
+            if (_key[36] != null && _key[36].GetValue("CaptionHeight", null) != null && _key[36].GetValue("CaptionHeight").ToString() != "-270" || 
+                _key[36] != null && _key[36].GetValue("CaptionWidth", null) != null && _key[36].GetValue("CaptionWidth").ToString() != "-270")
+            {
+                _interface.TButton5.State = true;
+                _interface.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton5.State = false;
+                _interface.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
         }
     }
 }
