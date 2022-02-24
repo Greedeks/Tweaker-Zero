@@ -108,7 +108,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
+    <Grid ScrollViewer.CanContentScroll="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="370*"/>
             <RowDefinition Height="50*"/>
@@ -118,6 +118,7 @@
         <Grid Grid.Row="0">
             <ScrollViewer>
                 <Grid Width="1034" Height="420">
+                    
                     <!--#region Left Tweks-->
                     <Label x:Name="Tweak1" Content="Убрать задержку появления контекстного меню" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,25,616,375" Cursor="Hand"/>
                     <Label x:Name="Tweak2" Content="Удалить мусорные пункты контекстного меню" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,65,634,335"/>
