@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Tweaker.Сlasses;
@@ -208,7 +209,14 @@ namespace Tweaker.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            settingsWindows.GetSettingConfidentiality(this);
+            try
+            {
+                settingsWindows.GetSettingConfidentiality(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex));
+            }
         }
     }
 }
