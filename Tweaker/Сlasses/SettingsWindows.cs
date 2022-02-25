@@ -457,12 +457,27 @@ namespace Tweaker.Сlasses
             }
 
             //#17
+            _key[44] = currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+            _key[45] = currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search");
+
+            if (_key[44] != null && _key[44].GetValue("ShowTaskViewButton", null) != null && _key[44].GetValue("ShowTaskViewButton").ToString() != "0" || _key[44] != null && _key[44].GetValue("TaskbarMn", null) != null && _key[44].GetValue("TaskbarMn").ToString() != "0" 
+                || _key[44] != null && _key[44].GetValue("TaskbarDa", null) != null && _key[44].GetValue("TaskbarDa").ToString() != "0" || _key[45] != null && _key[45].GetValue("SearchboxTaskbarMode", null) != null && _key[45].GetValue("SearchboxTaskbarMode").ToString() != "0")
+            {
+                _interface.TButton17.State = true;
+                _interface.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton17.State = false;
+                _interface.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#18
 
             //#19
 
             //#20
+
         }
     }
 }
