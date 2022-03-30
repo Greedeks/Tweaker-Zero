@@ -123,7 +123,7 @@
                 <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" Margin="0,0,119,0" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Системная информация" Grid.ColumnSpan="2"/>
                 <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Прочее" Cursor="Hand"/>
 
-                <Border x:Name="Slider" Background="{DynamicResource ColorRed}" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
+                <Border x:Name="ActivePage" Background="{DynamicResource ColorRed}" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
             </Grid>
             <!--#endregion-->
 

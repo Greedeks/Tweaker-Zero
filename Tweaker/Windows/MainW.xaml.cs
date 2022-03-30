@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Tweaker.Сlasses;
 
@@ -45,17 +46,17 @@ namespace Tweaker
         }
         #endregion
 
-        private void SliderAnim(bool _stateAnimSlider)
+        private void ActivePageAnim(bool _stateAnimActivePage)
         {
             DoubleAnimation _animation = new DoubleAnimation
             {
-                From = !_stateAnimSlider ? Slider.Opacity : 0,
-                To = !_stateAnimSlider ? 0 : 1,
+                From = !_stateAnimActivePage ? ActivePage.Opacity : 0,
+                To = !_stateAnimActivePage ? 0 : 1,
                 Duration = TimeSpan.FromSeconds(0.15)
             };
             Timeline.SetDesiredFrameRate(_animation, 60);
-            Slider.BeginAnimation(ContextMenu.OpacityProperty, _animation);
-            Slider.Opacity = !_stateAnimSlider ? 0 : 1;
+            ActivePage.BeginAnimation(ContextMenu.OpacityProperty, _animation);
+            ActivePage.Opacity = !_stateAnimActivePage ? 0 : 1;
         }
 
         private void StandStateBtnN()
@@ -76,7 +77,7 @@ namespace Tweaker
         #region Кнопки
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            SliderAnim(false);
+            ActivePageAnim(false);
             CleaningPages();
 
             Button btn = (Button)sender;
@@ -87,16 +88,16 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 0);
+                        Grid.SetColumn(ActivePage, 0);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         MainContainer.Content = new Pages.Confidentiality();
                         _confidentialityB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
@@ -105,16 +106,16 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 1);
+                        Grid.SetColumn(ActivePage, 1);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         MainContainer.Content = new Pages.Interface();
                         _interfaceB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
@@ -123,15 +124,15 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 2);
+                        Grid.SetColumn(ActivePage, 2);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         _applicationB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
@@ -140,15 +141,15 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 3);
+                        Grid.SetColumn(ActivePage, 3);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         _servicesB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
@@ -157,15 +158,15 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 4);
+                        Grid.SetColumn(ActivePage, 4);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         _systemB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
@@ -174,16 +175,16 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 5);
+                        Grid.SetColumn(ActivePage, 5);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         MainContainer.Content = new Pages.SystemInfromation();
                         _systeminfoB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
@@ -192,21 +193,21 @@ namespace Tweaker
                     {
                         StandStateBtnN();
                         btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(Slider, 6);
+                        Grid.SetColumn(ActivePage, 6);
 
-                        SliderAnim(true);
+                        ActivePageAnim(true);
                         _moreB = true;
                     }
                     else
                     {
                         StandStateBtnN();
-                        SliderAnim(false);
+                        ActivePageAnim(false);
                         CleaningPages();
                     }
                     break;
                 default:
                     StandStateBtnN();
-                    SliderAnim(false);
+                    ActivePageAnim(false);
                     CleaningPages();
                     break;
             }
@@ -217,7 +218,7 @@ namespace Tweaker
             if (e.LeftButton == MouseButtonState.Pressed && !_settings)
             {
                 StandStateBtnN();
-                SliderAnim(false);
+                ActivePageAnim(false);
                 CleaningPages();
 
             }
