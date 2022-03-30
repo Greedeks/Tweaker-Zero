@@ -1,19 +1,16 @@
-﻿using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
 {
     public partial class SystemInfromation : Page
     {
+        GetSystemInformation getSystemInformation = new GetSystemInformation();
         public SystemInfromation()
         {
             InitializeComponent();
-            UserAvatar.ImageSource = SystemInformation._urlImage;
-
+            UserAvatar.ImageSource = GetSystemInformation._urlImage;
+            UserName.Content = getSystemInformation.NameUser();
         }
 
     }

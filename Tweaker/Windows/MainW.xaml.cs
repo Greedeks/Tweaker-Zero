@@ -15,7 +15,7 @@ namespace Tweaker
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
         private readonly SettingsWindows settingsWindows = new SettingsWindows();
-        private SystemInformation systemInformation = new SystemInformation();
+        private GetSystemInformation systemInformation = new GetSystemInformation();
         #endregion
 
         public MainWindow()
@@ -231,7 +231,7 @@ namespace Tweaker
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SystemInformation._urlImage = systemInformation.SetImageUser();
+            GetSystemInformation._urlImage = systemInformation.SetImageUser();
             settingsWindows.TaskCheckStateConfidentiality();
 
             #region Анимация загрузки
