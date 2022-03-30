@@ -34,16 +34,12 @@ namespace Tweaker.Сlasses
         internal string NameUser()
         {
             string _FullName = default;
-            string _DomainName = Environment.UserDomainName;
-            string _AccountName = Environment.UserName.ToLower();
-            SelectQuery query = new SelectQuery("select FullName from Win32_UserAccount where domain='" + _DomainName + "' and name='" + _AccountName + "'");
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
-            foreach (ManagementBaseObject disk in searcher.Get())
+            foreach (var managementObj in new ManagementObjectSearcher("select FullName from Win32_UserAccount where domain='" + Environment.UserDomainName + "' and name='" + Environment.UserName.ToLower() + "'").Get())
             {
-                _FullName=(string)disk["FullName"];
+                _FullName= (string)managementObj["FullName"];
             }
             if (_FullName != String.Empty) return _FullName;
-            else return _AccountName;
+            else return Environment.UserName.ToLower();
         }
     }
 }

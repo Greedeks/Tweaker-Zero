@@ -10,7 +10,7 @@ namespace Tweaker.Pages
         {
             InitializeComponent();
             UserAvatar.ImageSource = GetSystemInformation._urlImage;
-            UserName.Content = getSystemInformation.NameUser();
+            UserName.Text = getSystemInformation.NameUser();
         }
 
     }
