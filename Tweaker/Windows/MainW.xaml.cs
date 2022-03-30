@@ -15,6 +15,7 @@ namespace Tweaker
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
         private readonly SettingsWindows settingsWindows = new SettingsWindows();
+        private SystemInformation systemInformation = new SystemInformation();
         #endregion
 
         public MainWindow()
@@ -176,6 +177,7 @@ namespace Tweaker
                         Grid.SetColumn(Slider, 5);
 
                         SliderAnim(true);
+                        MainContainer.Content = new Pages.SystemInfromation();
                         _systeminfoB = true;
                     }
                     else
@@ -229,6 +231,7 @@ namespace Tweaker
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SystemInformation._urlImage = systemInformation.SetImageUser();
             settingsWindows.TaskCheckStateConfidentiality();
 
             #region Анимация загрузки

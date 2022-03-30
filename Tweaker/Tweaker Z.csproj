@@ -67,7 +67,11 @@
     <Compile Include="Pages\Interface.xaml.cs">
       <DependentUpon>Interface.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SystemInfromation.xaml.cs">
+      <DependentUpon>SystemInfromation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Сlasses\SettingsWindows.cs" />
+    <Compile Include="Сlasses\SystemInformation.cs" />
     <Page Include="CustomsUC\ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +87,10 @@
     <Page Include="Images\HeadSVG.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SystemInfromation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
