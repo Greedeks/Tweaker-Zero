@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Management;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using Tweaker.Сlasses;
@@ -15,6 +13,7 @@ namespace Tweaker.Pages
         {
             InitializeComponent();
             UserAvatar.ImageSource = SystemInformation._urlImage;
+
         }
 
     }

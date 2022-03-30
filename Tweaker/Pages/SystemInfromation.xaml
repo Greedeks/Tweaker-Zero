@@ -31,6 +31,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" SnapsToDevicePixels="True" UseLayoutRounding="True">
+            
             <!--#region  ImageUser-->
             <Ellipse Width="105.5" Height="105.5" Fill="{DynamicResource ColorRedNotActive}" Opacity="0.8"/>
             <Border CornerRadius="50.5,50.5,50.5,50.5" Height="100.5" Width="100.5" Margin="471.5,15.5,472.5,14">
