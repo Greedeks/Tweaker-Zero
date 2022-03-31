@@ -19,7 +19,7 @@ namespace Tweaker
         {
             if (!mutex.WaitOne(150, false))
             {
-                using (Mutex mutex = new Mutex(false, @"Global\" + "Tweaker Zero"))
+                using (Mutex mutex = new Mutex(false, @"Global\" + "Tweaker"))
                 {
                     if (mutex.WaitOne(0, false))
                     {

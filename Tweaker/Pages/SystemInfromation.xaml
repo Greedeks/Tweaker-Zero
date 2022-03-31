@@ -53,5 +53,22 @@
 
         </Grid>
 
+        <Grid Grid.Row="1">
+
+            <TextBlock Style="{DynamicResource SystemINFO}" Text="Процессор:" Width="Auto" HorizontalAlignment="Left" Margin="54,30,0,322" Cursor="Hand">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" Text="Процессор" Width="Auto" HorizontalAlignment="Left" Margin="136,30,0,322" Cursor="Hand"/>
+
+            <TextBlock Style="{DynamicResource SystemINFO}" Text="Видеокарта:" Width="Auto" HorizontalAlignment="Left" Margin="54,70,0,282" Cursor="Hand">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" Text="Видеокарта" Width="Auto" HorizontalAlignment="Left" Margin="136,70,0,282" Cursor="Hand"/>
+        </Grid>
+
     </Grid>
 </Page>

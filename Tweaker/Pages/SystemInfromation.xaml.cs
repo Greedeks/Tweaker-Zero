@@ -11,6 +11,7 @@ namespace Tweaker.Pages
             InitializeComponent();
             UserAvatar.ImageSource = GetSystemInformation._urlImage;
             UserName.Text = getSystemInformation.NameUser();
+            getSystemInformation.SetInormationPC(this);
         }
 
     }

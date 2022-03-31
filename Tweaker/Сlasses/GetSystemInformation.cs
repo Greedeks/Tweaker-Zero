@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Tweaker.Pages;
 
 namespace Tweaker.Сlasses
 {
@@ -38,6 +40,24 @@ namespace Tweaker.Сlasses
                 _FullName= (string)managementObj["FullName"];
             if (_FullName != String.Empty) return _FullName;
             else return Environment.UserName.ToLower();
+        }
+
+        private static List<string> _INFthisPC = new List<string>();
+        internal void GetInormationPC()
+        {
+            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name from Win32_Processor").Get())
+                _INFthisPC.Add((string)managementObj["Name"]);
+            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
+            {
+                _INFthisPC.Add((string)managementObj["Name"]);
+                _INFthisPC.Add(Convert.ToString(((uint)managementObj["AdapterRAM"]/ 1048576)/1000));
+            }
+        }
+
+        internal void SetInormationPC(SystemInfromation systemInfromation)
+        {
+            systemInfromation.NameCPU.Text = _INFthisPC[0];
+            systemInfromation.NameGPU.Text = _INFthisPC[1] + ", " + _INFthisPC[2] + " GB";
         }
     }
 }

@@ -30,4 +30,13 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="SystemINFO">
+        <Setter Property="Foreground" Value="{DynamicResource ColorRed}"/>
+        <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="14px"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    </Style>
 </ResourceDictionary>
