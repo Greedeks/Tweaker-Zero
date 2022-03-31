@@ -35,9 +35,7 @@ namespace Tweaker.Сlasses
         {
             string _FullName = default;
             foreach (var managementObj in new ManagementObjectSearcher("select FullName from Win32_UserAccount where domain='" + Environment.UserDomainName + "' and name='" + Environment.UserName.ToLower() + "'").Get())
-            {
                 _FullName= (string)managementObj["FullName"];
-            }
             if (_FullName != String.Empty) return _FullName;
             else return Environment.UserName.ToLower();
         }

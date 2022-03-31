@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker Z" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
+        Title="Tweaker Zero" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF2400" />
     </Window.Effect>
@@ -86,7 +86,7 @@
                         </Image>
                     </Button>
 
-                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="7,-29,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="107" Width="103" MouseDown="Header_MouseDown">
+                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="0,-42,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="132" Width="130" MouseDown="Header_MouseDown">
                         <Image.Effect>
                             <DropShadowEffect BlurRadius="10" Color="#FF2400" ShadowDepth="0" Opacity="0.8"/>
                         </Image.Effect>

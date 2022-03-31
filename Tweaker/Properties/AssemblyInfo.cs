@@ -6,7 +6,7 @@ using System.Windows;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набор атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Tweaker Z")]
+[assembly: AssemblyTitle("Tweaker Zero")]
 [assembly: AssemblyDescription("Utility")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
@@ -52,5 +52,5 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.3")]
 [assembly: AssemblyInformationalVersion("2.3")]
-[assembly: AssemblyFileVersion("2.3.6.0")]
+[assembly: AssemblyFileVersion("2.3.7.0")]
 [assembly: NeutralResourcesLanguage("en")]

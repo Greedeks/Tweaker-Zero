@@ -13,13 +13,13 @@ namespace Tweaker
         [DllImport("user32.dll")]
         private static extern int _SetForegroundWindow(IntPtr handle);
 
-        private readonly static Mutex mutex = new Mutex(false, "Tweaker Z");
+        private readonly static Mutex mutex = new Mutex(false, "Tweaker Zero");
 
         internal void CheckAC()
         {
             if (!mutex.WaitOne(150, false))
             {
-                using (Mutex mutex = new Mutex(false, @"Global\" + "Tweaker Z"))
+                using (Mutex mutex = new Mutex(false, @"Global\" + "Tweaker Zero"))
                 {
                     if (mutex.WaitOne(0, false))
                     {
