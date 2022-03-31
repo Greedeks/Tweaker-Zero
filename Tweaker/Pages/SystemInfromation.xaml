@@ -54,20 +54,33 @@
         </Grid>
 
         <Grid Grid.Row="1">
-
-            <TextBlock Style="{DynamicResource SystemINFO}" Text="Процессор:" Width="Auto" HorizontalAlignment="Left" Margin="54,30,0,322" Cursor="Hand">
+            <TextBlock Style="{DynamicResource SystemINFO}" Text="БИОС:" Width="Auto" HorizontalAlignment="Left" Margin="54,34,0,318" Cursor="Hand">
                 <TextBlock.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" Text="Процессор" Width="Auto" HorizontalAlignment="Left" Margin="136,30,0,322" Cursor="Hand"/>
+            <TextBlock x:Name="NameBIOS" Style="{DynamicResource SystemINFO}" Text="БИОС" Width="Auto" HorizontalAlignment="Left" Margin="100,34,0,318" Cursor="Hand"/>
 
-            <TextBlock Style="{DynamicResource SystemINFO}" Text="Видеокарта:" Width="Auto" HorizontalAlignment="Left" Margin="54,70,0,282" Cursor="Hand">
+            <TextBlock Style="{DynamicResource SystemINFO}" Text="Материнская плата:" Width="Auto" HorizontalAlignment="Left" Margin="54,65,0,287" Cursor="Hand">
                 <TextBlock.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" Text="Видеокарта" Width="Auto" HorizontalAlignment="Left" Margin="136,70,0,282" Cursor="Hand"/>
+            <TextBlock x:Name="NameMotherBr" Style="{DynamicResource SystemINFO}" Text="Материнская плата" Width="Auto" HorizontalAlignment="Left" Margin="186,65,0,287" Cursor="Hand"/>
+
+            <TextBlock Style="{DynamicResource SystemINFO}" Text="Процессор:" Width="Auto" HorizontalAlignment="Left" Margin="54,107,0,245" Cursor="Hand">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" Text="Процессор" Width="Auto" HorizontalAlignment="Left" Margin="134,107,0,245" Cursor="Hand"/>
+
+            <TextBlock Style="{DynamicResource SystemINFO}" Text="Видеокарта:" Width="Auto" HorizontalAlignment="Left" Margin="54,153,0,199" Cursor="Hand">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" Text="Видеокарта" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="137,153,0,159" Cursor="Hand"/>
         </Grid>
 
     </Grid>
