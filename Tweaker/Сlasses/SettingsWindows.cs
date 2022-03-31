@@ -272,7 +272,8 @@ namespace Tweaker.Сlasses
                 @"""Microsoft\Windows\Application Experience\ProgramDataUpdater""", @"""Microsoft\Windows\Application Experience\StartupAppTask""", @"""Microsoft\Windows\PI\Sqm-Tasks""",
                 @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
                 @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
-            byte test = 0;
+
+            _counTasksConfidentiality = 0;
 
             Process process = Process.Start(new ProcessStartInfo
             {
@@ -284,17 +285,16 @@ namespace Tweaker.Сlasses
                 StandardOutputEncoding = Encoding.GetEncoding(866),
                 WindowStyle = ProcessWindowStyle.Hidden
             });
-            for (int i = 0; i < TaskName.Length; i++)
+            foreach (var _task in TaskName)
             {
-                 process.StartInfo.Arguments = String.Format("/TN {0}", TaskName[i]);
+                 process.StartInfo.Arguments = String.Format("/TN {0}", _task);
                  process.Start();
                  process.StandardOutput.ReadLine();
-                 string tbl = process.StandardOutput.ReadToEnd();
+                 string _tbl = process.StandardOutput.ReadToEnd();
                  process.WaitForExit();
-                if (tbl.Split('A').Last().Trim() == "Ready" || tbl.Split('A').Last().Trim() == "Готово")
-                    test++;
+                if (_tbl.Split('A').Last().Trim() == "Ready" || _tbl.Split('A').Last().Trim() == "Готово")
+                    _counTasksConfidentiality++;
             }
-            _counTasksConfidentiality = test;
         }
 
         internal void GetSettingInterface(Interface _interface)
