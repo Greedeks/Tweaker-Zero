@@ -39,4 +39,5 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
     </Style>
+    
 </ResourceDictionary>

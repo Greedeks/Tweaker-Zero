@@ -6,23 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="SystemInfromation" SnapsToDevicePixels="True" UseLayoutRounding="True">
-    <Page.Style>
-        <Style>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="0:0:0.1" From="0.5" To="1" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-                <Trigger Property="UIElement.Visibility" Value="Visible">
-                    <Setter Property="UIElement.Opacity" Value="1"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Page.Style>
+      Title="SystemInfromation" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -30,6 +14,7 @@
             <RowDefinition Height="369*"/>
         </Grid.RowDefinitions>
 
+        
         <Grid Grid.Row="0" SnapsToDevicePixels="True" UseLayoutRounding="True">
 
             <!--#region  ImageUser-->
@@ -52,9 +37,9 @@
             </TextBlock>
 
         </Grid>
-
         <Grid Grid.Row="1">
-            <TextBlock Style="{DynamicResource SystemINFO}" Text="Операционная система:" Width="Auto" HorizontalAlignment="Left" Margin="54,28,0,324" Cursor="Hand">
+    
+                <TextBlock Style="{DynamicResource SystemINFO}" Text="Операционная система:" Width="Auto" HorizontalAlignment="Left" Margin="54,28,0,324" Cursor="Hand">
                 <TextBlock.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                 </TextBlock.Effect>
@@ -95,7 +80,7 @@
                 </TextBlock.Effect>
             </TextBlock>
             <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" Text="Видеокарта" TextWrapping="Wrap" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="137,278,0,34" Cursor="Hand"/>
-        </Grid>
 
+        </Grid>
     </Grid>
 </Page>
