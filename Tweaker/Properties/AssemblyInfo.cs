@@ -20,5 +20,5 @@ using System.Windows;
 
 [assembly: AssemblyVersion("2.3")]
 [assembly: AssemblyInformationalVersion("2.3")]
-[assembly: AssemblyFileVersion("2.3.7.0")]
+[assembly: AssemblyFileVersion("2.3.8.0")]
 [assembly: NeutralResourcesLanguage("en")]
