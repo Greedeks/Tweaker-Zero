@@ -209,14 +209,7 @@ namespace Tweaker.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                settingsWindows.GetSettingConfidentiality(this);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Convert.ToString(ex));
-            }
+            settingsWindows.GetSettingConfidentiality(this);
         }
     }
 }

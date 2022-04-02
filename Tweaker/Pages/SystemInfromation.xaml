@@ -30,7 +30,7 @@
             </Border>
             <!--#endregion-->
 
-            <TextBlock x:Name="UserName" Width="Auto" Text="UserName" FontFamily="/Fonts/#NotoSans" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Center" Margin="0,112,0,0">
+            <TextBlock x:Name="UserName" Width="Auto" Text="UserName" FontFamily="/Fonts/#Nunito" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Center" Margin="0,112,0,0">
                 <TextBlock.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                 </TextBlock.Effect>

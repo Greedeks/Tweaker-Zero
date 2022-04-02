@@ -4,9 +4,9 @@
     <Style TargetType="{x:Type Button}" x:Key="ButtonNav">
         <Setter Property="Foreground" Value="#A5A5A5"/>
         <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
-        <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
+        <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
         <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="13px"/>
+        <Setter Property="FontSize" Value="10pt"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -30,9 +30,9 @@
     <Style TargetType="{x:Type Button}" x:Key="ButtonNav_S">
         <Setter Property="Foreground" Value="{DynamicResource ColorRed}"/>
         <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
-        <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
+        <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
         <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="13px"/>
+        <Setter Property="FontSize" Value="10pt"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />

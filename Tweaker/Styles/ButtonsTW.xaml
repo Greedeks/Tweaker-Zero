@@ -4,7 +4,7 @@
     <Style TargetType="{x:Type Button}" x:Key="ButtonsTW">
         <Setter Property="Foreground" Value="{DynamicResource ColorWhite}"/>
         <Setter Property="Background" Value="{DynamicResource BackgroundButtonHead}"/>
-        <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
+        <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="13.5px"/>
         <Setter Property="IsTabStop" Value="False"/>
@@ -46,7 +46,7 @@
     <Style TargetType="{x:Type Button}" x:Key="ButtonsHead">
         <Setter Property="Foreground" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="FontFamily" Value="/Fonts/#NotoSans"/>
+        <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="13px"/>
         <Setter Property="IsTabStop" Value="False"/>
