@@ -21,7 +21,7 @@ namespace Tweaker
             {
                 string _texttimer = _time.ToString("ss");
                 ButtonOK.Content = "Понятно (" + _texttimer + ")";
-                if (_time == TimeSpan.Zero) { _timer.Stop(); foreach (Process proc in Process.GetProcessesByName("Tweaker Zero")) { proc.Kill(); } }
+                if (_time == TimeSpan.Zero) { _timer.Stop(); Application.Current.Shutdown(); }
                 _time = _time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
 

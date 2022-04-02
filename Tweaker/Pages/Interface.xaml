@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ScrollViewer>
+            <ScrollViewer MinHeight="373">
                 <Grid Width="1034" Height="420">
 
                     <!--#region Left Tweks-->
@@ -27,8 +27,8 @@
                     <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Margin="86,185,594,215" Cursor="Hand"/>
                     <Label x:Name="Tweak6" Content="Удаление «Объёмные объекты» из проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,227,616,172"/>
                     <Label x:Name="Tweak7" Content="Удаление папок из «Этот компьютер»" Style="{StaticResource Tweaks_OFF}" Margin="86,266,687,134"/>
-                    <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Margin="86,307,748,93"/>
-                    <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Margin="86,347,567,53"/>
+                    <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Margin="86,307,0,86"/>
+                    <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Margin="86,347,0,46" />
                     <Label x:Name="Tweak10" Content="Ускорение частоты мерцания курсора" Style="{StaticResource Tweaks_OFF}" Margin="86,380,567,1"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton1_PreviewMouseDown"/>

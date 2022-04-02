@@ -9,7 +9,7 @@
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Height" Value="28"/>
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Style.Triggers>
@@ -27,7 +27,7 @@
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Height" Value="28"/>
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Style.Triggers>
