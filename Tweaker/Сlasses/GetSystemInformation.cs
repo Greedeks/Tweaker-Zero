@@ -81,7 +81,6 @@ namespace Tweaker.Сlasses
                     _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1048576000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + " MHz\n");
             }
             _INFthisPC.Add(_setinfo);
-
         }
 
         internal void SetInormationPC(SystemInfromation systemInfromation)
