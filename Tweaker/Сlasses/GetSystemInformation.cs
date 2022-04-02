@@ -50,7 +50,8 @@ namespace Tweaker.Сlasses
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
             {
                 string _caption = (string)managementObj["Caption"];
-                _INFthisPC.Add(_caption.Substring(_caption.IndexOf('W')) + ", " + (string)managementObj["OSArchitecture"] + ", V" +(string)managementObj["Version"]);
+                string _archt = (string)managementObj["OSArchitecture"];
+                _INFthisPC.Add(_caption.Substring(_caption.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" +(string)managementObj["Version"]);
             }
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, SerialNumber from Win32_BIOS").Get())
