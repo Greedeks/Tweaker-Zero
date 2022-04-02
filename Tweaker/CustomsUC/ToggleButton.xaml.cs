@@ -19,8 +19,8 @@ namespace ToggleSwitch
         {
             InitializeComponent();
 
-            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 36, 0), 1.0));
-            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 13, 0), 1.0));
+            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 36, 0), 0.2));
+            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 218, 21, 16), 0.5));
 
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 80, 80, 80), 1.0));
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 105, 105, 105), 1.0));
@@ -35,15 +35,12 @@ namespace ToggleSwitch
                 Back.Fill = _OnColor;
                 _Toggle = true;
                 AnimToggleB(true);
-
             }
             else
             {
-
                 Back.Fill = _OffColor;
                 _Toggle = false;
                 AnimToggleB(false);
-
             }
         }
 
