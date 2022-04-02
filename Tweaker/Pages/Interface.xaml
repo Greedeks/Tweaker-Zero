@@ -20,16 +20,16 @@
                 <Grid Width="1034" Height="420">
                     
                     <!--#region Left Tweks-->
-                    <Label x:Name="Tweak1" Content="Убрать задержку появления контекстного меню" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,25,616,375" Cursor="Hand"/>
-                    <Label x:Name="Tweak2" Content="Удалить мусорные пункты контекстного меню" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,65,634,335"/>
-                    <Label x:Name="Tweak3" Content="Удалить мусорные пункты из контекстного меню Создать" Style="{StaticResource Tweaks_OFF}" Height="25" Width="400" Margin="86,105,548,295"/>
-                    <Label x:Name="Tweak4" Content="Нормальный цвет всплывающей подсказки" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,145,651,255"/>
-                    <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,185,594,215"/>
-                    <Label x:Name="Tweak6" Content="Удаление «Объёмные объекты» из проводника" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,227,616,172"/>
-                    <Label x:Name="Tweak7" Content="Удаление папок из «Этот компьютер»" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,266,687,134"/>
-                    <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,307,748,93"/>
-                    <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,347,567,53"/>
-                    <Label x:Name="Tweak10" Content="Ускорение частоты мерцания курсора" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="86,380,567,1"/>
+                    <Label x:Name="Tweak1" Content="Убрать задержку появления контекстного меню" Style="{StaticResource Tweaks_OFF}" Margin="86,25,616,375"/>
+                    <Label x:Name="Tweak2" Content="Удалить мусорные пункты контекстного меню" Style="{StaticResource Tweaks_OFF}" Margin="86,65,634,335"/>
+                    <Label x:Name="Tweak3" Content="Удалить мусорные пункты из контекстного меню Создать" Style="{StaticResource Tweaks_OFF}" Margin="86,105,548,295"/>
+                    <Label x:Name="Tweak4" Content="Нормальный цвет всплывающей подсказки" Style="{StaticResource Tweaks_OFF}" Margin="86,145,651,255"/>
+                    <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Margin="86,185,594,215"/>
+                    <Label x:Name="Tweak6" Content="Удаление «Объёмные объекты» из проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,227,616,172"/>
+                    <Label x:Name="Tweak7" Content="Удаление папок из «Этот компьютер»" Style="{StaticResource Tweaks_OFF}" Margin="86,266,687,134"/>
+                    <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Margin="86,307,748,93"/>
+                    <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Margin="86,347,567,53"/>
+                    <Label x:Name="Tweak10" Content="Ускорение частоты мерцания курсора" Style="{StaticResource Tweaks_OFF}" Margin="86,380,567,1"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton1_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,64,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton2_PreviewMouseDown"/>
@@ -44,16 +44,16 @@
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                    <Label x:Name="Tweak11" Content="Ускорение появления превью на панели задач" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,25,93,370"/>
-                    <Label x:Name="Tweak12" Content="Отображение всех значков в трее" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,65,175,330"/>
-                    <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,105,120,290"/>
-                    <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,145,93,250"/>
-                    <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,188,24,207"/>
+                    <Label x:Name="Tweak11" Content="Ускорение появления превью на панели задач" Style="{StaticResource Tweaks_OFF}" Margin="618,25,93,370"/>
+                    <Label x:Name="Tweak12" Content="Отображение всех значков в трее" Style="{StaticResource Tweaks_OFF}" Margin="618,65,175,330"/>
+                    <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="618,105,120,290"/>
+                    <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Margin="618,145,93,250"/>
+                    <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Margin="618,188,24,207"/>
                     <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,226,24,169"/>
-                    <Label x:Name="Tweak17" Content="Убрать значки на панели задач (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,267,103,128"/>
-                    <Label x:Name="Tweak18" Content="Переместить панель задач вверх (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,304,103,91"/>
-                    <Label x:Name="Tweak19" Content="Классическое контекстное меню (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,344,103,51"/>
-                    <Label x:Name="Tweak20" Content="Отключить «Рекомендуем» в меню пуска (Windows 11)" Style="{StaticResource Tweaks_OFF}" Height="25" Margin="618,384,45,11"/>
+                    <Label x:Name="Tweak17" Content="Убрать значки на панели задач (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,267,103,128"/>
+                    <Label x:Name="Tweak18" Content="Переместить панель задач вверх (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,304,103,91"/>
+                    <Label x:Name="Tweak19" Content="Классическое контекстное меню (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,344,103,51"/>
+                    <Label x:Name="Tweak20" Content="Отключить «Рекомендуем» в меню пуска (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,384,45,11"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,24,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,64,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
@@ -91,7 +91,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DescriptionT" TextAlignment="Center" HorizontalAlignment="Center" Text="Наведите курсор на любую функцию, чтобы получить её описание" TextWrapping="Wrap" Width="1024" Height="76" Foreground="LightGray" FontSize="14px" FontFamily="/Fonts/#NotoSans" Margin="0,6,0,7"/>
+            <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 
