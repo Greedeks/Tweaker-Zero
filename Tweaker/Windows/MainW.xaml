@@ -86,7 +86,7 @@
                         </Image>
                     </Button>
 
-                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="0,-42,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="132" Width="130" MouseDown="Header_MouseDown">
+                    <Image Grid.Row="0" Source="{StaticResource Tweaker}" Margin="5,-42,0,0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Height="132" Width="130" MouseDown="Header_MouseDown">
                         <Image.Effect>
                             <DropShadowEffect BlurRadius="10" Color="#FF2400" ShadowDepth="0" Opacity="0.8"/>
                         </Image.Effect>

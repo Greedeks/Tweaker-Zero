@@ -42,15 +42,13 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private static List<string> _INFthisPC = new List<string>();
-        private List<string> _idSearch = new List<string>();
-        private string _test = default;
+        private static List<string> _INFthisPC = new List<string>(), _idSearch = new List<string>();
+        private string _setinfo = default;
         internal void GetInormationPC()
         {
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
             {
-                string _caption = (string)managementObj["Caption"];
-                string _archt = (string)managementObj["OSArchitecture"];
+                string _caption = (string)managementObj["Caption"], _archt = (string)managementObj["OSArchitecture"];
                 _INFthisPC.Add(_caption.Substring(_caption.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" +(string)managementObj["Version"]);
             }
 
@@ -68,11 +66,11 @@ namespace Tweaker.Сlasses
             for (int i = 0; i < _idSearch.Count; i++)
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController where DeviceID='" + _idSearch[i] + "'").Get())
-                    _test += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1048576000)) + " GB\n");
+                    _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1048576000)) + " GB\n");
             }
-            _INFthisPC.Add(_test);
+            _INFthisPC.Add(_setinfo);
 
-            _test = string.Empty;
+            _setinfo = string.Empty;
             _idSearch.Clear();
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Tag from Win32_PhysicalMemory").Get())
@@ -80,9 +78,9 @@ namespace Tweaker.Сlasses
             for (int i = 0; i < _idSearch.Count; i++)
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory where Tag='" + _idSearch[i] + "'").Get())
-                    _test += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1048576000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + " MHz\n");
+                    _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1048576000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + " MHz\n");
             }
-            _INFthisPC.Add(_test);
+            _INFthisPC.Add(_setinfo);
 
         }
 
