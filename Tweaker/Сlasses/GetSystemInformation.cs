@@ -42,7 +42,7 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private static List<string> _INFthisPC = new List<string>(), _idSearch = new List<string>();
+        private static List<string> _INFthisPC = new List<string>();
         private string _setinfo = default;
         internal void GetInormationPC()
         {
@@ -61,26 +61,40 @@ namespace Tweaker.Сlasses
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name from Win32_Processor").Get())
                 _INFthisPC.Add((string)managementObj["Name"]);
 
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select DeviceID from Win32_VideoController").Get())
-                _idSearch.Add((string)managementObj["DeviceID"]);
-            for (int i = 0; i < _idSearch.Count; i++)
-            {
-                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController where DeviceID='" + _idSearch[i] + "'").Get())
-                    _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1048576000)) + " GB\n");
-            }
+            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
+                _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
             _INFthisPC.Add(_setinfo);
-
             _setinfo = string.Empty;
-            _idSearch.Clear();
 
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Tag from Win32_PhysicalMemory").Get())
-                _idSearch.Add((string)managementObj["Tag"]);
-            for (int i = 0; i < _idSearch.Count; i++)
+            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select  Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory").Get())
+                _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + " MHz\n");
+            _INFthisPC.Add(_setinfo);
+            _setinfo = string.Empty;
+
+            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size from MSFT_PhysicalDisk where MediaType=3 or MediaType=4 or MediaType=5").Get())
             {
-                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory where Tag='" + _idSearch[i] + "'").Get())
-                    _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1048576000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + " MHz\n");
+                string type = default;
+                switch ((ushort)(managementObj["MediaType"]))
+                {
+                    case 3:
+                        type = "(HDD)";
+                        break;
+                    case 4:
+                        type = "(SSD)";
+                        break;
+                    case 5:
+                        type = "(SCM)";
+                        break;
+                 }
+                 _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
             }
             _INFthisPC.Add(_setinfo);
+            _setinfo = string.Empty;
+
+            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
+                _setinfo += (string)managementObj["Name"] + "\n";
+            _INFthisPC.Add(_setinfo);
+            _setinfo = string.Empty;
         }
 
         internal void SetInormationPC(SystemInfromation systemInfromation)
@@ -91,6 +105,9 @@ namespace Tweaker.Сlasses
             systemInfromation.NameCPU.Text = _INFthisPC[3];
             systemInfromation.NameGPU.Text = _INFthisPC[4];
             systemInfromation.NameRAM.Text = _INFthisPC[5];
+
+            systemInfromation.NameDisk.Text = _INFthisPC[6];
+            systemInfromation.NameSound.Text = _INFthisPC[7];
         }
     }
 }

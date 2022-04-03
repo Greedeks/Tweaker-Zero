@@ -69,6 +69,10 @@
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="10.2pt"/>
         <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
     </Style>
     

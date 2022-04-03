@@ -57,57 +57,86 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Операционная система:" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="35,25,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Операционная система:" Margin="35,25,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameOS" Style="{DynamicResource SystemINFO}" Text="Операционная система" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="193,25,0,0"/>
+                        <TextBlock x:Name="NameOS" Style="{DynamicResource SystemINFO}" Text="Операционная система" Margin="193,25,0,0"/>
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="БИОС:" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="35,25,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="БИОС:" Margin="35,25,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameBIOS" Style="{DynamicResource SystemINFO}" Text="БИОС" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="82,25,0,0"/>
+                        <TextBlock x:Name="NameBIOS" Style="{DynamicResource SystemINFO}" Text="БИОС" Margin="82,25,0,0"/>
                     </Grid>
 
                     <Grid Grid.Row="2">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Материнская плата:" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="35,25,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Материнская плата:" Margin="35,25,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameMotherBr" Style="{DynamicResource SystemINFO}" Text="Материнская плата" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="168,25,0,0"/>
+                        <TextBlock x:Name="NameMotherBr" Style="{DynamicResource SystemINFO}" Text="Материнская плата" Margin="168,25,0,0"/>
                     </Grid>
 
                     <Grid Grid.Row="3">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Процессор:" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="35,25,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Процессор:" Margin="35,25,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" Text="Процессор" Width="Auto" HorizontalAlignment="Left"  Cursor="Hand" Margin="113,25,0,0"/>
+                        <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" Text="Процессор" Margin="113,25,0,0"/>
                     </Grid>
 
                     <Grid Grid.Row="4">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Видеокарта:" Width="Auto" HorizontalAlignment="Left" Cursor="Hand" Margin="35,25,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Видеокарта:" Margin="35,25,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" Text="Видеокарта" TextWrapping="Wrap" Width="Auto" Height="Auto" HorizontalAlignment="Left" Cursor="Hand" Margin="119,25,0,0"/>
+                        <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" Text="Видеокарта" Margin="119,25,0,0"/>
                     </Grid>
 
                     <Grid Grid.Row="5">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Оперативная память:" Width="Auto" HorizontalAlignment="Left" Cursor="Hand" Margin="35,10,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Оперативная память:" Margin="35,10,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameRAM" Style="{DynamicResource SystemINFO}" Text="Оперативная память" TextWrapping="Wrap" Width="Auto" Height="Auto" HorizontalAlignment="Left" Cursor="Hand" Margin="177,10,0,0"/>
+                        <TextBlock x:Name="NameRAM" Style="{DynamicResource SystemINFO}" Text="Оперативная память" Margin="177,10,0,0"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Дисковые устройства:" Margin="10,25,0,0">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="NameDisk" Style="{DynamicResource SystemINFO}" Text="Дисковые устройства" Margin="157,25,0,0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Звуковые устройства:" Margin="10,10,0,0">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="NameSound" Style="{DynamicResource SystemINFO}" Text="Звуковые устройства" Margin="155,10,0,0"/>
                     </Grid>
                 </Grid>
             </Grid>
