@@ -15,7 +15,7 @@ namespace Tweaker.Pages
         public SystemInfromation()
         {
             InitializeComponent();
-            UserAvatar.ImageSource = GetSystemInformation._urlImage;
+            if (GetSystemInformation._urlImage != null) UserAvatar.ImageSource = GetSystemInformation._urlImage;
             UserName.Text = getSystemInformation.NameUser();
             getSystemInformation.SetInormationPC(this);
             UpdateDisk();
