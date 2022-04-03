@@ -42,8 +42,8 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private static List<string> _INFthisPC = new List<string>();
-        private string _setinfo = default;
+        private readonly static List<string> _INFthisPC = new List<string>();
+        private string _setinfo = default, type = default;
         internal void GetInormationPC()
         {
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
@@ -71,9 +71,8 @@ namespace Tweaker.Сlasses
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
 
-            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size from MSFT_PhysicalDisk where MediaType=3 or MediaType=4 or MediaType=5").Get())
+            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size from MSFT_PhysicalDisk").Get())
             {
-                string type = default;
                 switch ((ushort)(managementObj["MediaType"]))
                 {
                     case 3:
@@ -85,8 +84,11 @@ namespace Tweaker.Сlasses
                     case 5:
                         type = "(SCM)";
                         break;
-                 }
-                 _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
+                    default:
+                        type = "(Unspecified)";
+                        break;
+                }
+                _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
             }
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
@@ -108,6 +110,32 @@ namespace Tweaker.Сlasses
 
             systemInfromation.NameDisk.Text = _INFthisPC[6];
             systemInfromation.NameSound.Text = _INFthisPC[7];
+        }
+
+        internal void UpdateInormationDisk(SystemInfromation systemInfromation)
+        {
+            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size from MSFT_PhysicalDisk").Get())
+            {
+                switch ((ushort)(managementObj["MediaType"]))
+                {
+                    case 3:
+                        type = "(HDD)";
+                        break;
+                    case 4:
+                        type = "(SSD)";
+                        break;
+                    case 5:
+                        type = "(SCM)";
+                        break;
+                    default:
+                        type = "(Unspecified)";
+                        break;
+                }
+                _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
+            }
+            _INFthisPC[6] = _setinfo;
+            systemInfromation.NameDisk.Text = _INFthisPC[6];
+            _setinfo = string.Empty;
         }
     }
 }

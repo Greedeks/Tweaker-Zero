@@ -8,15 +8,14 @@ namespace Tweaker
 {
     public partial class MessageForUser : Window
     {
-        private readonly DispatcherTimer _timer;
-        private TimeSpan _time;
+        private readonly DispatcherTimer _timer = default;
+        private TimeSpan _time = TimeSpan.FromSeconds(4);
 
         public MessageForUser()
         {
             InitializeComponent();
 
             #region Таймер закрытия окна
-            _time = TimeSpan.FromSeconds(4);
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 string _texttimer = _time.ToString("ss");
