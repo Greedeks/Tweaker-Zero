@@ -117,8 +117,6 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
@@ -140,14 +138,23 @@
                     </Grid>
 
                     <Grid Grid.Row="2">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IP Адрес:" Margin="10,5,0,0">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IP-адрес:" Margin="10,5,0,0" Cursor="Hand">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
                         <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,5,0,0"/>
                     </Grid>
-                    
+
+                    <Grid Grid.Row="3">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Сетевые адаптеры:" Margin="10,25,0,0" Cursor="Hand">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="NameNetAdapter" Style="{DynamicResource SystemINFO}" Text="Сетевые адаптеры" Margin="138,25,0,0"/>
+                    </Grid>
+
                 </Grid>
             </Grid>
         </ScrollViewer>

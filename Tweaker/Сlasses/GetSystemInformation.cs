@@ -98,6 +98,11 @@ namespace Tweaker.Сlasses
                 _setinfo += (string)managementObj["Name"] + "\n";
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
+
+            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
+                _setinfo += (string)managementObj["Name"] + "\n";
+            _INFthisPC.Add(_setinfo);
+            _setinfo = string.Empty;
         }
 
         internal void SetInormationPC(SystemInfromation systemInfromation)
@@ -111,6 +116,7 @@ namespace Tweaker.Сlasses
 
             systemInfromation.NameDisk.Text = _INFthisPC[6];
             systemInfromation.NameSound.Text = _INFthisPC[7];
+            systemInfromation.NameNetAdapter.Text = _INFthisPC[8];
         }
 
         internal void UpdateInormation(SystemInfromation systemInfromation)
