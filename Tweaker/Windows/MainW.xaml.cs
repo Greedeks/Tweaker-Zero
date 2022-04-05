@@ -236,6 +236,8 @@ namespace Tweaker
             settingsWindows.TaskCheckStateConfidentiality();
 
             #region Анимация загрузки
+            TweakerWPF.WindowStartupLocation = WindowStartupLocation.Manual;
+
             this.Opacity = 0;
             await Task.Delay(200);
             this.Opacity = 1;
@@ -256,6 +258,9 @@ namespace Tweaker
 
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
+
+            TweakerWPF.Left = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2);
+            TweakerWPF.Top = (SystemParameters.PrimaryScreenHeight / 2) -(this.Height / 2);
             #endregion
         }
     }

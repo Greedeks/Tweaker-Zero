@@ -43,7 +43,7 @@ namespace Tweaker.Сlasses
         }
 
         private readonly static List<string> _INFthisPC = new List<string>();
-        private string _setinfo = default, type = default;
+        private string _setinfo = default, _type = default;
         internal void GetInormationPC()
         {
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
@@ -53,7 +53,7 @@ namespace Tweaker.Сlasses
             }
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, SerialNumber from Win32_BIOS").Get())
-                _INFthisPC.Add((string)managementObj["Name"] + ", S/N "+(string)managementObj["SerialNumber"]);
+                _INFthisPC.Add((string)managementObj["Name"] + ", S/N-"+(string)managementObj["SerialNumber"]);
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Product, Version from Win32_BaseBoard").Get())
                 _INFthisPC.Add((string)managementObj["Manufacturer"]+(string)managementObj["Product"]+", V"+ (string)managementObj["Version"]);
@@ -62,12 +62,12 @@ namespace Tweaker.Сlasses
                 _INFthisPC.Add((string)managementObj["Name"]);
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
-                _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
+                _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + "GB\n");
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select  Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory").Get())
-                _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + " MHz\n");
+                _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + "GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
 
@@ -76,20 +76,20 @@ namespace Tweaker.Сlasses
                 switch ((ushort)(managementObj["MediaType"]))
                 {
                     case 3:
-                        type = "(HDD)";
+                        _type = "(HDD)";
                         break;
                     case 4:
-                        type = "(SSD)";
+                        _type = "(SSD)";
                         break;
                     case 5:
-                        type = "(SCM)";
+                        _type = "(SCM)";
                         break;
                     default:
-                        type = "(Unspecified)";
+                        _type = "(Unspecified)";
                         break;
                 }
-                if (type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) type = "(USB)";
-                _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
+                if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
+                _setinfo += _type + " [" + (string)managementObj["FriendlyName"] + "] " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + "GB\n";
             }
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
@@ -113,27 +113,27 @@ namespace Tweaker.Сlasses
             systemInfromation.NameSound.Text = _INFthisPC[7];
         }
 
-        internal void UpdateInormationDisk(SystemInfromation systemInfromation)
+        internal void UpdateInormation(SystemInfromation systemInfromation)
         {
             foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
             {
                 switch ((ushort)(managementObj["MediaType"]))
                 {
                     case 3:
-                        type = "(HDD)";
+                        _type = "(HDD)";
                         break;
                     case 4:
-                        type = "(SSD)";
+                        _type = "(SSD)";
                         break;
                     case 5:
-                        type = "(SCM)";
+                        _type = "(SCM)";
                         break;
                     default:
-                        type = "(Unspecified)";
+                        _type = "(Unspecified)";
                         break;
                 }
-                if (type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) type = "(USB)";
-                _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
+                if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
+                _setinfo += _type + " [" + (string)managementObj["FriendlyName"] + "] " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + "GB\n";
             }
             _INFthisPC[6] = _setinfo;
             systemInfromation.NameDisk.Text = _INFthisPC[6];

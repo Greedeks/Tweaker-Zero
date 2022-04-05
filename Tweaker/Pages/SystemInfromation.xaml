@@ -111,7 +111,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Cursor="Hand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -145,7 +145,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="IP Адрес" Margin="74,5,0,0"/>
+                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,5,0,0"/>
                     </Grid>
                     
                 </Grid>
