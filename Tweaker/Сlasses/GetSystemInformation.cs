@@ -71,7 +71,7 @@ namespace Tweaker.Сlasses
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
 
-            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size from MSFT_PhysicalDisk").Get())
+            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
             {
                 switch ((ushort)(managementObj["MediaType"]))
                 {
@@ -88,6 +88,7 @@ namespace Tweaker.Сlasses
                         type = "(Unspecified)";
                         break;
                 }
+                if (type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) type = "(USB)";
                 _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
             }
             _INFthisPC.Add(_setinfo);
@@ -114,7 +115,7 @@ namespace Tweaker.Сlasses
 
         internal void UpdateInormationDisk(SystemInfromation systemInfromation)
         {
-            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size from MSFT_PhysicalDisk").Get())
+            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
             {
                 switch ((ushort)(managementObj["MediaType"]))
                 {
@@ -131,6 +132,7 @@ namespace Tweaker.Сlasses
                         type = "(Unspecified)";
                         break;
                 }
+                if (type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) type = "(USB)";
                 _setinfo += type + " [" + (string)managementObj["FriendlyName"] + "], " + Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB\n";
             }
             _INFthisPC[6] = _setinfo;
