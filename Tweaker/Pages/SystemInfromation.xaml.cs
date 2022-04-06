@@ -73,7 +73,6 @@ namespace Tweaker.Pages
             {
                 var request = (HttpWebRequest)WebRequest.Create("http://google.com");
                 request.KeepAlive = false;
-                request.Timeout = 1000;
                 using (var response = (HttpWebResponse)request.GetResponse())
                     return true;
             }
