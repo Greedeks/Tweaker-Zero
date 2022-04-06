@@ -35,7 +35,7 @@
                 </Button.Effect>
             </Button>
 
-            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="Создание копий программы запрещено, во избежание непредвиденных ситуаций" Foreground="White" FontFamily="/Fonts/#Nunito" FontStretch="Medium" FontSize="11pt" Height="44" Width="282"/>
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="Создание копий программы запрещено, во избежание непредвиденных ситуаций" Foreground="White" FontFamily="/Fonts/#Nunito" FontStretch="Medium" FontSize="10.5pt" Height="48" Width="282"/>
 
         </Grid>
     </Border>
