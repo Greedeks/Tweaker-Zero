@@ -16,9 +16,9 @@ namespace Tweaker.Pages
         private readonly GetSystemInformation getSystemInformation = new GetSystemInformation();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
-        private static string _ipUser = "Пожалуйста немного подождите...";
+        private static string _ipUser = "Пожалуйста немного подождите..";
         private bool _error = false;
-        private readonly BackgroundWorker _worker = new BackgroundWorker();
+        private readonly BackgroundWorker _worker;
         private static bool _sticking = false;
         private string _textcopy = string.Empty;
 
@@ -26,6 +26,7 @@ namespace Tweaker.Pages
         {
             InitializeComponent();
             
+            _worker = new BackgroundWorker();
             _worker.DoWork += (s, e) => { GetIpUser(); };
             _worker.RunWorkerCompleted += (s, e) => { IpAddress.Text = _ipUser; };
             _worker.RunWorkerAsync();
@@ -108,14 +109,15 @@ namespace Tweaker.Pages
                     }
                     catch
                     {
-                        _ipUser = "Нет подключения к интернету или доступ к сети ограничен";
+                        _ipUser = "Доступ к сети ограничен";
                     }
                 }
                 else
                 {
-                    _ipUser = "Нет подключения к интернету или доступ к сети ограничен";
+                    _ipUser = "Отсутствует подключения к интернету";
                 }
             }
+            _worker.Dispose();
         }
 
         private void AnimNotf(bool _reverse)
