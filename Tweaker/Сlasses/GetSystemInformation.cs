@@ -118,7 +118,6 @@ namespace Tweaker.Сlasses
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
 
-
             try
             {
                 _setinfo =
