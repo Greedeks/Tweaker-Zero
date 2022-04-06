@@ -18,18 +18,17 @@ namespace Tweaker.Pages
         private TimeSpan _time = TimeSpan.FromSeconds(0);
         private static string _ipUser = "Пожалуйста немного подождите..";
         private static bool _error = false, _sticking = false;
-        private readonly BackgroundWorker _worker;
+        private BackgroundWorker _worker;
         private string _textcopy = string.Empty;
 
         public SystemInfromation()
         {
             InitializeComponent();
-            
+
             _worker = new BackgroundWorker();
+            _worker.RunWorkerAsync();
             _worker.DoWork += (s, e) => { GetIpUser(); };
             _worker.RunWorkerCompleted += (s, e) => { IpAddress.Text = _ipUser; };
-            _worker.RunWorkerAsync();
-
 
             if (GetSystemInformation._urlImage != null) UserAvatar.ImageSource = GetSystemInformation._urlImage;
             UserName.Text = getSystemInformation.NameUser();
@@ -107,12 +106,14 @@ namespace Tweaker.Pages
                         _ipUser = _exlIp.ToString();
                         _error = false;
                     }
-                    catch { _ipUser = "Доступ к сети ограничен";  }
+                    catch { _ipUser = "Доступ к сети ограничен"; }
                 }
                 else
+                {
                     _ipUser = "Отсутствует подключения к интернету";
+                    _error = false;
+                }
             }
-            _worker.Dispose();
         }
 
         private void AnimNotf(bool _reverse)
