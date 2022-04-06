@@ -17,9 +17,8 @@ namespace Tweaker.Pages
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
         private static string _ipUser = "Пожалуйста немного подождите..";
-        private bool _error = false;
+        private static bool _error = false, _sticking = false;
         private readonly BackgroundWorker _worker;
-        private static bool _sticking = false;
         private string _textcopy = string.Empty;
 
         public SystemInfromation()
@@ -106,16 +105,12 @@ namespace Tweaker.Pages
                         string _exIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
                         var _exlIp = IPAddress.Parse(_exIpString);
                         _ipUser = _exlIp.ToString();
+                        _error = false;
                     }
-                    catch
-                    {
-                        _ipUser = "Доступ к сети ограничен";
-                    }
+                    catch { _ipUser = "Доступ к сети ограничен";  }
                 }
                 else
-                {
                     _ipUser = "Отсутствует подключения к интернету";
-                }
             }
             _worker.Dispose();
         }
