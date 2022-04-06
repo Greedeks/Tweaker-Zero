@@ -17,7 +17,7 @@ namespace Tweaker.Pages
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
         private static string _ipUser = "Пожалуйста немного подождите..";
-        private static bool _error = false, _sticking = false;
+        private static bool _sticking = false;
         private BackgroundWorker _worker;
         private string _textcopy = string.Empty;
 
@@ -34,6 +34,7 @@ namespace Tweaker.Pages
             UserName.Text = getSystemInformation.NameUser();
             getSystemInformation.SetInormationPC(this);
             IpAddress.Text = _ipUser;
+
             UpdateDisk();
 
             #region EventForCopyText
@@ -65,6 +66,37 @@ namespace Tweaker.Pages
             #endregion
         }
 
+        #region CheckIntCn/getIp
+        private bool CheckInternetConnection()
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create("http://google.com");
+                request.KeepAlive = false;
+                request.Timeout = 1000;
+                using (var response = (HttpWebResponse)request.GetResponse())
+                    return true;
+            }
+            catch { return false; }
+        }
+
+        private void GetIpUser()
+        {
+            if (CheckInternetConnection())
+            {
+                try
+                {
+                    string _exIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
+                    var _exlIp = IPAddress.Parse(_exIpString);
+                    _ipUser = _exlIp.ToString();
+                }
+                catch { _ipUser = "Доступ к сети ограничен"; }
+            }
+            else
+                _ipUser = "Отсутствует подключения к интернету";
+        }
+        #endregion
+
         private void UpdateDisk()
         {
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
@@ -74,46 +106,6 @@ namespace Tweaker.Pages
             }, Application.Current.Dispatcher);
 
             _timer.Start();
-        }
-
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            _timer.Stop();
-            _worker.Dispose();
-        }
-
-        private void GetIpUser()
-        {
-            try
-            {
-                HttpWebRequest Request = (HttpWebRequest)WebRequest.Create("http://google.com");
-                HttpWebResponse Response = (HttpWebResponse)Request.GetResponse();
-            }
-            catch (Exception ex)
-            {
-
-                if (ex.Data != null)
-                    _error = true;
-            }
-            finally
-            {
-                if (!_error)
-                {
-                    try
-                    {
-                        string _exIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
-                        var _exlIp = IPAddress.Parse(_exIpString);
-                        _ipUser = _exlIp.ToString();
-                        _error = false;
-                    }
-                    catch { _ipUser = "Доступ к сети ограничен"; }
-                }
-                else
-                {
-                    _ipUser = "Отсутствует подключения к интернету";
-                    _error = false;
-                }
-            }
         }
 
         private void AnimNotf(bool _reverse)
@@ -341,6 +333,12 @@ namespace Tweaker.Pages
                     }
                 }
             }
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            _timer.Stop();
+            _worker.Dispose();
         }
     }
 }
