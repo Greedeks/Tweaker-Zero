@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ScrollViewer MinHeight="375">
+            <ScrollViewer MinHeight="375" IsTabStop="False">
                 <Grid Width="1034">
 
                     <!--#region Left Tweks-->

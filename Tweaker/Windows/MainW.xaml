@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker"
         mc:Ignorable="d"
-        Title="Tweaker Zero" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
+        Title="Tweaker Zero" Height="620" Width="1084" MinHeight="620" MinWidth="1084" MaxHeight="620" MaxWidth="1084" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Opacity="1" SnapsToDevicePixels="True" UseLayoutRounding="True" IsTabStop="False">
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.9" Color="#FF2400" />
     </Window.Effect>
@@ -14,7 +14,7 @@
             <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,1044,580" />
         </Border.Clip>
 
-        <Grid>
+        <Grid FocusVisualStyle="{x:Null}" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <Grid.RowDefinitions>
                 <RowDefinition Height="31*"/>
                 <RowDefinition Height="509*"/>
@@ -23,7 +23,7 @@
 
             <!--#region Head-->
 
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" FocusVisualStyle="{x:Null}" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
                 <Border x:Name="Header" CornerRadius="15,15,0,0" Background="{DynamicResource BackgroundButtonHead}" MouseDown="Header_MouseDown"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -96,7 +96,7 @@
             <!--#endregion-->
 
             <!--#region Body-->
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
                 <Frame x:Name="MainContainer" Background="{DynamicResource BackgroundColor}" Margin="0,0,0,0" NavigationUIVisibility="Hidden" SnapsToDevicePixels="True"/>
             </Grid>
             <!--#endregion-->
@@ -104,7 +104,7 @@
             <!--#region Navigation-->
             <Border Background="{DynamicResource BackgroundButtonHead}" CornerRadius="0,0,15,15" Grid.Row="2" Margin="22,1,22,0"/>
 
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" FocusVisualStyle="{x:Null}" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="155*"/>
                     <ColumnDefinition Width="143*"/>
@@ -128,5 +128,6 @@
             <!--#endregion-->
 
         </Grid>
+        
     </Border>
 </Window>

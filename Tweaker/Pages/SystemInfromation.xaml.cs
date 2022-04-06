@@ -101,7 +101,7 @@ namespace Tweaker.Pages
         {
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds%2==0) { getSystemInformation.UpdateInormation(this);}
+                if (_time.TotalSeconds%2==0) { getSystemInformation.UpdateInormation(this); }
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
 

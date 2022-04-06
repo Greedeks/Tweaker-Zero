@@ -8,7 +8,7 @@
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="Interface" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}">
 
-    <Grid ScrollViewer.CanContentScroll="False">
+    <Grid ScrollViewer.CanContentScroll="False" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
             <RowDefinition Height="50*"/>
@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ScrollViewer MinHeight="375">
+            <ScrollViewer MinHeight="375" IsTabStop="False">
                 <Grid Width="1034" Height="420">
 
                     <!--#region Left Tweks-->

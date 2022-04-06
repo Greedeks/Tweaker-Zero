@@ -8,14 +8,14 @@
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="SystemInfromation" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded" KeyDown="Page_KeyDown">
 
-    <Grid>
+    <Grid Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="140*"/>
             <RowDefinition Height="369*"/>
         </Grid.RowDefinitions>
 
 
-        <Grid Grid.Row="0" SnapsToDevicePixels="True" UseLayoutRounding="True">
+        <Grid Grid.Row="0" SnapsToDevicePixels="True">
 
             <!--#region  ImageUser-->
             <Border BorderBrush="{DynamicResource ColorRedNotActive}" BorderThickness="2" CornerRadius="50.5" Height="100.5" Width="100.5" Margin="472,6,472,34" HorizontalAlignment="Center">
@@ -46,8 +46,8 @@
         </Grid>
 
 
-        <ScrollViewer Grid.Row="1" Height="373" Margin="0,-1,0,0">
-            <Grid Grid.Row="1">
+        <ScrollViewer Grid.Row="1" Height="373" Margin="0,-1,0,0" IsTabStop="False">
+            <Grid Grid.Row="1" SnapsToDevicePixels="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
