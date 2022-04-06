@@ -8,16 +8,16 @@
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}">
 
-    <Grid ScrollViewer.CanContentScroll="False">
+    <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
             <RowDefinition Height="50*"/>
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <ScrollViewer MinHeight="375" IsTabStop="False">
-                <Grid Width="1034">
+                <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
                     <!--#region Left Tweks-->
                     <Label x:Name="Tweak1" Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,325"/>
@@ -66,7 +66,7 @@
         </Grid>
 
         <!--#region Buttons-->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
             <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
                 <Button.Effect>
@@ -83,7 +83,7 @@
         <!--#endregion-->
 
         <!--#region Description-->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>

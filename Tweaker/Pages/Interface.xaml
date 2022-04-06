@@ -15,7 +15,7 @@
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <ScrollViewer MinHeight="375" IsTabStop="False">
                 <Grid Width="1034" Height="420">
 
@@ -72,7 +72,7 @@
         </Grid>
 
         <!--#region Buttons-->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
             <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
                 <Button.Effect>
@@ -89,7 +89,7 @@
         <!--#endregion-->
 
         <!--#region Description-->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>
