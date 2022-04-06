@@ -15,7 +15,7 @@ namespace Tweaker
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
         private readonly SettingsWindows settingsWindows = new SettingsWindows();
-        private GetSystemInformation getsystemInformation = new GetSystemInformation();
+        private readonly GetSystemInformation getsystemInformation = new GetSystemInformation();
         #endregion
 
         public MainWindow()

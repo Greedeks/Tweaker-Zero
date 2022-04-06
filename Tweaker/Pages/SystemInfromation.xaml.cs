@@ -20,6 +20,7 @@ namespace Tweaker.Pages
         private bool _error = false;
         private readonly BackgroundWorker _worker = new BackgroundWorker();
         private static bool _sticking = false;
+        private string _textcopy = string.Empty;
 
         public SystemInfromation()
         {
@@ -35,6 +36,34 @@ namespace Tweaker.Pages
             getSystemInformation.SetInormationPC(this);
             IpAddress.Text = _ipUser;
             UpdateDisk();
+
+            #region EventForCopyText
+            NameOS.MouseEnter += (s, e) => { _textcopy = NameOS.Text; };
+            NameBIOS.MouseEnter += (s, e) => { _textcopy = NameBIOS.Text; };
+            NameMotherBr.MouseEnter += (s, e) => { _textcopy = NameMotherBr.Text; };
+            NameCPU.MouseEnter += (s, e) => { _textcopy = NameCPU.Text; };
+            NameGPU.MouseEnter += (s, e) => { _textcopy = NameGPU.Text; };
+            NameRAM.MouseEnter += (s, e) => { _textcopy = NameRAM.Text; };
+            NameDisk.MouseEnter += (s, e) => { _textcopy = NameDisk.Text; };
+            NameSound.MouseEnter += (s, e) => { _textcopy = NameSound.Text; };
+            IpAddress.MouseEnter += (s, e) => { _textcopy = IpAddress.Text; };
+            Ipv4.MouseEnter += (s, e) => { _textcopy = Ipv4.Text; };
+            MACaddress.MouseEnter += (s, e) => { _textcopy = MACaddress.Text; };
+            NameNetAdapter.MouseEnter += (s, e) => { _textcopy = NameNetAdapter.Text; };
+
+            NameOS.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameBIOS.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameMotherBr.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameCPU.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameGPU.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameRAM.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameDisk.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameSound.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            IpAddress.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            Ipv4.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            MACaddress.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            NameNetAdapter.MouseLeave += (s, e) => { _textcopy = string.Empty; };
+            #endregion
         }
 
         private void UpdateDisk()
@@ -106,7 +135,7 @@ namespace Tweaker.Pages
         #region CopyText
         private async void NameOS_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if(e.LeftButton == MouseButtonState.Pressed && e.ClickCount>=2)
             {
                 if (!_sticking)
                 {
@@ -122,7 +151,7 @@ namespace Tweaker.Pages
 
         private async void NameBIOS_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -138,7 +167,7 @@ namespace Tweaker.Pages
 
         private async void NameMotherBr_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -154,7 +183,7 @@ namespace Tweaker.Pages
 
         private async void NameCPU_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -170,7 +199,7 @@ namespace Tweaker.Pages
 
         private async void NameGPU_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -186,7 +215,7 @@ namespace Tweaker.Pages
 
         private async void NameRAM_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -202,7 +231,7 @@ namespace Tweaker.Pages
 
         private async void NameDisk_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -218,7 +247,7 @@ namespace Tweaker.Pages
 
         private async void NameSound_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -234,7 +263,7 @@ namespace Tweaker.Pages
 
         private async void IpAddress_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -250,7 +279,7 @@ namespace Tweaker.Pages
 
         private async void Ipv4_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -266,7 +295,7 @@ namespace Tweaker.Pages
 
         private async void MACaddress_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -282,7 +311,7 @@ namespace Tweaker.Pages
 
         private async void NameNetAdapter_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
             {
                 if (!_sticking)
                 {
@@ -296,5 +325,24 @@ namespace Tweaker.Pages
             }
         }
         #endregion
+
+        private async void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (_textcopy != string.Empty)
+            {
+                if (e.KeyboardDevice.Modifiers == (ModifierKeys.Control) && e.Key == Key.C)
+                {
+                    if (!_sticking)
+                    {
+                        _sticking = true;
+                        AnimNotf(false);
+                        Clipboard.SetData(DataFormats.UnicodeText, _textcopy);
+                        await Task.Delay(500);
+                        AnimNotf(true);
+                        _sticking = false;
+                    }
+                }
+            }
+        }
     }
 }
