@@ -15,7 +15,7 @@ namespace Tweaker.Pages
         private TimeSpan _time = TimeSpan.FromSeconds(0);
         private static string _ipUser = "Пожалуйста немного подождите...";
         private bool _error = false;
-        private BackgroundWorker _worker = new BackgroundWorker();
+        private readonly BackgroundWorker _worker = new BackgroundWorker();
 
         public SystemInfromation()
         {

@@ -111,8 +111,10 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="1" Cursor="Hand">
+                <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -138,7 +140,7 @@
                     </Grid>
 
                     <Grid Grid.Row="2">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IP-адрес:" Margin="10,5,0,0" Cursor="Hand">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IP-адрес:" Margin="10,5,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
@@ -147,7 +149,25 @@
                     </Grid>
 
                     <Grid Grid.Row="3">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Сетевые адаптеры:" Margin="10,25,0,0" Cursor="Hand">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IPv4-адрес:" Margin="10,25,0,0">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="Ipv4" Style="{DynamicResource SystemINFO}" Text="IPv4-адрес" Margin="88,25,0,0" Cursor="Hand"/>
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="MAC-адрес:" Margin="10,25,0,0">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="MACaddress" Style="{DynamicResource SystemINFO}" Text="MAC-адрес" Margin="92,25,0,0" Cursor="Hand"/>
+                    </Grid>
+                    
+                    <Grid Grid.Row="5">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Сетевые адаптеры:" Margin="10,25,0,0">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>

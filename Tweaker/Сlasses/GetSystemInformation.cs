@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Media;
@@ -49,14 +53,14 @@ namespace Tweaker.Сlasses
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
             {
                 string _caption = (string)managementObj["Caption"], _archt = (string)managementObj["OSArchitecture"];
-                _INFthisPC.Add(_caption.Substring(_caption.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" +(string)managementObj["Version"]);
+                _INFthisPC.Add(_caption.Substring(_caption.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" + (string)managementObj["Version"]);
             }
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, SerialNumber from Win32_BIOS").Get())
-                _INFthisPC.Add((string)managementObj["Name"] + ", S/N-"+(string)managementObj["SerialNumber"]);
+                _INFthisPC.Add((string)managementObj["Name"] + ", S/N-" + (string)managementObj["SerialNumber"]);
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Product, Version from Win32_BaseBoard").Get())
-                _INFthisPC.Add((string)managementObj["Manufacturer"]+(string)managementObj["Product"]+", V"+ (string)managementObj["Version"]);
+                _INFthisPC.Add((string)managementObj["Manufacturer"] + (string)managementObj["Product"] + ", V" + (string)managementObj["Version"]);
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name from Win32_Processor").Get())
                 _INFthisPC.Add((string)managementObj["Name"]);
@@ -99,6 +103,35 @@ namespace Tweaker.Сlasses
             _INFthisPC.Add(_setinfo);
             _setinfo = string.Empty;
 
+            try
+            {
+                IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (var ip4 in host.AddressList)
+                {
+                    if (ip4.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        _setinfo = ip4.ToString();
+                    }
+                }
+            }
+            catch { _setinfo = "В системе нет сетевых адаптеров с адресом IPv4"; }
+            _INFthisPC.Add(_setinfo);
+            _setinfo = string.Empty;
+
+
+            try
+            {
+                _setinfo =
+                    (
+                        from nic in NetworkInterface.GetAllNetworkInterfaces()
+                        where nic.OperationalStatus == OperationalStatus.Up
+                        select nic.GetPhysicalAddress().ToString()
+                    ).FirstOrDefault();
+            }
+            catch { _setinfo = "В системе нет сетевых адаптеров с MAC адресом"; }
+            _INFthisPC.Add(_setinfo);
+            _setinfo = string.Empty;
+
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
                 _setinfo += (string)managementObj["Name"] + "\n";
             _INFthisPC.Add(_setinfo);
@@ -116,7 +149,9 @@ namespace Tweaker.Сlasses
 
             systemInfromation.NameDisk.Text = _INFthisPC[6];
             systemInfromation.NameSound.Text = _INFthisPC[7];
-            systemInfromation.NameNetAdapter.Text = _INFthisPC[8];
+            systemInfromation.Ipv4.Text = _INFthisPC[8];
+            systemInfromation.MACaddress.Text = _INFthisPC[9];
+            systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
         }
 
         internal void UpdateInormation(SystemInfromation systemInfromation)
