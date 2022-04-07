@@ -75,5 +75,14 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
     </Style>
-    
+
+    <Style TargetType="{x:Type Image}" x:Key="AppUnll">
+        <Setter Property="Width" Value="81"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

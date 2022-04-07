@@ -1,0 +1,33 @@
+﻿<Page x:Class="Tweaker.Pages.ApplicationsUL"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tweaker.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="509" d:DesignWidth="1044"
+      Title="ApplicationsUL" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="199*"/>
+            <RowDefinition Height="26*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Image Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="197,38,520,279"/>
+            <Image Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="264,76,455,241"/>
+            <Image Source="{DynamicResource Microsoft3DViewerImage}" Style="{DynamicResource AppUnll}"  Margin="198,114,521,203"/>
+            <Image Source="{DynamicResource MixedRealityImage}" Style="{DynamicResource AppUnll}"  Margin="264,151,455,165"/>
+            <Image Source="{DynamicResource MicrosoftOfficeHubImage}" Style="{DynamicResource AppUnll}"  Margin="330,114,389,202"/>
+            <Image Source="{DynamicResource MicrosoftSolitaireCollectionImage}" Style="{DynamicResource AppUnll}"  Margin="330,38,389,278"/>
+            <Image Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="396,76,323,240"/>
+            <Image Source="{DynamicResource OneNoteImage}" Style="{DynamicResource AppUnll}"  Margin="518,150,445,166"/>
+            <Image Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="583,38,380,278"/>
+            <Image Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="584,114,379,202"/>
+            <Image Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="649,77,314,239"/>
+            <Image Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="650,152,314,164"/>
+            <Image Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="715,115,248,201"/>
+        </Grid>
+    </Grid>
+</Page>

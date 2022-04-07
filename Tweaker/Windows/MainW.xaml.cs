@@ -126,6 +126,7 @@ namespace Tweaker
                         Grid.SetColumn(ActivePage, 2);
 
                         ActivePageAnim(true);
+                        MainContainer.Content = new Pages.ApplicationsUL();
                         _applicationB = true;
                     }
                     else

@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Styles/Colors.xaml" />
                 <ResourceDictionary Source="Styles/Pages.xaml" />
                 <ResourceDictionary Source="Images/HeadSVG.xaml" />
+                <ResourceDictionary Source="Images/ApplicationsSVG.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
