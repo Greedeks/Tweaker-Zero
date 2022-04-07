@@ -77,12 +77,40 @@
     </Style>
 
     <Style TargetType="{x:Type Image}" x:Key="AppUnll">
-        <Setter Property="Width" Value="81"/>
+        <Setter Property="Width" Value="91"/>
+        <Setter Property="Height" Value="91"/>
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect/>
             </Setter.Value>
         </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform x:Name="ImageScale" ScaleX="1" ScaleY="1"/>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="1.04" Duration="0:0:0.2" SpeedRatio="2"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="1.04" Duration="0:0:0.2" SpeedRatio="2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1.04" To="1" Duration="0:0:0.1"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1.04" To="1" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

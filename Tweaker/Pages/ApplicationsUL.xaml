@@ -15,19 +15,29 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Image Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="197,38,520,279"/>
-            <Image Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="264,76,455,241"/>
-            <Image Source="{DynamicResource Microsoft3DViewerImage}" Style="{DynamicResource AppUnll}"  Margin="198,114,521,203"/>
-            <Image Source="{DynamicResource MixedRealityImage}" Style="{DynamicResource AppUnll}"  Margin="264,151,455,165"/>
-            <Image Source="{DynamicResource MicrosoftOfficeHubImage}" Style="{DynamicResource AppUnll}"  Margin="330,114,389,202"/>
-            <Image Source="{DynamicResource MicrosoftSolitaireCollectionImage}" Style="{DynamicResource AppUnll}"  Margin="330,38,389,278"/>
-            <Image Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="396,76,323,240"/>
-            <Image Source="{DynamicResource OneNoteImage}" Style="{DynamicResource AppUnll}"  Margin="518,150,445,166"/>
-            <Image Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="583,38,380,278"/>
-            <Image Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="584,114,379,202"/>
-            <Image Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="649,77,314,239"/>
-            <Image Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="650,152,314,164"/>
-            <Image Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="715,115,248,201"/>
+            <Image Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="156,66,797,293"/>
+            <Image Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="234,113,719,246"/>
+            <Image Source="{DynamicResource Microsoft3DViewerImage}" Style="{DynamicResource AppUnll}"  Margin="155,154,798,205"/>
+            <Image Source="{DynamicResource MixedRealityImage}" Style="{DynamicResource AppUnll}"  Margin="314,154,639,205"/>
+            <Image Source="{DynamicResource MicrosoftOfficeHubImage}" Style="{DynamicResource AppUnll}"  Margin="234,199,719,160"/>
+            <Image Source="{DynamicResource MicrosoftSolitaireCollectionImage}" Style="{DynamicResource AppUnll}"  Margin="314,66,639,293"/>
+            <Image Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="395,110,558,248"/>
+            <Image Source="{DynamicResource OneNoteImage}" Style="{DynamicResource AppUnll}"  Margin="395,198,558,160"/>
+            <Image Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="474,66,479,293"/>
+            <Image Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="474,154,479,205"/>
+            <Image Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="554,201,399,158"/>
+            <Image Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,113,400,246"/>
+            <Image Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="715,201,238,158"/>
+            <Image Source="{DynamicResource PhotosImage}" Style="{DynamicResource AppUnll}"  Margin="633,66,320,293"/>
+            <Image Source="{DynamicResource AlarmsImage}" Style="{DynamicResource AppUnll}"  Margin="716,113,237,246"/>
+            <Image Source="{DynamicResource CameraImage}" Style="{DynamicResource AppUnll}"  Margin="794,156,159,203"/>
+            <Image Source="{DynamicResource FeedbackHubImage}" Style="{DynamicResource AppUnll}"  Margin="633,153,320,206"/>
+            <Image Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="794,66,159,293"/>
+            <Image Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,116"/>
+            <Image Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,117"/>
+            <Image Source="{DynamicResource SoundDrawingImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,116"/>
+            <Image Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="794,244,159,115"/>
+            <Image Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,115"/>
         </Grid>
     </Grid>
 </Page>
