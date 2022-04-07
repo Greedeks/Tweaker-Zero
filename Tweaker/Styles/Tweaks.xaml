@@ -79,6 +79,7 @@
     <Style TargetType="{x:Type Image}" x:Key="AppUnll">
         <Setter Property="Width" Value="91"/>
         <Setter Property="Height" Value="91"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect/>
