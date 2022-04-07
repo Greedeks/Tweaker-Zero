@@ -40,7 +40,7 @@
             <Image x:Name="Video" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="794,244,159,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Xbox" Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
 
-            <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Foreground="{DynamicResource ColorRed}" Text="Наведите курсор на любое приложения, чтобы получить его название" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt">
+            <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Foreground="{DynamicResource ColorRed}" Text="Наведите курсор на любое изображение, чтобы получить название приложения" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt">
                 <TextBlock.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.6" Color="#FF0000"/>
                 </TextBlock.Effect>
