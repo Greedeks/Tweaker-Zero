@@ -36,7 +36,7 @@
             <Image x:Name="Maps" Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="794,66,159,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Widgets" Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,87" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Music" Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,88" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="SoundRecorder" Source="{DynamicResource SoundDrawingImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,87" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="SoundRecorder" Source="{DynamicResource SoundRecorderImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,87" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave" Cursor="Hand"/>
             <Image x:Name="Video" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="794,244,159,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Xbox" Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
 
