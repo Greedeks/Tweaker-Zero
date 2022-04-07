@@ -16,29 +16,32 @@
 
         <Grid Grid.Row="0">
 
-            <Image x:Name="BingWeather" Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="156,66,797,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="GetHelp" Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="234,113,719,217" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="BingWeather" Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="154,66,799,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="GetHelp" Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="234,107,719,223" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Microsoft3DViewer" Source="{DynamicResource Microsoft3DViewerImage}" Style="{DynamicResource AppUnll}"  Margin="155,154,798,176" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="MixedReality" Source="{DynamicResource MixedRealityImage}" Style="{DynamicResource AppUnll}"  Margin="314,154,639,176" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="MicrosoftOfficeHub" Source="{DynamicResource MicrosoftOfficeHubImage}" Style="{DynamicResource AppUnll}"  Margin="234,199,719,131" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="MicrosoftSolitaireCollection" Source="{DynamicResource MicrosoftSolitaireCollectionImage}" Style="{DynamicResource AppUnll}"  Margin="314,66,639,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="Paint3D" Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="395,110,558,220" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="Paint3D" Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="395,107,558,223" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="OneNote" Source="{DynamicResource OneNoteImage}" Style="{DynamicResource AppUnll}"  Margin="395,198,558,132" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="People" Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="474,66,479,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="MicrosoftStickyNotes" Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="474,154,479,176" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="Phone" Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="554,201,399,129" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="ScreenSketch" Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,113,400,217" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="SkypeApp" Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="715,201,238,129" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="Phone" Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="553,200,400,130" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="ScreenSketch" Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,107,400,223" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="SkypeApp" Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="713,200,240,130" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Photos" Source="{DynamicResource PhotosImage}" Style="{DynamicResource AppUnll}"  Margin="633,66,320,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="Alarms" Source="{DynamicResource AlarmsImage}" Style="{DynamicResource AppUnll}"  Margin="716,113,237,217" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="Camera" Source="{DynamicResource CameraImage}" Style="{DynamicResource AppUnll}"  Margin="794,156,159,174" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="Alarms" Source="{DynamicResource AlarmsImage}" Style="{DynamicResource AppUnll}"  Margin="713,107,240,223" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="Camera" Source="{DynamicResource CameraImage}" Style="{DynamicResource AppUnll}"  Margin="792,154,161,176" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="FeedbackHub" Source="{DynamicResource FeedbackHubImage}" Style="{DynamicResource AppUnll}"  Margin="633,153,320,177" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
-            <Image x:Name="Maps" Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="794,66,159,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="Maps" Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="792,66,161,264" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Widgets" Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,87" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Music" Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,88" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="SoundRecorder" Source="{DynamicResource SoundRecorderImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,87" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave" Cursor="Hand"/>
-            <Image x:Name="Video" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="794,244,159,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="Video" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="792,244,161,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="Xbox" Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,86" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+
+            <Image x:Name="Mail" Source="{DynamicResource MailImage}" Style="{DynamicResource AppUnll}"  Margin="870,199,83,131" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
+            <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="75,107,878,223" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
 
             <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Foreground="{DynamicResource ColorRed}" Text="Наведите курсор на любое изображение, чтобы получить название приложения" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt">
                 <TextBlock.Effect>

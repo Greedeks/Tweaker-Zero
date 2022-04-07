@@ -417,5 +417,72 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
+
+    <DrawingImage x:Key="MicrosoftStoreImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                <GeometryDrawing Geometry="F1 M512,512z M0,0z M133,469.1L133,469.1 379,469.1 502,256 379,42.9 133,42.9 10,256z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource ColorRed}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M109.7,187.6L109.7,187.6 341.7,139.8 369,153.5 396.3,153.5 396.3,399.1 341.7,412.7 109.7,371.8z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M164.3,235.3L164.3,235.3 273.5,214.9 273.5,337.7 164.3,317.2z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing>
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <LineGeometry StartPoint="164.3,276.3" EndPoint="273.5,276.3" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                        <GeometryDrawing>
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <LineGeometry StartPoint="212.1,233.1" EndPoint="212.1,323.2" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M273.5,153.9L273.5,153.9C273.5,123.8 249.1,99.3 218.9,99.3 188.7,99.3 164.3,123.7 164.3,153.9L164.3,176.4">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M297.5,149C287.2,120.7 255.9,106 227.6,116.3 206.2,124.1 191.8,144.3 191.6,167.1L191.6,170.6">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="MailImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                <GeometryDrawing Geometry="F1 M512,512z M0,0z M133,469.1L133,469.1 379,469.1 502,256 379,42.9 133,42.9 10,256z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource ColorRed}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+                <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,512">
+                    <GeometryDrawing Brush="{DynamicResource ColorGray}" Geometry="F1 M512,512z M0,0z M1801.6,3634.4C1399.8,3306 1065.8,3032 1060.3,3025.2 1049.9,3013 1049.3,2961 1049.3,2126.7L1049.3,1241.7 1065.2,1225.2 1081.7,1209.3 2561.2,1209.3 4040.7,1209.3 4055.4,1224.6 4070.7,1239.3 4070.7,2125.5C4070.7,2961 4070.1,3013 4059.7,3025.2 4054.2,3031.9 3720.3,3305.9 3318.4,3634.4 2590,4228.9 2587.5,4230.7 2560,4230.7 2532.5,4230.7 2530,4228.9 1801.6,3634.4z M3227.9,3545.1C3595.5,3244.8 3898.8,2997.7 3901.3,2995.3 3904.4,2992.9 3688.5,2838.7 3421.2,2652.2 3154.5,2466.3 2923.3,2304.8 2908.1,2293.8L2880.6,2274.2 2735,2392.2C2654.9,2457.6 2582.7,2512.1 2574.8,2513.9 2566.8,2515.1 2553.4,2515.1 2545.4,2513.9 2537.4,2512.1 2465.3,2457.6 2385.8,2392.2L2240.2,2274.2 2212.1,2294.4C2196.8,2305.4,1965.6,2466.9,1698.3,2652.8L1212.7,2991 1227.4,3002C1235.4,3008.1 1538.1,3255.2 1899.6,3551.2 2261.1,3846.6 2557.7,4089.4 2558.3,4089.4 2559.4,4090 2860.3,3844.8 3227.9,3545.1z M3947.2,1767.7L3945.4,1404.4 3467.7,1794.6C3204.7,2009.3 2988.8,2187.3 2988.2,2190.3 2987.6,2192.7 3202.9,2345.7 3466.5,2529.7L3945.4,2863.6 3947.2,2497.9C3947.8,2296.8,3947.8,1968.3,3947.2,1767.7z M1653.6,2529.8C1914.8,2347.5 2130.7,2196.5 2133.7,2194 2137.4,2190.9 1208.9,1427 1179.6,1409.3 1172.9,1405 1171.6,1529.8 1171.6,2132.8 1171.6,2532.8 1173.4,2860.6 1175.3,2860.6 1177.2,2860.6 1392.4,2711.4 1653.6,2529.8z M3197.3,1851.5L3830.3,1334.7 3195.4,1332.9C2845.6,1332.3,2274.3,1332.3,1925.1,1332.9L1289.6,1334.7 1923.2,1852.7C2271.8,2137.1 2558.7,2370.1 2560.5,2369.5 2563.1,2368.9 2849.3,2135.9 3197.3,1851.5z" />
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
     
 </ResourceDictionary>
