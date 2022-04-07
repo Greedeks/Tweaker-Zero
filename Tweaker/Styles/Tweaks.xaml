@@ -47,6 +47,11 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Height" Value="76"/>
         <Setter Property="Width" Value="1024"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Opacity="0.7"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
     </Style>
     
@@ -60,6 +65,11 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Height" Value="76"/>
         <Setter Property="Width" Value="1024"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Opacity="0.7"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
     </Style>
     
@@ -74,6 +84,11 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Opacity="0.7"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style TargetType="{x:Type Image}" x:Key="AppUnll">

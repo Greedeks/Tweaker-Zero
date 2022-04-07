@@ -68,16 +68,18 @@
         <!--#region Buttons-->
         <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
-            <Button Style="{StaticResource ButtonsTW}" Content="Включить всё" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
+            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
+                <Label Content="Включить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
 
-            <Button Style="{StaticResource ButtonsTW}" Content="Отключить всё" Height="26" Cursor="Hand" Margin="546,12,349.5,12">
+            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
+                <Label Content="Отключить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
         </Grid>
         <!--#endregion-->

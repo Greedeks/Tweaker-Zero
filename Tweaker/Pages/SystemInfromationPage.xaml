@@ -40,7 +40,7 @@
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                 </Border.Effect>
-                <Label HorizontalAlignment="Center" Content="Скопировано" Style="{DynamicResource Tweaks_ON}" Foreground="{DynamicResource ColorWhite}" />
+                <Label HorizontalAlignment="Center" Content="Скопировано" Style="{DynamicResource Tweaks_ON}" Foreground="{DynamicResource ColorWhite}"/>
             </Border>
 
         </Grid>

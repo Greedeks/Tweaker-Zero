@@ -113,7 +113,7 @@ namespace Tweaker.Pages
             {
                 From = !_reverse ? 0 :1,
                 To = !_reverse ? 1 : 0,
-                Duration = TimeSpan.FromSeconds(0.2),
+                Duration = TimeSpan.FromSeconds(0.17),
                 FillBehavior = FillBehavior.HoldEnd,
             };
             Timeline.SetDesiredFrameRate(_animation, 60);

@@ -43,19 +43,23 @@
             <Image x:Name="Mail" Source="{DynamicResource MailImage}" Style="{DynamicResource AppUnll}"  Margin="870,199,83,131" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
             <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="75,107,878,223" MouseEnter="App_MouseEnter" MouseLeave="BingWeather_MouseLeave"/>
 
-            <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Foreground="{DynamicResource ColorRed}" Text="Наведите курсор на любое изображение, чтобы получить название приложения" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt">
-                <TextBlock.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.6" Color="#FF0000"/>
-                </TextBlock.Effect>
-            </TextBlock>
-            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Text="Наведите курсор на любое изображение, чтобы получить название приложения" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt"/>
+            <Rectangle Fill="#D90000" Width="804" Height="1" RadiusX="15" RadiusY="15" Margin="0,419,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Grid>
 
         <Grid Grid.Row="1">
-            <Button Style="{StaticResource ButtonsTW}" Content="Удалить всё" Height="26" Cursor="Hand" HorizontalAlignment="Center" Width="150" Margin="0,13,0,49">
+            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="350,13,546,49" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
+                <Label Content="Удалить всё" Style="{DynamicResource ButtonsText}"/>
+            </Button>
+
+            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,13,350,49">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
+                </Button.Effect>
+                    <Label Content="Восстановить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
         </Grid>
     </Grid>
