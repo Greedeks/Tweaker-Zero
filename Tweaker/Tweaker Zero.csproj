@@ -65,14 +65,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\ApplicationsUL.xaml.cs">
-      <DependentUpon>ApplicationsUL.xaml</DependentUpon>
+    <Compile Include="Pages\ApplicationsPage.xaml.cs">
+      <DependentUpon>ApplicationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Interface.xaml.cs">
-      <DependentUpon>Interface.xaml</DependentUpon>
+    <Compile Include="Pages\InterfacePage.xaml.cs">
+      <DependentUpon>InterfacePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SystemInfromation.xaml.cs">
-      <DependentUpon>SystemInfromation.xaml</DependentUpon>
+    <Compile Include="Pages\SystemInfromationPage.xaml.cs">
+      <DependentUpon>SystemInfromationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Сlasses\SettingsWindows.cs" />
     <Compile Include="Сlasses\GetSystemInformation.cs" />
@@ -84,15 +84,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ApplicationsUL.xaml">
+    <Page Include="Pages\ApplicationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Interface.xaml">
+    <Page Include="Pages\InterfacePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\Confidentiality.xaml">
+    <Page Include="Pages\ConfidentialityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,7 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\SystemInfromation.xaml">
+    <Page Include="Pages\SystemInfromationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,8 +135,8 @@
     <Compile Include="CustomsUC\ToggleButton.xaml.cs">
       <DependentUpon>ToggleButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Confidentiality.xaml.cs">
-      <DependentUpon>Confidentiality.xaml</DependentUpon>
+    <Compile Include="Pages\ConfidentialityPage.xaml.cs">
+      <DependentUpon>ConfidentialityPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Сlasses\BrushAnimation.cs" />
     <Compile Include="Сlasses\CheckApplicationCopy.cs" />
