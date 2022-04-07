@@ -10,34 +10,46 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="199*"/>
-            <RowDefinition Height="26*"/>
+            <RowDefinition Height="421*"/>
+            <RowDefinition Height="88*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Image Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="156,66,797,293"/>
-            <Image Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="234,113,719,246"/>
-            <Image Source="{DynamicResource Microsoft3DViewerImage}" Style="{DynamicResource AppUnll}"  Margin="155,154,798,205"/>
-            <Image Source="{DynamicResource MixedRealityImage}" Style="{DynamicResource AppUnll}"  Margin="314,154,639,205"/>
-            <Image Source="{DynamicResource MicrosoftOfficeHubImage}" Style="{DynamicResource AppUnll}"  Margin="234,199,719,160"/>
-            <Image Source="{DynamicResource MicrosoftSolitaireCollectionImage}" Style="{DynamicResource AppUnll}"  Margin="314,66,639,293"/>
-            <Image Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="395,110,558,248"/>
-            <Image Source="{DynamicResource OneNoteImage}" Style="{DynamicResource AppUnll}"  Margin="395,198,558,160"/>
-            <Image Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="474,66,479,293"/>
-            <Image Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="474,154,479,205"/>
-            <Image Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="554,201,399,158"/>
-            <Image Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,113,400,246"/>
-            <Image Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="715,201,238,158"/>
-            <Image Source="{DynamicResource PhotosImage}" Style="{DynamicResource AppUnll}"  Margin="633,66,320,293"/>
-            <Image Source="{DynamicResource AlarmsImage}" Style="{DynamicResource AppUnll}"  Margin="716,113,237,246"/>
-            <Image Source="{DynamicResource CameraImage}" Style="{DynamicResource AppUnll}"  Margin="794,156,159,203"/>
-            <Image Source="{DynamicResource FeedbackHubImage}" Style="{DynamicResource AppUnll}"  Margin="633,153,320,206"/>
-            <Image Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="794,66,159,293"/>
-            <Image Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,116"/>
-            <Image Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,117"/>
-            <Image Source="{DynamicResource SoundDrawingImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,116"/>
-            <Image Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="794,244,159,115"/>
-            <Image Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,115"/>
+
+            <Image Source="{DynamicResource BingWeatherImage}" Style="{DynamicResource AppUnll}"  Margin="156,66,797,264"/>
+            <Image Source="{DynamicResource GetHelpImage}" Style="{DynamicResource AppUnll}"  Margin="234,113,719,217"/>
+            <Image Source="{DynamicResource Microsoft3DViewerImage}" Style="{DynamicResource AppUnll}"  Margin="155,154,798,176"/>
+            <Image Source="{DynamicResource MixedRealityImage}" Style="{DynamicResource AppUnll}"  Margin="314,154,639,176"/>
+            <Image Source="{DynamicResource MicrosoftOfficeHubImage}" Style="{DynamicResource AppUnll}"  Margin="234,199,719,131"/>
+            <Image Source="{DynamicResource MicrosoftSolitaireCollectionImage}" Style="{DynamicResource AppUnll}"  Margin="314,66,639,264"/>
+            <Image Source="{DynamicResource Paint3DImage}" Style="{DynamicResource AppUnll}"  Margin="395,110,558,220"/>
+            <Image Source="{DynamicResource OneNoteImage}" Style="{DynamicResource AppUnll}"  Margin="395,198,558,132"/>
+            <Image Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="474,66,479,264"/>
+            <Image Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="474,154,479,176"/>
+            <Image Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="554,201,399,129"/>
+            <Image Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,113,400,217"/>
+            <Image Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="715,201,238,129"/>
+            <Image Source="{DynamicResource PhotosImage}" Style="{DynamicResource AppUnll}"  Margin="633,66,320,264"/>
+            <Image Source="{DynamicResource AlarmsImage}" Style="{DynamicResource AppUnll}"  Margin="716,113,237,217"/>
+            <Image Source="{DynamicResource CameraImage}" Style="{DynamicResource AppUnll}"  Margin="794,156,159,174"/>
+            <Image Source="{DynamicResource FeedbackHubImage}" Style="{DynamicResource AppUnll}"  Margin="633,153,320,177"/>
+            <Image Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="794,66,159,264"/>
+            <Image Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,87"/>
+            <Image Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,88"/>
+            <Image Source="{DynamicResource SoundDrawingImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,87"/>
+            <Image Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="794,244,159,86"/>
+            <Image Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,86"/>
+
+            <TextBlock Style="{DynamicResource DescriptionTweaks}" Foreground="{DynamicResource ColorRed}" Text="Наведите курсор на любое приложения, чтобы получить его название" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt"/>
+            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Button Style="{StaticResource ButtonsTW}" Content="Удалить всё" Height="26" Cursor="Hand" HorizontalAlignment="Center" Width="150" Margin="0,13,0,49">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
+                </Button.Effect>
+            </Button>
         </Grid>
     </Grid>
 </Page>
