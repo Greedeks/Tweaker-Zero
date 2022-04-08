@@ -74,6 +74,7 @@
     <Compile Include="Pages\SystemInfromationPage.xaml.cs">
       <DependentUpon>SystemInfromationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Сlasses\ApplicationsSystem.cs" />
     <Compile Include="Сlasses\SettingsWindows.cs" />
     <Compile Include="Сlasses\GetSystemInformation.cs" />
     <Page Include="CustomsUC\ToggleButton.xaml">
