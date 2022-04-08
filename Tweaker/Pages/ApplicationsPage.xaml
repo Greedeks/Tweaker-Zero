@@ -34,8 +34,8 @@
             <Image x:Name="Camera" Source="{DynamicResource CameraImage}" Style="{DynamicResource AppUnll}"  Margin="792,154,161,176" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="FeedbackHub" Source="{DynamicResource FeedbackHubImage}" Style="{DynamicResource AppUnll}"  Margin="633,153,320,177" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Maps" Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="792,66,161,264" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
-            <Image x:Name="Widgets" Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,87" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
-            <Image x:Name="ZoneMusic" Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,88" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
+            <Image x:Name="Widgets" Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,243,479,87" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
+            <Image x:Name="ZoneMusic" Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="156,242,797,88" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
             <Image x:Name="SoundRecorder" Source="{DynamicResource SoundRecorderImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,87" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="ZoneVideo" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="792,244,161,86" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Xbox" Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,244,639,86" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
