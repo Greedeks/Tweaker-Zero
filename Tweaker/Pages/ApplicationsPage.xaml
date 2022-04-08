@@ -27,7 +27,7 @@
             <Image x:Name="People" Source="{DynamicResource PeopleImage}" Style="{DynamicResource AppUnll}"  Margin="474,66,479,264" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="MicrosoftStickyNotes" Source="{DynamicResource MicrosoftStickyNotesImage}" Style="{DynamicResource AppUnll}"  Margin="474,154,479,176" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Phone" Source="{DynamicResource PhoneImage}" Style="{DynamicResource AppUnll}"  Margin="553,200,400,130" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
-            <Image x:Name="ScreenSketch" Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,107,400,223" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
+            <Image x:Name="ScreenSketch" Source="{DynamicResource ScreenSketchImage}" Style="{DynamicResource AppUnll}"  Margin="553,107,400,223" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
             <Image x:Name="SkypeApp" Source="{DynamicResource SkypeAppImage}" Style="{DynamicResource AppUnll}"  Margin="713,200,240,130" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Photos" Source="{DynamicResource PhotosImage}" Style="{DynamicResource AppUnll}"  Margin="633,66,320,264" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Alarms" Source="{DynamicResource AlarmsImage}" Style="{DynamicResource AppUnll}"  Margin="713,107,240,223" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
