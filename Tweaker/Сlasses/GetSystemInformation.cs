@@ -46,7 +46,7 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private readonly static List<string> _INFthisPC = new List<string>();
+        private readonly static List<string> _INFthisPC = new List<string>(10);
         private string _setinfo = default, _type = default;
         internal void GetInormationPC()
         {

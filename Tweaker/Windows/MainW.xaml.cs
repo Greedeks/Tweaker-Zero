@@ -16,6 +16,7 @@ namespace Tweaker
         private readonly CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
         private readonly SettingsWindows settingsWindows = new SettingsWindows();
         private readonly GetSystemInformation getsystemInformation = new GetSystemInformation();
+        private readonly  ApplicationsSystem applicationsSystem = new ApplicationsSystem();
         #endregion
 
         public MainWindow()
@@ -235,6 +236,7 @@ namespace Tweaker
             GetSystemInformation._urlImage = getsystemInformation.SetImageUser();
             getsystemInformation.GetInormationPC();
             settingsWindows.TaskCheckStateConfidentiality();
+            applicationsSystem.CheckInstalledApps();
 
             #region Анимация загрузки
             TweakerWPF.WindowStartupLocation = WindowStartupLocation.Manual;
