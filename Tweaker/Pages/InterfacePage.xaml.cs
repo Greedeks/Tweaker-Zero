@@ -7,7 +7,7 @@ namespace Tweaker.Pages
 {
     public partial class Interface : Page
     {
-        private readonly SettingsWindows settingsWindows = new SettingsWindows();
+        private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         public Interface()
         {
             InitializeComponent();
@@ -256,7 +256,7 @@ namespace Tweaker.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            settingsWindows.GetSettingInterface(this);
+            _settingsWindows.GetSettingInterface(this);
         }
     }
 }

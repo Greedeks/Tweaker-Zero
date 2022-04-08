@@ -13,7 +13,7 @@ namespace Tweaker.Pages
 {
     public partial class SystemInfromation : Page
     {
-        private readonly GetSystemInformation getSystemInformation = new GetSystemInformation();
+        private readonly GetSystemInformation _getSystemInformation = new GetSystemInformation();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
         private static string _ipUser = "Пожалуйста немного подождите..";
@@ -31,8 +31,8 @@ namespace Tweaker.Pages
             _worker.RunWorkerCompleted += (s, e) => { IpAddress.Text = _ipUser; };
 
             if (GetSystemInformation._urlImage != null) UserAvatar.ImageSource = GetSystemInformation._urlImage;
-            UserName.Text = getSystemInformation.NameUser();
-            getSystemInformation.SetInormationPC(this);
+            UserName.Text = _getSystemInformation.NameUser();
+            _getSystemInformation.SetInormationPC(this);
             IpAddress.Text = _ipUser;
 
             UpdateDisk();
@@ -100,7 +100,7 @@ namespace Tweaker.Pages
         {
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds%2==0) { getSystemInformation.UpdateInormation(this); }
+                if (_time.TotalSeconds%2==0) { _getSystemInformation.UpdateInormation(this); }
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
 

@@ -8,11 +8,11 @@ namespace Tweaker.Pages
 {
     public partial class ApplicationsUL : Page
     {
-        private ApplicationsSystem applicationsSystem = new ApplicationsSystem();
+        private ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         public ApplicationsUL()
         {
             InitializeComponent();
-            applicationsSystem.SetImageApps(this);
+            _applicationsSystem.SetImageApps(this);
         }
 
         private void App_MouseEnter(object sender, MouseEventArgs e)

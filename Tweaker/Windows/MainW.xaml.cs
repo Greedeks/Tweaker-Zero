@@ -13,15 +13,15 @@ namespace Tweaker
         #region Параметры
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
-        private readonly CheckApplicationCopy checkApplicationCopy = new CheckApplicationCopy();
-        private readonly SettingsWindows settingsWindows = new SettingsWindows();
-        private readonly GetSystemInformation getsystemInformation = new GetSystemInformation();
-        private readonly  ApplicationsSystem applicationsSystem = new ApplicationsSystem();
+        private readonly CheckApplicationCopy _checkApplicationCopy = new CheckApplicationCopy();
+        private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+        private readonly GetSystemInformation _getsystemInformation = new GetSystemInformation();
+        private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         #endregion
 
         public MainWindow()
         {
-            checkApplicationCopy.CheckAC();
+            _checkApplicationCopy.CheckAC();
 
             InitializeComponent();
         }
@@ -233,10 +233,10 @@ namespace Tweaker
 
         private  async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GetSystemInformation._urlImage = getsystemInformation.SetImageUser();
-            getsystemInformation.GetInormationPC();
-            settingsWindows.TaskCheckStateConfidentiality();
-            applicationsSystem.CheckInstalledApps();
+            GetSystemInformation._urlImage = _getsystemInformation.SetImageUser();
+            _getsystemInformation.GetInormationPC();
+            _settingsWindows.TaskCheckStateConfidentiality();
+            _applicationsSystem.CheckInstalledApps();
 
             #region Анимация загрузки
             TweakerWPF.WindowStartupLocation = WindowStartupLocation.Manual;

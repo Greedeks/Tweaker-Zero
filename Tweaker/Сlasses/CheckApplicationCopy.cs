@@ -27,10 +27,10 @@ namespace Tweaker
                     }
                 }
                 string _processName = Process.GetCurrentProcess().ProcessName;
-                Process process = Process.GetProcesses().Where(p => p.ProcessName == _processName).FirstOrDefault();
-                if (process != null)
+                Process _process = Process.GetProcesses().Where(p => p.ProcessName == _processName).FirstOrDefault();
+                if (_process != null)
                 {
-                    IntPtr handle = process.MainWindowHandle;
+                    IntPtr handle = _process.MainWindowHandle;
                     _ShowWindow(handle, 1);
                     _SetForegroundWindow(handle);
                 }

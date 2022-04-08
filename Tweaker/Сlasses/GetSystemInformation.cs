@@ -137,20 +137,20 @@ namespace Tweaker.Сlasses
             _setinfo = string.Empty;
         }
 
-        internal void SetInormationPC(SystemInfromation systemInfromation)
+        internal void SetInormationPC(SystemInfromation _systemInfromation)
         {
-            systemInfromation.NameOS.Text = _INFthisPC[0];
-            systemInfromation.NameBIOS.Text = _INFthisPC[1];
-            systemInfromation.NameMotherBr.Text = _INFthisPC[2];
-            systemInfromation.NameCPU.Text = _INFthisPC[3];
-            systemInfromation.NameGPU.Text = _INFthisPC[4];
-            systemInfromation.NameRAM.Text = _INFthisPC[5];
+            _systemInfromation.NameOS.Text = _INFthisPC[0];
+            _systemInfromation.NameBIOS.Text = _INFthisPC[1];
+            _systemInfromation.NameMotherBr.Text = _INFthisPC[2];
+            _systemInfromation.NameCPU.Text = _INFthisPC[3];
+            _systemInfromation.NameGPU.Text = _INFthisPC[4];
+            _systemInfromation.NameRAM.Text = _INFthisPC[5];
 
-            systemInfromation.NameDisk.Text = _INFthisPC[6];
-            systemInfromation.NameSound.Text = _INFthisPC[7];
-            systemInfromation.Ipv4.Text = _INFthisPC[8];
-            systemInfromation.MACaddress.Text = _INFthisPC[9];
-            systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
+            _systemInfromation.NameDisk.Text = _INFthisPC[6];
+            _systemInfromation.NameSound.Text = _INFthisPC[7];
+            _systemInfromation.Ipv4.Text = _INFthisPC[8];
+            _systemInfromation.MACaddress.Text = _INFthisPC[9];
+            _systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
         }
 
         internal void UpdateInormation(SystemInfromation systemInfromation)
