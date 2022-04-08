@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,8 @@ namespace Tweaker.Сlasses
             localMachineKey = Registry.LocalMachine, usersKey = Registry.Users,
             currentConfigKey = Registry.CurrentConfig;  
         private readonly RegistryKey[] _key = new RegistryKey[500];
-        private static byte _counTasksConfidentiality = default;
+        private static byte _counTasksConfidentiality = 0;
+        private Process _process;
 
         internal void GetSettingConfidentiality(Confidentiality _confidentiality)
         {
@@ -273,28 +273,24 @@ namespace Tweaker.Сlasses
                 @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
                 @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
 
-            _counTasksConfidentiality = 0;
-
-            Process process = Process.Start(new ProcessStartInfo
-            {
-                UseShellExecute = false,
-                FileName = "schtasks.exe",
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true,
-                StandardOutputEncoding = Encoding.GetEncoding(866),
-                WindowStyle = ProcessWindowStyle.Hidden
-            });
+            _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            _process.StartInfo.FileName = "schtasks.exe";
             foreach (var _task in TaskName)
             {
-                 process.StartInfo.Arguments = string.Format("/TN {0}", _task);
-                 process.Start();
-                 process.StandardOutput.ReadLine();
-                 string _tbl = process.StandardOutput.ReadToEnd();
-                 process.WaitForExit();
+                _process.StartInfo.Arguments = string.Format("/TN {0}", _task);
+                _process.Start();
+                _process.StandardOutput.ReadLine();
+                string _tbl = _process.StandardOutput.ReadToEnd();
                 if (_tbl.Split('A').Last().Trim() == "Ready" || _tbl.Split('A').Last().Trim() == "Готово")
                     _counTasksConfidentiality++;
             }
+            _process.WaitForExit();
+            _process.Dispose();
         }
 
         internal void GetSettingInterface(Interface _interface)

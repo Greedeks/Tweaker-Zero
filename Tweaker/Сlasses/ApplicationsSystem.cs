@@ -13,23 +13,23 @@ namespace Tweaker.Сlasses
     {
         private static List<int> _CountCheck = new List<int> (26);
         private static string _result = default;
+        private Process _process;
         internal void CheckInstalledApps()
         {
-            Process process = Process.Start(new ProcessStartInfo
+            _process = Process.Start(new ProcessStartInfo
             {
                 UseShellExecute = false,
                 FileName = "powershell.exe",
                 RedirectStandardError = true,
                 RedirectStandardOutput = true,
+                Arguments = string.Format(@"Get-AppxPackage | select Name"),
                 CreateNoWindow = true,
                 StandardOutputEncoding = Encoding.GetEncoding(866),
                 WindowStyle = ProcessWindowStyle.Hidden
             });
-            process.StartInfo.Arguments = string.Format(@"Get-AppxPackage | select Name");
-            process.Start();
-            process.StandardOutput.ReadLine();
-            _result = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
+            _result = _process.StandardOutput.ReadToEnd();
+            _process.WaitForExit();
+            _process.Dispose();
 
 
             _CountCheck.Add(_result.Split(new string[] { "Microsoft.WindowsStore" }, StringSplitOptions.None).Count() - 1);

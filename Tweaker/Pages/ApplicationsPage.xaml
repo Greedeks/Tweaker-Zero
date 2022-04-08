@@ -56,11 +56,11 @@
                 <Label Content="Удалить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
 
-            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,13,350,49">
+            <Button x:Name="BRecovery" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,13,350,49" PreviewMouseDown="BRecovery_PreviewMouseDown">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
-                    <Label Content="Восстановить всё" Style="{DynamicResource ButtonsText}"/>
+                    <Label Content="Восстановить всё" Style="{DynamicResource ButtonsText}" Cursor="Hand"/>
             </Button>
         </Grid>
     </Grid>

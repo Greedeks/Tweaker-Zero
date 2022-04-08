@@ -39,5 +39,11 @@ namespace Tweaker.Pages
              Discription.BeginAnimation(ContextMenu.OpacityProperty, _animation);
              Discription.Opacity = 1;
         }
+
+        private void BRecovery_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //if(e.LeftButton == MouseButtonState.Pressed)
+             
+        }
     }
 }
