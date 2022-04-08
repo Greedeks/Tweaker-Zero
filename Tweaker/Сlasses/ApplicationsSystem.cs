@@ -25,7 +25,7 @@ namespace Tweaker.Сlasses
                 StandardOutputEncoding = Encoding.GetEncoding(866),
                 WindowStyle = ProcessWindowStyle.Hidden
             });
-            process.StartInfo.Arguments = String.Format(@"Get-AppxPackage | select Name");
+            process.StartInfo.Arguments = string.Format(@"Get-AppxPackage | select Name");
             process.Start();
             process.StandardOutput.ReadLine();
             _result = process.StandardOutput.ReadToEnd();

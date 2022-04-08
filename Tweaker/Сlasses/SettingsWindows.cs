@@ -287,7 +287,7 @@ namespace Tweaker.Сlasses
             });
             foreach (var _task in TaskName)
             {
-                 process.StartInfo.Arguments = String.Format("/TN {0}", _task);
+                 process.StartInfo.Arguments = string.Format("/TN {0}", _task);
                  process.Start();
                  process.StandardOutput.ReadLine();
                  string _tbl = process.StandardOutput.ReadToEnd();
