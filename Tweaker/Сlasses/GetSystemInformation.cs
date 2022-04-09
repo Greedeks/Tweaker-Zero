@@ -46,7 +46,7 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private readonly static List<string> _INFthisPC = new List<string>(10);
+        private readonly static List<string> _INFthisPC = new List<string>(11);
         private string _setinfo = default, _type = default;
         internal void GetInormationPC()
         {
@@ -153,7 +153,7 @@ namespace Tweaker.Сlasses
             _systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
         }
 
-        internal void UpdateInormation(SystemInfromation systemInfromation)
+        internal void UpdateInormation(SystemInfromation _systemInfromation)
         {
             foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
             {
@@ -176,7 +176,7 @@ namespace Tweaker.Сlasses
                 _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
             }
             _INFthisPC[6] = _setinfo;
-            systemInfromation.NameDisk.Text = _INFthisPC[6];
+            _systemInfromation.NameDisk.Text = _INFthisPC[6];
             _setinfo = string.Empty;
         }
     }

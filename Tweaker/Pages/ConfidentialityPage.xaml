@@ -8,7 +8,7 @@
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}">
 
-    <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+    <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
             <RowDefinition Height="50*"/>
