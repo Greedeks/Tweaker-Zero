@@ -239,8 +239,6 @@ namespace Tweaker
             _applicationsSystem.CheckInstalledApps();
 
             #region Анимация загрузки
-            TweakerWPF.WindowStartupLocation = WindowStartupLocation.Manual;
-
             this.Opacity = 0;
             await Task.Delay(1);
             this.Opacity = 1;
