@@ -9,10 +9,16 @@
     <Viewbox Margin="0,2,2,1" KeyboardNavigation.IsTabStop="False">
         <Grid HorizontalAlignment="Left" Height="60" Margin="0" VerticalAlignment="Top" Width="100">
             <Rectangle x:Name="Back" Fill="#737373" Cursor="Hand" HorizontalAlignment="Left" Height="56.5" VerticalAlignment="Top" Width="96.5" Margin="2,2,0,0" RadiusY="29" RadiusX="29" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" KeyboardNavigation.IsTabStop="False"/>
-            <Ellipse x:Name="Dot" Fill="{DynamicResource ColorWhite}" Cursor="Hand" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded" StrokeThickness="1"  KeyboardNavigation.IsTabStop="False">
+            <Ellipse x:Name="Dot"  Cursor="Hand" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MouseLeftButtonDown="Toggle_MouseLeftButtonDown" Loaded="Dot_Loaded" StrokeThickness="1"  KeyboardNavigation.IsTabStop="False">
                 <Ellipse.Stroke>
                     <SolidColorBrush  Color="Black" Opacity="0.3"/>
                 </Ellipse.Stroke>
+                <Ellipse.Fill>
+                    <RadialGradientBrush GradientOrigin="1,0.5">
+                        <GradientStop Color="white" Offset="0.3"></GradientStop>
+                        <GradientStop Color="#D0D0D0" Offset="1"></GradientStop>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
             </Ellipse>
         </Grid>
     </Viewbox>
