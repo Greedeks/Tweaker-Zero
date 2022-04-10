@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="{x:Type Page}" x:Key="PageStyle">
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="False"/>
         <Style.Triggers>
             <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                 <BeginStoryboard>
@@ -17,6 +18,7 @@
     </Style>
 
     <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -42,6 +44,7 @@
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Foreground" Value="#A03222"/>
         <Setter Property="Background" Value="DarkGray"/>
+        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Width" Value="10"/>
         <Setter Property="Template">
             <Setter.Value>

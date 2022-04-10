@@ -14,7 +14,7 @@
             <RowDefinition Height="369*"/>
         </Grid.RowDefinitions>
 
-        <Border x:Name="Notf" Opacity="0" Visibility="Hidden" BorderThickness="1" Grid.Row="0" CornerRadius="11,11,11,11" BorderBrush="{DynamicResource ColorRed}"  Background="{DynamicResource BackgroundButtonHead}" Width="110" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="1">
+        <Border x:Name="Notf" Opacity="0" Visibility="Hidden" BorderThickness="1" CornerRadius="11,11,11,11" BorderBrush="{DynamicResource ColorRed}"  Background="{DynamicResource BackgroundButtonHead}" Width="110" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="1" Margin="0,30,0,0">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
             </Border.Effect>
@@ -105,12 +105,12 @@
                     </Grid>
 
                     <Grid Grid.Row="5" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Оперативная память:" Margin="35,5,0,0" Cursor="Arrow">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Оперативная память:" Margin="35,25,0,0" Cursor="Arrow">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameRAM" Style="{DynamicResource SystemINFO}" Text="Оперативная память" Margin="177,5,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameRAM" Style="{DynamicResource SystemINFO}" Text="Оперативная память" Margin="177,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
                     </Grid>
                 </Grid>
 
@@ -134,21 +134,21 @@
                     </Grid>
 
                     <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Звуковые устройства:" Margin="10,5,0,0" Cursor="Arrow">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="Звуковые устройства:" Margin="10,25,0,0" Cursor="Arrow">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameSound" Style="{DynamicResource SystemINFO}" Text="Звуковые устройства" Margin="155,5,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameSound" Style="{DynamicResource SystemINFO}" Text="Звуковые устройства" Margin="155,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
                     </Grid>
 
                     <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
-                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IP-адрес:" Margin="10,5,0,0" Cursor="Arrow">
+                        <TextBlock Style="{DynamicResource SystemINFO}" Text="IP-адрес:" Margin="10,25,0,0" Cursor="Arrow">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400"/>
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,5,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
                     </Grid>
 
                     <Grid Grid.Row="3" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">

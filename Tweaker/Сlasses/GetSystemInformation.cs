@@ -67,12 +67,12 @@ namespace Tweaker.Сlasses
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
                 _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
-            _INFthisPC.Add(_setinfo);
+            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
             _setinfo = string.Empty;
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select  Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory").Get())
                 _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
-            _INFthisPC.Add(_setinfo);
+            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
             _setinfo = string.Empty;
 
             foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
@@ -95,12 +95,12 @@ namespace Tweaker.Сlasses
                 if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
                 _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
             }
-            _INFthisPC.Add(_setinfo);
+            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
             _setinfo = string.Empty;
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
                 _setinfo += (string)managementObj["Name"] + "\n";
-            _INFthisPC.Add(_setinfo);
+            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
             _setinfo = string.Empty;
 
             try
@@ -133,7 +133,7 @@ namespace Tweaker.Сlasses
 
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
                 _setinfo += (string)managementObj["Name"] + "\n";
-            _INFthisPC.Add(_setinfo);
+            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
             _setinfo = string.Empty;
         }
 
@@ -175,7 +175,7 @@ namespace Tweaker.Сlasses
                 if (_type == "Unspecified" && ((ushort)(managementObj["BusType"])) == 7) _type = "USB";
                 _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
             }
-            _INFthisPC[6] = _setinfo;
+            _INFthisPC[6] = _setinfo.TrimEnd('\n');
             _systemInfromation.NameDisk.Text = _INFthisPC[6];
             _setinfo = string.Empty;
         }

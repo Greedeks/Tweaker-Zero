@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Tweaker.Сlasses;
@@ -131,7 +130,6 @@ namespace Tweaker.Pages
                 if (!_sticking)
                 {
                     TextBlock _textBlock = (TextBlock)sender;
-                    PostionNotf();
                     _sticking = true;
                     AnimNotf(false);
                     Clipboard.SetData(DataFormats.UnicodeText, _textBlock.Text);
@@ -151,7 +149,6 @@ namespace Tweaker.Pages
                 {
                     if (!_sticking)
                     {
-                        PostionNotf();
                         _sticking = true;
                         AnimNotf(false);
                         Clipboard.SetData(DataFormats.UnicodeText, _textcopy);
@@ -168,14 +165,6 @@ namespace Tweaker.Pages
         {
             _timer.Stop();
             _worker.Dispose();
-        }
-
-        private void PostionNotf()
-        {
-            TranslateTransform _translateTransform = new TranslateTransform();
-            _translateTransform.X = Mouse.GetPosition(GridContent).X;
-            _translateTransform.Y = Mouse.GetPosition(GridContent).Y;
-            Notf.RenderTransform = _translateTransform;
         }
     }
 }
