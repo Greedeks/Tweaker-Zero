@@ -172,7 +172,7 @@ namespace Tweaker.Сlasses
                         _type = "(Unspecified)";
                         break;
                 }
-                if (_type == "Unspecified" && ((ushort)(managementObj["BusType"])) == 7) _type = "USB";
+                if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
                 _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
             }
             _INFthisPC[6] = _setinfo.TrimEnd('\n');
