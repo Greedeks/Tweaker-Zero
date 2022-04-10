@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Tweaker.Сlasses;
@@ -109,6 +110,7 @@ namespace Tweaker.Pages
 
         private void AnimNotf(bool _reverse)
         {
+            Notf.Visibility = Visibility.Visible;
             DoubleAnimation _animation = new DoubleAnimation
             {
                 From = !_reverse ? 0 :1,
@@ -122,198 +124,24 @@ namespace Tweaker.Pages
         }
 
         #region CopyText
-        private async void NameOS_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private async void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed && e.ClickCount>=2)
+            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount>=2)
             {
                 if (!_sticking)
                 {
+                    TextBlock _textBlock = (TextBlock)sender;
+                    PostionNotf();
                     _sticking = true;
                     AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameOS.Text);
+                    Clipboard.SetData(DataFormats.UnicodeText, _textBlock.Text);
                     await Task.Delay(500);
                     AnimNotf(true);
                     _sticking = false;
+                
                 }
             }
         }
-
-        private async void NameBIOS_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameBIOS.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameMotherBr_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameMotherBr.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameCPU_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameCPU.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameGPU_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameGPU.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameRAM_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameRAM.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameDisk_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameDisk.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameSound_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameSound.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void IpAddress_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, IpAddress.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void Ipv4_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, Ipv4.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void MACaddress_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, MACaddress.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-
-        private async void NameNetAdapter_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount >= 2)
-            {
-                if (!_sticking)
-                {
-                    _sticking = true;
-                    AnimNotf(false);
-                    Clipboard.SetData(DataFormats.UnicodeText, NameNetAdapter.Text);
-                    await Task.Delay(500);
-                    AnimNotf(true);
-                    _sticking = false;
-                }
-            }
-        }
-        #endregion
 
         private async void Page_KeyDown(object sender, KeyEventArgs e)
         {
@@ -323,6 +151,7 @@ namespace Tweaker.Pages
                 {
                     if (!_sticking)
                     {
+                        PostionNotf();
                         _sticking = true;
                         AnimNotf(false);
                         Clipboard.SetData(DataFormats.UnicodeText, _textcopy);
@@ -333,11 +162,20 @@ namespace Tweaker.Pages
                 }
             }
         }
+        #endregion
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             _timer.Stop();
             _worker.Dispose();
+        }
+
+        private void PostionNotf()
+        {
+            TranslateTransform _translateTransform = new TranslateTransform();
+            _translateTransform.X = Mouse.GetPosition(GridContent).X;
+            _translateTransform.Y = Mouse.GetPosition(GridContent).Y;
+            Notf.RenderTransform = _translateTransform;
         }
     }
 }
