@@ -21,20 +21,16 @@ namespace Tweaker.Pages
             DiscriptionAnim(_AppImage.Name);
         }
 
-        private void App_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (Discription.Text != "Наведите курсор на любое приложения, чтобы получить его название")
-                DiscriptionAnim("Наведите курсор на любое приложения, чтобы получить его название");
-        }
+        private void App_MouseLeave(object sender, MouseEventArgs e) => DiscriptionAnim("Наведите курсор на любое приложения, чтобы получить его название");
 
         private void DiscriptionAnim(string _text)
         {
-             Discription.Text = _text;
+            Discription.Text = _text;
             DoubleAnimation _animation = new DoubleAnimation
             {
                 From = 0,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.5)
+                Duration = TimeSpan.FromSeconds(0.3)
              };
              Discription.BeginAnimation(ContextMenu.OpacityProperty, _animation);
              Discription.Opacity = 1;
