@@ -11,7 +11,7 @@ namespace Tweaker.Сlasses
 {
     internal class ApplicationsSystem
     {
-        private readonly static List<byte> _CountCheck = new List<byte> (27);
+        private readonly static List<byte> _CountCheck = new List<byte> (29);
         private static string _result = default;
         private Process _process;
         internal void CheckInstalledApps()
@@ -87,6 +87,10 @@ namespace Tweaker.Сlasses
             _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.BingNews" }, StringSplitOptions.None).Count() - 1));
                            
             _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.windowscommunicationsapps" }, StringSplitOptions.None).Count() - 1));
+
+            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "MicrosoftTeams" }, StringSplitOptions.None).Count() - 1));
+
+            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.PowerAutomateDesktop" }, StringSplitOptions.None).Count() - 1));
         }
 
         internal void SetImageApps(ApplicationsUL _applicationsPages)
@@ -118,6 +122,8 @@ namespace Tweaker.Сlasses
             _applicationsPages.ZoneVideo.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
             _applicationsPages.BingNews.Source = _CountCheck[25] == 1 ? (DrawingImage)Application.Current.Resources["BingNewsImage"] : (DrawingImage)Application.Current.Resources["BingNewsImageU"];
             _applicationsPages.Mail.Source = _CountCheck[26] == 1 ? (DrawingImage)Application.Current.Resources["MailImage"] : (DrawingImage)Application.Current.Resources["MailImageU"];
+            _applicationsPages.MicrosoftTeams.Source = _CountCheck[27] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftTeamsImage"] : (DrawingImage)Application.Current.Resources["MicrosoftTeamsImageU"];
+            _applicationsPages.PoweraAtomateDesktop.Source = _CountCheck[28] == 1 ? (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImage"] : (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImageU"];
         }
     }
 }
