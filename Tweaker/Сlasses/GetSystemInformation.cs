@@ -48,6 +48,7 @@ namespace Tweaker.Сlasses
 
         private readonly static List<string> _INFthisPC = new List<string>(11);
         private string _setinfo = default, _type = default;
+        internal static string _ipUser = "Пожалуйста немного подождите..";
         internal void GetInormationPC()
         {
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
@@ -179,6 +180,37 @@ namespace Tweaker.Сlasses
             _systemInfromation.NameDisk.Text = _INFthisPC[6];
             _setinfo = string.Empty;
         }
+
+        #region CheckIntCn/getIp
+        private bool CheckInternetConnection()
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create("http://google.com");
+                request.KeepAlive = false;
+                using (var response = (HttpWebResponse)request.GetResponse())
+                    return true;
+            }
+            catch { return false; }
+        }
+
+        internal void GetIpUser()
+        {
+            if (CheckInternetConnection())
+            {
+                try
+                {
+                    string _exIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
+                    var _exlIp = IPAddress.Parse(_exIpString);
+                    _ipUser = _exlIp.ToString();
+                }
+                catch { _ipUser = "Доступ к сети ограничен"; }
+            }
+            else
+                _ipUser = "Отсутствует подключения к интернету";
+        }
+        #endregion
     }
+
 }
 

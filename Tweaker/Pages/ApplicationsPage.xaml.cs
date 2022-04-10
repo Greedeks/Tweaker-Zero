@@ -8,7 +8,7 @@ namespace Tweaker.Pages
 {
     public partial class ApplicationsUL : Page
     {
-        private ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
+        private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         public ApplicationsUL()
         {
             InitializeComponent();

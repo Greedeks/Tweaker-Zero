@@ -65,7 +65,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameOS" Style="{DynamicResource SystemINFO}" MaxWidth="310" Text="Операционная система" Margin="193,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" Cursor="Hand"/>
+                        <TextBlock x:Name="NameOS" Style="{DynamicResource SystemINFO}" MaxWidth="310" Text="Операционная система" Margin="193,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" Cursor="Hand" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -74,7 +74,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameBIOS" Style="{DynamicResource SystemINFO}" Text="БИОС" Margin="82,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MaxWidth="431"/>
+                        <TextBlock x:Name="NameBIOS" Style="{DynamicResource SystemINFO}" Text="БИОС" Margin="82,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MaxWidth="431" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -83,7 +83,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameMotherBr" Style="{DynamicResource SystemINFO}" MaxWidth="346" Text="Материнская плата" Margin="168,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameMotherBr" Style="{DynamicResource SystemINFO}" MaxWidth="346" Text="Материнская плата" Margin="168,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="3" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -92,7 +92,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" MaxWidth="400" Text="Процессор" Margin="113,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameCPU" Style="{DynamicResource SystemINFO}" MaxWidth="400" Text="Процессор" Margin="113,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="4" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -101,7 +101,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" MaxWidth="395" Text="Видеокарта" Margin="119,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameGPU" Style="{DynamicResource SystemINFO}" MaxWidth="395" Text="Видеокарта" Margin="119,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="5" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -110,7 +110,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameRAM" Style="{DynamicResource SystemINFO}"  MaxWidth="336" Text="Оперативная память" Margin="177,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameRAM" Style="{DynamicResource SystemINFO}"  MaxWidth="336" Text="Оперативная память" Margin="177,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
                 </Grid>
 
@@ -130,7 +130,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameDisk" Style="{DynamicResource SystemINFO}" Text="Дисковые устройства" Margin="157,25,0,0" MaxWidth="346" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameDisk" Style="{DynamicResource SystemINFO}" Text="Дисковые устройства" Margin="157,25,0,0" MaxWidth="346" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -139,7 +139,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameSound" Style="{DynamicResource SystemINFO}" MaxWidth="348" Text="Звуковые устройства" Margin="155,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameSound" Style="{DynamicResource SystemINFO}" MaxWidth="348" Text="Звуковые устройства" Margin="155,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -148,7 +148,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400"/>
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="3" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -157,7 +157,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="Ipv4" Style="{DynamicResource SystemINFO}" Text="IPv4-адрес" Margin="88,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="Ipv4" Style="{DynamicResource SystemINFO}" Text="IPv4-адрес" Margin="88,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="4" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -166,7 +166,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="MACaddress" Style="{DynamicResource SystemINFO}" Text="MAC-адрес" Margin="92,25,0,0" Cursor="Hand" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="MACaddress" Style="{DynamicResource SystemINFO}" Text="MAC-адрес" Margin="92,25,0,0" Cursor="Hand" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                     <Grid Grid.Row="5" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
@@ -175,7 +175,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="NameNetAdapter" Style="{DynamicResource SystemINFO}" MaxWidth="375" Text="Сетевые адаптеры" Margin="138,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}"/>
+                        <TextBlock x:Name="NameNetAdapter" Style="{DynamicResource SystemINFO}" MaxWidth="375" Text="Сетевые адаптеры" Margin="138,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
                     </Grid>
 
                 </Grid>
