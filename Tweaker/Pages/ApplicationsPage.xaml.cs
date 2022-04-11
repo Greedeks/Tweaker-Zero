@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -40,6 +41,17 @@ namespace Tweaker.Pages
         {
             //if(e.LeftButton == MouseButtonState.Pressed)
              
+        }
+
+        private void AppClick_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Image _image = (Image)sender;
+                foreach(var item in _applicationsSystem.ApplicationRemoval(_image.Name)) {
+                    MessageBox.Show(item);
+                }
+            }
         }
     }
 }

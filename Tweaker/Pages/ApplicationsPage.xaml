@@ -35,14 +35,14 @@
             <Image x:Name="FeedbackHub" Source="{DynamicResource FeedbackHubImage}" Style="{DynamicResource AppUnll}"  Margin="633,153,320,177" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Maps" Source="{DynamicResource MapsImage}" Style="{DynamicResource AppUnll}"  Margin="792,66,161,264" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
             <Image x:Name="Widgets" Source="{DynamicResource WidgetsImage}" Style="{DynamicResource AppUnll}"  Margin="474,238,479,92" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
-            <Image x:Name="ZoneMusic" Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="155,240,798,89" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
+            <Image x:Name="ZuneMusic" Source="{DynamicResource MusicImage}" Style="{DynamicResource AppUnll}"  Margin="155,240,798,89" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
             <Image x:Name="SoundRecorder" Source="{DynamicResource SoundRecorderImage}" Style="{DynamicResource AppUnll}"  Margin="633,243,320,87" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
-            <Image x:Name="ZoneVideo" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="792,244,161,86" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
+            <Image x:Name="ZuneVideo" Source="{DynamicResource VideoImage}" Style="{DynamicResource AppUnll}"  Margin="792,244,161,86" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Xbox" Source="{DynamicResource XboxImage}" Style="{DynamicResource AppUnll}"  Margin="314,240,639,89" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Todos" Source="{DynamicResource TodosImage}" Style="{DynamicResource AppUnll}"  Margin="75,197,878,133" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="BingNews" Source="{DynamicResource BingNewsImage}" Style="{DynamicResource AppUnll}"  Margin="871,109,82,221" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
             <Image x:Name="Mail" Source="{DynamicResource MailImage}" Style="{DynamicResource AppUnll}"  Margin="870,198,83,132" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
-            <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="75,106,878,225" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave"/>
+            <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="75,106,878,225" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="MicrosoftTeams" Source="{DynamicResource MicrosoftTeamsImage}" Style="{DynamicResource AppUnll}"  Margin="712,18,241,312" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
             <Image x:Name="PoweraAtomateDesktop" Source="{DynamicResource PoweraAtomateDesktopImage}" Style="{DynamicResource AppUnll}"  Margin="234,18,719,313" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" Cursor="Hand"/>
 

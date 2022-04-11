@@ -31,7 +31,7 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
 
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.WindowsStore" }, StringSplitOptions.None).Count() - 1));
+            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { _appValue["MicrosoftStore"][0] }, StringSplitOptions.None).Count() - 1));
 
             _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.Todos" }, StringSplitOptions.None).Count() - 1));
 
@@ -99,7 +99,7 @@ namespace Tweaker.Сlasses
             _applicationsPages.Todos.Source = _CountCheck[1] == 1 ? (DrawingImage)Application.Current.Resources["TodosImage"] : (DrawingImage)Application.Current.Resources["TodosImageU"];
             _applicationsPages.BingWeather.Source = _CountCheck[2] == 1 ? (DrawingImage)Application.Current.Resources["BingWeatherImage"] : (DrawingImage)Application.Current.Resources["BingWeatherImageU"];
             _applicationsPages.Microsoft3DViewer.Source = _CountCheck[3] == 1 ? (DrawingImage)Application.Current.Resources["Microsoft3DViewerImage"] : (DrawingImage)Application.Current.Resources["Microsoft3DViewerImageU"];
-            _applicationsPages.ZoneMusic.Source = _CountCheck[4] == 1 ? (DrawingImage)Application.Current.Resources["MusicImage"] : (DrawingImage)Application.Current.Resources["MusicImageU"];
+            _applicationsPages.ZuneMusic.Source = _CountCheck[4] == 1 ? (DrawingImage)Application.Current.Resources["MusicImage"] : (DrawingImage)Application.Current.Resources["MusicImageU"];
             _applicationsPages.GetHelp.Source = _CountCheck[5] == 1 ? (DrawingImage)Application.Current.Resources["GetHelpImage"] : (DrawingImage)Application.Current.Resources["GetHelpImageU"];
             _applicationsPages.MicrosoftOfficeHub.Source = _CountCheck[6] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftOfficeHubImage"] : (DrawingImage)Application.Current.Resources["MicrosoftOfficeHubImageU"];
             _applicationsPages.MicrosoftSolitaireCollection.Source = _CountCheck[7] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftSolitaireCollectionImage"] : (DrawingImage)Application.Current.Resources["MicrosoftSolitaireCollectionImageU"];
@@ -119,11 +119,49 @@ namespace Tweaker.Сlasses
             _applicationsPages.SkypeApp.Source = _CountCheck[21] == 1 ? (DrawingImage)Application.Current.Resources["SkypeAppImage"] : (DrawingImage)Application.Current.Resources["SkypeAppImageU"];
             _applicationsPages.Maps.Source = _CountCheck[22] == 1 ? (DrawingImage)Application.Current.Resources["MapsImage"] : (DrawingImage)Application.Current.Resources["MapsImageU"];
             _applicationsPages.Camera.Source = _CountCheck[23] == 1 ? (DrawingImage)Application.Current.Resources["CameraImage"] : (DrawingImage)Application.Current.Resources["CameraImageU"];
-            _applicationsPages.ZoneVideo.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
+            _applicationsPages.ZuneMusic.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
             _applicationsPages.BingNews.Source = _CountCheck[25] == 1 ? (DrawingImage)Application.Current.Resources["BingNewsImage"] : (DrawingImage)Application.Current.Resources["BingNewsImageU"];
             _applicationsPages.Mail.Source = _CountCheck[26] == 1 ? (DrawingImage)Application.Current.Resources["MailImage"] : (DrawingImage)Application.Current.Resources["MailImageU"];
             _applicationsPages.MicrosoftTeams.Source = _CountCheck[27] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftTeamsImage"] : (DrawingImage)Application.Current.Resources["MicrosoftTeamsImageU"];
             _applicationsPages.PoweraAtomateDesktop.Source = _CountCheck[28] == 1 ? (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImage"] : (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImageU"];
+        }
+
+        private Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(29)
+        {
+            ["MicrosoftStore"] =  new List<string>(1) { "Microsoft.WindowsStore" },
+            ["Todos"] = new List<string>(1) { "Microsoft.Todos" },
+            ["BingWeather"] = new List<string>(1) { "Microsoft.BingWeather" },
+            ["Microsoft3DViewer"] =  new List<string>(1) {"Microsoft.Microsoft3DViewer" },
+            ["ZoneMusic"] =  new List<string>(1) {"Microsoft.ZuneMusic" },
+            ["GetHelp"] =  new List<string>(1) { "Microsoft.GetHelp" },
+            ["MicrosoftOfficeHub"] =  new List<string>(1) { "Microsoft.MicrosoftOfficeHub" },
+            ["MicrosoftSolitaireCollection"] =  new List<string>(1) { "Microsoft.MicrosoftSolitaireCollection" },
+            ["MixedReality"] = new List<string>(1) { "Microsoft.MixedReality.Portal" },
+            ["Xbox"] =  new List<string>(7) { "Microsoft.XboxApp", "Microsoft.GamingApp", "Microsoft.XboxGamingOverlay", "Microsoft.XboxGameOverlay", "Microsoft.XboxIdentityProvider", "Microsoft.Xbox.TCUI", "Microsoft.XboxSpeechToTextOverlay" },
+            ["Paint3D"] =  new List<string>(2) { "Microsoft.MSPaint", "Microsoft.Paint3D" },
+            ["OneNote"] =  new List<string>(1) { "Microsoft.Office.OneNote" },
+            ["People"] =  new List<string>(1) { "Microsoft.People" },
+            ["MicrosoftStickyNotes"] =  new List<string>(1) { "Microsoft.MicrosoftStickyNotes" },
+            ["Widgets"] =  new List<string>(1) { "MicrosoftWindows.Client.WebExperience" },
+            ["ScreenSketch"] =  new List<string>(1) { "Microsoft.ScreenSketch" },
+            ["Phone"] =  new List<string>(1) { "Microsoft.YourPhone" },
+            ["Photos"] =  new List<string>(1) { "Microsoft.Windows.Photos" },
+            ["FeedbackHub"] = new List<string>(1) { "Microsoft.WindowsFeedbackHub" },
+            ["SoundRecorder"] = new List<string>(1) { "Microsoft.WindowsSoundRecorder" },
+            ["Alarms"] = new List<string>(1) { "Microsoft.WindowsAlarms" },
+            ["SkypeApp"] = new List<string>(1) { "Microsoft.SkypeApp" },
+            ["Maps"] = new List<string>(1) { "Microsoft.WindowsMaps" },
+            ["Camera"] = new List<string>(1) { "Microsoft.WindowsCamera" },
+            ["ZuneVideo"] = new List<string>(1) { "Microsoft.ZuneVideo" },
+            ["BingNews"] = new List<string>(1) { "Microsoft.BingNews" },
+            ["Mail"] = new List<string>(1) { "Microsoft.windowscommunicationsapps" },
+            ["MicrosoftTeams"] = new List<string>(1) { "MicrosoftTeams" },
+            ["PoweraAtomateDesktop"] = new List<string>(1) { "Microsoft.PowerAutomateDesktop" }
+        };
+
+        internal List<string> ApplicationRemoval(string test)
+        {
+            return _appValue[test];
         }
     }
 }
