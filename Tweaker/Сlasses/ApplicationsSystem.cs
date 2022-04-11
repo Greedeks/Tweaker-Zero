@@ -14,6 +14,39 @@ namespace Tweaker.Сlasses
         private readonly static List<byte> _CountCheck = new List<byte> (29);
         private static string _result = default;
         private Process _process;
+        private readonly Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(29)
+        {
+            ["MicrosoftStore"] = new List<string>(1) { "Microsoft.WindowsStore" },
+            ["Todos"] = new List<string>(1) { "Microsoft.Todos" },
+            ["BingWeather"] = new List<string>(1) { "Microsoft.BingWeather" },
+            ["Microsoft3DViewer"] = new List<string>(1) { "Microsoft.Microsoft3DViewer" },
+            ["ZoneMusic"] = new List<string>(1) { "Microsoft.ZuneMusic" },
+            ["GetHelp"] = new List<string>(1) { "Microsoft.GetHelp" },
+            ["MicrosoftOfficeHub"] = new List<string>(1) { "Microsoft.MicrosoftOfficeHub" },
+            ["MicrosoftSolitaireCollection"] = new List<string>(1) { "Microsoft.MicrosoftSolitaireCollection" },
+            ["MixedReality"] = new List<string>(1) { "Microsoft.MixedReality.Portal" },
+            ["Xbox"] = new List<string>(7) { "Microsoft.XboxApp", "Microsoft.GamingApp", "Microsoft.XboxGamingOverlay", "Microsoft.XboxGameOverlay", "Microsoft.XboxIdentityProvider", "Microsoft.Xbox.TCUI", "Microsoft.XboxSpeechToTextOverlay" },
+            ["Paint3D"] = new List<string>(2) { "Microsoft.MSPaint", "Microsoft.Paint3D" },
+            ["OneNote"] = new List<string>(1) { "Microsoft.Office.OneNote" },
+            ["People"] = new List<string>(1) { "Microsoft.People" },
+            ["MicrosoftStickyNotes"] = new List<string>(1) { "Microsoft.MicrosoftStickyNotes" },
+            ["Widgets"] = new List<string>(1) { "MicrosoftWindows.Client.WebExperience" },
+            ["ScreenSketch"] = new List<string>(1) { "Microsoft.ScreenSketch" },
+            ["Phone"] = new List<string>(1) { "Microsoft.YourPhone" },
+            ["Photos"] = new List<string>(1) { "Microsoft.Windows.Photos" },
+            ["FeedbackHub"] = new List<string>(1) { "Microsoft.WindowsFeedbackHub" },
+            ["SoundRecorder"] = new List<string>(1) { "Microsoft.WindowsSoundRecorder" },
+            ["Alarms"] = new List<string>(1) { "Microsoft.WindowsAlarms" },
+            ["SkypeApp"] = new List<string>(1) { "Microsoft.SkypeApp" },
+            ["Maps"] = new List<string>(1) { "Microsoft.WindowsMaps" },
+            ["Camera"] = new List<string>(1) { "Microsoft.WindowsCamera" },
+            ["ZuneVideo"] = new List<string>(1) { "Microsoft.ZuneVideo" },
+            ["BingNews"] = new List<string>(1) { "Microsoft.BingNews" },
+            ["Mail"] = new List<string>(1) { "Microsoft.windowscommunicationsapps" },
+            ["MicrosoftTeams"] = new List<string>(1) { "MicrosoftTeams" },
+            ["PoweraAtomateDesktop"] = new List<string>(1) { "Microsoft.PowerAutomateDesktop" }
+        };
+
         internal void CheckInstalledApps()
         {
             _process = Process.Start(new ProcessStartInfo
@@ -31,66 +64,15 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
 
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { _appValue["MicrosoftStore"][0] }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.Todos" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.BingWeather" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.Microsoft3DViewer" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.ZuneMusic" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.GetHelp" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.MicrosoftOfficeHub" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.MicrosoftSolitaireCollection" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.MixedReality.Portal" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.XboxApp" }, StringSplitOptions.None).Count() - 1 + 
-                _result.Split(new string[] { "Microsoft.GamingApp" }, StringSplitOptions.None).Count() - 1 + _result.Split(new string[] { "Microsoft.Xbox.TCUI" }, StringSplitOptions.None).Count() - 1 +
-                _result.Split(new string[] { "Microsoft.XboxGameOverlay" }, StringSplitOptions.None).Count() - 1+ _result.Split(new string[] { "Microsoft.XboxGamingOverlay" }, StringSplitOptions.None).Count() - 1
-                + _result.Split(new string[] { "Microsoft.XboxIdentityProvider" }, StringSplitOptions.None).Count() - 1 + _result.Split(new string[] { "Microsoft.XboxSpeechToTextOverlay" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.MSPaint" }, StringSplitOptions.None).Count() - 1 + _result.Split(new string[] { "Microsoft.Paint3D" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.Office.OneNote" }, StringSplitOptions.None).Count() - 1));
-                       
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.People" }, StringSplitOptions.None).Count() - 1));
-                     
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.MicrosoftStickyNotes" }, StringSplitOptions.None).Count() - 1));
-                 
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "MicrosoftWindows.Client.WebExperience" }, StringSplitOptions.None).Count() - 1));
-                
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.ScreenSketch" }, StringSplitOptions.None).Count() - 1));
-              
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.YourPhone" }, StringSplitOptions.None).Count() - 1));
-                  
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.Windows.Photos" }, StringSplitOptions.None).Count() - 1));
-                 
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.WindowsFeedbackHub" }, StringSplitOptions.None).Count() - 1));
-                  
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.WindowsSoundRecorder" }, StringSplitOptions.None).Count() - 1));
-                
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.WindowsAlarms" }, StringSplitOptions.None).Count() - 1));
-                  
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.SkypeApp" }, StringSplitOptions.None).Count() - 1));
-                       
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.WindowsMaps" }, StringSplitOptions.None).Count() - 1));
-                       
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.WindowsCamera" }, StringSplitOptions.None).Count() - 1));
-                           
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.ZuneVideo" }, StringSplitOptions.None).Count() - 1));
-                          
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.BingNews" }, StringSplitOptions.None).Count() - 1));
-                           
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.windowscommunicationsapps" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "MicrosoftTeams" }, StringSplitOptions.None).Count() - 1));
-
-            _CountCheck.Add(Convert.ToByte(_result.Split(new string[] { "Microsoft.PowerAutomateDesktop" }, StringSplitOptions.None).Count() - 1));
+            foreach (var _appNm in _appValue)
+            {
+                byte _value = default;
+                foreach (var _appVl in _appNm.Value)
+                {
+                    _value += Convert.ToByte(_result.Split(new string[] { _appVl }, StringSplitOptions.None).Count() - 1);
+                }
+                _CountCheck.Add(_value);
+            }
         }
 
         internal void SetImageApps(ApplicationsUL _applicationsPages)
@@ -119,49 +101,29 @@ namespace Tweaker.Сlasses
             _applicationsPages.SkypeApp.Source = _CountCheck[21] == 1 ? (DrawingImage)Application.Current.Resources["SkypeAppImage"] : (DrawingImage)Application.Current.Resources["SkypeAppImageU"];
             _applicationsPages.Maps.Source = _CountCheck[22] == 1 ? (DrawingImage)Application.Current.Resources["MapsImage"] : (DrawingImage)Application.Current.Resources["MapsImageU"];
             _applicationsPages.Camera.Source = _CountCheck[23] == 1 ? (DrawingImage)Application.Current.Resources["CameraImage"] : (DrawingImage)Application.Current.Resources["CameraImageU"];
-            _applicationsPages.ZuneMusic.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
+            _applicationsPages.ZuneVideo.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
             _applicationsPages.BingNews.Source = _CountCheck[25] == 1 ? (DrawingImage)Application.Current.Resources["BingNewsImage"] : (DrawingImage)Application.Current.Resources["BingNewsImageU"];
             _applicationsPages.Mail.Source = _CountCheck[26] == 1 ? (DrawingImage)Application.Current.Resources["MailImage"] : (DrawingImage)Application.Current.Resources["MailImageU"];
             _applicationsPages.MicrosoftTeams.Source = _CountCheck[27] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftTeamsImage"] : (DrawingImage)Application.Current.Resources["MicrosoftTeamsImageU"];
             _applicationsPages.PoweraAtomateDesktop.Source = _CountCheck[28] == 1 ? (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImage"] : (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImageU"];
         }
 
-        private Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(29)
+        internal void ApplicationRemoval(string _nameApp)
         {
-            ["MicrosoftStore"] =  new List<string>(1) { "Microsoft.WindowsStore" },
-            ["Todos"] = new List<string>(1) { "Microsoft.Todos" },
-            ["BingWeather"] = new List<string>(1) { "Microsoft.BingWeather" },
-            ["Microsoft3DViewer"] =  new List<string>(1) {"Microsoft.Microsoft3DViewer" },
-            ["ZoneMusic"] =  new List<string>(1) {"Microsoft.ZuneMusic" },
-            ["GetHelp"] =  new List<string>(1) { "Microsoft.GetHelp" },
-            ["MicrosoftOfficeHub"] =  new List<string>(1) { "Microsoft.MicrosoftOfficeHub" },
-            ["MicrosoftSolitaireCollection"] =  new List<string>(1) { "Microsoft.MicrosoftSolitaireCollection" },
-            ["MixedReality"] = new List<string>(1) { "Microsoft.MixedReality.Portal" },
-            ["Xbox"] =  new List<string>(7) { "Microsoft.XboxApp", "Microsoft.GamingApp", "Microsoft.XboxGamingOverlay", "Microsoft.XboxGameOverlay", "Microsoft.XboxIdentityProvider", "Microsoft.Xbox.TCUI", "Microsoft.XboxSpeechToTextOverlay" },
-            ["Paint3D"] =  new List<string>(2) { "Microsoft.MSPaint", "Microsoft.Paint3D" },
-            ["OneNote"] =  new List<string>(1) { "Microsoft.Office.OneNote" },
-            ["People"] =  new List<string>(1) { "Microsoft.People" },
-            ["MicrosoftStickyNotes"] =  new List<string>(1) { "Microsoft.MicrosoftStickyNotes" },
-            ["Widgets"] =  new List<string>(1) { "MicrosoftWindows.Client.WebExperience" },
-            ["ScreenSketch"] =  new List<string>(1) { "Microsoft.ScreenSketch" },
-            ["Phone"] =  new List<string>(1) { "Microsoft.YourPhone" },
-            ["Photos"] =  new List<string>(1) { "Microsoft.Windows.Photos" },
-            ["FeedbackHub"] = new List<string>(1) { "Microsoft.WindowsFeedbackHub" },
-            ["SoundRecorder"] = new List<string>(1) { "Microsoft.WindowsSoundRecorder" },
-            ["Alarms"] = new List<string>(1) { "Microsoft.WindowsAlarms" },
-            ["SkypeApp"] = new List<string>(1) { "Microsoft.SkypeApp" },
-            ["Maps"] = new List<string>(1) { "Microsoft.WindowsMaps" },
-            ["Camera"] = new List<string>(1) { "Microsoft.WindowsCamera" },
-            ["ZuneVideo"] = new List<string>(1) { "Microsoft.ZuneVideo" },
-            ["BingNews"] = new List<string>(1) { "Microsoft.BingNews" },
-            ["Mail"] = new List<string>(1) { "Microsoft.windowscommunicationsapps" },
-            ["MicrosoftTeams"] = new List<string>(1) { "MicrosoftTeams" },
-            ["PoweraAtomateDesktop"] = new List<string>(1) { "Microsoft.PowerAutomateDesktop" }
-        };
-
-        internal List<string> ApplicationRemoval(string test)
-        {
-            return _appValue[test];
+            _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            _process.StartInfo.FileName = "powershell.exe";
+            foreach (var _appDelete in _appValue[_nameApp])
+            {
+                _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name "+_appDelete+" -AllUsers | Remove-AppxPackage");
+                _process.Start();
+            }
+            _process.WaitForExit();
+            _process.Dispose();
         }
     }
 }
