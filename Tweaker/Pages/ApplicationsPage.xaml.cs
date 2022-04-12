@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,6 +18,7 @@ namespace Tweaker.Pages
         private string _nameApp = default;
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
+        private static bool _notf = false;
 
         public ApplicationsUL()
         {
@@ -43,15 +44,18 @@ namespace Tweaker.Pages
 
         private void DiscriptionAnim(string _text)
         {
-            Discription.Text = _text;
-            DoubleAnimation _animation = new DoubleAnimation
+            if (!_notf)
             {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.15)
-            };
-            Discription.BeginAnimation(ContextMenu.OpacityProperty, _animation);
-            Discription.Opacity = 1;
+                Discription.Text = _text;
+                DoubleAnimation _animation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.15)
+                };
+                Discription.BeginAnimation(ContextMenu.OpacityProperty, _animation);
+                Discription.Opacity = 1;
+            }
         }
 
         private void App_MouseEnter(object sender, MouseEventArgs e)
@@ -72,23 +76,39 @@ namespace Tweaker.Pages
                 _worker = new BackgroundWorker();
                 _worker.DoWork += Worker_DoWorkDeleted;
                 _worker.RunWorkerAsync();
+
             }
 
         }
 
-        private void BRecovery_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private async void BRecovery_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
+            {
                 _applicationsSystem.ApplicationRecovery();
-        }
+                DiscriptionAnim("Восстановление приложений началось, это займет некоторое время");
+                _notf = true;
+                await Task.Delay(1500);
+                _notf = false;
+                DiscriptionAnim("Наведите курсор на любое приложения, чтобы получить его название");
+            }
 
-        private void BDeleted_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+    }
+
+        private async void BDeleted_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 _worker = new BackgroundWorker();
                 _worker.DoWork += Worker_DoWorkDeletedAll;
                 _worker.RunWorkerAsync();
+                _timer.Stop();
+                DiscriptionAnim("Удаление всех приложений началось, это займет некоторое время");
+                _notf = true;
+                await Task.Delay(1500);
+                _timer.Start();
+                _notf = false;
+                DiscriptionAnim("Наведите курсор на любое приложения, чтобы получить его название");
             }
         }
         #endregion

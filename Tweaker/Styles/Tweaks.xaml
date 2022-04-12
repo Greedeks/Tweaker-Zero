@@ -60,7 +60,7 @@
         <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="10.2pt"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Height" Value="76"/>

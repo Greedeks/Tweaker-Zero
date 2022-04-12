@@ -170,7 +170,7 @@ namespace Tweaker.Сlasses
 
         internal void ApplicationRecovery()
         {
-            if (AppCheckCountRemoval() != 0)
+            if (AppCheckCountRemoval() < 29)
             {
                 _process = Process.Start(new ProcessStartInfo
                 {
