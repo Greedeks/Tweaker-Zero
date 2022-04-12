@@ -6,11 +6,13 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using Tweaker.Pages;
+using Tweaker.Сlasses;
 
 namespace Tweaker.Сlasses
 {
     internal sealed class ApplicationsSystem
     {
+        private SettingsWindows _settingsWindows = new SettingsWindows();
         private readonly static List<byte> _CountCheck = new List<byte> (29);
         private static string _result = default;
         private Process _process;
@@ -114,7 +116,6 @@ namespace Tweaker.Сlasses
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.CreateNoWindow = true;
-            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             _process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             _process.StartInfo.FileName = "powershell.exe";
             foreach (var _appDelete in _appValue[_nameApp])
@@ -124,11 +125,26 @@ namespace Tweaker.Сlasses
             }
             _process.WaitForExit();
             _process.Dispose();
+
+            if(_nameApp == "Widgets")
+                _settingsWindows.AppWidgetsState(false);
         }
 
         internal void ApplicationRecovery()
         {
- 
+            _process = Process.Start(new ProcessStartInfo
+            {
+                UseShellExecute = false,
+                FileName = "powershell.exe",
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                Arguments = @"Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -Register “$($_.InstallLocation)\AppXManifest.xml” -DisableDevelopmentMode}",
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden
+            });
+            _process.Dispose();
+
+            _settingsWindows.AppWidgetsState(true);
         }
     }
 }
