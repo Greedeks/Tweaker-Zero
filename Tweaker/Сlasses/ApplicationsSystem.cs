@@ -145,10 +145,6 @@ namespace Tweaker.Сlasses
 
         internal void ApplicationRemoval(in string _nameApp)
         {
-            for (byte i = 0; i < _appValue.Count; i++)
-                if (_nameApp == _appValue.ElementAt(i).Key.ToString())
-                    _CountCheck[i] = 0;
-
             _process = new Process();
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
@@ -159,6 +155,10 @@ namespace Tweaker.Сlasses
             {
                 _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name "+_appDelete+" -AllUsers | Remove-AppxPackage");
                 _process.Start();
+
+                for (byte i = 0; i < _appValue.Count; i++)
+                    if (_nameApp == _appValue.ElementAt(i).Key.ToString())
+                        _CountCheck[i] = 0;
             }
             _process.WaitForExit();
             _process.Dispose();
@@ -170,46 +170,58 @@ namespace Tweaker.Сlasses
 
         internal void ApplicationRecovery()
         {
-            _process = Process.Start(new ProcessStartInfo
+            if (AppCheckCountRemoval() != 0)
             {
-                UseShellExecute = false,
-                FileName = "powershell.exe",
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                Arguments = @"Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -Register “$($_.InstallLocation)\AppXManifest.xml” -DisableDevelopmentMode}",
-                CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden
-            });
-            _process.Dispose();
+                _process = Process.Start(new ProcessStartInfo
+                {
+                    UseShellExecute = false,
+                    FileName = "powershell.exe",
+                    RedirectStandardError = true,
+                    RedirectStandardOutput = true,
+                    Arguments = @"Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -Register “$($_.InstallLocation)\AppXManifest.xml” -DisableDevelopmentMode}",
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                });
+                _process.Dispose();
 
-            _settingsWindows.AppWidgetsState(true);
+                _settingsWindows.AppWidgetsState(true);
+            }
         }
 
         internal void ApplicationRemovalAll()
         {
-            _process = new Process();
-            _process.StartInfo.UseShellExecute = false;
-            _process.StartInfo.RedirectStandardOutput = true;
-            _process.StartInfo.CreateNoWindow = true;
-            _process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            _process.StartInfo.FileName = "powershell.exe";
-            foreach (var _appNm in _appValue)
+            if (AppCheckCountRemoval() != 0)
             {
-                foreach (var _appDelete in _appNm.Value)
+                _process = new Process();
+                _process.StartInfo.UseShellExecute = false;
+                _process.StartInfo.RedirectStandardOutput = true;
+                _process.StartInfo.CreateNoWindow = true;
+                _process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                _process.StartInfo.FileName = "powershell.exe";
+                foreach (var _appNm in _appValue)
                 {
-                    _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name " + _appDelete + " -AllUsers | Remove-AppxPackage");
-                    _process.Start();
+                    foreach (var _appDelete in _appNm.Value)
+                    {
+                        _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name " + _appDelete + " -AllUsers | Remove-AppxPackage");
+                        _process.Start();
 
-                    for (byte i = 0; i < _appValue.Count; i++)
-                        if (_appDelete == _appValue.ElementAt(i).Key.ToString())
-                            _CountCheck[i] = 0;
+                        for (byte i = 0; i < _appValue.Count; i++)
+                            if (_appDelete == _appValue.ElementAt(i).Key.ToString())
+                                _CountCheck[i] = 0;
+                    }
                 }
+                _process.Dispose();
+
+                _settingsWindows.AppWidgetsState(false);
             }
-            _process.Dispose();
+        }
 
-            _settingsWindows.AppWidgetsState(false);
-
-
+        internal byte AppCheckCountRemoval()
+        {
+            byte _appCheck = 0;
+            foreach (var _countck in _CountCheck)
+                _appCheck += _countck.Value;
+            return _appCheck;
         }
     }
 }

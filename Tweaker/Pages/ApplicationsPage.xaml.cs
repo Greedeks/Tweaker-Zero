@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,7 +33,7 @@ namespace Tweaker.Pages
                     _worker.DoWork += Worker_DoWorkUpdate;
                     _worker.RunWorkerAsync();
                 }
-                else if(_time.TotalSeconds % 2 == 0) { _applicationsSystem.SetImageApps(this); }
+                if(_time.TotalSeconds % 2 == 0) { _applicationsSystem.SetImageApps(this); }
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
 
@@ -95,6 +96,7 @@ namespace Tweaker.Pages
         #region Worker
         private void Worker_DoWorkDeletedAll(object sender, DoWorkEventArgs e)
         {
+            
             _applicationsSystem.ApplicationRemovalAll();
         }
 
