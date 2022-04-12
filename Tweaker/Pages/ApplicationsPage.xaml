@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="Applications" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}">
+      Title="Applications" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -51,7 +51,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="350,13,546,49" >
+            <Button x:Name="BDeleted" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="350,13,546,49" PreviewMouseDown="BDeleted_PreviewMouseDown" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>

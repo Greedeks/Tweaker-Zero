@@ -6,14 +6,45 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using Tweaker.Pages;
-using Tweaker.Сlasses;
 
 namespace Tweaker.Сlasses
 {
     internal sealed class ApplicationsSystem
     {
-        private SettingsWindows _settingsWindows = new SettingsWindows();
-        private readonly static List<byte> _CountCheck = new List<byte> (29);
+        private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(29)
+        {
+            [0] = 0,
+            [1] = 0,
+            [2] = 0,
+            [3] = 0,
+            [4] = 0,
+            [5] = 0,
+            [6] = 0,
+            [7] = 0,
+            [8] = 0,
+            [9] = 0,
+            [10] = 0,
+            [11] = 0,
+            [12] = 0,
+            [13] = 0,
+            [14] = 0,
+            [15] = 0,
+            [16] = 0,
+            [17] = 0,
+            [18] = 0,
+            [19] = 0,
+            [20] = 0,
+            [21] = 0,
+            [22] = 0,
+            [23] = 0,
+            [24] = 0,
+            [25] = 0,
+            [26] = 0,
+            [27] = 0,
+            [28] = 0,
+        };
+
         private static string _result = default;
         private Process _process;
         private readonly Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(29)
@@ -66,6 +97,7 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
 
+            byte _count = 0;
             foreach (var _appNm in _appValue)
             {
                 byte _value = default;
@@ -73,7 +105,8 @@ namespace Tweaker.Сlasses
                 {
                     _value += Convert.ToByte(_result.Split(new string[] { _appVl }, StringSplitOptions.None).Count() - 1);
                 }
-                _CountCheck.Add(_value);
+                _CountCheck[_count] = _value;
+                _count++;
             }
         }
 
@@ -110,8 +143,12 @@ namespace Tweaker.Сlasses
             _applicationsPages.PoweraAtomateDesktop.Source = _CountCheck[28] == 1 ? (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImage"] : (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImageU"];
         }
 
-        internal void ApplicationRemoval(string _nameApp)
+        internal void ApplicationRemoval(in string _nameApp)
         {
+            for (byte i = 0; i < _appValue.Count; i++)
+                if (_nameApp == _appValue.ElementAt(i).Key.ToString())
+                    _CountCheck[i] = 0;
+
             _process = new Process();
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
@@ -126,8 +163,9 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
 
-            if(_nameApp == "Widgets")
+            if (_nameApp == "Widgets")
                 _settingsWindows.AppWidgetsState(false);
+
         }
 
         internal void ApplicationRecovery()
@@ -145,6 +183,33 @@ namespace Tweaker.Сlasses
             _process.Dispose();
 
             _settingsWindows.AppWidgetsState(true);
+        }
+
+        internal void ApplicationRemovalAll()
+        {
+            _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            _process.StartInfo.FileName = "powershell.exe";
+            foreach (var _appNm in _appValue)
+            {
+                foreach (var _appDelete in _appNm.Value)
+                {
+                    _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name " + _appDelete + " -AllUsers | Remove-AppxPackage");
+                    _process.Start();
+
+                    for (byte i = 0; i < _appValue.Count; i++)
+                        if (_appDelete == _appValue.ElementAt(i).Key.ToString())
+                            _CountCheck[i] = 0;
+                }
+            }
+            _process.Dispose();
+
+            _settingsWindows.AppWidgetsState(false);
+
+
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -11,12 +13,33 @@ namespace Tweaker.Pages
     public partial class ApplicationsUL : Page
     {
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
+        private BackgroundWorker _worker;
+        private string _nameApp = default;
+        private DispatcherTimer _timer = default;
+        private TimeSpan _time = TimeSpan.FromSeconds(0);
 
         public ApplicationsUL()
         {
             InitializeComponent();
+
             _applicationsSystem.SetImageApps(this);
+
+            #region Update
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                if (_time.TotalSeconds % 5 == 0) {
+                    _worker = new BackgroundWorker();
+                    _worker.DoWork += Worker_DoWorkUpdate;
+                    _worker.RunWorkerAsync();
+                }
+                else if(_time.TotalSeconds % 2 == 0) { _applicationsSystem.SetImageApps(this); }
+                _time = _time.Add(TimeSpan.FromSeconds(+1));
+            }, Application.Current.Dispatcher);
+
+            _timer.Start();
+            #endregion
         }
+
         private void DiscriptionAnim(string _text)
         {
             Discription.Text = _text;
@@ -38,13 +61,16 @@ namespace Tweaker.Pages
 
         private void App_MouseLeave(object sender, MouseEventArgs e) => DiscriptionAnim("Наведите курсор на любое приложения, чтобы получить его название");
 
+        #region Click
         private void AppClick_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             Image _image = (Image)sender;
             if (e.LeftButton == MouseButtonState.Pressed && _image.Source == (DrawingImage)Application.Current.Resources[_image.Name + "Image"])
             {
-                _applicationsSystem.ApplicationRemoval(_image.Name);
-                _image.Source = (DrawingImage)Application.Current.Resources[_image.Name + "ImageU"];
+                _nameApp = _image.Name;
+                _worker = new BackgroundWorker();
+                _worker.DoWork += Worker_DoWorkDeleted;
+                _worker.RunWorkerAsync();
             }
 
         }
@@ -53,6 +79,39 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 _applicationsSystem.ApplicationRecovery();
+        }
+
+        private void BDeleted_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                _worker = new BackgroundWorker();
+                _worker.DoWork += Worker_DoWorkDeletedAll;
+                _worker.RunWorkerAsync();
+            }
+        }
+        #endregion
+
+        #region Worker
+        private void Worker_DoWorkDeletedAll(object sender, DoWorkEventArgs e)
+        {
+            _applicationsSystem.ApplicationRemovalAll();
+        }
+
+        private void Worker_DoWorkDeleted(object sender, DoWorkEventArgs e)
+        {
+            _applicationsSystem.ApplicationRemoval(_nameApp);
+        }
+
+        private void Worker_DoWorkUpdate(object sender, DoWorkEventArgs e)
+        {
+            _applicationsSystem.CheckInstalledApps();
+        }
+        #endregion
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            _timer.Stop();
         }
     }
 }
