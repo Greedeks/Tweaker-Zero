@@ -138,7 +138,7 @@ namespace Tweaker.Сlasses
             _setinfo = string.Empty;
         }
 
-        internal void SetInormationPC(SystemInfromation _systemInfromation)
+        internal void SetInormationPC(in SystemInfromation _systemInfromation)
         {
             _systemInfromation.NameOS.Text = _INFthisPC[0];
             _systemInfromation.NameBIOS.Text = _INFthisPC[1];
@@ -154,7 +154,7 @@ namespace Tweaker.Сlasses
             _systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
         }
 
-        internal void UpdateInormation(SystemInfromation _systemInfromation)
+        internal void UpdateInormation(in SystemInfromation _systemInfromation)
         {
             foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
             {

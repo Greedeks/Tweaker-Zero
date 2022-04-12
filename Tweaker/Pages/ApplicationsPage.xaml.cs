@@ -51,8 +51,8 @@ namespace Tweaker.Pages
 
         private void BRecovery_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            //if(e.LeftButton == MouseButtonState.Pressed)
-             
+            if (e.LeftButton == MouseButtonState.Pressed)
+                _applicationsSystem.ApplicationRecovery();
         }
     }
 }

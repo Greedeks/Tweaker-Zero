@@ -9,7 +9,7 @@ using Tweaker.Pages;
 
 namespace Tweaker.Сlasses
 {
-    internal class ApplicationsSystem
+    internal sealed class ApplicationsSystem
     {
         private readonly static List<byte> _CountCheck = new List<byte> (29);
         private static string _result = default;
@@ -75,7 +75,7 @@ namespace Tweaker.Сlasses
             }
         }
 
-        internal void SetImageApps(ApplicationsUL _applicationsPages)
+        internal void SetImageApps(in ApplicationsUL _applicationsPages)
         {
             _applicationsPages.MicrosoftStore.Source =  _CountCheck[0] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftStoreImage"] : (DrawingImage)Application.Current.Resources["MicrosoftStoreImageU"];
             _applicationsPages.Todos.Source = _CountCheck[1] == 1 ? (DrawingImage)Application.Current.Resources["TodosImage"] : (DrawingImage)Application.Current.Resources["TodosImageU"];
@@ -124,6 +124,11 @@ namespace Tweaker.Сlasses
             }
             _process.WaitForExit();
             _process.Dispose();
+        }
+
+        internal void ApplicationRecovery()
+        {
+ 
         }
     }
 }

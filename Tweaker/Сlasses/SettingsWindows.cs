@@ -16,7 +16,7 @@ namespace Tweaker.Сlasses
         private static byte _counTasksConfidentiality = 0;
         private Process _process;
 
-        internal void GetSettingConfidentiality(Confidentiality _confidentiality)
+        internal void GetSettingConfidentiality(in Confidentiality _confidentiality)
         {
             //#1
             _key[0] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
@@ -293,7 +293,7 @@ namespace Tweaker.Сlasses
             _process.Dispose();
         }
 
-        internal void GetSettingInterface(Interface _interface)
+        internal void GetSettingInterface(in Interface _interface)
         {
             //#1
             _key[32] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
