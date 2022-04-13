@@ -12,38 +12,7 @@ namespace Tweaker.Сlasses
     internal sealed class ApplicationsSystem
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(29)
-        {
-            [0] = 0,
-            [1] = 0,
-            [2] = 0,
-            [3] = 0,
-            [4] = 0,
-            [5] = 0,
-            [6] = 0,
-            [7] = 0,
-            [8] = 0,
-            [9] = 0,
-            [10] = 0,
-            [11] = 0,
-            [12] = 0,
-            [13] = 0,
-            [14] = 0,
-            [15] = 0,
-            [16] = 0,
-            [17] = 0,
-            [18] = 0,
-            [19] = 0,
-            [20] = 0,
-            [21] = 0,
-            [22] = 0,
-            [23] = 0,
-            [24] = 0,
-            [25] = 0,
-            [26] = 0,
-            [27] = 0,
-            [28] = 0,
-        };
+        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(29);
 
         private static string _result = default;
         private Process _process;
@@ -180,9 +149,8 @@ namespace Tweaker.Сlasses
                     RedirectStandardOutput = true,
                     Arguments = @"Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -Register “$($_.InstallLocation)\AppXManifest.xml” -DisableDevelopmentMode}",
                     CreateNoWindow = true,
-                    WindowStyle = ProcessWindowStyle.Hidden
-                });
-                _process.Dispose();
+                    WindowStyle = ProcessWindowStyle.Hidden,
+            });
 
                 _settingsWindows.AppWidgetsState(true);
             }
