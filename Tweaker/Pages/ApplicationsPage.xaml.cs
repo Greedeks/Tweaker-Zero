@@ -20,7 +20,6 @@ namespace Tweaker.Pages
         private TimeSpan _time = TimeSpan.FromSeconds(0);
         private static bool _notf = false;
 
-
         public ApplicationsUL()
         {
             InitializeComponent();
