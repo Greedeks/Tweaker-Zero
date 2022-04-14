@@ -28,7 +28,7 @@ namespace Tweaker.Сlasses
             ["MicrosoftSolitaireCollection"] = new List<string>(1) { "Microsoft.MicrosoftSolitaireCollection" },
             ["MixedReality"] = new List<string>(1) { "Microsoft.MixedReality.Portal" },
             ["Xbox"] = new List<string>(7) { "Microsoft.XboxApp", "Microsoft.GamingApp", "Microsoft.XboxGamingOverlay", "Microsoft.XboxGameOverlay", "Microsoft.XboxIdentityProvider", "Microsoft.Xbox.TCUI", "Microsoft.XboxSpeechToTextOverlay" },
-            ["Paint3D"] = new List<string>(2) { "Microsoft.MSPaint", "Microsoft.Paint3D" },
+            ["Paint3D"] = new List<string>(2) { "Microsoft.Paint3D" },
             ["OneNote"] = new List<string>(1) { "Microsoft.Office.OneNote" },
             ["People"] = new List<string>(1) { "Microsoft.People" },
             ["MicrosoftStickyNotes"] = new List<string>(1) { "Microsoft.MicrosoftStickyNotes" },
