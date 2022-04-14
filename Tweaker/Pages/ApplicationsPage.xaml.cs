@@ -15,6 +15,7 @@ namespace Tweaker.Pages
     {
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         private NotificationWindow notificationWindow = new NotificationWindow();
+        private MainWindow window = new MainWindow();
         private BackgroundWorker _worker;
         private string _nameApp = default;
         private DispatcherTimer _timer = default;
@@ -83,9 +84,9 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                _applicationsSystem.ApplicationRecovery();
+                //_applicationsSystem.ApplicationRecovery();
                 notificationWindow.AddText = "Процесс восстановления приложений начался, это займет некоторое время";
-                notificationWindow.ShowDialog();
+                notificationWindow.Show();
             }
 
         }
@@ -98,7 +99,7 @@ namespace Tweaker.Pages
                 _worker.DoWork += Worker_DoWorkDeletedAll;
                 _worker.RunWorkerAsync();
                 notificationWindow.AddText = "Процесс удаления приложений начался, это займет некоторое время";
-                notificationWindow.ShowDialog();
+                notificationWindow.Show();
             }
         }
         #endregion

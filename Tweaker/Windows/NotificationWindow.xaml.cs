@@ -65,7 +65,7 @@ namespace Tweaker.Windows
             Closing -= NotificationW_Closing;
             e.Cancel = true;
             DoubleAnimation _animation = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.3));
-            _animation.Completed += (s, _) => this.Visibility = Visibility.Hidden;
+            _animation.Completed += (s, _) => this.Close();
             this.BeginAnimation(UIElement.OpacityProperty, _animation);
         }
 
