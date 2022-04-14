@@ -9,12 +9,11 @@ namespace Tweaker.Windows
 {
     public partial class NotificationWindow : Window
     {
-        private static string _titleNotificatio, _textNotificatio;
         private readonly DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(4);
 
-        internal string AddTitle { get => _titleNotificatio; set => _titleNotificatio = value; }
-        internal new string AddText { get => _textNotificatio; set => _textNotificatio = value; }
+        internal string AddTitle { get => NotificationTitle.Text; set => NotificationTitle.Text = value; }
+        internal new string AddText { get => NotificationText.Text; set => NotificationText.Text = value; }
         public NotificationWindow()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace Tweaker.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if(AddTitle == null) NotificationTitle.Text = "Информация";
+            if(AddTitle == "Title") NotificationTitle.Text = "Информация";
             else NotificationTitle.Text = AddTitle;
             NotificationText.Text = AddText;
 

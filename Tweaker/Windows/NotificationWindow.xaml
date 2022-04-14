@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Notification" x:Name="NotificationW" Height="120" Width="356" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded" Topmost="True" ShowInTaskbar="False" WindowStartupLocation="Manual" Closing="NotificationW_Closing">
     <Grid>
-        <Border Background="{DynamicResource BackgroundColor}" Opacity="0.9">
+        <Border Background="{DynamicResource BackgroundColor}" Opacity="0.95">
             <Border.Clip>
                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,356,120" />
             </Border.Clip>
