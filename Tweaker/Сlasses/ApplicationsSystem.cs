@@ -12,38 +12,7 @@ namespace Tweaker.Сlasses
     internal sealed class ApplicationsSystem
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(29)
-        {
-            [0] = 0,
-            [1] = 0,
-            [2] = 0,
-            [3] = 0,
-            [4] = 0,
-            [5] = 0,
-            [6] = 0,
-            [7] = 0,
-            [8] = 0,
-            [9] = 0,
-            [10] = 0,
-            [11] = 0,
-            [12] = 0,
-            [13] = 0,
-            [14] = 0,
-            [15] = 0,
-            [16] = 0,
-            [17] = 0,
-            [18] = 0,
-            [19] = 0,
-            [20] = 0,
-            [21] = 0,
-            [22] = 0,
-            [23] = 0,
-            [24] = 0,
-            [25] = 0,
-            [26] = 0,
-            [27] = 0,
-            [28] = 0,
-        };
+        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(29);
 
         private static string _result = default;
         private Process _process;
@@ -112,7 +81,7 @@ namespace Tweaker.Сlasses
 
         internal void SetImageApps(in ApplicationsUL _applicationsPages)
         {
-            _applicationsPages.MicrosoftStore.Source =  _CountCheck[0] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftStoreImage"] : (DrawingImage)Application.Current.Resources["MicrosoftStoreImageU"];
+            _applicationsPages.MicrosoftStore.Source = _CountCheck[0] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftStoreImage"] : (DrawingImage)Application.Current.Resources["MicrosoftStoreImageU"];
             _applicationsPages.Todos.Source = _CountCheck[1] == 1 ? (DrawingImage)Application.Current.Resources["TodosImage"] : (DrawingImage)Application.Current.Resources["TodosImageU"];
             _applicationsPages.BingWeather.Source = _CountCheck[2] == 1 ? (DrawingImage)Application.Current.Resources["BingWeatherImage"] : (DrawingImage)Application.Current.Resources["BingWeatherImageU"];
             _applicationsPages.Microsoft3DViewer.Source = _CountCheck[3] == 1 ? (DrawingImage)Application.Current.Resources["Microsoft3DViewerImage"] : (DrawingImage)Application.Current.Resources["Microsoft3DViewerImageU"];
@@ -121,7 +90,7 @@ namespace Tweaker.Сlasses
             _applicationsPages.MicrosoftOfficeHub.Source = _CountCheck[6] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftOfficeHubImage"] : (DrawingImage)Application.Current.Resources["MicrosoftOfficeHubImageU"];
             _applicationsPages.MicrosoftSolitaireCollection.Source = _CountCheck[7] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftSolitaireCollectionImage"] : (DrawingImage)Application.Current.Resources["MicrosoftSolitaireCollectionImageU"];
             _applicationsPages.MixedReality.Source = _CountCheck[8] == 1 ? (DrawingImage)Application.Current.Resources["MixedRealityImage"] : (DrawingImage)Application.Current.Resources["MixedRealityImageU"];
-            _applicationsPages.Xbox.Source = _CountCheck[9] >=1 ? (DrawingImage)Application.Current.Resources["XboxImage"] : (DrawingImage)Application.Current.Resources["XboxImageU"];
+            _applicationsPages.Xbox.Source = _CountCheck[9] >= 1 ? (DrawingImage)Application.Current.Resources["XboxImage"] : (DrawingImage)Application.Current.Resources["XboxImageU"];
             _applicationsPages.Paint3D.Source = _CountCheck[10] >= 1 ? (DrawingImage)Application.Current.Resources["Paint3DImage"] : (DrawingImage)Application.Current.Resources["Paint3DImageU"];
             _applicationsPages.OneNote.Source = _CountCheck[11] == 1 ? (DrawingImage)Application.Current.Resources["OneNoteImage"] : (DrawingImage)Application.Current.Resources["OneNoteImageU"];
             _applicationsPages.People.Source = _CountCheck[12] == 1 ? (DrawingImage)Application.Current.Resources["PeopleImage"] : (DrawingImage)Application.Current.Resources["PeopleImageU"];
@@ -153,12 +122,8 @@ namespace Tweaker.Сlasses
             _process.StartInfo.FileName = "powershell.exe";
             foreach (var _appDelete in _appValue[_nameApp])
             {
-                _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name "+_appDelete+" -AllUsers | Remove-AppxPackage");
+                _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name " + _appDelete + " -AllUsers | Remove-AppxPackage");
                 _process.Start();
-
-                for (byte i = 0; i < _appValue.Count; i++)
-                    if (_nameApp == _appValue.ElementAt(i).Key.ToString())
-                        _CountCheck[i] = 0;
             }
             _process.WaitForExit();
             _process.Dispose();
@@ -204,10 +169,6 @@ namespace Tweaker.Сlasses
                     {
                         _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name " + _appDelete + " -AllUsers | Remove-AppxPackage");
                         _process.Start();
-
-                        for (byte i = 0; i < _appValue.Count; i++)
-                            if (_appDelete == _appValue.ElementAt(i).Key.ToString())
-                                _CountCheck[i] = 0;
                     }
                 }
                 _process.Dispose();
