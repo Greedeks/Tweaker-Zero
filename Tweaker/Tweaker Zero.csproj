@@ -74,6 +74,9 @@
     <Compile Include="Pages\SystemInfromationPage.xaml.cs">
       <DependentUpon>SystemInfromationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Сlasses\ApplicationsSystem.cs" />
     <Compile Include="Сlasses\SettingsWindows.cs" />
     <Compile Include="Сlasses\GetSystemInformation.cs" />
@@ -146,6 +149,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\MessageForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NotificationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

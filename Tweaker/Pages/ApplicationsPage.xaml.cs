@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+using Tweaker.Windows;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -13,6 +14,7 @@ namespace Tweaker.Pages
     public partial class ApplicationsUL : Page
     {
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
+        private NotificationWindow notificationWindow = new NotificationWindow();
         private BackgroundWorker _worker;
         private string _nameApp = default;
         private DispatcherTimer _timer = default;
@@ -82,6 +84,8 @@ namespace Tweaker.Pages
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 _applicationsSystem.ApplicationRecovery();
+                notificationWindow.AddText = "Процесс восстановления приложений начался, это займет некоторое время";
+                notificationWindow.Show();
             }
 
         }
@@ -93,6 +97,8 @@ namespace Tweaker.Pages
                 _worker = new BackgroundWorker();
                 _worker.DoWork += Worker_DoWorkDeletedAll;
                 _worker.RunWorkerAsync();
+                notificationWindow.AddText = "Процесс удаления приложений начался, это займет некоторое время";
+                notificationWindow.Show();
             }
         }
         #endregion

@@ -243,25 +243,27 @@ namespace Tweaker
             await Task.Delay(1);
             this.Opacity = 1;
 
+            Rect primaryMonitorArea = SystemParameters.WorkArea;
+
             DoubleAnimation _animationTop = new DoubleAnimation
             {
-                From = SystemParameters.PrimaryScreenHeight,
-                To = (SystemParameters.PrimaryScreenHeight / 2) - (this.Height / 2),
+                From = primaryMonitorArea.Bottom,
+                To = (primaryMonitorArea.Bottom / 2) - (this.Height / 2),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
-                From = -SystemParameters.PrimaryScreenWidth,
-                To = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2),
+                From = -primaryMonitorArea.Right,
+                To = (primaryMonitorArea.Right / 2) - (this.Width / 2),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
 
-            TweakerWPF.Left = (SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2);
-            TweakerWPF.Top = (SystemParameters.PrimaryScreenHeight / 2) -(this.Height / 2);
+            TweakerWPF.Left = (primaryMonitorArea.Bottom / 2) - (this.Width / 2);
+            TweakerWPF.Top = (primaryMonitorArea.Right / 2) -(this.Height / 2);
             #endregion
         }
     }
