@@ -47,15 +47,15 @@ namespace Tweaker.Pages
             _timer.Start();
         }
 
-        private void AnimNotf(bool _reverse)
+        private void AnimNotf(in bool _reverse)
         {
             Notf.Visibility = Visibility.Visible;
             DoubleAnimation _animation = new DoubleAnimation
             {
                 From = !_reverse ? 0 : 1,
                 To = !_reverse ? 1 : 0,
+                SpeedRatio = 1,
                 Duration = TimeSpan.FromSeconds(0.17),
-                FillBehavior = FillBehavior.HoldEnd,
             };
             Timeline.SetDesiredFrameRate(_animation, 60);
             Notf.BeginAnimation(ContextMenu.OpacityProperty, _animation);

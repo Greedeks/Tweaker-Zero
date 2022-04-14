@@ -50,9 +50,9 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
+                SpeedRatio = 1,
                 Duration = TimeSpan.FromSeconds(0.07)
             };
-
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
 
             BrushAnimation _brushanimation = new BrushAnimation

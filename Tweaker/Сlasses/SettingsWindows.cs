@@ -279,14 +279,14 @@ namespace Tweaker.Сlasses
             _process.StartInfo.CreateNoWindow = true;
             _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            _process.StartInfo.FileName = "schtasks.exe";
+            _process.StartInfo.FileName = "cmd.exe";
             foreach (var _task in TaskName)
             {
-                _process.StartInfo.Arguments = string.Format("/TN {0}", _task);
+                _process.StartInfo.Arguments = string.Format("/c chcp 65001 & schtasks /tn {0}", _task);
                 _process.Start();
                 _process.StandardOutput.ReadLine();
                 string _tbl = _process.StandardOutput.ReadToEnd();
-                if (_tbl.Split('A').Last().Trim() == "Ready" || _tbl.Split('A').Last().Trim() == "Готово")
+                if (_tbl.Split('A').Last().Trim() == "Ready")
                     _counTasksConfidentiality++;
             }
             _process.WaitForExit();
@@ -476,7 +476,7 @@ namespace Tweaker.Сlasses
 
         }
         
-        internal void AppWidgetsState(bool _choose)
+        internal void AppWidgetsState(in bool _choose)
         {
             if(_choose)
                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 1, RegistryValueKind.DWord);

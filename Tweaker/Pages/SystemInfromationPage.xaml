@@ -18,7 +18,11 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
             </Border.Effect>
-            <Label HorizontalAlignment="Center" Content="Скопировано" Style="{DynamicResource Tweaks_ON}" Foreground="{DynamicResource ColorWhite}" Cursor="Hand"/>
+            <Label HorizontalAlignment="Center" Content="Скопировано" Style="{DynamicResource Tweaks_ON}" Foreground="{DynamicResource ColorWhite}" Cursor="Hand">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
         </Border>
 
         <Grid Grid.Row="0" SnapsToDevicePixels="True" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">

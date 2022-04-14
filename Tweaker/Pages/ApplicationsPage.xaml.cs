@@ -85,7 +85,7 @@ namespace Tweaker.Pages
             {
                 _applicationsSystem.ApplicationRecovery();
                 notificationWindow.AddText = "Процесс восстановления приложений начался, это займет некоторое время";
-                notificationWindow.Show();
+                notificationWindow.ShowDialog();
             }
 
         }
@@ -98,7 +98,7 @@ namespace Tweaker.Pages
                 _worker.DoWork += Worker_DoWorkDeletedAll;
                 _worker.RunWorkerAsync();
                 notificationWindow.AddText = "Процесс удаления приложений начался, это займет некоторое время";
-                notificationWindow.Show();
+                notificationWindow.ShowDialog();
             }
         }
         #endregion

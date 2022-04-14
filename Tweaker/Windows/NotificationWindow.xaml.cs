@@ -43,7 +43,7 @@ namespace Tweaker.Windows
             {
                 From = primaryMonitorArea.Right,
                 To = primaryMonitorArea.Right - this.Width - 10,
-                SpeedRatio = 6,
+                SpeedRatio = 7,
                 Duration = TimeSpan.FromSeconds(1)
             };
 
@@ -58,7 +58,6 @@ namespace Tweaker.Windows
 
 
             NotificationW.Left = primaryMonitorArea.Right - this.Width - 10;
-            NotificationW.Opacity = 1;
         }
 
         private void NotificationW_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -66,7 +65,7 @@ namespace Tweaker.Windows
             Closing -= NotificationW_Closing;
             e.Cancel = true;
             DoubleAnimation _animation = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.3));
-            _animation.Completed += (s, _) => this.Close();
+            _animation.Completed += (s, _) => this.Visibility = Visibility.Hidden;
             this.BeginAnimation(UIElement.OpacityProperty, _animation);
         }
 
