@@ -15,7 +15,6 @@ namespace Tweaker.Pages
     {
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         private NotificationWindow notificationWindow = new NotificationWindow();
-        private MainWindow window = new MainWindow();
         private BackgroundWorker _worker;
         private string _nameApp = default;
         private DispatcherTimer _timer = default;
@@ -30,7 +29,7 @@ namespace Tweaker.Pages
             #region Update
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds % 5 == 0)
+                if (_time.TotalSeconds % 7 == 0)
                 {
                     _worker = new BackgroundWorker();
                     _worker.DoWork += Worker_DoWorkUpdate;
@@ -74,6 +73,7 @@ namespace Tweaker.Pages
                 _nameApp = _image.Name;
                 _worker = new BackgroundWorker();
                 _worker.DoWork += Worker_DoWorkDeleted;
+                _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                 _worker.RunWorkerAsync();
 
             }
@@ -84,9 +84,13 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                //_applicationsSystem.ApplicationRecovery();
-                notificationWindow.AddText = "Процесс восстановления приложений начался, это займет некоторое время";
-                notificationWindow.Show();
+                _applicationsSystem.ApplicationRecovery();
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    notificationWindow = new NotificationWindow();
+                    notificationWindow.AddText = "Процесс восстановления приложений начался, это займет некоторое время";
+                    notificationWindow.Show();
+                });
             }
 
         }
@@ -97,9 +101,14 @@ namespace Tweaker.Pages
             {
                 _worker = new BackgroundWorker();
                 _worker.DoWork += Worker_DoWorkDeletedAll;
+                _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                 _worker.RunWorkerAsync();
-                notificationWindow.AddText = "Процесс удаления приложений начался, это займет некоторое время";
-                notificationWindow.Show();
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    notificationWindow = new NotificationWindow();
+                    notificationWindow.AddText = "Процесс удаления приложений начался, это займет некоторое время";
+                    notificationWindow.Show();
+                });
             }
         }
         #endregion
@@ -119,6 +128,11 @@ namespace Tweaker.Pages
         private void Worker_DoWorkUpdate(object sender, DoWorkEventArgs e)
         {
             _applicationsSystem.CheckInstalledApps();
+        }
+
+        void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            _worker.Dispose();
         }
         #endregion
 
