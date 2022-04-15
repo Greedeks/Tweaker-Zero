@@ -55,10 +55,9 @@ namespace Tweaker.Pages
             {
                 From = !_reverse ? 0 : 1,
                 To = !_reverse ? 1 : 0,
-                SpeedRatio = 1,
-                Duration = TimeSpan.FromSeconds(0.17),
+                SpeedRatio = 2,
+                Duration = TimeSpan.FromSeconds(0.2),
             };
-            Timeline.SetDesiredFrameRate(_animation, 60);
             Notf.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Notf.Opacity = !_reverse ? 1 : 0;
         }
@@ -74,7 +73,7 @@ namespace Tweaker.Pages
                     _sticking = true;
                     AnimNotf(false);
                     Clipboard.SetData(DataFormats.UnicodeText, _textBlock.Text);
-                    await Task.Delay(500);
+                    await Task.Delay(700);
                     AnimNotf(true);
                     _sticking = false;
 
@@ -93,7 +92,7 @@ namespace Tweaker.Pages
                         _sticking = true;
                         AnimNotf(false);
                         Clipboard.SetData(DataFormats.UnicodeText, _textcopy);
-                        await Task.Delay(500);
+                        await Task.Delay(700);
                         AnimNotf(true);
                         _sticking = false;
                     }

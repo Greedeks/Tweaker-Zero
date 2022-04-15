@@ -19,7 +19,7 @@ namespace Tweaker
 
         public MainWindow()
         {
-            _checkApplicationCopy.CheckAC();
+            Parallel.Invoke( () => { _checkApplicationCopy.CheckAC(); });
 
             InitializeComponent();
         }
