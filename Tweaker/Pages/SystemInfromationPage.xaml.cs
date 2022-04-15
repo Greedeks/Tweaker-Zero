@@ -33,14 +33,15 @@ namespace Tweaker.Pages
             _getSystemInformation.SetInormationPC(this);
             IpAddress.Text = GetSystemInformation._ipUser;
 
-            UpdateDisk();
+            Update();
         }
 
-        private void UpdateDisk()
+        private void Update()
         {
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds % 2 == 0) { _getSystemInformation.UpdateInormation(this); }
+                if (_time.TotalSeconds % 2 == 0) { _getSystemInformation.UpdateInormation();
+                    _getSystemInformation.SetInormationPC(this); }
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
 

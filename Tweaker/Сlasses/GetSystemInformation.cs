@@ -82,36 +82,7 @@ namespace Tweaker.Сlasses
                     _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
                 _INFthisPC[5] = (_setinfo.TrimEnd('\n'));
                 _setinfo = string.Empty;
-            }, () => {
-                foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
-                {
-                    switch ((ushort)(managementObj["MediaType"]))
-                    {
-                        case 3:
-                            _type = "(HDD)";
-                            break;
-                        case 4:
-                            _type = "(SSD)";
-                            break;
-                        case 5:
-                            _type = "(SCM)";
-                            break;
-                        default:
-                            _type = "(Unspecified)";
-                            break;
-                    }
-                    if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
-                    _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
-                }
-                _INFthisPC[6] = (_setinfo.TrimEnd('\n'));
-                _setinfo = string.Empty;
-            }, 
-            () => {
-                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
-                    _setinfo += (string)managementObj["Name"] + "\n";
-                _INFthisPC[7] = (_setinfo.TrimEnd('\n'));
-                _setinfo = string.Empty;
-            }, 
+            },
             () => {
                 try
                 {
@@ -148,6 +119,8 @@ namespace Tweaker.Сlasses
                 _INFthisPC[10] = (_setinfo.TrimEnd('\n'));
                 _setinfo = string.Empty;
             });
+
+            UpdateInormation();
         }
 
         internal void SetInormationPC(in SystemInfromation _systemInfromation)
@@ -166,31 +139,40 @@ namespace Tweaker.Сlasses
             _systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
         }
 
-        internal void UpdateInormation(in SystemInfromation _systemInfromation)
+        internal void UpdateInormation()
         {
-            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
-            {
-                switch ((ushort)(managementObj["MediaType"]))
+            Parallel.Invoke(
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
                 {
-                    case 3:
-                        _type = "(HDD)";
-                        break;
-                    case 4:
-                        _type = "(SSD)";
-                        break;
-                    case 5:
-                        _type = "(SCM)";
-                        break;
-                    default:
-                        _type = "(Unspecified)";
-                        break;
+                    switch ((ushort)(managementObj["MediaType"]))
+                    {
+                        case 3:
+                            _type = "(HDD)";
+                            break;
+                        case 4:
+                            _type = "(SSD)";
+                            break;
+                        case 5:
+                            _type = "(SCM)";
+                            break;
+                        default:
+                            _type = "(Unspecified)";
+                            break;
+                    }
+                    if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
+                    _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
                 }
-                if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
-                _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
+                _INFthisPC[6] = _setinfo.TrimEnd('\n');
+                _setinfo = string.Empty;
+            },
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
+                    _setinfo += (string)managementObj["Name"] + "\n";
+                _INFthisPC[7] = (_setinfo.TrimEnd('\n'));
+                _setinfo = string.Empty;
             }
-            _INFthisPC[6] = _setinfo.TrimEnd('\n');
-            _systemInfromation.NameDisk.Text = _INFthisPC[6];
-            _setinfo = string.Empty;
+            );
         }
 
         #region CheckIntCn/getIp
