@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Net;
@@ -7,6 +6,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Tweaker.Pages;
@@ -46,96 +46,108 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private readonly static List<string> _INFthisPC = new List<string>(11);
+        private readonly static string[] _INFthisPC = new string[11];
         private string _setinfo = default, _type = default;
         internal static string _ipUser = "Пожалуйста немного подождите..";
         internal void GetInormationPC()
         {
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
-            {
-                string _caption = (string)managementObj["Caption"], _archt = (string)managementObj["OSArchitecture"];
-                _INFthisPC.Add(_caption.Substring(_caption.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" + (string)managementObj["Version"]);
-            }
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, SerialNumber from Win32_BIOS").Get())
-                _INFthisPC.Add((string)managementObj["Name"] + ", S/N-" + (string)managementObj["SerialNumber"]);
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Product, Version from Win32_BaseBoard").Get())
-                _INFthisPC.Add((string)managementObj["Manufacturer"] + (string)managementObj["Product"] + ", V" + (string)managementObj["Version"]);
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name from Win32_Processor").Get())
-                _INFthisPC.Add((string)managementObj["Name"]);
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
-                _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
-            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
-            _setinfo = string.Empty;
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select  Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory").Get())
-                _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
-            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
-            _setinfo = string.Empty;
-
-            foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
-            {
-                switch ((ushort)(managementObj["MediaType"]))
+            Parallel.Invoke(
+            () => { 
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
                 {
-                    case 3:
-                        _type = "(HDD)";
-                        break;
-                    case 4:
-                        _type = "(SSD)";
-                        break;
-                    case 5:
-                        _type = "(SCM)";
-                        break;
-                    default:
-                        _type = "(Unspecified)";
-                        break;
-                }
-                if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
-                _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
-            }
-            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
-            _setinfo = string.Empty;
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
-                _setinfo += (string)managementObj["Name"] + "\n";
-            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
-            _setinfo = string.Empty;
-
-            try
-            {
-                IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-                foreach (var ip4 in host.AddressList)
+                    string _caption = (string)managementObj["Caption"], _archt = (string)managementObj["OSArchitecture"];
+                    _INFthisPC[0] = (_caption.Substring(_caption.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" + (string)managementObj["Version"]);
+                } 
+            },
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, SerialNumber from Win32_BIOS").Get())
+                    _INFthisPC[1] = ((string)managementObj["Name"] + ", S/N-" + (string)managementObj["SerialNumber"]);
+            }, 
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Product, Version from Win32_BaseBoard").Get())
+                    _INFthisPC[2] = ((string)managementObj["Manufacturer"] + (string)managementObj["Product"] + ", V" + (string)managementObj["Version"]);
+            }, 
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name from Win32_Processor").Get())
+                    _INFthisPC[3] = ((string)managementObj["Name"]);
+            }, 
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
+                    _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
+                _INFthisPC[4] = (_setinfo.TrimEnd('\n'));
+                _setinfo = string.Empty;
+            }, 
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select  Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory").Get())
+                    _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
+                _INFthisPC[5] = (_setinfo.TrimEnd('\n'));
+                _setinfo = string.Empty;
+            }, () => {
+                foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
                 {
-                    if (ip4.AddressFamily == AddressFamily.InterNetwork)
+                    switch ((ushort)(managementObj["MediaType"]))
                     {
-                        _setinfo = ip4.ToString();
+                        case 3:
+                            _type = "(HDD)";
+                            break;
+                        case 4:
+                            _type = "(SSD)";
+                            break;
+                        case 5:
+                            _type = "(SCM)";
+                            break;
+                        default:
+                            _type = "(Unspecified)";
+                            break;
+                    }
+                    if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
+                    _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
+                }
+                _INFthisPC[6] = (_setinfo.TrimEnd('\n'));
+                _setinfo = string.Empty;
+            }, 
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
+                    _setinfo += (string)managementObj["Name"] + "\n";
+                _INFthisPC[7] = (_setinfo.TrimEnd('\n'));
+                _setinfo = string.Empty;
+            }, 
+            () => {
+                try
+                {
+                    IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+                    foreach (var ip4 in host.AddressList)
+                    {
+                        if (ip4.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            _setinfo = ip4.ToString();
+                        }
                     }
                 }
-            }
-            catch { _setinfo = "В системе нет сетевых адаптеров с адресом IPv4"; }
-            _INFthisPC.Add(_setinfo);
-            _setinfo = string.Empty;
-
-            try
-            {
-                _setinfo =
-                    (
-                        from nic in NetworkInterface.GetAllNetworkInterfaces()
-                        where nic.OperationalStatus == OperationalStatus.Up
-                        select nic.GetPhysicalAddress().ToString()
-                    ).FirstOrDefault();
-            }
-            catch { _setinfo = "В системе нет сетевых адаптеров с MAC адресом"; }
-            _INFthisPC.Add(_setinfo);
-            _setinfo = string.Empty;
-
-            foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
-                _setinfo += (string)managementObj["Name"] + "\n";
-            _INFthisPC.Add(_setinfo.TrimEnd('\n'));
-            _setinfo = string.Empty;
+                catch { _setinfo = "В системе нет сетевых адаптеров с адресом IPv4"; }
+                _INFthisPC[8] = (_setinfo);
+                _setinfo = string.Empty;
+            }, 
+            () => {
+                try
+                {
+                    _setinfo =
+                        (
+                            from nic in NetworkInterface.GetAllNetworkInterfaces()
+                            where nic.OperationalStatus == OperationalStatus.Up
+                            select nic.GetPhysicalAddress().ToString()
+                        ).FirstOrDefault();
+                }
+                catch { _setinfo = "В системе нет сетевых адаптеров с MAC адресом"; }
+                _INFthisPC[9] = (_setinfo);
+                _setinfo = string.Empty;
+            }, 
+            () => {
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
+                    _setinfo += (string)managementObj["Name"] + "\n";
+                _INFthisPC[10] = (_setinfo.TrimEnd('\n'));
+                _setinfo = string.Empty;
+            });
         }
 
         internal void SetInormationPC(in SystemInfromation _systemInfromation)
