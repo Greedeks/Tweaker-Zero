@@ -29,7 +29,7 @@ namespace Tweaker.Pages
             #region Update
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds % 7 == 0)
+                if (_time.TotalSeconds % 5 == 0)
                 {
                     _worker = new BackgroundWorker();
                     _worker.DoWork += Worker_DoWorkUpdate;
@@ -88,8 +88,7 @@ namespace Tweaker.Pages
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     notificationWindow = new NotificationWindow();
-                    notificationWindow.AddText = "Процесс восстановления приложений начался, это займет некоторое время";
-                    notificationWindow.Show();
+                    ShowNotification("Информация", "Процесс восстановления приложений начался, это займет некоторое время");
                 });
             }
 
@@ -103,12 +102,7 @@ namespace Tweaker.Pages
                 _worker.DoWork += Worker_DoWorkDeletedAll;
                 _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                 _worker.RunWorkerAsync();
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    notificationWindow = new NotificationWindow();
-                    notificationWindow.AddText = "Процесс удаления приложений начался, это займет некоторое время";
-                    notificationWindow.Show();
-                });
+                ShowNotification("Информация", "Процесс удаления приложений начался, это займет некоторое время");
             }
         }
         #endregion
@@ -116,7 +110,6 @@ namespace Tweaker.Pages
         #region Worker
         private void Worker_DoWorkDeletedAll(object sender, DoWorkEventArgs e)
         {
-
             _applicationsSystem.ApplicationRemovalAll();
         }
 
@@ -139,6 +132,17 @@ namespace Tweaker.Pages
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             _timer.Stop();
+        }
+
+        private void ShowNotification(string _Tittle, string _Text)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                notificationWindow = new NotificationWindow();
+                notificationWindow.AddTitle = _Tittle;
+                notificationWindow.AddText = _Text;
+                notificationWindow.Show();
+            });
         }
     }
 }

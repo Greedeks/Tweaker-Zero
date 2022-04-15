@@ -36,13 +36,13 @@ namespace Tweaker.Windows
             else NotificationTitle.Text = AddTitle;
             NotificationText.Text = AddText;
 
-            Rect primaryMonitorArea = SystemParameters.WorkArea;
-            NotificationW.Top = primaryMonitorArea.Bottom - this.Height - 10;
+            Rect _primaryMonitorArea = SystemParameters.WorkArea;
+            NotificationW.Top = _primaryMonitorArea.Bottom - this.Height - 10;
 
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
-                From = primaryMonitorArea.Right,
-                To = primaryMonitorArea.Right - this.Width - 10,
+                From = _primaryMonitorArea.Right,
+                To = _primaryMonitorArea.Right - this.Width - 10,
                 SpeedRatio = 7,
                 Duration = TimeSpan.FromSeconds(1)
             };
@@ -57,7 +57,7 @@ namespace Tweaker.Windows
             NotificationW.BeginAnimation(Canvas.LeftProperty, _animationLeft);
 
 
-            NotificationW.Left = primaryMonitorArea.Right - this.Width - 10;
+            NotificationW.Left = _primaryMonitorArea.Right - this.Width - 10;
         }
 
         private void NotificationW_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -14,9 +14,7 @@ namespace Tweaker
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly CheckApplicationCopy _checkApplicationCopy = new CheckApplicationCopy();
-        private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private readonly GetSystemInformation _getsystemInformation = new GetSystemInformation();
-        private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
+        private readonly StartScanner _startScanner = new StartScanner();
         #endregion
 
         public MainWindow()
@@ -233,37 +231,34 @@ namespace Tweaker
 
         private  async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GetSystemInformation._urlImage = _getsystemInformation.SetImageUser();
-            _getsystemInformation.GetInormationPC();
-            _settingsWindows.TaskCheckStateConfidentiality();
-            _applicationsSystem.CheckInstalledApps();
+            _startScanner.ScantheSystem();
 
             #region Анимация загрузки
             this.Opacity = 0;
             await Task.Delay(1);
             this.Opacity = 1;
 
-            Rect primaryMonitorArea = SystemParameters.WorkArea;
+            Rect _primaryMonitorArea = SystemParameters.WorkArea;
 
             DoubleAnimation _animationTop = new DoubleAnimation
             {
-                From = primaryMonitorArea.Bottom,
-                To = (primaryMonitorArea.Bottom / 2) - (this.Height / 2),
+                From = _primaryMonitorArea.Bottom,
+                To = (_primaryMonitorArea.Bottom / 2) - (this.Height / 2),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
-                From = -primaryMonitorArea.Right,
-                To = (primaryMonitorArea.Right / 2) - (this.Width / 2),
+                From = -_primaryMonitorArea.Right,
+                To = (_primaryMonitorArea.Right / 2) - (this.Width / 2),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
 
-            TweakerWPF.Left = (primaryMonitorArea.Bottom / 2) - (this.Width / 2);
-            TweakerWPF.Top = (primaryMonitorArea.Right / 2) -(this.Height / 2);
+            TweakerWPF.Left = (_primaryMonitorArea.Bottom / 2) - (this.Width / 2);
+            TweakerWPF.Top = (_primaryMonitorArea.Right / 2) -(this.Height / 2);
             #endregion
         }
     }

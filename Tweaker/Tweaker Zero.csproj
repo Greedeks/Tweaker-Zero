@@ -80,6 +80,7 @@
     <Compile Include="Сlasses\ApplicationsSystem.cs" />
     <Compile Include="Сlasses\SettingsWindows.cs" />
     <Compile Include="Сlasses\GetSystemInformation.cs" />
+    <Compile Include="Сlasses\StartScanner.cs" />
     <Page Include="CustomsUC\ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
