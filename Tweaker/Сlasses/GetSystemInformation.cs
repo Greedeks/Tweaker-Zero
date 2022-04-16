@@ -46,20 +46,16 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private readonly static string[] _INFthisPC = new string[11];
-        private string _setinfo = default, _type = default, _captionW = default, _archt = default;
-        internal static string _ipUser = "Пожалуйста немного подождите..";
+        private readonly static string[] _INFthisPC = new string[12];
+        private string _type = default;
+        internal static string _ipAddress = "Пожалуйста немного подождите...";
         internal void GetInormationPC()
         {
             Parallel.Invoke(
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
-                {
-                    _captionW = (string)managementObj["Caption"]; _archt = (string)managementObj["OSArchitecture"]; _setinfo = (string)managementObj["Version"];
-                }
-                _INFthisPC[0] = (_captionW.Substring(_captionW.IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace(_archt, @"\-.+", "-bit") + ", V" + _setinfo);
-                _setinfo = string.Empty;
+                    _INFthisPC[0] = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace((string)managementObj["OSArchitecture"], @"\-.+", "-bit") + ", V" + (string)managementObj["Version"];
             },
             () =>
             {
@@ -79,17 +75,15 @@ namespace Tweaker.Сlasses
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, AdapterRAM from Win32_VideoController").Get())
-                    _setinfo += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
-                _INFthisPC[4] = (_setinfo.TrimEnd('\n'));
-                _setinfo = string.Empty;
+                    _INFthisPC[4] += ((string)managementObj["Name"] + ", " + Convert.ToString(((uint)managementObj["AdapterRAM"] / 1024000000)) + " GB\n");
+                _INFthisPC[4] = _INFthisPC[4].TrimEnd('\n');
             },
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select  Manufacturer, Capacity, ConfiguredClockSpeed from Win32_PhysicalMemory").Get())
-                    _setinfo += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
-                _INFthisPC[5] = (_setinfo.TrimEnd('\n'));
-                _setinfo = string.Empty;
-            },
+                    _INFthisPC[5] += ((string)managementObj["Manufacturer"] + ", " + Convert.ToString((ulong)managementObj["Capacity"] / 1024000000) + " GB, " + Convert.ToString((uint)managementObj["ConfiguredClockSpeed"]) + "MHz\n");
+                _INFthisPC[5] = _INFthisPC[5].TrimEnd('\n');
+            },      
             () =>
             {
                 try
@@ -99,35 +93,30 @@ namespace Tweaker.Сlasses
                     {
                         if (_ip4.AddressFamily == AddressFamily.InterNetwork)
                         {
-                            _setinfo = _ip4.ToString();
+                            _INFthisPC[9] = _ip4.ToString();
                         }
                     }
                 }
-                catch { _setinfo = "В системе нет сетевых адаптеров с адресом IPv4"; }
-                _INFthisPC[8] = (_setinfo);
-                _setinfo = string.Empty;
+                catch { _INFthisPC[9] = "В системе нет сетевых адаптеров с адресом IPv4"; }
             },
             () =>
             {
                 try
                 {
-                    _setinfo =
+                    _INFthisPC[10] =
                         (
                             from nic in NetworkInterface.GetAllNetworkInterfaces()
                             where nic.OperationalStatus == OperationalStatus.Up
                             select nic.GetPhysicalAddress().ToString()
                         ).FirstOrDefault();
                 }
-                catch { _setinfo = "В системе нет сетевых адаптеров с MAC адресом"; }
-                _INFthisPC[9] = (_setinfo);
-                _setinfo = string.Empty;
+                catch { _INFthisPC[10] = "В системе нет сетевых адаптеров с MAC адресом"; }
             },
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
-                    _setinfo += (string)managementObj["Name"] + "\n";
-                _INFthisPC[10] = (_setinfo.TrimEnd('\n'));
-                _setinfo = string.Empty;
+                    _INFthisPC[11] += (string)managementObj["Name"] + "\n";
+                _INFthisPC[11] = _INFthisPC[11].TrimEnd('\n');
             });
 
             UpdateInormation();
@@ -144,9 +133,10 @@ namespace Tweaker.Сlasses
 
             _systemInfromation.NameDisk.Text = _INFthisPC[6];
             _systemInfromation.NameSound.Text = _INFthisPC[7];
-            _systemInfromation.Ipv4.Text = _INFthisPC[8];
-            _systemInfromation.MACaddress.Text = _INFthisPC[9];
-            _systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
+            _systemInfromation.IpAddress.Text = _INFthisPC[8];
+            _systemInfromation.Ipv4.Text = _INFthisPC[9];
+            _systemInfromation.MACaddress.Text = _INFthisPC[10];
+            _systemInfromation.NameNetAdapter.Text = _INFthisPC[11];
         }
 
         internal void UpdateInormation()
@@ -154,6 +144,7 @@ namespace Tweaker.Сlasses
             Parallel.Invoke(
             () =>
             {
+                _INFthisPC[6] = string.Empty;
                 foreach (var managementObj in new ManagementObjectSearcher(@"\\.\root\microsoft\windows\storage", "select FriendlyName,MediaType,Size,BusType from MSFT_PhysicalDisk").Get())
                 {
                     switch ((ushort)(managementObj["MediaType"]))
@@ -172,17 +163,16 @@ namespace Tweaker.Сlasses
                             break;
                     }
                     if (_type == "(Unspecified)" && ((ushort)(managementObj["BusType"])) == 7) _type = "(USB)";
-                    _setinfo += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
+                    _INFthisPC[6] += Convert.ToString((ulong)managementObj["Size"] / 1024000000) + " GB " + "[" + (string)managementObj["FriendlyName"] + "] " + _type + "\n";
                 }
-                _INFthisPC[6] = _setinfo.TrimEnd('\n');
-                _setinfo = string.Empty;
+                _INFthisPC[6] = _INFthisPC[6].TrimEnd('\n');
             },
             () =>
             {
+                _INFthisPC[7] = string.Empty;
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_SoundDevice").Get())
-                    _setinfo += (string)managementObj["Name"] + "\n";
-                _INFthisPC[7] = (_setinfo.TrimEnd('\n'));
-                _setinfo = string.Empty;
+                    _INFthisPC[7] += (string)managementObj["Name"] + "\n";
+                _INFthisPC[7] = _INFthisPC[7].TrimEnd('\n');
             });
         }
 
@@ -209,12 +199,13 @@ namespace Tweaker.Сlasses
                     {
                         string _exIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
                         var _exlIp = IPAddress.Parse(_exIpString);
-                        _ipUser = _exlIp.ToString();
+                        _ipAddress = _exlIp.ToString();
                     }
-                    catch { _ipUser = "Доступ к сети ограничен"; }
+                    catch { _ipAddress = "Доступ к сети ограничен"; }
                 }
                 else
-                    _ipUser = "Отсутствует подключения к интернету";
+                    _ipAddress = "Отсутствует подключения к интернету";
+                _INFthisPC[8] = _ipAddress;
             });
         }
         #endregion

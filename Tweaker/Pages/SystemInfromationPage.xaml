@@ -152,7 +152,7 @@
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400"/>
                             </TextBlock.Effect>
                         </TextBlock>
-                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
+                        <TextBlock x:Name="IpAddress" Style="{DynamicResource SystemINFO}" Text="Пожалуйста немного подождите..." Margin="74,25,0,0" PreviewMouseDown="TextBlock_PreviewMouseDown" Foreground="{DynamicResource ColorGray}" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave" Cursor="Hand"/>
                     </Grid>
 
                     <Grid Grid.Row="3" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
