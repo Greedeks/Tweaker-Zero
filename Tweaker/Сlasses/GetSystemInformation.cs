@@ -46,7 +46,7 @@ namespace Tweaker.Сlasses
             else return Environment.UserName.ToLower();
         }
 
-        private readonly static string[] _INFthisPC = new string[12];
+        private readonly static string[] _INFthisPC = new string[11];
         private string _type = default;
         internal static string _ipAddress = "Пожалуйста немного подождите...";
         internal void GetInormationPC()
@@ -93,30 +93,30 @@ namespace Tweaker.Сlasses
                     {
                         if (_ip4.AddressFamily == AddressFamily.InterNetwork)
                         {
-                            _INFthisPC[9] = _ip4.ToString();
+                            _INFthisPC[8] = _ip4.ToString();
                         }
                     }
                 }
-                catch { _INFthisPC[9] = "В системе нет сетевых адаптеров с адресом IPv4"; }
+                catch { _INFthisPC[8] = "В системе нет сетевых адаптеров с адресом IPv4"; }
             },
             () =>
             {
                 try
                 {
-                    _INFthisPC[10] =
+                    _INFthisPC[9] =
                         (
                             from nic in NetworkInterface.GetAllNetworkInterfaces()
                             where nic.OperationalStatus == OperationalStatus.Up
                             select nic.GetPhysicalAddress().ToString()
                         ).FirstOrDefault();
                 }
-                catch { _INFthisPC[10] = "В системе нет сетевых адаптеров с MAC адресом"; }
+                catch { _INFthisPC[9] = "В системе нет сетевых адаптеров с MAC адресом"; }
             },
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select name from Win32_NetworkAdapter where NetConnectionStatus=2 or NetConnectionStatus=7").Get())
-                    _INFthisPC[11] += (string)managementObj["Name"] + "\n";
-                _INFthisPC[11] = _INFthisPC[11].TrimEnd('\n');
+                    _INFthisPC[10] += (string)managementObj["Name"] + "\n";
+                _INFthisPC[10] = _INFthisPC[10].TrimEnd('\n');
             });
 
             UpdateInormation();
@@ -133,10 +133,10 @@ namespace Tweaker.Сlasses
 
             _systemInfromation.NameDisk.Text = _INFthisPC[6];
             _systemInfromation.NameSound.Text = _INFthisPC[7];
-            _systemInfromation.IpAddress.Text = _INFthisPC[8];
-            _systemInfromation.Ipv4.Text = _INFthisPC[9];
-            _systemInfromation.MACaddress.Text = _INFthisPC[10];
-            _systemInfromation.NameNetAdapter.Text = _INFthisPC[11];
+            _systemInfromation.IpAddress.Text = _ipAddress;
+            _systemInfromation.Ipv4.Text = _INFthisPC[8];
+            _systemInfromation.MACaddress.Text = _INFthisPC[9];
+            _systemInfromation.NameNetAdapter.Text = _INFthisPC[10];
         }
 
         internal void UpdateInormation()
@@ -205,7 +205,6 @@ namespace Tweaker.Сlasses
                 }
                 else
                     _ipAddress = "Отсутствует подключения к интернету";
-                _INFthisPC[8] = _ipAddress;
             });
         }
         #endregion

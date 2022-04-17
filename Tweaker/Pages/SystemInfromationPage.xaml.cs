@@ -26,12 +26,11 @@ namespace Tweaker.Pages
             _worker = new BackgroundWorker();
             _worker.RunWorkerAsync();
             _worker.DoWork += (s, e) => { _getSystemInformation.GetIpUser(); };
-            _worker.RunWorkerCompleted += (s, e) => { _getSystemInformation.SetInormationPC(this); };
+            _worker.RunWorkerCompleted += (s, e) => { IpAddress.Text = GetSystemInformation._ipAddress; };
 
             if (GetSystemInformation._urlImage != null) UserAvatar.ImageSource = GetSystemInformation._urlImage;
             UserName.Text = _getSystemInformation.NameUser();
             _getSystemInformation.SetInormationPC(this);
-            IpAddress.Text = GetSystemInformation._ipAddress;
 
             Update();
         }
@@ -41,7 +40,7 @@ namespace Tweaker.Pages
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 if (_time.TotalSeconds % 2 == 0) { _getSystemInformation.UpdateInormation();
-                    IpAddress.Text = GetSystemInformation._ipAddress; }
+                    _getSystemInformation.SetInormationPC(this); }
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
 
