@@ -196,7 +196,7 @@ namespace Tweaker.Сlasses
             //#12
             _key[26] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc");
 
-            if (_key[26] == null || _key[26].GetValue("AllowSpeechModelUpdate", null) == null || _key[26].GetValue("AllowSpeechModelUpdate").ToString() != "4")
+            if (_key[26] == null || _key[26].GetValue("Start", null) == null || _key[26].GetValue("Start").ToString() != "4")
             {
                 _confidentiality.TButton12.State = true;
                 _confidentiality.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -225,16 +225,16 @@ namespace Tweaker.Сlasses
             _key[28] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
             _key[29] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
 
-            if (_key[28] == null || _key[28].GetValue("Start", null) == null || _key[28].GetValue("Start").ToString() != "4" ||
-                _key[29] == null || _key[28].GetValue("Start", null) == null || _key[29].GetValue("Start").ToString() != "4")
-            {
-                _confidentiality.TButton14.State = true;
-                _confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
+            if (_key[28] == null || _key[28].GetValue("Start", null) == null || _key[28].GetValue("Start").ToString() == "2" ||
+                _key[29] == null || _key[28].GetValue("Start", null) == null || _key[29].GetValue("Start").ToString() == "2")
             {
                 _confidentiality.TButton14.State = false;
                 _confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+            else
+            {
+                _confidentiality.TButton14.State = true;
+                _confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
 
             //#15
@@ -256,13 +256,13 @@ namespace Tweaker.Сlasses
 
             if (_key[31] == null || _key[31].GetValue("Start", null) == null || _key[31].GetValue("Start").ToString() != "4")
             {
-                _confidentiality.TButton15.State = true;
-                _confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentiality.TButton16.State = true;
+                _confidentiality.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton15.State = false;
-                _confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentiality.TButton16.State = false;
+                _confidentiality.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
         }
 
@@ -388,6 +388,122 @@ namespace Tweaker.Сlasses
                             _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("AllowTelemetry", 1, RegistryValueKind.DWord);
                             _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("Start_TrackProgs", 1, RegistryValueKind.DWord);
                         }
+                        break;
+                    }
+                case 7:
+                    {
+                        if (_choose)
+                        {
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\TabletPC").SetValue("PreventHandwritingDataSharing", 1, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports").SetValue("PreventHandwritingErrorReports", 1, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Input\TIPC").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\TabletPC").DeleteValue("PreventHandwritingDataSharing");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports").SetValue("PreventHandwritingErrorReports", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Input\TIPC").SetValue("Enabled", 1, RegistryValueKind.DWord);
+                        }
+                        break;
+                    }
+                case 8:
+                    {
+                        if (_choose)
+                        {
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").SetValue("DisableUAR", 1, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization").SetValue("NoLockScreenCamera", 1, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").DeleteValue("DisableUAR");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization").DeleteValue("NoLockScreenCamera");
+                        }
+                        break;
+                    }
+                case 9:
+                    {
+                        if (_choose)
+                        {
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").SetValue("DisableLocation", 1, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").SetValue("DisableLocationScripting", 1, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").SetValue("DisableWindowsLocationProvider", 1, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").DeleteValue("DisableLocation");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").DeleteValue("DisableLocationScripting");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").DeleteValue("DisableWindowsLocationProvider");
+                        }
+                        break;
+                    }
+                case 10:
+                    {
+                        if (_choose)
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("NumberOfSIUFInPeriod", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("PeriodInNanoSeconds", 0, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("DoNotShowFeedbackNotifications", 1, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").DeleteValue("NumberOfSIUFInPeriod");
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").DeleteValue("PeriodInNanoSeconds");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").DeleteValue("DoNotShowFeedbackNotifications");
+                        }
+                        break;
+                    }
+                case 11:
+                    {
+                        if (_choose)
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").SetValue("AllowSpeechModelUpdate", 0, RegistryValueKind.DWord);
+                        else
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").DeleteValue("AllowSpeechModelUpdate");
+                        break;
+                    }
+                case 12:
+                    {
+                        if (_choose)
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 4, RegistryValueKind.DWord);
+                        else
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 2, RegistryValueKind.DWord);
+                            break;
+                    }
+                case 13:
+                    {
+                        if (_choose)
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").SetValue("AllowExperimentation", 0, RegistryValueKind.DWord);
+                        else
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").DeleteValue("AllowExperimentation");
+                        break;
+                    }
+                case 14:
+                    {
+                        if (_choose)
+                        {
+                            _localMachineKey.DeleteSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
+                            _localMachineKey.DeleteSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+                        }
+                        else
+                        {
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+                        }
+                        break;
+                    }
+                case 15:
+                    {
+                        if (_choose)
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 4, RegistryValueKind.DWord);
+                        else
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 3, RegistryValueKind.DWord);
+                        break;
+                    }
+                case 16:
+                    {
+                        if (_choose)
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 4, RegistryValueKind.DWord);
+                        else
+                            _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 2, RegistryValueKind.DWord);
                         break;
                     }
             }
