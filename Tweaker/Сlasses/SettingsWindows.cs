@@ -478,10 +478,13 @@ namespace Tweaker.Сlasses
         
         internal void AppWidgetsState(in bool _choose)
         {
-            if(_choose)
-                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 1, RegistryValueKind.DWord);
-            else
-                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 0, RegistryValueKind.DWord);
+            if (GetSystemInformation._windowsV.Remove(GetSystemInformation._windowsV.Length - 4) == "11")
+            {
+                if (_choose)
+                    _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 1, RegistryValueKind.DWord);
+                else
+                    _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").DeleteValue("AllowNewsAndInterests");
+            }
         }
     }
 }

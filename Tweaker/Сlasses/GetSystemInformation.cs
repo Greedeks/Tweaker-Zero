@@ -48,14 +48,17 @@ namespace Tweaker.Сlasses
 
         private readonly static string[] _INFthisPC = new string[11];
         private string _type = default;
+        internal static string _windowsV = default;
         internal static string _ipAddress = "Пожалуйста немного подождите...";
         internal void GetInormationPC()
         {
             Parallel.Invoke(
             () =>
             {
-                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get())
+                foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get()) {
                     _INFthisPC[0] = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace((string)managementObj["OSArchitecture"], @"\-.+", "-bit") + ", V" + (string)managementObj["Version"];
+                    _windowsV = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W') + 8);
+                }
             },
             () =>
             {

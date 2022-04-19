@@ -128,7 +128,7 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
 
-            if (_nameApp == "Widgets")
+            if(_nameApp== "Widgets")
                 _settingsWindows.AppWidgetsState(false);
 
         }
@@ -148,6 +148,7 @@ namespace Tweaker.Сlasses
                     WindowStyle = ProcessWindowStyle.Hidden
                 });
                 _process.Dispose();
+
 
                 _settingsWindows.AppWidgetsState(true);
             }
@@ -175,6 +176,7 @@ namespace Tweaker.Сlasses
 
                 _settingsWindows.AppWidgetsState(false);
             }
+
         }
 
         internal byte AppCheckCountRemoval()
