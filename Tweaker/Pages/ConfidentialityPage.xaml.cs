@@ -130,6 +130,6 @@ namespace Tweaker.Pages
             }
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e) => _settingsWindows.GetSettingConfidentiality(this);
+        private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingConfidentiality(this); });
     }
 }
