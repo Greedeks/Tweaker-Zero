@@ -17,13 +17,13 @@ namespace Tweaker.Pages
         private void TButton1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             Tweak1.Style = !TButton1.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
-            _settingsWindows.ChangeSettingConfidentiality(TButton1.State, 0);
+            _settingsWindows.ChangeSettingConfidentiality(TButton1.State, 1);
         }
 
         private void TButton2_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             Tweak2.Style = !TButton2.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
-            _settingsWindows.ChangeSettingConfidentiality(TButton2.State, 1);
+            _settingsWindows.ChangeSettingConfidentiality(TButton2.State, 2);
         }
 
         private void TButton3_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -34,38 +34,20 @@ namespace Tweaker.Pages
 
         private void TButton4_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton4.State)
-            {
-                Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-            }
+            Tweak4.Style = !TButton4.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+            _settingsWindows.ChangeSettingConfidentiality(TButton4.State, 4);
         }
 
         private void TButton5_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton5.State)
-            {
-                Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-            }
+            Tweak5.Style = !TButton5.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+            _settingsWindows.ChangeSettingConfidentiality(TButton5.State, 5);
         }
 
         private void TButton6_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton6.State)
-            {
-                Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-            }
+            Tweak6.Style = !TButton6.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+            _settingsWindows.ChangeSettingConfidentiality(TButton6.State, 6);
         }
 
         private void TButton7_PreviewMouseDown(object sender, MouseButtonEventArgs e)
