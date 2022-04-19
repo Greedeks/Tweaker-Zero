@@ -22,7 +22,7 @@ namespace Tweaker.Сlasses
             _key[0] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
             _key[1] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth");
 
-            if (_key[0] != null && _key[0].GetValue("Enabled", null) != null && _key[0].GetValue("Enabled").ToString() != "0" || _key[1] != null && _key[1].GetValue("AllowAdvertising", null) != null && _key[1].GetValue("AllowAdvertising").ToString() != "0")
+            if (_key[0] == null || _key[0].GetValue("Enabled", null) == null || _key[0].GetValue("Enabled").ToString() != "0" || _key[1] == null || _key[1].GetValue("AllowAdvertising", null) == null || _key[1].GetValue("AllowAdvertising").ToString() != "0")
             {
                 _confidentiality.TButton1.State = true;
                 _confidentiality.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -41,9 +41,9 @@ namespace Tweaker.Сlasses
             _key[6] = _currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows");
             _key[7] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility");
 
-            if (_key[2] != null && _key[2].GetValue("Enabled", null) != null && _key[2].GetValue("Enabled").ToString() != "0" || _key[3] != null && _key[3].GetValue("Enabled", null) != null && _key[3].GetValue("Enabled").ToString() != "0" ||
-                _key[4] != null && _key[4].GetValue("Enabled", null) != null && _key[4].GetValue("Enabled").ToString() != "0" || _key[5] != null && _key[5].GetValue("Enabled", null) != null && _key[5].GetValue("Enabled").ToString() != "0" ||
-                _key[6] != null && _key[6].GetValue("Enabled", null) != null && _key[6].GetValue("Enabled").ToString() != "0" || _key[7] != null && _key[7].GetValue("Enabled", null) != null && _key[7].GetValue("Enabled").ToString() != "0")
+            if (_key[2] == null || _key[2].GetValue("Enabled", null) == null || _key[2].GetValue("Enabled").ToString() != "0" || _key[3] == null || _key[3].GetValue("Enabled", null) == null || _key[3].GetValue("Enabled").ToString() != "0" ||
+                _key[4] == null || _key[4].GetValue("Enabled", null) == null || _key[4].GetValue("Enabled").ToString() != "0" || _key[5] == null || _key[5].GetValue("Enabled", null) == null || _key[5].GetValue("Enabled").ToString() != "0" ||
+                _key[6] == null || _key[6].GetValue("Enabled", null) == null || _key[6].GetValue("Enabled").ToString() != "0" || _key[7] == null || _key[7].GetValue("Enabled", null) == null || _key[7].GetValue("Enabled").ToString() != "0")
             {
                 _confidentiality.TButton2.State = true;
                 _confidentiality.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -292,6 +292,64 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
         }
+
+        internal void ChangeSettingConfidentiality(in bool _choose, in byte _select)
+        {
+            switch (_select)
+            {
+                case 0:
+                    {
+                        if (_choose)
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth").SetValue("AllowAdvertising", 0, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo").DeleteValue("Enabled");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth").DeleteValue("AllowAdvertising");
+                        }
+                        break;
+                    }
+                case 1:
+                    {
+                        if (_choose)
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings").DeleteValue("Enabled");
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials").DeleteValue("Enabled");
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language").DeleteValue("Enabled");
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization").DeleteValue("Enabled");
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows").DeleteValue("Enabled");
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility").DeleteValue("Enabled");
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        if (_choose)
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth").SetValue("AllowAdvertising", 0, RegistryValueKind.DWord);
+                        }
+                        else
+                        {
+                            _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo").DeleteValue("Enabled");
+                            _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth").DeleteValue("AllowAdvertising");
+                        }
+                        break;
+                    }
+            }
+        }
+
 
         internal void GetSettingInterface(in Interface _interface)
         {
