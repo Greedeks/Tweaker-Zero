@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Tweaker.Сlasses;
@@ -8,6 +9,7 @@ namespace Tweaker.Pages
     public partial class Confidentiality : Page
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+
         public Confidentiality()
         {
             InitializeComponent();
@@ -110,9 +112,24 @@ namespace Tweaker.Pages
         }
         #endregion
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _settingsWindows.GetSettingConfidentiality(this);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Button btn = (Button)sender;
+                if (btn.Name == "TweaksON")
+                {
+                    for (byte _tweak = 1; _tweak <= 16; _tweak++)
+                        _settingsWindows.ChangeSettingConfidentiality(false, _tweak);
+                }
+                else
+                    for (byte _tweak = 1; _tweak <= 16; _tweak++)
+                        _settingsWindows.ChangeSettingConfidentiality(true, _tweak);
+
+                Parallel.Invoke(() => { _settingsWindows.GetSettingConfidentiality(this); });
+            }
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e) => _settingsWindows.GetSettingConfidentiality(this);
     }
 }

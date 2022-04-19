@@ -138,9 +138,11 @@ namespace Tweaker.Pages
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                notificationWindow = new NotificationWindow();
-                notificationWindow.AddTitle = _Tittle;
-                notificationWindow.AddText = _Text;
+                notificationWindow = new NotificationWindow
+                {
+                    AddTitle = _Tittle,
+                    AddText = _Text
+                };
                 notificationWindow.Show();
             });
         }

@@ -14,6 +14,7 @@ namespace ToggleSwitch
         private readonly Thickness _LeftSide = new Thickness(-40, 0, 0, 0), _RightSide = new Thickness(0, 0, -40, 0);
         private readonly LinearGradientBrush _OffColor = new LinearGradientBrush(), _OnColor = new LinearGradientBrush();
         private bool _Toggle = false;
+        private TimeSpan _timeline = TimeSpan.FromSeconds(0);
 
         public ToggleButton()
         {
@@ -24,9 +25,13 @@ namespace ToggleSwitch
 
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 80, 80, 80), 1.0));
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 105, 105, 105), 1.0));
+
+            Back.Fill = _OffColor;
+            _Toggle = false;
+            Dot.Margin = _LeftSide;
         }
 
-        internal bool State { get => _Toggle; set => _Toggle = value; }
+        internal bool State { get => _Toggle; set { _Toggle = value; AnimToggleB(_Toggle,true); } }
 
         private void Toggle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -34,24 +39,24 @@ namespace ToggleSwitch
             {
                 Back.Fill = _OnColor;
                 _Toggle = true;
-                AnimToggleB(true);
+                AnimToggleB(true, false);
             }
             else
             {
                 Back.Fill = _OffColor;
                 _Toggle = false;
-                AnimToggleB(false);
+                AnimToggleB(false, false);
             }
         }
 
-        private void AnimToggleB(bool cheack)
+        private void AnimToggleB(bool cheack, bool _firstStart)
         {
             ThicknessAnimation _animation = new ThicknessAnimation
             {
                 From = !cheack ? _RightSide : _LeftSide,
                 To = !cheack ? _LeftSide : _RightSide,
                 SpeedRatio = 1,
-                Duration = TimeSpan.FromSeconds(0.07)
+                Duration = !_firstStart ? TimeSpan.FromSeconds(0.07) : _timeline
             };
             Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
 
@@ -59,29 +64,12 @@ namespace ToggleSwitch
             {
                 From = !cheack ? _OnColor : _OffColor,
                 To = !cheack ? _OffColor : _OnColor,
-                Duration = TimeSpan.FromSeconds(0.07)
+                Duration = !_firstStart ? TimeSpan.FromSeconds(0.07) : _timeline
             };
             Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
         }
 
-        internal void CheckState()
-        {
-            if (!_Toggle)
-            {
-                Back.Fill = _OffColor;
-                _Toggle = false;
-                Dot.Margin = _LeftSide;
-
-            }
-            else
-            {
-                Back.Fill = _OnColor;
-                _Toggle = true;
-                Dot.Margin = _RightSide;
-            }
-        }
-
-        private void Dot_Loaded(object sender, RoutedEventArgs e) => CheckState();
+        private void Dot_Loaded(object sender, RoutedEventArgs e) =>  _timeline = TimeSpan.FromSeconds(0.07);
 
     }
 }

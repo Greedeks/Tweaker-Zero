@@ -46,7 +46,7 @@
                     <Label x:Name="Tweak11" Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,245"/>
                     <Label x:Name="Tweak12" Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,205"/>
                     <Label x:Name="Tweak13" Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,165"/>
-                    <Label x:Name="Tweak14" Content="Отключение и выпиливание шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,125" Cursor="Hand"/>
+                    <Label x:Name="Tweak14" Content="Отключение и выпиливание шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,125"/>
                     <Label x:Name="Tweak15" Content="Отключение «журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,85"/>
                     <Label x:Name="Tweak16" Content="Отключение телеметрии NVIDIA" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,45"/>
 
@@ -68,14 +68,14 @@
         <!--#region Buttons-->
         <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
-            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
+            <Button x:Name="TweaksON" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
                 <Label Content="Включить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
 
-            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12">
+            <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
