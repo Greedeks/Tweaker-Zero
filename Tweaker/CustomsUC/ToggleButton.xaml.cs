@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -49,24 +50,53 @@ namespace ToggleSwitch
             }
         }
 
-        private void AnimToggleB(bool cheack, bool _firstStart)
+        private void AnimToggleB(bool _cheack, bool _firstStart)
         {
-            ThicknessAnimation _animation = new ThicknessAnimation
+            Parallel.Invoke(() =>
             {
-                From = !cheack ? _RightSide : _LeftSide,
-                To = !cheack ? _LeftSide : _RightSide,
-                SpeedRatio = 1,
-                Duration = !_firstStart ? TimeSpan.FromSeconds(0.07) : _timeline
-            };
-            Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+                if (_cheack && Dot.Margin != _RightSide)
+                {
+                    ThicknessAnimation _animation = new ThicknessAnimation
+                    {
+                        From = _LeftSide,
+                        To = _RightSide,
+                        SpeedRatio = 1,
+                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
+                    };
+                    Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
 
-            BrushAnimation _brushanimation = new BrushAnimation
-            {
-                From = !cheack ? _OnColor : _OffColor,
-                To = !cheack ? _OffColor : _OnColor,
-                Duration = !_firstStart ? TimeSpan.FromSeconds(0.07) : _timeline
-            };
-            Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
+                    BrushAnimation _brushanimation = new BrushAnimation
+                    {
+                        From = _OffColor,
+                        To = _OnColor,
+                        SpeedRatio = 1,
+                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
+                    };
+                    Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
+                }
+
+                else if (!_cheack && Dot.Margin != _LeftSide)
+                {
+                    ThicknessAnimation _animation = new ThicknessAnimation
+                    {
+                        From = _RightSide,
+                        To = _LeftSide,
+                        SpeedRatio = 1,
+                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
+                    };
+                    Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+
+                    BrushAnimation _brushanimation = new BrushAnimation
+                    {
+                        From = _OnColor,
+                        To = _OffColor,
+                        SpeedRatio = 1,
+                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
+                    };
+                    Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
+                }
+            });
+
         }
 
         private void Dot_Loaded(object sender, RoutedEventArgs e) =>  _timeline = TimeSpan.FromSeconds(0.07);
