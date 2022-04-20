@@ -13,9 +13,9 @@ namespace Tweaker.Сlasses
     {
         private readonly RegistryKey _classesRootKey = Registry.ClassesRoot, _currentUserKey = Registry.CurrentUser,
             _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users,
-            _currentConfigKey = Registry.CurrentConfig;  
+            _currentConfigKey = Registry.CurrentConfig;
         private readonly RegistryKey[] _key = new RegistryKey[500];
-        private static byte _counTasksConfidentiality = 0;
+        private static byte _counTasksConfidentiality = default;
         private Process _process;
         private BackgroundWorker _worker;
         private string _state = default;
@@ -65,13 +65,13 @@ namespace Tweaker.Сlasses
 
             if (_key[8] == null || _key[8].GetValue("Start", null) == null || _key[8].GetValue("Start").ToString() != "0" || _key[9] == null || _key[9].GetValue("SaveZoneInformation", null) == null || _key[9].GetValue("SaveZoneInformation").ToString() != "1")
             {
-               _confidentiality.TButton3.State = true;
+                _confidentiality.TButton3.State = true;
                 _confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-               _confidentiality.TButton3.State = false;
-               _confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentiality.TButton3.State = false;
+                _confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#4
@@ -89,7 +89,7 @@ namespace Tweaker.Сlasses
             //#5
             _key[12] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat");
 
-            if(_key[12] == null || _key[12].GetValue("DisableInventory", null) == null || _key[12].GetValue("DisableInventory").ToString() != "1")
+            if (_key[12] == null || _key[12].GetValue("DisableInventory", null) == null || _key[12].GetValue("DisableInventory").ToString() != "1")
             {
                 _confidentiality.TButton5.State = true;
                 _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -97,7 +97,7 @@ namespace Tweaker.Сlasses
             else
             {
                 _confidentiality.TButton5.State = false;
-                _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];;
+                _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"]; ;
             }
 
             //#6
@@ -106,7 +106,7 @@ namespace Tweaker.Сlasses
             _key[15] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection");
             _key[16] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
 
-            if(_key[13] == null || _key[13].GetValue("AllowTelemetry", null) == null || _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14] == null || _key[14].GetValue("AITEnable", null) == null || _key[14].GetValue("AITEnable").ToString() != "0" ||
+            if (_key[13] == null || _key[13].GetValue("AllowTelemetry", null) == null || _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14] == null || _key[14].GetValue("AITEnable", null) == null || _key[14].GetValue("AITEnable").ToString() != "0" ||
             _key[15] == null || _key[15].GetValue("AllowDeviceNameInTelemetry", null) == null || _key[15].GetValue("AllowDeviceNameInTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) == null || _key[16].GetValue("Start_TrackProgs").ToString() != "0")
             {
                 _confidentiality.TButton6.State = true;
@@ -227,7 +227,7 @@ namespace Tweaker.Сlasses
             _key[28] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
             _key[29] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
 
-            if (_key[28] != null || _key[29] != null )
+            if (_key[28] != null || _key[29] != null)
             {
                 _confidentiality.TButton14.State = true;
                 _confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -284,17 +284,13 @@ namespace Tweaker.Сlasses
             _counTasksConfidentiality = 0;
             foreach (var _task in TaskName)
             {
-                Parallel.Invoke(() => { 
                 _process.StartInfo.Arguments = string.Format("/c chcp 65001 & schtasks /tn {0}", _task);
                 _process.Start();
                 _process.StandardOutput.ReadLine();
                 string _tbl = _process.StandardOutput.ReadToEnd();
                 if (_tbl.Split('A').Last().Trim() == "Ready")
                     _counTasksConfidentiality++;
-                });
-
             }
-            _process.WaitForExit();
             _process.Dispose();
         }
 
@@ -368,7 +364,8 @@ namespace Tweaker.Сlasses
                             _process.StartInfo.FileName = "cmd.exe";
                             foreach (string _taskName in TaskName)
                             {
-                                Parallel.Invoke(() => {
+                                Parallel.Invoke(() =>
+                                {
                                     _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
                                     _process.Start();
                                 });
@@ -382,8 +379,8 @@ namespace Tweaker.Сlasses
                             _worker = new BackgroundWorker();
                             _worker.DoWork += Worker_DoWorkTaskConfidentiality; ;
                             _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-
-                            if (_choose) {
+                            if (_choose)
+                            {
                                 _state = "/disable";
                                 _worker.RunWorkerAsync();
                             }
@@ -392,7 +389,7 @@ namespace Tweaker.Сlasses
                                 _state = "/enable";
                                 _worker.RunWorkerAsync();
                             }
-                    
+
                             break;
                         }
                     case 5:
@@ -557,11 +554,8 @@ namespace Tweaker.Сlasses
             _process.StartInfo.FileName = "cmd.exe";
             foreach (string _taskName in TaskName)
             {
-                Parallel.Invoke(() => { 
                 _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
                 _process.Start();
-                });
-
             }
             _process.Dispose();
         }
@@ -612,7 +606,7 @@ namespace Tweaker.Сlasses
             //#5
             _key[36] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
-            if (_key[36] == null || _key[36].GetValue("CaptionHeight", null) == null || _key[36].GetValue("CaptionHeight").ToString() != "-270" || 
+            if (_key[36] == null || _key[36].GetValue("CaptionHeight", null) == null || _key[36].GetValue("CaptionHeight").ToString() != "-270" ||
                 _key[36] == null || _key[36].GetValue("CaptionWidth", null) == null || _key[36].GetValue("CaptionWidth").ToString() != "-270")
             {
                 _interface.TButton5.State = true;
@@ -735,7 +729,7 @@ namespace Tweaker.Сlasses
             _key[44] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
             _key[45] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search");
 
-            if (_key[44] == null || _key[44].GetValue("ShowTaskViewButton", null) == null || _key[44].GetValue("ShowTaskViewButton").ToString() != "0" || _key[44] == null || _key[44].GetValue("TaskbarMn", null) == null || _key[44].GetValue("TaskbarMn").ToString() != "0" 
+            if (_key[44] == null || _key[44].GetValue("ShowTaskViewButton", null) == null || _key[44].GetValue("ShowTaskViewButton").ToString() != "0" || _key[44] == null || _key[44].GetValue("TaskbarMn", null) == null || _key[44].GetValue("TaskbarMn").ToString() != "0"
                 || _key[44] == null || _key[44].GetValue("TaskbarDa", null) == null || _key[44].GetValue("TaskbarDa").ToString() != "0" || _key[45] == null || _key[45].GetValue("SearchboxTaskbarMode", null) == null || _key[45].GetValue("SearchboxTaskbarMode").ToString() != "0")
             {
                 _interface.TButton17.State = true;
@@ -754,7 +748,7 @@ namespace Tweaker.Сlasses
             //#20
 
         }
-        
+
         internal void AppWidgetsState(in bool _choose)
         {
             if (GetSystemInformation._windowsV.Remove(GetSystemInformation._windowsV.Length - 4) == "11")

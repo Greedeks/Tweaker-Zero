@@ -23,7 +23,7 @@ namespace Tweaker.Pages
             #region Update
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds % 2 == 0)
+                if (_time.TotalSeconds % 2 != 0)
                 {
                     _worker = new BackgroundWorker();
                     _worker.DoWork += Worker_DoWorkUpdate;
@@ -32,6 +32,7 @@ namespace Tweaker.Pages
                 }
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
+            _timer.Start();
             #endregion
         }
 
@@ -149,18 +150,21 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Button btn = (Button)sender;
-                if (btn.Name == "TweaksON")
+                Dispatcher.Invoke(() =>
                 {
-                    for (byte _tweak = 1; _tweak <= 16; _tweak++)
-                        _settingsWindows.ChangeSettingConfidentiality(false, _tweak);
-                }
-                else
-                    for (byte _tweak = 1; _tweak <= 16; _tweak++)
-                        _settingsWindows.ChangeSettingConfidentiality(true, _tweak);
+                    Button btn = (Button)sender;
+                    if (btn.Name == "TweaksON")
+                    {
+                        for (byte _tweak = 1; _tweak <= 16; _tweak++)
+                            _settingsWindows.ChangeSettingConfidentiality(false, _tweak);
+                    }
+                    else
+                        for (byte _tweak = 1; _tweak <= 16; _tweak++)
+                            _settingsWindows.ChangeSettingConfidentiality(true, _tweak);
 
-                Parallel.Invoke(() => { _settingsWindows.GetSettingConfidentiality(this); });
-                _timer.Start();
+                    _settingsWindows.GetSettingConfidentiality(this);
+                    _timer.Start();
+                });
             }
         }
 
