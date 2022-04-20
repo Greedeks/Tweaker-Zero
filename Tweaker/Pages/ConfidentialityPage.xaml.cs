@@ -23,13 +23,12 @@ namespace Tweaker.Pages
             #region Update
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds % 2 != 0)
-                {
-                    _worker = new BackgroundWorker();
-                    _worker.DoWork += Worker_DoWorkUpdate;
-                    _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-                    _worker.RunWorkerAsync();
-                }
+
+                _worker = new BackgroundWorker();
+                _worker.DoWork += Worker_DoWorkUpdate;
+                _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+                _worker.RunWorkerAsync();
+
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
             _timer.Start();
@@ -137,13 +136,12 @@ namespace Tweaker.Pages
         private void Worker_DoWorkUpdate(object sender, DoWorkEventArgs e)
         {
             _settingsWindows.TaskCheckStateConfidentiality();
-            _settingsWindows.GetSettingConfidentiality(this);
         }
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             _settingsWindows.GetSettingConfidentiality(this);
-            _worker.Dispose();
             _timer.Stop();
+            _worker.Dispose();
         }
 
         private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
