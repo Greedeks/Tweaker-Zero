@@ -1,7 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -9,10 +12,27 @@ namespace Tweaker.Pages
     public partial class Confidentiality : Page
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+        private DispatcherTimer _timer = default;
+        private TimeSpan _time = TimeSpan.FromSeconds(0);
+        private BackgroundWorker _worker;
 
         public Confidentiality()
         {
             InitializeComponent();
+
+            #region Update
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                if (_time.TotalSeconds % 2 == 0)
+                {
+                    _worker = new BackgroundWorker();
+                    _worker.DoWork += Worker_DoWorkUpdate;
+                    _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+                    _worker.RunWorkerAsync();
+                }
+                _time = _time.Add(TimeSpan.FromSeconds(+1));
+            }, Application.Current.Dispatcher);
+            #endregion
         }
 
         #region Tweaks
@@ -38,6 +58,7 @@ namespace Tweaker.Pages
         {
             Tweak4.Style = !TButton4.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
             _settingsWindows.ChangeSettingConfidentiality(TButton4.State, 4);
+            _timer.Start();
         }
 
         private void TButton5_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -112,6 +133,18 @@ namespace Tweaker.Pages
         }
         #endregion
 
+        private void Worker_DoWorkUpdate(object sender, DoWorkEventArgs e)
+        {
+            _settingsWindows.TaskCheckStateConfidentiality();
+            _settingsWindows.GetSettingConfidentiality(this);
+        }
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            _settingsWindows.GetSettingConfidentiality(this);
+            _worker.Dispose();
+            _timer.Stop();
+        }
+
         private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -127,6 +160,7 @@ namespace Tweaker.Pages
                         _settingsWindows.ChangeSettingConfidentiality(true, _tweak);
 
                 Parallel.Invoke(() => { _settingsWindows.GetSettingConfidentiality(this); });
+                _timer.Start();
             }
         }
 

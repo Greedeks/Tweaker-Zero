@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using Tweaker.Pages;
 
@@ -15,7 +17,10 @@ namespace Tweaker.Сlasses
         private readonly RegistryKey[] _key = new RegistryKey[500];
         private static byte _counTasksConfidentiality = 0;
         private Process _process;
+        private BackgroundWorker _worker;
+        private string _state = default;
 
+        #region Confidentiality
         internal void GetSettingConfidentiality(in Confidentiality _confidentiality)
         {
             //#1
@@ -276,14 +281,18 @@ namespace Tweaker.Сlasses
             _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             _process.StartInfo.FileName = "cmd.exe";
+            _counTasksConfidentiality = 0;
             foreach (var _task in TaskName)
             {
+                Parallel.Invoke(() => { 
                 _process.StartInfo.Arguments = string.Format("/c chcp 65001 & schtasks /tn {0}", _task);
                 _process.Start();
                 _process.StandardOutput.ReadLine();
                 string _tbl = _process.StandardOutput.ReadToEnd();
                 if (_tbl.Split('A').Last().Trim() == "Ready")
                     _counTasksConfidentiality++;
+                });
+
             }
             _process.WaitForExit();
             _process.Dispose();
@@ -333,29 +342,57 @@ namespace Tweaker.Сlasses
                         }
                     case 3:
                         {
+                            string _state = default;
                             if (_choose)
                             {
                                 _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener").SetValue("Start", 0, RegistryValueKind.DWord);
                                 _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments").SetValue("SaveZoneInformation", 1, RegistryValueKind.DWord);
+                                _state = "/disable";
                             }
                             else
                             {
                                 _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener").SetValue("Start", 1, RegistryValueKind.DWord);
                                 _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments").DeleteValue("SaveZoneInformation");
+                                _state = "/enable";
                             }
+
+                            string[] TaskName = new string[8] { @"""Microsoft\Office\Office ClickToRun Service Monitor""", @"""Microsoft\Office\OfficeTelemetry\AgentFallBack2016""", @"""Microsoft\Office\OfficeTelemetry\OfficeTelemetryAgentLogOn2016""",
+                         @"""Microsoft\Office\OfficeTelemetryAgentFallBack2016""", @"""Microsoft\Office\OfficeTelemetryAgentLogOn2016""", @"""Microsoft\Office\OfficeTelemetryAgentFallBack""",
+                         @"""Microsoft\Office\OfficeTelemetryAgentLogOn""", @"""Microsoft\Office\Office 15 Subscription Heartbeat""",};
+
+                            _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                            _process.StartInfo.FileName = "cmd.exe";
+                            foreach (string _taskName in TaskName)
+                            {
+                                Parallel.Invoke(() => {
+                                    _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
+                                    _process.Start();
+                                });
+                            }
+                            _process.Dispose();
+
                             break;
-                            //тут еще
                         }
                     case 4:
                         {
-                            if (_choose)
-                            {
+                            _worker = new BackgroundWorker();
+                            _worker.DoWork += Worker_DoWorkTaskConfidentiality; ;
+                            _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
 
+                            if (_choose) {
+                                _state = "/disable";
+                                _worker.RunWorkerAsync();
                             }
                             else
                             {
-
+                                _state = "/enable";
+                                _worker.RunWorkerAsync();
                             }
+                    
                             break;
                         }
                     case 5:
@@ -505,6 +542,35 @@ namespace Tweaker.Сlasses
             catch { };
         }
 
+        private void Worker_DoWorkTaskConfidentiality(object sender, DoWorkEventArgs e)
+        {
+            string[] TaskName = new string[12] {@"""Microsoft\Windows\Maintenance\WinSAT""", @"""Microsoft\Windows\Autochk\Proxy""", @"""Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser""",
+                @"""Microsoft\Windows\Application Experience\ProgramDataUpdater""", @"""Microsoft\Windows\Application Experience\StartupAppTask""", @"""Microsoft\Windows\PI\Sqm-Tasks""",
+                @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
+                @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
+
+            _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            _process.StartInfo.FileName = "cmd.exe";
+            foreach (string _taskName in TaskName)
+            {
+                Parallel.Invoke(() => { 
+                _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
+                _process.Start();
+                });
+
+            }
+            _process.Dispose();
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            _worker.Dispose();
+        }
+        #endregion
 
         internal void GetSettingInterface(in Interface _interface)
         {
