@@ -755,7 +755,7 @@ namespace Tweaker.Сlasses
 
         internal void AppWidgetsState(in bool _choose)
         {
-            if (GetSystemInformation._windowsV.Remove(GetSystemInformation._windowsV.Length - 4) == "11")
+            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
             {
                 if (_choose)
                     _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 1, RegistryValueKind.DWord);
