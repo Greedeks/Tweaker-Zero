@@ -15,7 +15,7 @@ namespace Tweaker.Сlasses
             _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users,
             _currentConfigKey = Registry.CurrentConfig;
         private readonly RegistryKey[] _key = new RegistryKey[500];
-        private static byte _counTasksConfidentiality = default;
+        private static byte _countTasksConfidentiality = default;
         private Process _process;
         private BackgroundWorker _worker;
         private string _state = default;
@@ -75,7 +75,7 @@ namespace Tweaker.Сlasses
             }
 
             //#4
-            if (_counTasksConfidentiality > 0)
+            if (_countTasksConfidentiality > 0)
             {
                 _confidentiality.TButton4.State = true;
                 _confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -97,7 +97,7 @@ namespace Tweaker.Сlasses
             else
             {
                 _confidentiality.TButton5.State = false;
-                _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"]; ;
+                _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#6
@@ -281,7 +281,7 @@ namespace Tweaker.Сlasses
             _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             _process.StartInfo.FileName = "cmd.exe";
-            _counTasksConfidentiality = 0;
+            _countTasksConfidentiality = 0;
             foreach (var _task in TaskName)
             {
                 _process.StartInfo.Arguments = string.Format("/c chcp 65001 & schtasks /tn {0}", _task);
@@ -289,7 +289,7 @@ namespace Tweaker.Сlasses
                 _process.StandardOutput.ReadLine();
                 string _tbl = _process.StandardOutput.ReadToEnd();
                 if (_tbl.Split('A').Last().Trim() == "Ready")
-                    _counTasksConfidentiality++;
+                    _countTasksConfidentiality++;
             }
             _process.Dispose();
         }
@@ -383,13 +383,13 @@ namespace Tweaker.Сlasses
                             {
                                 _state = "/disable";
                                 _worker.RunWorkerAsync();
-                                _counTasksConfidentiality = 0;
+                                _countTasksConfidentiality = 0;
                             }
                             else
                             {
                                 _state = "/enable";
                                 _worker.RunWorkerAsync();
-                                _counTasksConfidentiality = 2;
+                                _countTasksConfidentiality = 2;
                             }
 
                             break;
