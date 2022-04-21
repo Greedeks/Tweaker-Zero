@@ -146,9 +146,9 @@ namespace Tweaker.Pages
 
         private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Parallel.Invoke(() =>
             {
-                Dispatcher.Invoke(() =>
+                if (e.LeftButton == MouseButtonState.Pressed)
                 {
                     Button btn = (Button)sender;
                     if (btn.Name == "TweaksON")
@@ -162,8 +162,8 @@ namespace Tweaker.Pages
 
                     _settingsWindows.GetSettingConfidentiality(this);
                     _timer.Start();
-                });
-            }
+                }
+            });
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingConfidentiality(this); });
