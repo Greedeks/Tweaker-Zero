@@ -135,6 +135,7 @@ namespace Tweaker.Pages
         private void Worker_DoWorkUpdate(object sender, DoWorkEventArgs e)
         {
             _settingsWindows.TaskCheckStateConfidentiality();
+            _settingsWindows.GetSettingConfidentiality(this);
         }
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {

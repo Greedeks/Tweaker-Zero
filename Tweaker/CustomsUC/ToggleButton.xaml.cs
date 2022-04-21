@@ -22,7 +22,9 @@ namespace ToggleSwitch
             InitializeComponent();
 
             _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 255, 36, 0), 0.2));
-            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 218, 21, 16), 0.5));
+            _OnColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 158, 22, 0), 0.9));
+            _OnColor.StartPoint = new Point(0, 0);
+            _OnColor.EndPoint = new Point(0, 1);
 
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 80, 80, 80), 1.0));
             _OffColor.GradientStops.Add(new GradientStop(Color.FromArgb(255, 105, 105, 105), 1.0));

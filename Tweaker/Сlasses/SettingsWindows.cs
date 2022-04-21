@@ -383,11 +383,13 @@ namespace Tweaker.Сlasses
                             {
                                 _state = "/disable";
                                 _worker.RunWorkerAsync();
+                                _counTasksConfidentiality = 0;
                             }
                             else
                             {
                                 _state = "/enable";
                                 _worker.RunWorkerAsync();
+                                _counTasksConfidentiality = 2;
                             }
 
                             break;
@@ -566,6 +568,7 @@ namespace Tweaker.Сlasses
         }
         #endregion
 
+        #region Interface
         internal void GetSettingInterface(in Interface _interface)
         {
             //#1
@@ -748,6 +751,7 @@ namespace Tweaker.Сlasses
             //#20
 
         }
+        #endregion
 
         internal void AppWidgetsState(in bool _choose)
         {
