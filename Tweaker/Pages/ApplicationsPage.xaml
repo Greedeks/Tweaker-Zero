@@ -43,8 +43,10 @@
             <Image x:Name="BingNews" Source="{DynamicResource BingNewsImage}" Style="{DynamicResource AppUnll}"  Margin="871,109,82,221" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="Mail" Source="{DynamicResource MailImage}" Style="{DynamicResource AppUnll}"  Margin="870,198,83,132" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="75,106,878,225" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
-            <Image x:Name="MicrosoftTeams" Source="{DynamicResource MicrosoftTeamsImage}" Style="{DynamicResource AppUnll}"  Margin="712,18,241,312" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
+            <Image x:Name="MicrosoftTeams" Source="{DynamicResource MicrosoftTeamsImage}" Style="{DynamicResource AppUnll}"  Margin="713,20,240,310" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="PoweraAtomateDesktop" Source="{DynamicResource PoweraAtomateDesktopImage}" Style="{DynamicResource AppUnll}"  Margin="234,18,719,313" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
+            <Image x:Name="OneDrive" Source="{DynamicResource OneDriveImage}" Style="{DynamicResource AppUnll}"  Margin="394,20,559,310" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
+            <Image x:Name="Cortana" Source="{DynamicResource CortanaImage}" Style="{DynamicResource AppUnll}"  Margin="553,18,400,312" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
 
             <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Text="Наведите курсор на любое изображение, чтобы получить название приложения" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt"/>
             <Rectangle Fill="#D90000" Width="804" Height="1" RadiusX="15" RadiusY="15" Margin="0,419,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>

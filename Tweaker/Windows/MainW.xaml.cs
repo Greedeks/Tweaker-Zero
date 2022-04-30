@@ -19,7 +19,7 @@ namespace Tweaker
 
         public MainWindow()
         {
-            Parallel.Invoke( () => { _checkApplicationCopy.CheckAC(); });
+            Parallel.Invoke(() => { _checkApplicationCopy.CheckAC(); });
 
             InitializeComponent();
         }
@@ -75,140 +75,143 @@ namespace Tweaker
         #region Кнопки
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            ActivePageAnim(false);
-            CleaningPages();
-
-            Button btn = (Button)sender;
-            switch (btn.Name)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                case "Button_Confidentiality":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_confidentialityB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 0);
+                ActivePageAnim(false);
+                CleaningPages();
 
-                        ActivePageAnim(true);
-                        MainContainer.Content = new Pages.Confidentiality();
-                        _confidentialityB = true;
-                    }
-                    else
-                    {
+                Button btn = (Button)sender;
+                switch (btn.Name)
+                {
+                    case "Button_Confidentiality":
+                        if (!_confidentialityB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 0);
+
+                            ActivePageAnim(true);
+                            MainContainer.Content = new Pages.Confidentiality();
+                            _confidentialityB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    case "Button_Interface":
+                        if (!_interfaceB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 1);
+
+                            ActivePageAnim(true);
+                            MainContainer.Content = new Pages.Interface();
+                            _interfaceB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    case "Button_Application":
+                        if (!_applicationB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 2);
+
+                            ActivePageAnim(true);
+                            MainContainer.Content = new Pages.ApplicationsUL();
+                            _applicationB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    case "Button_Services":
+                        if (!_servicesB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 3);
+
+                            ActivePageAnim(true);
+                            _servicesB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    case "Button_System":
+                        if (!_systemB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 4);
+
+                            ActivePageAnim(true);
+                            _systemB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    case "Button_SystemInfo":
+                        if (!_systeminfoB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 5);
+
+                            ActivePageAnim(true);
+                            MainContainer.Content = new Pages.SystemInfromation();
+                            _systeminfoB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    case "Button_More":
+                        if (!_moreB)
+                        {
+                            StandStateBtnN();
+                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                            Grid.SetColumn(ActivePage, 6);
+
+                            ActivePageAnim(true);
+                            _moreB = true;
+                        }
+                        else
+                        {
+                            StandStateBtnN();
+                            ActivePageAnim(false);
+                            CleaningPages();
+                        }
+                        break;
+                    default:
                         StandStateBtnN();
                         ActivePageAnim(false);
                         CleaningPages();
-                    }
-                    break;
-                case "Button_Interface":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_interfaceB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 1);
-
-                        ActivePageAnim(true);
-                        MainContainer.Content = new Pages.Interface();
-                        _interfaceB = true;
-                    }
-                    else
-                    {
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                    }
-                    break;
-                case "Button_Application":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_applicationB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 2);
-
-                        ActivePageAnim(true);
-                        MainContainer.Content = new Pages.ApplicationsUL();
-                        _applicationB = true;
-                    }
-                    else
-                    {
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                    }
-                    break;
-                case "Button_Services":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_servicesB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 3);
-
-                        ActivePageAnim(true);
-                        _servicesB = true;
-                    }
-                    else
-                    {
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                    }
-                    break;
-                case "Button_System":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_systemB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 4);
-
-                        ActivePageAnim(true);
-                        _systemB = true;
-                    }
-                    else
-                    {
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                    }
-                    break;
-                case "Button_SystemInfo":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_systeminfoB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 5);
-
-                        ActivePageAnim(true);
-                        MainContainer.Content = new Pages.SystemInfromation();
-                        _systeminfoB = true;
-                    }
-                    else
-                    {
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                    }
-                    break;
-                case "Button_More":
-                    if (e.LeftButton == MouseButtonState.Pressed && !_moreB)
-                    {
-                        StandStateBtnN();
-                        btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                        Grid.SetColumn(ActivePage, 6);
-
-                        ActivePageAnim(true);
-                        _moreB = true;
-                    }
-                    else
-                    {
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                    }
-                    break;
-                default:
-                    StandStateBtnN();
-                    ActivePageAnim(false);
-                    CleaningPages();
-                    break;
+                        break;
+                }
             }
         }
 
@@ -221,15 +224,10 @@ namespace Tweaker
                 CleaningPages();
 
             }
-            else
-            {
-                StandStateBtnN();
-                CleaningPages();
-            }
         }
         #endregion
 
-        private  async void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _startScanner.ScantheSystem();
 
@@ -258,7 +256,7 @@ namespace Tweaker
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, _animationLeft);
 
             TweakerWPF.Left = (_primaryMonitorArea.Bottom / 2) - (this.Width / 2);
-            TweakerWPF.Top = (_primaryMonitorArea.Right / 2) -(this.Height / 2);
+            TweakerWPF.Top = (_primaryMonitorArea.Right / 2) - (this.Height / 2);
             #endregion
         }
     }

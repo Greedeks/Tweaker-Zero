@@ -112,6 +112,8 @@ namespace Tweaker.Сlasses
                             where nic.OperationalStatus == OperationalStatus.Up
                             select nic.GetPhysicalAddress().ToString()
                         ).FirstOrDefault();
+                    if(_INFthisPC[9] == string.Empty)
+                        _INFthisPC[9] = "В системе нет сетевых адаптеров с MAC адресом";
                 }
                 catch { _INFthisPC[9] = "В системе нет сетевых адаптеров с MAC адресом"; }
             },

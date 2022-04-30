@@ -14,6 +14,7 @@ namespace Tweaker.Pages
     public partial class ApplicationsUL : Page
     {
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
+        private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private NotificationWindow notificationWindow = new NotificationWindow();
         private BackgroundWorker _worker;
         private string _nameApp = default;
@@ -71,11 +72,17 @@ namespace Tweaker.Pages
             if (e.LeftButton == MouseButtonState.Pressed && _image.Source == (DrawingImage)Application.Current.Resources[_image.Name + "Image"])
             {
                 _nameApp = _image.Name;
-                _worker = new BackgroundWorker();
-                _worker.DoWork += Worker_DoWorkDeleted;
-                _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-                _worker.RunWorkerAsync();
 
+                if (_nameApp == "OneDrive")
+                    _settingsWindows.AppOneDrive(true);
+
+                else
+                {
+                    _worker = new BackgroundWorker();
+                    _worker.DoWork += Worker_DoWorkDeleted;
+                    _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+                    _worker.RunWorkerAsync();
+                }
             }
 
         }
@@ -84,12 +91,15 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                _applicationsSystem.ApplicationRecovery();
+                try { _applicationsSystem.ApplicationRecovery(); } catch { };
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     notificationWindow = new NotificationWindow();
                     ShowNotification("Информация", "Процесс восстановления приложений начался, это займет некоторое время");
                 });
+
+                if (OneDrive.Source == (DrawingImage)Application.Current.Resources["OneDriveImageU"])
+                    _settingsWindows.AppOneDrive(false);
             }
 
         }
@@ -102,6 +112,7 @@ namespace Tweaker.Pages
                 _worker.DoWork += Worker_DoWorkDeletedAll;
                 _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                 _worker.RunWorkerAsync();
+                _settingsWindows.AppOneDrive(true);
                 ShowNotification("Информация", "Процесс удаления приложений начался, это займет некоторое время");
             }
         }
@@ -110,7 +121,7 @@ namespace Tweaker.Pages
         #region Worker
         private void Worker_DoWorkDeletedAll(object sender, DoWorkEventArgs e)
         {
-            _applicationsSystem.ApplicationRemovalAll();
+            try { _applicationsSystem.ApplicationRemovalAll(); } catch { }
         }
 
         private void Worker_DoWorkDeleted(object sender, DoWorkEventArgs e)

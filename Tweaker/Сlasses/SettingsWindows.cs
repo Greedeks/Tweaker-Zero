@@ -309,8 +309,8 @@ namespace Tweaker.Сlasses
                             }
                             else
                             {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo").DeleteValue("Enabled");
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth").DeleteValue("AllowAdvertising");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", true).DeleteValue("Enabled");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth", true).DeleteValue("AllowAdvertising");
                             }
                             break;
                         }
@@ -327,12 +327,12 @@ namespace Tweaker.Сlasses
                             }
                             else
                             {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings").DeleteValue("Enabled");
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials").DeleteValue("Enabled");
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language").DeleteValue("Enabled");
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization").DeleteValue("Enabled");
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows").DeleteValue("Enabled");
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility").DeleteValue("Enabled");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings", true).DeleteValue("Enabled");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials", true).DeleteValue("Enabled");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language", true).DeleteValue("Enabled");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization", true).DeleteValue("Enabled");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows", true).DeleteValue("Enabled");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility", true).DeleteValue("Enabled");
                             }
                             break;
                         }
@@ -399,7 +399,7 @@ namespace Tweaker.Сlasses
                             if (_choose)
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").SetValue("DisableInventory", 1, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").DeleteValue("DisableInventory");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat", true).DeleteValue("DisableInventory");
                             break;
                         }
                     case 6:
@@ -445,8 +445,8 @@ namespace Tweaker.Сlasses
                             }
                             else
                             {
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").DeleteValue("DisableUAR");
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization").DeleteValue("NoLockScreenCamera");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat", true).DeleteValue("DisableUAR");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization", true).DeleteValue("NoLockScreenCamera");
                             }
                             break;
                         }
@@ -460,9 +460,9 @@ namespace Tweaker.Сlasses
                             }
                             else
                             {
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").DeleteValue("DisableLocation");
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").DeleteValue("DisableLocationScripting");
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").DeleteValue("DisableWindowsLocationProvider");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocation");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocationScripting");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableWindowsLocationProvider");
                             }
                             break;
                         }
@@ -476,9 +476,9 @@ namespace Tweaker.Сlasses
                             }
                             else
                             {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").DeleteValue("NumberOfSIUFInPeriod");
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").DeleteValue("PeriodInNanoSeconds");
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").DeleteValue("DoNotShowFeedbackNotifications");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("NumberOfSIUFInPeriod");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("PeriodInNanoSeconds");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true).DeleteValue("DoNotShowFeedbackNotifications");
                             }
                             break;
                         }
@@ -487,7 +487,7 @@ namespace Tweaker.Сlasses
                             if (_choose)
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").SetValue("AllowSpeechModelUpdate", 0, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").DeleteValue("AllowSpeechModelUpdate");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech", true).DeleteValue("AllowSpeechModelUpdate");
                             break;
                         }
                     case 12:
@@ -503,7 +503,7 @@ namespace Tweaker.Сlasses
                             if (_choose)
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").SetValue("AllowExperimentation", 0, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").DeleteValue("AllowExperimentation");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System", true).DeleteValue("AllowExperimentation");
                             break;
                         }
                     case 14:
@@ -753,15 +753,113 @@ namespace Tweaker.Сlasses
         }
         #endregion
 
+        #region Applications
         internal void AppWidgetsState(in bool _choose)
         {
-            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+            try
+            {
+                if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+                {
+                    if (_choose)
+                        _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 0, RegistryValueKind.DWord);
+                    else
+                        _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Dsh", true).DeleteValue("AllowNewsAndInterests");
+                }
+            }
+            catch { }
+        }
+
+        internal void AppOneDrive(bool _choose)
+        {
+            Parallel.Invoke(() =>
             {
                 if (_choose)
-                    _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").SetValue("AllowNewsAndInterests", 1, RegistryValueKind.DWord);
+                {
+                    RegistryKey _keyOneDrive = _classesRootKey.OpenSubKey(@"CLSID",true);
+                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _keyOneDrive = _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID", true);
+                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+
+                    string[] _onedrive = new string[6] { @"taskkill /f /im OneDrive.exe", @"%systemroot%\System32\OneDriveSetup.exe /uninstall", @"%systemroot%\SysWOW64\OneDriveSetup.exe /uninstall", @"rd /s /q %userprofile%\OneDrive", @"rd /s /q %userprofile%\AppData\Local\Microsoft\OneDrive", @"rd /s /q "" % allusersprofile %\Microsoft OneDrive""" };
+                    _process = new Process();
+                    _process.StartInfo.UseShellExecute = false;
+                    _process.StartInfo.RedirectStandardOutput = true;
+                    _process.StartInfo.CreateNoWindow = true;
+                    _process.StartInfo.FileName = "powershell.exe";
+                    foreach (var _setcommand in _onedrive)
+                    {
+                        _process.StartInfo.Arguments = string.Format("cmd /c {0}", _setcommand);
+                        _process.Start();
+                    }
+                    _process.Dispose();
+                }
                 else
-                    _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Dsh").DeleteValue("AllowNewsAndInterests");
-            }
+                {
+                    _classesRootKey.CreateSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _classesRootKey.CreateSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+
+
+                    string[] _onedrive = new string[2] { @"%systemroot%\System32\OneDriveSetup.exe", @"%systemroot%\SysWOW64\OneDriveSetup.exe" };
+                    _process = new Process();
+                    _process.StartInfo.UseShellExecute = false;
+                    _process.StartInfo.RedirectStandardOutput = true;
+                    _process.StartInfo.CreateNoWindow = true;
+                    _process.StartInfo.FileName = "powershell.exe";
+                    foreach (var _setcommand in _onedrive)
+                    {
+                        _process.StartInfo.Arguments = string.Format("cmd /c {0}", _setcommand);
+                        _process.Start();
+                    }
+                    _process.Dispose();
+                }
+            });
         }
+
+        internal byte AppOneDriveCheck()
+        {
+            if (_classesRootKey.OpenSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}") == null && _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}") == null)
+                return 0;
+            else
+
+                return 1;
+        }
+
+        internal void AppCortana(in bool _choose)
+        {
+
+            if (_choose)
+            {
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Speech_OneCore\Preferences").SetValue("ModelDownloadAllowed", 0, RegistryValueKind.DWord);
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search").SetValue("AllowCloudSearch", 0, RegistryValueKind.DWord);
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search").SetValue("AllowCortana", 0, RegistryValueKind.DWord);
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search").SetValue("AllowSearchToUseLocation", 0, RegistryValueKind.DWord);
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search").SetValue("ConnectedSearchUseWeb", 0, RegistryValueKind.DWord);
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search").SetValue("DisableWebSearch", 1, RegistryValueKind.DWord);
+                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search").SetValue("AllowNewsAndInterests", 0, RegistryValueKind.DWord);
+                _currentUserKey.CreateSubKey(@"Software\Microsoft\InputPersonalization").SetValue("RestrictImplicitInkCollection", 1, RegistryValueKind.DWord);
+                _currentUserKey.CreateSubKey(@"Software\Microsoft\InputPersonalization").SetValue("RestrictImplicitTextCollection", 1, RegistryValueKind.DWord);
+                _currentUserKey.CreateSubKey(@"Software\Microsoft\InputPersonalization\TrainedDataStore").SetValue("HarvestContacts", 0, RegistryValueKind.DWord);
+                _currentUserKey.CreateSubKey(@"Software\Microsoft\Personalization\Settings").SetValue("AcceptedPrivacyPolicy", 0, RegistryValueKind.DWord);
+                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Windows Search]").SetValue("CortanaConsent", 0, RegistryValueKind.DWord);
+            }
+            else
+            {
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Speech_OneCore\Preferences", true).DeleteValue("ModelDownloadAllowed");
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true).DeleteValue("AllowCloudSearch");
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true).DeleteValue("AllowCortana");
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true).DeleteValue("AllowSearchToUseLocation");
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true).DeleteValue("ConnectedSearchUseWeb");
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true).DeleteValue("DisableWebSearch");
+                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true).DeleteValue("AllowNewsAndInterests");
+                _currentUserKey.OpenSubKey(@"Software\Microsoft\InputPersonalization", true).DeleteValue("RestrictImplicitInkCollection");
+                _currentUserKey.OpenSubKey(@"Software\Microsoft\InputPersonalization", true).DeleteValue("RestrictImplicitTextCollection");
+                _currentUserKey.OpenSubKey(@"Software\Microsoft\InputPersonalization\TrainedDataStore").DeleteValue("HarvestContacts");
+                _currentUserKey.OpenSubKey(@"Software\Microsoft\Personalization\Settings", true).DeleteValue("AcceptedPrivacyPolicy");
+                _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Windows Search]", true).DeleteValue("CortanaConsent");
+            }
+
+
+        }
+        #endregion
     }
 }

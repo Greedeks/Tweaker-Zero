@@ -12,11 +12,11 @@ namespace Tweaker.Сlasses
     internal sealed class ApplicationsSystem
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(29);
+        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(30);
 
         private static string _result = default;
         private Process _process;
-        private readonly Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(29)
+        private readonly Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(30)
         {
             ["MicrosoftStore"] = new List<string>(1) { "Microsoft.WindowsStore" },
             ["Todos"] = new List<string>(1) { "Microsoft.Todos" },
@@ -46,7 +46,8 @@ namespace Tweaker.Сlasses
             ["BingNews"] = new List<string>(1) { "Microsoft.BingNews" },
             ["Mail"] = new List<string>(1) { "Microsoft.windowscommunicationsapps" },
             ["MicrosoftTeams"] = new List<string>(1) { "MicrosoftTeams" },
-            ["PoweraAtomateDesktop"] = new List<string>(1) { "Microsoft.PowerAutomateDesktop" }
+            ["PoweraAtomateDesktop"] = new List<string>(1) { "Microsoft.PowerAutomateDesktop" },
+            ["Cortana"] = new List<string>(1) { "Microsoft.549981C3F5F10" }
         };
 
         internal void CheckInstalledApps()
@@ -110,6 +111,8 @@ namespace Tweaker.Сlasses
             _applicationsPages.Mail.Source = _CountCheck[26] == 1 ? (DrawingImage)Application.Current.Resources["MailImage"] : (DrawingImage)Application.Current.Resources["MailImageU"];
             _applicationsPages.MicrosoftTeams.Source = _CountCheck[27] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftTeamsImage"] : (DrawingImage)Application.Current.Resources["MicrosoftTeamsImageU"];
             _applicationsPages.PoweraAtomateDesktop.Source = _CountCheck[28] == 1 ? (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImage"] : (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImageU"];
+            _applicationsPages.Cortana.Source = _CountCheck[29] == 1 ? (DrawingImage)Application.Current.Resources["CortanaImage"] : (DrawingImage)Application.Current.Resources["CortanaImageU"];
+            _applicationsPages.OneDrive.Source = _settingsWindows.AppOneDriveCheck() == 1 ? (DrawingImage)Application.Current.Resources["OneDriveImage"] : (DrawingImage)Application.Current.Resources["OneDriveImageU"];
         }
 
         internal void ApplicationRemoval(in string _nameApp)
@@ -128,14 +131,15 @@ namespace Tweaker.Сlasses
             _process.WaitForExit();
             _process.Dispose();
 
-            if(_nameApp== "Widgets")
-                _settingsWindows.AppWidgetsState(false);
-
+            if (_nameApp == "Widgets")
+                _settingsWindows.AppWidgetsState(true);
+            else if (_nameApp == "Cortana")
+                _settingsWindows.AppCortana(true);
         }
 
         internal void ApplicationRecovery()
         {
-            if (AppCheckCountRemoval() < 29)
+            if (AppCheckCountRemoval() < 30)
             {
                 _process = Process.Start(new ProcessStartInfo
                 {
@@ -149,8 +153,8 @@ namespace Tweaker.Сlasses
                 });
                 _process.Dispose();
 
-
-                _settingsWindows.AppWidgetsState(true);
+                _settingsWindows.AppWidgetsState(false);
+                _settingsWindows.AppCortana(false);
             }
         }
 
@@ -174,7 +178,8 @@ namespace Tweaker.Сlasses
                 }
                 _process.Dispose();
 
-                _settingsWindows.AppWidgetsState(false);
+                _settingsWindows.AppWidgetsState(true);
+                _settingsWindows.AppCortana(true);
             }
 
         }
