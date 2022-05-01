@@ -62,7 +62,7 @@ namespace ToggleSwitch
                     {
                         From = _LeftSide,
                         To = _RightSide,
-                        SpeedRatio = 1,
+                        SpeedRatio = 1.5,
                         Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
                     };
                     Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
@@ -72,7 +72,7 @@ namespace ToggleSwitch
                         From = _OffColor,
                         To = _OnColor,
                         SpeedRatio = 1,
-                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
+                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.1) : _timeline
                     };
                     Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
                 }
@@ -83,7 +83,7 @@ namespace ToggleSwitch
                     {
                         From = _RightSide,
                         To = _LeftSide,
-                        SpeedRatio = 1,
+                        SpeedRatio = 1.5,
                         Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
                     };
                     Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
@@ -93,7 +93,7 @@ namespace ToggleSwitch
                         From = _OnColor,
                         To = _OffColor,
                         SpeedRatio = 1,
-                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.08) : _timeline
+                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.1) : _timeline
                     };
                     Back.BeginAnimation(Rectangle.FillProperty, _brushanimation);
                 }

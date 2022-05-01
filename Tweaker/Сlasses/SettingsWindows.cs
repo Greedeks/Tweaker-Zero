@@ -21,7 +21,7 @@ namespace Tweaker.Сlasses
         private string _state = default;
 
         #region Confidentiality
-        internal void GetSettingConfidentiality(in Confidentiality _confidentiality)
+        internal void GetSettingConfidentiality(Confidentiality _confidentiality)
         {
             //#1
             _key[0] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
@@ -371,7 +371,6 @@ namespace Tweaker.Сlasses
                                 });
                             }
                             _process.Dispose();
-
                             break;
                         }
                     case 4:
@@ -391,7 +390,6 @@ namespace Tweaker.Сlasses
                                 _worker.RunWorkerAsync();
                                 _countTasksConfidentiality = 2;
                             }
-
                             break;
                         }
                     case 5:
@@ -556,8 +554,10 @@ namespace Tweaker.Сlasses
             _process.StartInfo.FileName = "cmd.exe";
             foreach (string _taskName in TaskName)
             {
+                Parallel.Invoke(() => {
                 _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
                 _process.Start();
+                });
             }
             _process.Dispose();
         }
@@ -769,52 +769,6 @@ namespace Tweaker.Сlasses
             catch { }
         }
 
-        internal void AppOneDrive(bool _choose)
-        {
-            Parallel.Invoke(() =>
-            {
-                if (_choose)
-                {
-                    RegistryKey _keyOneDrive = _classesRootKey.OpenSubKey(@"CLSID",true);
-                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-                    _keyOneDrive = _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID", true);
-                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-
-                    string[] _onedrive = new string[6] { @"taskkill /f /im OneDrive.exe", @"%systemroot%\System32\OneDriveSetup.exe /uninstall", @"%systemroot%\SysWOW64\OneDriveSetup.exe /uninstall", @"rd /s /q %userprofile%\OneDrive", @"rd /s /q %userprofile%\AppData\Local\Microsoft\OneDrive", @"rd /s /q "" % allusersprofile %\Microsoft OneDrive""" };
-                    _process = new Process();
-                    _process.StartInfo.UseShellExecute = false;
-                    _process.StartInfo.RedirectStandardOutput = true;
-                    _process.StartInfo.CreateNoWindow = true;
-                    _process.StartInfo.FileName = "powershell.exe";
-                    foreach (var _setcommand in _onedrive)
-                    {
-                        _process.StartInfo.Arguments = string.Format("cmd /c {0}", _setcommand);
-                        _process.Start();
-                    }
-                    _process.Dispose();
-                }
-                else
-                {
-                    _classesRootKey.CreateSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-                    _classesRootKey.CreateSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-
-
-                    string[] _onedrive = new string[2] { @"%systemroot%\System32\OneDriveSetup.exe", @"%systemroot%\SysWOW64\OneDriveSetup.exe" };
-                    _process = new Process();
-                    _process.StartInfo.UseShellExecute = false;
-                    _process.StartInfo.RedirectStandardOutput = true;
-                    _process.StartInfo.CreateNoWindow = true;
-                    _process.StartInfo.FileName = "powershell.exe";
-                    foreach (var _setcommand in _onedrive)
-                    {
-                        _process.StartInfo.Arguments = string.Format("cmd /c {0}", _setcommand);
-                        _process.Start();
-                    }
-                    _process.Dispose();
-                }
-            });
-        }
-
         internal byte AppOneDriveCheck()
         {
             if (_classesRootKey.OpenSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}") == null && _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}") == null)
@@ -859,6 +813,52 @@ namespace Tweaker.Сlasses
             }
 
 
+        }
+
+        internal void AppOneDrive(bool _choose)
+        {
+            Parallel.Invoke(() =>
+            {
+                if (_choose)
+                {
+                    RegistryKey _keyOneDrive = _classesRootKey.OpenSubKey(@"CLSID", true);
+                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _keyOneDrive = _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID", true);
+                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+
+                    string[] _onedrive = new string[6] { @"taskkill /f /im OneDrive.exe", @"%systemroot%\System32\OneDriveSetup.exe /uninstall", @"%systemroot%\SysWOW64\OneDriveSetup.exe /uninstall", @"rd /s /q %userprofile%\OneDrive", @"rd /s /q %userprofile%\AppData\Local\Microsoft\OneDrive", @"rd /s /q "" % allusersprofile %\Microsoft OneDrive""" };
+                    _process = new Process();
+                    _process.StartInfo.UseShellExecute = false;
+                    _process.StartInfo.RedirectStandardOutput = true;
+                    _process.StartInfo.CreateNoWindow = true;
+                    _process.StartInfo.FileName = "powershell.exe";
+                    foreach (var _setcommand in _onedrive)
+                    {
+                        _process.StartInfo.Arguments = string.Format("cmd /c {0}", _setcommand);
+                        _process.Start();
+                    }
+                    _process.Dispose();
+                }
+                else
+                {
+                    _classesRootKey.CreateSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _classesRootKey.CreateSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+
+
+                    string[] _onedrive = new string[2] { @"%systemroot%\System32\OneDriveSetup.exe", @"%systemroot%\SysWOW64\OneDriveSetup.exe" };
+                    _process = new Process();
+                    _process.StartInfo.UseShellExecute = false;
+                    _process.StartInfo.RedirectStandardOutput = true;
+                    _process.StartInfo.CreateNoWindow = true;
+                    _process.StartInfo.FileName = "powershell.exe";
+                    foreach (var _setcommand in _onedrive)
+                    {
+                        _process.StartInfo.Arguments = string.Format("cmd /c {0}", _setcommand);
+                        _process.Start();
+                    }
+                    _process.Dispose();
+                }
+            });
         }
         #endregion
     }

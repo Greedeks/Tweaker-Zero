@@ -1,10 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using ToggleSwitch;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -14,7 +14,6 @@ namespace Tweaker.Pages
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
-        private BackgroundWorker _worker;
 
         public Confidentiality()
         {
@@ -23,12 +22,8 @@ namespace Tweaker.Pages
             #region Update
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-
-                _worker = new BackgroundWorker();
-                _worker.DoWork += Worker_DoWorkUpdate;
-                _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-                _worker.RunWorkerAsync();
-
+                if (_time.TotalSeconds % 7 == 0)
+                    _settingsWindows.GetSettingConfidentiality(this);
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
             #endregion
@@ -180,18 +175,6 @@ namespace Tweaker.Pages
         }
         #endregion
 
-        private void Worker_DoWorkUpdate(object sender, DoWorkEventArgs e)
-        {
-            _settingsWindows.TaskCheckStateConfidentiality();
-            _settingsWindows.GetSettingConfidentiality(this);
-        }
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            _settingsWindows.GetSettingConfidentiality(this);
-            _timer.Stop();
-            _worker.Dispose();
-        }
-
         private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             Parallel.Invoke(() =>
@@ -214,6 +197,6 @@ namespace Tweaker.Pages
             });
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingConfidentiality(this); });
+        private void Page_Loaded(object sender, RoutedEventArgs e) => _settingsWindows.GetSettingConfidentiality(this);
     }
 }

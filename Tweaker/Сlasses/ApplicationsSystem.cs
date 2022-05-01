@@ -12,7 +12,7 @@ namespace Tweaker.Сlasses
     internal sealed class ApplicationsSystem
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(30);
+        private readonly static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(30);
 
         private static string _result = default;
         private Process _process;
