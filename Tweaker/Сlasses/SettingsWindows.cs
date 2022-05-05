@@ -107,7 +107,7 @@ namespace Tweaker.Сlasses
             _key[16] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
 
             if (_key[13] == null || _key[13].GetValue("AllowTelemetry", null) == null || _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14] == null || _key[14].GetValue("AITEnable", null) == null || _key[14].GetValue("AITEnable").ToString() != "0" ||
-            _key[15] == null || _key[15].GetValue("AllowDeviceNameInTelemetry", null) == null || _key[15].GetValue("AllowDeviceNameInTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) == null || _key[16].GetValue("Start_TrackProgs").ToString() != "0")
+            _key[15] == null || _key[15].GetValue("AllowTelemetry", null) == null || _key[15].GetValue("AllowTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) == null || _key[16].GetValue("Start_TrackProgs").ToString() != "0")
             {
                 _confidentiality.TButton6.State = true;
                 _confidentiality.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
