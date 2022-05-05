@@ -22,7 +22,7 @@ namespace Tweaker.Сlasses
             ["Todos"] = new List<string>(1) { "Microsoft.Todos" },
             ["BingWeather"] = new List<string>(1) { "Microsoft.BingWeather" },
             ["Microsoft3DViewer"] = new List<string>(1) { "Microsoft.Microsoft3DViewer" },
-            ["ZoneMusic"] = new List<string>(1) { "Microsoft.ZuneMusic" },
+            ["Music"] = new List<string>(1) { "Microsoft.ZuneMusic" },
             ["GetHelp"] = new List<string>(1) { "Microsoft.GetHelp" },
             ["MicrosoftOfficeHub"] = new List<string>(1) { "Microsoft.MicrosoftOfficeHub" },
             ["MicrosoftSolitaireCollection"] = new List<string>(1) { "Microsoft.MicrosoftSolitaireCollection" },
@@ -42,7 +42,7 @@ namespace Tweaker.Сlasses
             ["SkypeApp"] = new List<string>(1) { "Microsoft.SkypeApp" },
             ["Maps"] = new List<string>(1) { "Microsoft.WindowsMaps" },
             ["Camera"] = new List<string>(1) { "Microsoft.WindowsCamera" },
-            ["ZuneVideo"] = new List<string>(1) { "Microsoft.ZuneVideo" },
+            ["Video"] = new List<string>(1) { "Microsoft.ZuneVideo" },
             ["BingNews"] = new List<string>(1) { "Microsoft.BingNews" },
             ["Mail"] = new List<string>(1) { "Microsoft.windowscommunicationsapps" },
             ["MicrosoftTeams"] = new List<string>(1) { "MicrosoftTeams" },
@@ -86,7 +86,7 @@ namespace Tweaker.Сlasses
             _applicationsPages.Todos.Source = _CountCheck[1] == 1 ? (DrawingImage)Application.Current.Resources["TodosImage"] : (DrawingImage)Application.Current.Resources["TodosImageU"];
             _applicationsPages.BingWeather.Source = _CountCheck[2] == 1 ? (DrawingImage)Application.Current.Resources["BingWeatherImage"] : (DrawingImage)Application.Current.Resources["BingWeatherImageU"];
             _applicationsPages.Microsoft3DViewer.Source = _CountCheck[3] == 1 ? (DrawingImage)Application.Current.Resources["Microsoft3DViewerImage"] : (DrawingImage)Application.Current.Resources["Microsoft3DViewerImageU"];
-            _applicationsPages.ZuneMusic.Source = _CountCheck[4] == 1 ? (DrawingImage)Application.Current.Resources["MusicImage"] : (DrawingImage)Application.Current.Resources["MusicImageU"];
+            _applicationsPages.Music.Source = _CountCheck[4] == 1 ? (DrawingImage)Application.Current.Resources["MusicImage"] : (DrawingImage)Application.Current.Resources["MusicImageU"];
             _applicationsPages.GetHelp.Source = _CountCheck[5] == 1 ? (DrawingImage)Application.Current.Resources["GetHelpImage"] : (DrawingImage)Application.Current.Resources["GetHelpImageU"];
             _applicationsPages.MicrosoftOfficeHub.Source = _CountCheck[6] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftOfficeHubImage"] : (DrawingImage)Application.Current.Resources["MicrosoftOfficeHubImageU"];
             _applicationsPages.MicrosoftSolitaireCollection.Source = _CountCheck[7] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftSolitaireCollectionImage"] : (DrawingImage)Application.Current.Resources["MicrosoftSolitaireCollectionImageU"];
@@ -106,7 +106,7 @@ namespace Tweaker.Сlasses
             _applicationsPages.SkypeApp.Source = _CountCheck[21] == 1 ? (DrawingImage)Application.Current.Resources["SkypeAppImage"] : (DrawingImage)Application.Current.Resources["SkypeAppImageU"];
             _applicationsPages.Maps.Source = _CountCheck[22] == 1 ? (DrawingImage)Application.Current.Resources["MapsImage"] : (DrawingImage)Application.Current.Resources["MapsImageU"];
             _applicationsPages.Camera.Source = _CountCheck[23] == 1 ? (DrawingImage)Application.Current.Resources["CameraImage"] : (DrawingImage)Application.Current.Resources["CameraImageU"];
-            _applicationsPages.ZuneVideo.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
+            _applicationsPages.Video.Source = _CountCheck[24] == 1 ? (DrawingImage)Application.Current.Resources["VideoImage"] : (DrawingImage)Application.Current.Resources["VideoImageU"];
             _applicationsPages.BingNews.Source = _CountCheck[25] == 1 ? (DrawingImage)Application.Current.Resources["BingNewsImage"] : (DrawingImage)Application.Current.Resources["BingNewsImageU"];
             _applicationsPages.Mail.Source = _CountCheck[26] == 1 ? (DrawingImage)Application.Current.Resources["MailImage"] : (DrawingImage)Application.Current.Resources["MailImageU"];
             _applicationsPages.MicrosoftTeams.Source = _CountCheck[27] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftTeamsImage"] : (DrawingImage)Application.Current.Resources["MicrosoftTeamsImageU"];
