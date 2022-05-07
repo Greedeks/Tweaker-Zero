@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -924,36 +925,117 @@ namespace Tweaker.Сlasses
                     case 1:
                         {
                             if (_choose)
-                            {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo").SetValue("Enabled", 0, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth").SetValue("AllowAdvertising", 0, RegistryValueKind.DWord);
-                            }
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("MenuShowDelay", 20, RegistryValueKind.String);
                             else
-                            {
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", true).DeleteValue("Enabled");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth", true).DeleteValue("AllowAdvertising");
-                            }
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("MenuShowDelay", 400, RegistryValueKind.String);
                             break;
                         }
                     case 2:
                         {
                             if (_choose)
                             {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings").SetValue("Enabled", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials").SetValue("Enabled", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language").SetValue("Enabled", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization").SetValue("Enabled", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows").SetValue("Enabled", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                                RegistryKey _photo = _classesRootKey.OpenSubKey(@"AppX43hnxtbyyps62jhe9sqpdzxn1790zetc\Shell\ShellEdit", true);
+                                RegistrySecurity regsec = _photo.GetAccessControl();
+                                _photo.SetAccessControl(regsec);
+                                _photo.SetValue("ProgrammaticAccessOnly", "", RegistryValueKind.String);
+                                _photo.Close();
+
+                                RegistryKey _share = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\*\shellex\ContextMenuHandlers", true);
+                                _share.DeleteSubKeyTree(@"ModernSharing");
+                                _share.Close();
+
+                                RegistryKey _send = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID", RegistryKeyPermissionCheck.ReadWriteSubTree);
+                                _send.DeleteSubKeyTree(@"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}");
+                                _send.Close();
+
+                                RegistryKey _lib = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers", true);
+                                _lib.DeleteSubKeyTree(@"Library Location");
+                                _lib.Close();
+
+                                RegistryKey _mus = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\Directory.Audio\shellex\ContextMenuHandlers", true);
+                                _mus.DeleteSubKeyTree(@"WMPShopMusic");
+                                _mus.Close();
+
+                                RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations", true);
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Edit");
+                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Print");
+                                _3d.Close();
                             }
                             else
                             {
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings", true).DeleteValue("Enabled");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials", true).DeleteValue("Enabled");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language", true).DeleteValue("Enabled");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization", true).DeleteValue("Enabled");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows", true).DeleteValue("Enabled");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility", true).DeleteValue("Enabled");
+                                RegistryKey _share = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\*\shellex\ContextMenuHandlers", true);
+                                _share.CreateSubKey(@"ModernSharing").SetValue("", "{e2bf9676-5f8f-435c-97eb-11607a5bedf7}", RegistryValueKind.String);
+                                _share.Close();
+
+                                RegistryKey _send = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID", true);
+                                _send.CreateSubKey(@"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}").SetValue("", "Play To menu", RegistryValueKind.String);
+                                _send.CreateSubKey(@"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}").SetValue("ContextMenuOptIn", "", RegistryValueKind.String);
+                                _send.Close();
+
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID\{7AD84985-87B4-4a16-BE58-8B72A5B390F7}",true);
+
+                                RegistryKey _photo = _classesRootKey.OpenSubKey(@"AppX43hnxtbyyps62jhe9sqpdzxn1790zetc\Shell\ShellEdit", true);
+                                _photo.DeleteValue("ProgrammaticAccessOnly");
+                                _photo.Close();
+
+                                RegistryKey _lib = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers", true);
+                                _lib.CreateSubKey(@"Library Location");
+                                _lib.Close();
+
+                                RegistryKey _mus = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\Directory.Audio\shellex\ContextMenuHandlers", true);
+                                _mus.CreateSubKey(@"WMPShopMusic");
+                                _mus.Close();
+
+                                RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations", true);
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Edit");
+                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Print");
+                                _3d.Close();
                             }
                             break;
                         }

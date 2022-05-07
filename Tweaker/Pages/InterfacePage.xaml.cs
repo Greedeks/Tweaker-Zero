@@ -16,25 +16,19 @@ namespace Tweaker.Pages
         #region Tweaks
         private void TButton1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton1.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak1.Style = !TButton1.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton1.State, 1);
             }
         }
 
         private void TButton2_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton2.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak2.Style = !TButton2.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton2.State, 2);
             }
         }
 

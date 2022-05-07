@@ -22,7 +22,7 @@ namespace Tweaker.Pages
             #region Update
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                if (_time.TotalSeconds % 7 == 0)
+                if (_time.TotalSeconds % 60 == 0)
                     _settingsWindows.GetSettingConfidentiality(this);
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
