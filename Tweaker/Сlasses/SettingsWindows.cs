@@ -956,33 +956,88 @@ namespace Tweaker.Сlasses
                                 _mus.DeleteSubKeyTree(@"WMPShopMusic");
                                 _mus.Close();
 
-                                RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations", true);
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Edit");
-                                _3d.DeleteSubKeyTree(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Print");
+                                RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.DeleteSubKeyTree(@"3D Print");
                                 _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell", true);
+                                _3d.DeleteSubKeyTree(@"3D Edit");
+                                _3d.DeleteSubKeyTree(@"3D Print");
+                                _3d.Close();
+
                             }
                             else
                             {
@@ -1009,32 +1064,111 @@ namespace Tweaker.Сlasses
                                 _mus.CreateSubKey(@"WMPShopMusic").SetValue("", "{8A734961-C4AA-4741-AC1E-791ACEBF5B39}", RegistryValueKind.String);
                                 _mus.Close();
 
-                                RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations", true);
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Edit");
-                                _3d.CreateSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Print");
+                                RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell", true);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell", true);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.Close();
+
+                                _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell", true);
+                                _3d.CreateSubKey(@"3D Edit").SetValue("", @"@%SystemRoot%\system32\mspaint.exe,-59500", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Edit\command").SetValue("", @"%SystemRoot%\system32\mspaint.exe ""%1"" /ForceBootstrapPaint3D", RegistryValueKind.ExpandString);
+                                _3d.CreateSubKey(@"3D Print").SetValue("", @"@%SystemRoot%\\system32\\PrintDialogs3D.dll,-5039", RegistryValueKind.String);
+                                _3d.CreateSubKey(@"3D Print\command").SetValue("DelegateExecute", "{1A68CF90-753A-4523-A4A4-40CAB4BC6EFF}", RegistryValueKind.String);
                                 _3d.Close();
                             }
                             break;
