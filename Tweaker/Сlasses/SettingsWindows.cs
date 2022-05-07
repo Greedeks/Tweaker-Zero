@@ -1002,11 +1002,11 @@ namespace Tweaker.Сlasses
                                 _photo.Close();
 
                                 RegistryKey _lib = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers", true);
-                                _lib.CreateSubKey(@"Library Location");
+                                _lib.CreateSubKey(@"Library Location").SetValue("", "{3dad6c5d-2167-4cae-9914-f99e41c12cfa}", RegistryValueKind.String);
                                 _lib.Close();
 
                                 RegistryKey _mus = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\Directory.Audio\shellex\ContextMenuHandlers", true);
-                                _mus.CreateSubKey(@"WMPShopMusic");
+                                _mus.CreateSubKey(@"WMPShopMusic").SetValue("", "{8A734961-C4AA-4741-AC1E-791ACEBF5B39}", RegistryValueKind.String);
                                 _mus.Close();
 
                                 RegistryKey _3d = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations", true);
