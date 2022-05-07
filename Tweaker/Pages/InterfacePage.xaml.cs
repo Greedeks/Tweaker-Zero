@@ -70,13 +70,10 @@ namespace Tweaker.Pages
 
         private void TButton7_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton7.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak7.Style = !TButton7.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton7.State, 7);
             }
         }
 
