@@ -48,12 +48,12 @@
                     <Label x:Name="Tweak12" Content="Отображение всех значков в трее" Style="{StaticResource Tweaks_OFF}" Margin="618,60,175,330"/>
                     <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="618,100,120,290"/>
                     <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Margin="618,140,93,250"/>
-                    <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Margin="618,180,24,207" Cursor="Hand"/>
-                    <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,166" Width="391"/>
+                    <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Margin="618,180,24,207"/>
+                    <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,166"/>
                     <Label x:Name="Tweak17" Content="Убрать значки на панели задач (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,260,103,128"/>
-                    <Label x:Name="Tweak18" Content="Переместить панель задач вверх (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,89" Width="318"/>
+                    <Label x:Name="Tweak18" Content="Отключить персонализированную рекламу (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,89"/>
                     <Label x:Name="Tweak19" Content="Классическое контекстное меню (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,340,103,51"/>
-                    <Label x:Name="Tweak20" Content="Отключить «Рекомендуем» в меню пуска (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,380,45,11"/>
+                    <Label x:Name="Tweak20" Content="Отключить советы и предложения (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,380,45,11"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>

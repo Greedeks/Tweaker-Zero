@@ -586,16 +586,81 @@ namespace Tweaker.Сlasses
             }
 
             //#2
+            //Отправить (поделиться)
+            _key[32] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\*\shellex\ContextMenuHandlers\ModernSharing");
+            //Передать на устройство
+            _key[33] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID\{7AD84985-87B4-4a16-BE58-8B72A5B390F7}");
+            //Изменить Фото
+            _key[34] = _classesRootKey.OpenSubKey(@"AppX43hnxtbyyps62jhe9sqpdzxn1790zetc\Shell\ShellEdit");
+            //Добавить в библиотеку
+            _key[35] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers\Library Location");
+            //Поиск музыки в Интернете
+            _key[36] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\Directory.Audio\shellex\ContextMenuHandlers\WMPShopMusic");
+            //Изменить в Pain3D
+            _key[37] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Edit");
+            _key[38] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Print");
+            _key[39] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Edit");
+            _key[40] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Print");
+            _key[41] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit");
+            _key[42] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell\3D Print");
+            _key[43] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell\3D Print");
+            _key[44] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell\3D Edit");
+            _key[45] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit");
+            _key[46] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell\3D Edit");
+            _key[47] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell\3D Edit");
+            _key[48] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell\3D Edit");
+            _key[49] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit");
+            _key[50] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit");
+            _key[51] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Edit");
+            _key[52] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Print");
+            _key[53] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Edit");
+            _key[54] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Print");
+            _key[55] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit");
+            _key[56] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit");
+            _key[57] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print");
+            _key[58] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell\3D Edit");
+            _key[59] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell\3D Edit");
+            _key[60] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Edit");
+            _key[61] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Print");
+
+            if (_key[32] != null || _key[33] != null || _key[34] == null || _key[34].GetValue("ProgrammaticAccessOnly", null) == null ||
+               _key[35] != null || _key[36] != null || _key[37] != null || _key[38] != null || _key[39] != null || _key[40] != null || _key[41] != null
+               || _key[42] != null || _key[43] != null || _key[44] != null || _key[45] != null || _key[46] != null || _key[47] != null || _key[48] != null
+               || _key[49] != null || _key[50] != null || _key[51] != null || _key[52] != null || _key[53] != null || _key[54] != null || _key[55] != null || _key[56] != null
+               || _key[57] != null || _key[58] != null || _key[59] != null || _key[60] != null || _key[61] != null)
+            {
+                _interface.TButton2.State = true;
+                _interface.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton2.State = false;
+                _interface.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#3
+            _key[62] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.bmp\ShellNew]");
+            _key[63] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.contact\ShellNew");
+            _key[64] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.rtf\ShellNew");
+
+            if (_key[62] != null || _key[63] != null || _key[64] != null)
+            {
+                _interface.TButton3.State = true;
+                _interface.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton3.State = false;
+                _interface.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#4
-            _key[33] = _usersKey.OpenSubKey(@".DEFAULT\Control Panel\Colors");
-            _key[34] = _usersKey.OpenSubKey(@"S-1-5-19\Control Panel\Colors");
-            _key[35] = _usersKey.OpenSubKey(@"S-1-5-20\Control Panel\Colors");
+            _key[65] = _usersKey.OpenSubKey(@".DEFAULT\Control Panel\Colors");
+            _key[66] = _usersKey.OpenSubKey(@"S-1-5-19\Control Panel\Colors");
+            _key[67] = _usersKey.OpenSubKey(@"S-1-5-20\Control Panel\Colors");
 
-            if (_key[33] == null || _key[33].GetValue("InfoWindow", null) == null || _key[33].GetValue("InfoWindow").ToString() != "246 253 255" || _key[34] == null || _key[34].GetValue("InfoWindow", null) == null || _key[34].GetValue("InfoWindow").ToString() != "246 253 255" ||
-            _key[35] == null || _key[35].GetValue("InfoWindow", null) == null || _key[35].GetValue("InfoWindow").ToString() != "246 253 255")
+            if (_key[65] == null || _key[65].GetValue("InfoWindow", null) == null || _key[65].GetValue("InfoWindow").ToString() != "246 253 255" || _key[66] == null || _key[66].GetValue("InfoWindow", null) == null || _key[66].GetValue("InfoWindow").ToString() != "246 253 255" ||
+            _key[67] == null || _key[67].GetValue("InfoWindow", null) == null || _key[67].GetValue("InfoWindow").ToString() != "246 253 255")
             {
                 _interface.TButton4.State = true;
                 _interface.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -607,10 +672,10 @@ namespace Tweaker.Сlasses
             }
 
             //#5
-            _key[36] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+            _key[68] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
-            if (_key[36] == null || _key[36].GetValue("CaptionHeight", null) == null || _key[36].GetValue("CaptionHeight").ToString() != "-270" ||
-                _key[36] == null || _key[36].GetValue("CaptionWidth", null) == null || _key[36].GetValue("CaptionWidth").ToString() != "-270")
+            if (_key[68] == null || _key[68].GetValue("CaptionHeight", null) == null || _key[68].GetValue("CaptionHeight").ToString() != "-270" ||
+                _key[68] == null || _key[68].GetValue("CaptionWidth", null) == null || _key[68].GetValue("CaptionWidth").ToString() != "-270")
             {
                 _interface.TButton5.State = true;
                 _interface.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -622,17 +687,71 @@ namespace Tweaker.Сlasses
             }
 
             //#6
+            _key[69] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+            _key[70] = _localMachineKey.OpenSubKey(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+
+            if (_key[69] != null || _key[70] != null)
+            {
+                _interface.TButton6.State = true;
+                _interface.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton6.State = false;
+                _interface.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#7
+            _key[71] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}");
+            _key[72] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}");
+            _key[73] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}");
+            _key[74] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}");
+            _key[75] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}");
+            _key[76] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}");
+
+            if (_key[71] != null || _key[72] != null || _key[73] != null || _key[74] != null || _key[75] != null || _key[76] != null)
+            {
+                _interface.TButton7.State = true;
+                _interface.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton7.State = false;
+                _interface.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#8
+            _key[77] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons");
+
+            if (_key[77] == null || _key[77].GetValue("20", null) == null || _key[77].GetValue("29").ToString() != @"%systemroot%\\Blank.ico,0")
+            {
+                _interface.TButton8.State = true;
+                _interface.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton8.State = false;
+                _interface.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#9
+            _key[78] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
+
+            if (_key[78] == null || _key[78].GetValue("link", null) == null || _key[78].GetValue("link").ToString() != "00 00 00 00")
+            {
+                _interface.TButton9.State = true;
+                _interface.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton9.State = false;
+                _interface.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#10
-            _key[37] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+            _key[79] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
-            if (_key[37] == null || _key[37].GetValue("CursorBlinkRate", null) == null || _key[37].GetValue("CursorBlinkRate").ToString() != "250")
+            if (_key[79] == null || _key[79].GetValue("CursorBlinkRate", null) == null || _key[79].GetValue("CursorBlinkRate").ToString() != "250")
             {
                 _interface.TButton10.State = true;
                 _interface.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -644,9 +763,9 @@ namespace Tweaker.Сlasses
             }
 
             //#11
-            _key[38] = _currentUserKey.OpenSubKey(@"Control Panel\Mouse");
+            _key[80] = _currentUserKey.OpenSubKey(@"Control Panel\Mouse");
 
-            if (_key[38] == null || _key[38].GetValue("MouseHoverTime", null) == null || _key[38].GetValue("MouseHoverTime").ToString() != "20")
+            if (_key[80] == null || _key[80].GetValue("MouseHoverTime", null) == null || _key[80].GetValue("MouseHoverTime").ToString() != "20")
             {
                 _interface.TButton11.State = true;
                 _interface.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -658,9 +777,9 @@ namespace Tweaker.Сlasses
             }
 
             //#12
-            _key[39] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
+            _key[81] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
 
-            if (_key[39] == null || _key[39].GetValue("EnableAutoTray", null) == null || _key[39].GetValue("EnableAutoTray").ToString() != "0")
+            if (_key[81] == null || _key[81].GetValue("EnableAutoTray", null) == null || _key[81].GetValue("EnableAutoTray").ToString() != "0")
             {
                 _interface.TButton12.State = true;
                 _interface.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -672,9 +791,9 @@ namespace Tweaker.Сlasses
             }
 
             //#13
-            _key[40] = _currentUserKey.OpenSubKey(@"Software\Policies\Microsoft\Windows\Explorer");
+            _key[82] = _currentUserKey.OpenSubKey(@"Software\Policies\Microsoft\Windows\Explorer");
 
-            if (_key[40] == null || _key[40].GetValue("DisableNotificationCenter", null) == null || _key[40].GetValue("DisableNotificationCenter").ToString() != "1")
+            if (_key[82] == null || _key[82].GetValue("DisableNotificationCenter", null) == null || _key[82].GetValue("DisableNotificationCenter").ToString() != "1")
             {
                 _interface.TButton13.State = true;
                 _interface.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -686,10 +805,10 @@ namespace Tweaker.Сlasses
             }
 
             //#14
-            _key[41] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop\WindowMetrics");
+            _key[83] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop\WindowMetrics");
 
-            if (_key[41] == null || _key[41].GetValue("ScrollHeight", null) == null || _key[41].GetValue("ScrollHeight").ToString() != "-210" ||
-                _key[41] == null || _key[41].GetValue("ScrollWidth", null) == null || _key[41].GetValue("ScrollWidth").ToString() != "-210")
+            if (_key[83] == null || _key[83].GetValue("ScrollHeight", null) == null || _key[83].GetValue("ScrollHeight").ToString() != "-210" ||
+                _key[83] == null || _key[83].GetValue("ScrollWidth", null) == null || _key[83].GetValue("ScrollWidth").ToString() != "-210")
             {
                 _interface.TButton14.State = true;
                 _interface.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -701,9 +820,9 @@ namespace Tweaker.Сlasses
             }
 
             //#15
-            _key[42] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel");
+            _key[84] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel");
 
-            if (_key[42] == null || _key[42].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}", null) == null || _key[42].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}").ToString() != "0")
+            if (_key[84] == null || _key[84].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}", null) == null || _key[84].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}").ToString() != "0")
             {
                 _interface.TButton15.State = true;
                 _interface.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -715,9 +834,9 @@ namespace Tweaker.Сlasses
             }
 
             //#16
-            _key[43] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+            _key[85] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
 
-            if (_key[43] == null || _key[43].GetValue("PersistBrowsers", null) == null || _key[43].GetValue("PersistBrowsers").ToString() != "1")
+            if (_key[85] == null || _key[85].GetValue("PersistBrowsers", null) == null || _key[85].GetValue("PersistBrowsers").ToString() != "1")
             {
                 _interface.TButton16.State = true;
                 _interface.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -729,11 +848,11 @@ namespace Tweaker.Сlasses
             }
 
             //#17
-            _key[44] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
-            _key[45] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search");
+            _key[86] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+            _key[87] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search");
 
-            if (_key[44] == null || _key[44].GetValue("ShowTaskViewButton", null) == null || _key[44].GetValue("ShowTaskViewButton").ToString() != "0" || _key[44] == null || _key[44].GetValue("TaskbarMn", null) == null || _key[44].GetValue("TaskbarMn").ToString() != "0"
-                || _key[44] == null || _key[44].GetValue("TaskbarDa", null) == null || _key[44].GetValue("TaskbarDa").ToString() != "0" || _key[45] == null || _key[45].GetValue("SearchboxTaskbarMode", null) == null || _key[45].GetValue("SearchboxTaskbarMode").ToString() != "0")
+            if (_key[86] == null || _key[86].GetValue("ShowTaskViewButton", null) == null || _key[86].GetValue("ShowTaskViewButton").ToString() != "0" || _key[86] == null || _key[86].GetValue("TaskbarMn", null) == null || _key[86].GetValue("TaskbarMn").ToString() != "0"
+                || _key[86] == null || _key[86].GetValue("TaskbarDa", null) == null || _key[86].GetValue("TaskbarDa").ToString() != "0" || _key[87] == null || _key[87].GetValue("SearchboxTaskbarMode", null) == null || _key[87].GetValue("SearchboxTaskbarMode").ToString() != "0")
             {
                 _interface.TButton17.State = true;
                 _interface.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -745,11 +864,52 @@ namespace Tweaker.Сlasses
             }
 
             //#18
+            _key[88] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
+            _key[89] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Privacy");
+            _key[90] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager");
+
+            if (_key[88] == null || _key[88].GetValue("Enabled", null) == null || _key[88].GetValue("Enabled").ToString() != "0" || _key[89] == null || _key[89].GetValue("TailoredExperiencesWithDiagnosticDataEnabled", null) == null || _key[89].GetValue("TailoredExperiencesWithDiagnosticDataEnabled").ToString() != "0" ||
+                _key[90] == null || _key[90].GetValue("RotatingLockScreenEnabled", null) == null || _key[90].GetValue("RotatingLockScreenEnabled").ToString() != "0" || _key[90] == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled", null) == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled").ToString() != "0" || 
+                _key[90] == null || _key[90].GetValue("SubscribedContent-338387Enabled", null) == null || _key[88].GetValue("SubscribedContent-338387Enabled").ToString() != "0")
+            {
+                _interface.TButton18.State = true;
+                _interface.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton18.State = false;
+                _interface.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#19
+            _key[91] = _currentUserKey.OpenSubKey(@"Software\Classes\CLSID\{86ca1aa0‑34aa‑4e8b‑a509‑50c905bae2a2}\InprocServer32");
+
+            if (_key[91] == null || _key[91].GetValue("InprocServer32", null) == null)
+            {
+                _interface.TButton19.State = true;
+                _interface.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton19.State = false;
+                _interface.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#20
+            _key[92] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager");
+            _key[93] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement");
 
+            if (_key[92] == null || _key[92].GetValue("SoftLandingEnabled", null) == null || _key[92].GetValue("SoftLandingEnabled").ToString() != "0" ||
+                _key[93] == null || _key[93].GetValue("ScoobeSystemSettingEnabled ", null) == null || _key[93].GetValue("ScoobeSystemSettingEnabled ").ToString() != "0")
+            {
+                _interface.TButton20.State = true;
+                _interface.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _interface.TButton20.State = false;
+                _interface.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
         }
         #endregion
 

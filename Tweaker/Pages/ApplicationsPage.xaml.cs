@@ -92,11 +92,7 @@ namespace Tweaker.Pages
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 try { _applicationsSystem.ApplicationRecovery(); } catch { };
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    notificationWindow = new NotificationWindow();
-                    ShowNotification("Информация", "Процесс восстановления приложений начался, это займет некоторое время");
-                });
+                Application.Current.Dispatcher.Invoke(() => { ShowNotification("Информация", "Процесс восстановления приложений начался, это займет некоторое время"); });
 
                 if (OneDrive.Source == (DrawingImage)Application.Current.Resources["OneDriveImageU"])
                     _settingsWindows.AppOneDrive(false);
