@@ -509,13 +509,17 @@ namespace Tweaker.Сlasses
                         {
                             if (_choose)
                             {
-                                _localMachineKey.DeleteSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
-                                _localMachineKey.DeleteSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+                                RegistryKey _modl = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services", true);
+                                _modl.DeleteSubKeyTree(@"DiagTrack");
+                                _modl.DeleteSubKeyTree(@"dmwappushservice");
+                                _modl.Close();
                             }
                             else
                             {
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+                                RegistryKey _modl = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services", true);
+                                _modl.CreateSubKey(@"DiagTrack");
+                                _modl.CreateSubKey(@"dmwappushservice");
+                                _modl.Close();
                             }
                             break;
                         }
@@ -673,7 +677,7 @@ namespace Tweaker.Сlasses
             }
 
             //#5
-            _key[68] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+            _key[68] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop\WindowMetrics");
 
             if (_key[68] == null || _key[68].GetValue("CaptionHeight", null) == null || _key[68].GetValue("CaptionHeight").ToString() != "-270" ||
                 _key[68] == null || _key[68].GetValue("CaptionWidth", null) == null || _key[68].GetValue("CaptionWidth").ToString() != "-270")
@@ -1175,84 +1179,81 @@ namespace Tweaker.Сlasses
                         }
                     case 3:
                         {
-                            string _state = default;
                             if (_choose)
                             {
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener").SetValue("Start", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments").SetValue("SaveZoneInformation", 1, RegistryValueKind.DWord);
-                                _state = "/disable";
+                                _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.bmp\ShellNew");
+                                _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.contact\ShellNew");
+                                _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.rtf\ShellNew");
                             }
                             else
                             {
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener").SetValue("Start", 1, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments").DeleteValue("SaveZoneInformation");
-                                _state = "/enable";
-                            }
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.bmp\ShellNew").SetValue("ItemName", @"@%systemroot%\system32\mspaint.exe,-59414", RegistryValueKind.ExpandString);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.bmp\ShellNew").SetValue("NullFile", @"", RegistryValueKind.String);
 
-                            string[] TaskName = new string[8] { @"""Microsoft\Office\Office ClickToRun Service Monitor""", @"""Microsoft\Office\OfficeTelemetry\AgentFallBack2016""", @"""Microsoft\Office\OfficeTelemetry\OfficeTelemetryAgentLogOn2016""",
-                         @"""Microsoft\Office\OfficeTelemetryAgentFallBack2016""", @"""Microsoft\Office\OfficeTelemetryAgentLogOn2016""", @"""Microsoft\Office\OfficeTelemetryAgentFallBack""",
-                         @"""Microsoft\Office\OfficeTelemetryAgentLogOn""", @"""Microsoft\Office\Office 15 Subscription Heartbeat""",};
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("command", @"""%programFiles%\Windows Mail\Wab.exe"" /CreateContact ""%1""", RegistryValueKind.ExpandString);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("Data", @"{\rtf1}", RegistryValueKind.String);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("iconpath", @"%ProgramFiles%\Windows Mail\wab.exe,1", RegistryValueKind.ExpandString);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("ItemName", @"@%ProgramFiles%\Windows NT\Accessories\WORDPAD.EXE,-213", RegistryValueKind.ExpandString);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("MenuText", @"@%CommonProgramFiles%\system\wab32res.dll,-10203", RegistryValueKind.ExpandString);
 
-                            _process = new Process();
-                            _process.StartInfo.UseShellExecute = false;
-                            _process.StartInfo.RedirectStandardOutput = true;
-                            _process.StartInfo.CreateNoWindow = true;
-                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-                            _process.StartInfo.FileName = "cmd.exe";
-                            foreach (string _taskName in TaskName)
-                            {
-                                Parallel.Invoke(() =>
-                                {
-                                    _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
-                                    _process.Start();
-                                });
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.rtf\ShellNew");
                             }
-                            _process.Dispose();
                             break;
                         }
                     case 4:
                         {
-                            _worker = new BackgroundWorker();
-                            _worker.DoWork += Worker_DoWorkTaskConfidentiality; ;
-                            _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                             if (_choose)
                             {
-                                _state = "/disable";
-                                _worker.RunWorkerAsync();
-                                _countTasksConfidentiality = 0;
+                                _usersKey.CreateSubKey(@".DEFAULT\Control Panel\Colors").SetValue("InfoWindow", "246 253 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@"S-1-5-19\Control Panel\Colors").SetValue("InfoWindow", "246 253 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@"S-1-5-20\Control Panel\Colors").SetValue("InfoWindow", "246 253 255", RegistryValueKind.String);
                             }
                             else
                             {
-                                _state = "/enable";
-                                _worker.RunWorkerAsync();
-                                _countTasksConfidentiality = 2;
+                                _usersKey.CreateSubKey(@".DEFAULT\Control Panel\Colors").SetValue("InfoWindow", "255 255 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@"S-1-5-19\Control Panel\Colors").SetValue("InfoWindow", "255 255 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@"S-1-5-20\Control Panel\Colors").SetValue("InfoWindow", "255 255 255", RegistryValueKind.String);
                             }
                             break;
                         }
                     case 5:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").SetValue("DisableInventory", 1, RegistryValueKind.DWord);
+                            {
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("CaptionHeight", "-270", RegistryValueKind.String);
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("CaptionWidth", "-270", RegistryValueKind.String);
+                            }
                             else
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat", true).DeleteValue("DisableInventory");
+                            {
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("CaptionHeight", "-330", RegistryValueKind.String);
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("CaptionWidth", "-330", RegistryValueKind.String);
+                            }
                             break;
                         }
                     case 6:
                         {
+                            string _arguments = default;
                             if (_choose)
                             {
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection").SetValue("AllowTelemetry", 0, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").SetValue("AITEnable", 0, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("AllowTelemetry", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("Start_TrackProgs", 0, RegistryValueKind.DWord);
+                                _localMachineKey.DeleteSubKeyTree(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+                                _localMachineKey.DeleteSubKeyTree(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+                                _arguments = @"rd /s /q "" % userprofile %\3D Objects\""";
                             }
                             else
                             {
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection").SetValue("AllowTelemetry", 1, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").SetValue("AITEnable", 1, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("AllowTelemetry", 1, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("Start_TrackProgs", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+                                _arguments = @"md /s /q "" % userprofile %\3D Objects\""";
                             }
+
+                            _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.FileName = "cmd.exe";
+                            _process.StartInfo.Arguments = string.Format(_arguments);
+                            _process.Start();
+                            _process.Dispose();
                             break;
                         }
                     case 7:
@@ -1449,6 +1450,7 @@ namespace Tweaker.Сlasses
                     _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
                     _keyOneDrive = _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID", true);
                     _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _keyOneDrive.Close();
 
                     string[] _onedrive = new string[6] { @"taskkill /f /im OneDrive.exe", @"%systemroot%\System32\OneDriveSetup.exe /uninstall", @"%systemroot%\SysWOW64\OneDriveSetup.exe /uninstall", @"rd /s /q %userprofile%\OneDrive", @"rd /s /q %userprofile%\AppData\Local\Microsoft\OneDrive", @"rd /s /q "" % allusersprofile %\Microsoft OneDrive""" };
                     _process = new Process();

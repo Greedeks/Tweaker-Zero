@@ -34,49 +34,37 @@ namespace Tweaker.Pages
 
         private void TButton3_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton3.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak3.Style = !TButton3.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton3.State, 3);
             }
         }
 
         private void TButton4_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton4.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak4.Style = !TButton4.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton4.State, 4);
             }
         }
 
         private void TButton5_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton5.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak5.Style = !TButton5.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton5.State, 5);
             }
         }
 
         private void TButton6_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton6.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak6.Style = !TButton6.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton6.State, 6);
             }
         }
 
