@@ -24,7 +24,7 @@
                     <Label x:Name="Tweak2" Content="Удалить мусорные пункты контекстного меню" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,330"/>
                     <Label x:Name="Tweak3" Content="Удалить мусорные пункты из контекстного меню Создать" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,290"/>
                     <Label x:Name="Tweak4" Content="Нормальный цвет всплывающей подсказки" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,250"/>
-                    <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,210" Cursor="Hand"/>
+                    <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,210"/>
                     <Label x:Name="Tweak6" Content="Удаление «Объёмные объекты» из проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,174"/>
                     <Label x:Name="Tweak7" Content="Удаление папок из «Этот компьютер»" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,130"/>
                     <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,91"/>

@@ -182,6 +182,7 @@
     </EmbeddedResource>
     <None Include="app.manifest" />
     <Resource Include="Fonts\Nunito.ttf" />
+    <None Include="Images\Blank.gz" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -193,6 +194,5 @@
   <ItemGroup>
     <Resource Include="TweakerIcon.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
