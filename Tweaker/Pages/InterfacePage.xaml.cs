@@ -79,13 +79,10 @@ namespace Tweaker.Pages
 
         private void TButton8_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton8.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak8.Style = !TButton8.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton8.State, 8);
             }
         }
 

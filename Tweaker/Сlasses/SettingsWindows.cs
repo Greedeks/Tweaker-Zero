@@ -1,6 +1,9 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -728,7 +731,7 @@ namespace Tweaker.Сlasses
             //#8
             _key[77] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons");
 
-            if (_key[77] == null || _key[77].GetValue("20", null) == null || _key[77].GetValue("29").ToString() != @"%systemroot%\\Blank.ico,0")
+            if (_key[77] == null || _key[77].GetValue("29", null) == null || _key[77].GetValue("29").ToString() != @"%systemroot%\\Blank.ico,0")
             {
                 _interface.TButton8.State = true;
                 _interface.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1280,16 +1283,33 @@ namespace Tweaker.Сlasses
                         }
                     case 8:
                         {
-                            if (_choose)
+                            Environment.SpecialFolder _folderWindows = Environment.SpecialFolder.Windows;
+                            string _pathToWinF = Environment.GetFolderPath(_folderWindows);
+                            try
                             {
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat").SetValue("DisableUAR", 1, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization").SetValue("NoLockScreenCamera", 1, RegistryValueKind.DWord);
+                                if (_choose)
+                                {
+                                    byte[] _iconByte = default;
+                                    using (MemoryStream fileOut = new MemoryStream(Properties.Resources.Blank))
+                                    using (GZipStream gz = new GZipStream(fileOut, CompressionMode.Decompress))
+                                    using (MemoryStream ms = new MemoryStream())
+                                    {
+                                        gz.CopyTo(ms);
+                                        _iconByte = ms.ToArray();
+                                    }
+                                    File.WriteAllBytes(_pathToWinF + @"\Blank.ico", _iconByte);
+
+                                    _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons").SetValue("29", @"%systemroot%\\Blank.ico,0", RegistryValueKind.String);
+                                }
+                                else
+                                {
+                                    File.Delete(_pathToWinF + @"\Blank.ico");
+                                    RegistryKey _arrowIcon = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", RegistryKeyPermissionCheck.ReadWriteSubTree);
+                                    _arrowIcon.DeleteSubKeyTree(@"Shell Icons");
+                                    _arrowIcon.Close();
+                                }
                             }
-                            else
-                            {
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat", true).DeleteValue("DisableUAR");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Personalization", true).DeleteValue("NoLockScreenCamera");
-                            }
+                            catch { };
                             break;
                         }
                     case 9:
