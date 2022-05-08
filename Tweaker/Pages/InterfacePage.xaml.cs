@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -8,9 +11,25 @@ namespace Tweaker.Pages
     public partial class Interface : Page
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+        private DispatcherTimer _timer = default;
+        private TimeSpan _time = TimeSpan.FromSeconds(0);
         public Interface()
         {
             InitializeComponent();
+
+            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) != "11")
+            {
+                TButton17.IsEnabled = false; TButton18.IsEnabled = false; TButton19.IsEnabled = false; TButton20.IsEnabled = false;
+            }
+
+            #region Update
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                if (_time.TotalSeconds % 60 == 0)
+                    _settingsWindows.GetSettingInterface(this);
+                _time = _time.Add(TimeSpan.FromSeconds(+1));
+            }, Application.Current.Dispatcher);
+            #endregion
         }
 
         #region Tweaks
@@ -88,151 +107,134 @@ namespace Tweaker.Pages
 
         private void TButton9_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton9.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak9.Style = !TButton9.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton9.State, 9);
             }
         }
 
         private void TButton10_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton10.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak10.Style = !TButton10.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton10.State, 10);
             }
         }
 
         private void TButton11_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton11.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak11.Style = !TButton11.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton11.State, 11);
             }
         }
 
         private void TButton12_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton12.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak12.Style = !TButton12.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton12.State, 12);
             }
         }
 
         private void TButton13_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton13.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak13.Style = !TButton13.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton13.State, 13);
             }
         }
         private void TButton14_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton14.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak14.Style = !TButton14.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton14.State, 14);
             }
         }
 
         private void TButton15_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton15.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak15.Style = !TButton15.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton15.State, 15);
             }
         }
 
         private void TButton16_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton16.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak16.Style = !TButton16.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton16.State, 16);
             }
         }
 
         private void TButton17_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton17.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak17.Style = !TButton17.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton17.State, 17);
             }
         }
 
         private void TButton18_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton18.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak18.Style = !TButton18.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton18.State, 18);
             }
         }
 
         private void TButton19_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton19.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak19.Style = !TButton19.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton19.State, 19);
             }
         }
 
         private void TButton20_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!TButton20.State)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak20.Style = !TButton20.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingInterface(TButton20.State, 20);
             }
         }
         #endregion
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _settingsWindows.GetSettingInterface(this);
+            Parallel.Invoke(() =>
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    Button btn = (Button)sender;
+                    if (btn.Name == "TweaksON")
+                    {
+                        for (byte _tweak = 1; _tweak <= 20; _tweak++)
+                            _settingsWindows.ChangeSettingInterface(false, _tweak);
+                    }
+                    else
+                        for (byte _tweak = 1; _tweak <= 20; _tweak++)
+                            _settingsWindows.ChangeSettingInterface(true, _tweak);
+
+                    _settingsWindows.GetSettingInterface(this);
+                    _timer.Start();
+                }
+            });
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingInterface(this); });
     }
 }

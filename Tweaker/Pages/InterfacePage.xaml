@@ -45,7 +45,7 @@
 
                     <!--#region Right Tweaks-->
                     <Label x:Name="Tweak11" Content="Ускорение появления превью на панели задач" Style="{StaticResource Tweaks_OFF}" Margin="618,20,93,370"/>
-                    <Label x:Name="Tweak12" Content="Отображение всех значков в трее" Style="{StaticResource Tweaks_OFF}" Margin="618,60,175,330"/>
+                    <Label x:Name="Tweak12" Content="Показать значок Корзина на Рабочем столе" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,330" Width="Auto"/>
                     <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="618,100,120,290"/>
                     <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Margin="618,140,93,250"/>
                     <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Margin="618,180,24,207"/>
@@ -74,14 +74,14 @@
         <!--#region Buttons-->
         <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
-            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" >
+            <Button x:Name="TweaksON" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
                 <Label Content="Включить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
 
-            <Button Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12">
+            <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>

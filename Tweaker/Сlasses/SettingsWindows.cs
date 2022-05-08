@@ -745,7 +745,7 @@ namespace Tweaker.Сlasses
             //#9
             _key[78] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
 
-            if (_key[78] == null || _key[78].GetValue("link", null) == null || _key[78].GetValue("link").ToString() != "00 00 00 00")
+            if (_key[78] == null || _key[78].GetValue("link", null) == null)
             {
                 _interface.TButton9.State = true;
                 _interface.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -785,9 +785,9 @@ namespace Tweaker.Сlasses
             }
 
             //#12
-            _key[81] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
+            _key[81] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel");
 
-            if (_key[81] == null || _key[81].GetValue("EnableAutoTray", null) == null || _key[81].GetValue("EnableAutoTray").ToString() != "0")
+            if (_key[81] == null || _key[81].GetValue("{645FF040-5081-101B-9F08-00AA002F954E}", null) == null || _key[81].GetValue("{645FF040-5081-101B-9F08-00AA002F954E}").ToString() != "1")
             {
                 _interface.TButton12.State = true;
                 _interface.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -880,7 +880,7 @@ namespace Tweaker.Сlasses
 
                 if (_key[88] == null || _key[88].GetValue("Enabled", null) == null || _key[88].GetValue("Enabled").ToString() != "0" || _key[89] == null || _key[89].GetValue("TailoredExperiencesWithDiagnosticDataEnabled", null) == null || _key[89].GetValue("TailoredExperiencesWithDiagnosticDataEnabled").ToString() != "0" ||
                     _key[90] == null || _key[90].GetValue("RotatingLockScreenEnabled", null) == null || _key[90].GetValue("RotatingLockScreenEnabled").ToString() != "0" || _key[90] == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled", null) == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled").ToString() != "0" ||
-                    _key[90] == null || _key[90].GetValue("SubscribedContent-338387Enabled", null) == null || _key[88].GetValue("SubscribedContent-338387Enabled").ToString() != "0")
+                    _key[90] == null || _key[90].GetValue("SubscribedContent-338387Enabled", null) == null || _key[90].GetValue("SubscribedContent-338387Enabled").ToString() != "0")
                 {
                     _interface.TButton18.State = true;
                     _interface.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -892,9 +892,9 @@ namespace Tweaker.Сlasses
                 }
 
                 //#19
-                _key[91] = _currentUserKey.OpenSubKey(@"Software\Classes\CLSID\{86ca1aa0‑34aa‑4e8b‑a509‑50c905bae2a2}\InprocServer32");
+                _key[91] = _currentUserKey.OpenSubKey(@"Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32");
 
-                if (_key[91] == null || _key[91].GetValue("InprocServer32", null) == null)
+                if (_key[91] == null)
                 {
                     _interface.TButton19.State = true;
                     _interface.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1185,6 +1185,7 @@ namespace Tweaker.Сlasses
                             if (_choose)
                             {
                                 _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.bmp\ShellNew");
+                                _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.bmp\PersistentHandler");
                                 _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.contact\ShellNew");
                                 _localMachineKey.DeleteSubKey(@"SOFTWARE\Classes\.rtf\ShellNew");
                             }
@@ -1192,6 +1193,7 @@ namespace Tweaker.Сlasses
                             {
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.bmp\ShellNew").SetValue("ItemName", @"@%systemroot%\system32\mspaint.exe,-59414", RegistryValueKind.ExpandString);
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.bmp\ShellNew").SetValue("NullFile", @"", RegistryValueKind.String);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.bmp\PersistentHandler").SetValue("", @"{098f2470-bae0-11cd-b579-08002b30bfeb}", RegistryValueKind.String);
 
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("command", @"""%programFiles%\Windows Mail\Wab.exe"" /CreateContact ""%1""", RegistryValueKind.ExpandString);
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Classes\.contact\ShellNew").SetValue("Data", @"{\rtf1}", RegistryValueKind.String);
@@ -1315,87 +1317,159 @@ namespace Tweaker.Сlasses
                     case 9:
                         {
                             if (_choose)
-                            {
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").SetValue("DisableLocation", 1, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").SetValue("DisableLocationScripting", 1, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors").SetValue("DisableWindowsLocationProvider", 1, RegistryValueKind.DWord);
-                            }
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").SetValue("link", Encoding.Unicode.GetBytes("\0\0"), RegistryValueKind.Binary);
                             else
-                            {
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocation");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocationScripting");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableWindowsLocationProvider");
-                            }
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").DeleteValue("link");
                             break;
                         }
                     case 10:
                         {
                             if (_choose)
-                            {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("NumberOfSIUFInPeriod", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("PeriodInNanoSeconds", 0, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("DoNotShowFeedbackNotifications", 1, RegistryValueKind.DWord);
-                            }
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("CursorBlinkRate", "250", RegistryValueKind.String);
                             else
-                            {
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("NumberOfSIUFInPeriod");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("PeriodInNanoSeconds");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true).DeleteValue("DoNotShowFeedbackNotifications");
-                            }
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("CursorBlinkRate", "530", RegistryValueKind.String);
                             break;
                         }
                     case 11:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").SetValue("AllowSpeechModelUpdate", 0, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Control Panel\Mouse").SetValue("MouseHoverTime", "20", RegistryValueKind.String);
                             else
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech", true).DeleteValue("AllowSpeechModelUpdate");
+                                _currentUserKey.CreateSubKey(@"Control Panel\Mouse").SetValue("MouseHoverTime", "400", RegistryValueKind.String);
                             break;
                         }
                     case 12:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 4, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel").SetValue("{645FF040-5081-101B-9F08-00AA002F954E}", 1, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 2, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel").SetValue("{645FF040-5081-101B-9F08-00AA002F954E}", 0, RegistryValueKind.DWord);
                             break;
                         }
                     case 13:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").SetValue("AllowExperimentation", 0, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Policies\Microsoft\Windows\Explorer").SetValue("DisableNotificationCenter", 1, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System", true).DeleteValue("AllowExperimentation");
+                                _currentUserKey.CreateSubKey(@"Software\Policies\Microsoft\Windows\Explorer").DeleteValue("DisableNotificationCenter");
                             break;
                         }
                     case 14:
                         {
                             if (_choose)
                             {
-                                _localMachineKey.DeleteSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
-                                _localMachineKey.DeleteSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("ScrollHeight", "-210", RegistryValueKind.String);
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("ScrollWidth", "-210", RegistryValueKind.String);
                             }
                             else
                             {
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\DiagTrack");
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\dmwappushservice");
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("ScrollHeight", "-255", RegistryValueKind.String);
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("ScrollWidth", "-255", RegistryValueKind.String);
                             }
                             break;
                         }
                     case 15:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 4, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel").SetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}", 0, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 3, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel").DeleteValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}");
                             break;
                         }
                     case 16:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 4, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("PersistBrowsers", 1, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 2, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").DeleteValue("PersistBrowsers");
+                            break;
+                        }
+                    case 17:
+                        {
+                            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+                            {
+                                if (_choose)
+                                {
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("ShowTaskViewButton", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("TaskbarDa", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("TaskbarMn", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search").SetValue("SearchboxTaskbarMode", 0, RegistryValueKind.DWord);
+                                }
+                                else
+                                {
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("ShowTaskViewButton", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("TaskbarDa", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("TaskbarMn", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search").SetValue("SearchboxTaskbarMode", 1, RegistryValueKind.DWord);
+                                }
+                            }
+                            break;
+                        }
+                    case 18:
+                        {
+                            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+                            {
+                                if (_choose)
+                                {
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Privacy").SetValue("TailoredExperiencesWithDiagnosticDataEnabled", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("RotatingLockScreenEnabled", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("RotatingLockScreenOverlayEnabled", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("SubscribedContent-338387Enabled", 0, RegistryValueKind.DWord);
+                                }
+                                else
+                                {
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo").SetValue("Enabled", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Privacy").SetValue("TailoredExperiencesWithDiagnosticDataEnabled", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("RotatingLockScreenEnabled", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("RotatingLockScreenOverlayEnabled", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("SubscribedContent-338387Enabled", 1, RegistryValueKind.DWord);
+                                }
+                            }
+                            break;
+                        }
+                    case 19:
+                        {
+                            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+                            {
+                                if (_choose)
+                                    _currentUserKey.CreateSubKey(@"Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32").SetValue("", RegistryValueKind.String);
+                                else
+                                {
+                                    RegistryKey _classic = _currentUserKey.OpenSubKey(@"Software\Classes\CLSID\", RegistryKeyPermissionCheck.ReadWriteSubTree);
+                                    _classic.DeleteSubKeyTree(@"{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}");
+                                    _classic.Close();
+                                }
+
+                                string _explorerPath = string.Format(@"{0}\{1}", Environment.GetEnvironmentVariable("WINDIR"), "explorer.exe");
+                                foreach (Process _process in Process.GetProcesses())
+                                {
+                                    try
+                                    {
+                                        if (string.Compare(_process.MainModule.FileName, _explorerPath, StringComparison.OrdinalIgnoreCase) == 0)
+                                            _process.Kill();
+                                    }
+                                    catch { }
+                                }
+                                Process.Start("explorer.exe");
+                            }
+                            break;
+                        }
+                    case 20:
+                        {
+                            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+                            {
+                                if (_choose)
+                                {
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("SoftLandingEnabled", 0, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement").SetValue("ScoobeSystemSettingEnabled ", 0, RegistryValueKind.DWord);
+                                }
+                                else
+                                {
+                                    _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager").SetValue("SoftLandingEnabled", 1, RegistryValueKind.DWord);
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement").SetValue("ScoobeSystemSettingEnabled ", 1, RegistryValueKind.DWord);
+                                }
+                            }
                             break;
                         }
                 }
