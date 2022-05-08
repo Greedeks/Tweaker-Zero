@@ -45,7 +45,7 @@
 
                     <!--#region Right Tweaks-->
                     <Label x:Name="Tweak11" Content="Ускорение появления превью на панели задач" Style="{StaticResource Tweaks_OFF}" Margin="618,20,93,370"/>
-                    <Label x:Name="Tweak12" Content="Показать значок Корзина на Рабочем столе" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,330" Width="Auto"/>
+                    <Label x:Name="Tweak12" Content="Показать значок Корзины на Рабочем столе" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,330" Width="Auto" Cursor="Hand"/>
                     <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="618,100,120,290"/>
                     <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Margin="618,140,93,250"/>
                     <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Margin="618,180,24,207"/>
