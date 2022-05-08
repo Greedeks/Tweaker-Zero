@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
-using ToggleSwitch;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -198,5 +197,7 @@ namespace Tweaker.Pages
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) => _settingsWindows.GetSettingConfidentiality(this);
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
     }
 }

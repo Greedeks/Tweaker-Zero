@@ -236,5 +236,7 @@ namespace Tweaker.Pages
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingInterface(this); });
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
     }
 }

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}">
+      Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded">
 
     <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
