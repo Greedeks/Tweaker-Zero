@@ -2072,9 +2072,19 @@ namespace Tweaker.Сlasses
             }
 
             //#28
-            _key[180] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Themes");
+            _key[180] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvmsession");
+            _key[181] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmictimesync");
+            _key[182] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicshutdown");
+            _key[183] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicrdv");
+            _key[184] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmickvpexchange");
+            _key[185] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicheartbeat");
+            _key[186] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicguestinterface");
+            _key[187] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\HvHost");
+            _key[188] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvss");
 
-            if (_key[180] == null || _key[180].GetValue("Start", null) == null || _key[180].GetValue("Start").ToString() != "4")
+            if (_key[180] == null || _key[180].GetValue("Start", null) == null || _key[180].GetValue("Start").ToString() != "4" || _key[181] == null || _key[181].GetValue("Start", null) == null || _key[181].GetValue("Start").ToString() != "4" || _key[182] == null || _key[182].GetValue("Start", null) == null || _key[182].GetValue("Start").ToString() != "4" ||
+                _key[183] == null || _key[183].GetValue("Start", null) == null || _key[183].GetValue("Start").ToString() != "4" || _key[184] == null || _key[184].GetValue("Start", null) == null || _key[184].GetValue("Start").ToString() != "4" || _key[185] == null || _key[185].GetValue("Start", null) == null || _key[185].GetValue("Start").ToString() != "4" ||
+                _key[186] == null || _key[186].GetValue("Start", null) == null || _key[186].GetValue("Start").ToString() != "4" || _key[187] == null || _key[187].GetValue("Start", null) == null || _key[187].GetValue("Start").ToString() != "4" || _key[188] == null || _key[188].GetValue("Start", null) == null || _key[188].GetValue("Start").ToString() != "4")
             {
                 _services.TButton28.State = true;
                 _services.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -2086,6 +2096,764 @@ namespace Tweaker.Сlasses
             }
 
 
+        }
+
+        internal void ChangeSettingServices(in bool _choose, in byte _select)
+        {
+            try
+            {
+                switch (_select)
+                {
+                    case 1:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxGipSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblAuthManager", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxNetApiSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblGameSave", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxGipSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblAuthManager", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxNetApiSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblGameSave", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxGipSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblAuthManager", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxNetApiSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblGameSave", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxGipSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblAuthManager", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxNetApiSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblGameSave", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WwanSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wlpasvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\icssvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DusmSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\autotimesvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WwanSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wlpasvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\icssvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DusmSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\autotimesvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WwanSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wlpasvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\icssvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DusmSvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\autotimesvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WwanSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wlpasvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\icssvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DusmSvc", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\autotimesvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SysMain", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SysMain", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SysMain", true).SetValue("Start", 2, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SysMain", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                            }   
+                            break;
+                        }
+                    case 5:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wmiApSrv", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\pla", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PerfHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wmiApSrv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\pla", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PerfHost", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wmiApSrv", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\pla", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PerfHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wmiApSrv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\pla", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PerfHost", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 6:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WbioSrvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WbioSrvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WbioSrvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WbioSrvc", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 7:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\bthserv", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BthAvctpSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BTAGService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\bthserv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BthAvctpSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BTAGService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\bthserv", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BthAvctpSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BTAGService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\bthserv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BthAvctpSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BTAGService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 8:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Spooler", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PrintNotify", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\McpManagementService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Spooler", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PrintNotify", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\McpManagementService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Spooler", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PrintNotify", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\McpManagementService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Spooler", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PrintNotify", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\McpManagementService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 9:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WiaRpc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WiaRpc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WiaRpc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WiaRpc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 10:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TapiSrv", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PhoneSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Fax", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TapiSrv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PhoneSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Fax", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TapiSrv", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PhoneSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Fax", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TapiSrv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PhoneSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Fax", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 11:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensrSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorDataService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SEMgrSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lfsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensrSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorDataService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SEMgrSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lfsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensrSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorDataService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SEMgrSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lfsvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensrSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorDataService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SEMgrSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lfsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 12:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DispBrokerDesktopSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WFDSConMgrSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DispBrokerDesktopSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WFDSConMgrSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DispBrokerDesktopSvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WFDSConMgrSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DispBrokerDesktopSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WFDSConMgrSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 13:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PushToInstall", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WpnService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PushToInstall", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WpnService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPSvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PushToInstall", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WpnService", true).SetValue("Start", 2, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PushToInstall", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WpnService", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 14:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CscService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lmhosts", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\FDResPub", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fdPHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanServer", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanWorkstation", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CscService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lmhosts", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\FDResPub", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fdPHost", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanServer", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanWorkstation", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CscService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lmhosts", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\FDResPub", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fdPHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanServer", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanWorkstation", true).SetValue("Start", 2, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CscService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lmhosts", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\FDResPub", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fdPHost", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanServer", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanWorkstation", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 15:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wisvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DmEnrollmentSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wuauserv", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WaaSMedicSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DoSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UsoSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wisvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DmEnrollmentSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wuauserv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WaaSMedicSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DoSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UsoSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wisvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DmEnrollmentSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wuauserv", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WaaSMedicSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DoSvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UsoSvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wisvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DmEnrollmentSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wuauserv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WaaSMedicSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DoSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UsoSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 16:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PolicyAgent", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\IKEEXT", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\p2pimsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PolicyAgent", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\IKEEXT", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\p2pimsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PolicyAgent", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\IKEEXT", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\p2pimsvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PolicyAgent", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\IKEEXT", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\p2pimsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 17:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WPDBusEnum", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WPDBusEnum", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WPDBusEnum", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WPDBusEnum", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 18:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UmRdpService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TermService", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SessionEnv", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DsSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UmRdpService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TermService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SessionEnv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DsSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UmRdpService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TermService", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SessionEnv", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DsSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UmRdpService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TermService", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SessionEnv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DsSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 19:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WerSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wercplsupport", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Wecsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WerSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wercplsupport", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Wecsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WerSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wercplsupport", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Wecsvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WerSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wercplsupport", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Wecsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 20:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WebClient", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WebClient", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WebClient", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WebClient", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 21:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCPolicySvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\ScDeviceEnum", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCardSvr", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CertPropSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCPolicySvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\ScDeviceEnum", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCardSvr", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CertPropSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCPolicySvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\ScDeviceEnum", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCardSvr", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CertPropSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCPolicySvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\ScDeviceEnum", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCardSvr", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CertPropSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 22:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AssignedAccessManagerSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppReadiness", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AssignedAccessManagerSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppReadiness", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AssignedAccessManagerSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppReadiness", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AssignedAccessManagerSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppReadiness", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 23:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BDESVC", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EFS", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BDESVC", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EFS", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BDESVC", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EFS", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BDESVC", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EFS", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 24:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LxpSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LxpSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);;
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LxpSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LxpSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 25:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WarpJITSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WarpJITSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WarpJITSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc", true).SetValue("Start", 2, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WarpJITSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 26:
+                        {
+                            if (_choose)
+                            {
+
+
+                                RegistrySecurity regsec = new RegistrySecurity();
+                                regsec.AddAccessRule(new RegistryAccessRule(Environment.UserDomainName + "\\" + Environment.UserName,
+                                RegistryRights.FullControl | RegistryRights.Delete,
+                                InheritanceFlags.None,
+                                PropagationFlags.None,
+                                AccessControlType.Allow));
+
+
+                                RegistryKey rk = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost",
+                                RegistryKeyPermissionCheck.ReadWriteSubTree, regsec);
+      
+                                rk.SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiServiceHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TroubleshootingSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+
+
+
+                                RegistrySecurity regsec = new RegistrySecurity();
+                                regsec.AddAccessRule(new RegistryAccessRule(Environment.UserDomainName + "\\" + Environment.UserName,
+                                RegistryRights.WriteKey | RegistryRights.ChangePermissions,
+                                InheritanceFlags.None,
+                                PropagationFlags.None,
+                                AccessControlType.Allow));
+    
+
+                                RegistryKey rk = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost",
+                                RegistryKeyPermissionCheck.ReadWriteSubTree, regsec);
+
+                                rk.SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiServiceHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TroubleshootingSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS", true).SetValue("DelayedAutoStart", 0, RegistryValueKind.DWord);
+
+                            }
+                            break;
+                        }
+                    case 27:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EntAppSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dot3svc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DevQueryBroker", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppMgmt", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EntAppSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dot3svc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DevQueryBroker", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppMgmt", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EntAppSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dot3svc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DevQueryBroker", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppMgmt", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EntAppSvc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dot3svc", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DevQueryBroker", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppMgmt", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 28:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvmsession", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmictimesync", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicshutdown", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicrdv", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmickvpexchange", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicheartbeat", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicguestinterface", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\HvHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvss", true).SetValue("Start", 4, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvmsession", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmictimesync", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicshutdown", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicrdv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmickvpexchange", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicheartbeat", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicguestinterface", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\HvHost", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvss", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvmsession", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmictimesync", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicshutdown", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicrdv", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmickvpexchange", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicheartbeat", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicguestinterface", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\HvHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvss", true).SetValue("Start", 3, RegistryValueKind.DWord);
+
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvmsession", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmictimesync", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicshutdown", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicrdv", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmickvpexchange", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicheartbeat", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicguestinterface", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\HvHost", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\vmicvss", true).SetValue("DelayedAutoStart", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                }
+            }
+            catch { };
         }
         #endregion
     }
