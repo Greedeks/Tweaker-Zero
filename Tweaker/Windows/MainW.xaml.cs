@@ -145,6 +145,7 @@ namespace Tweaker
                             Grid.SetColumn(ActivePage, 3);
 
                             ActivePageAnim(true);
+                            MainContainer.Content = new Pages.ServicesPage();
                             _servicesB = true;
                         }
                         else
