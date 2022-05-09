@@ -1588,13 +1588,15 @@ namespace Tweaker.Сlasses
         }
         #endregion
 
-        #region Interface
+        #region Services
         internal void GetSettingServices(in ServicesPage _services)
         {
             //#1
-            _key[32] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+            _key[94] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch");
+            _key[95] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc");
 
-            if (_key[32] == null || _key[32].GetValue("MenuShowDelay", null) == null || _key[32].GetValue("MenuShowDelay").ToString() != "20")
+            if (_key[94] == null || _key[94].GetValue("Start", null) == null || _key[94].GetValue("Start").ToString() != "4" ||
+                _key[95] == null || _key[95].GetValue("Start", null) == null || _key[95].GetValue("Start").ToString() != "4")
             {
                 _services.TButton1.State = true;
                 _services.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1606,48 +1608,13 @@ namespace Tweaker.Сlasses
             }
 
             //#2
-            //Отправить (поделиться)
-            _key[32] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\*\shellex\ContextMenuHandlers\ModernSharing");
-            //Передать на устройство
-            _key[33] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID\{7AD84985-87B4-4a16-BE58-8B72A5B390F7}");
-            //Изменить Фото
-            _key[34] = _classesRootKey.OpenSubKey(@"AppX43hnxtbyyps62jhe9sqpdzxn1790zetc\Shell\ShellEdit");
-            //Добавить в библиотеку
-            _key[35] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers\Library Location");
-            //Поиск музыки в Интернете
-            _key[36] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\Directory.Audio\shellex\ContextMenuHandlers\WMPShopMusic");
-            //Изменить в Pain3D
-            _key[37] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Edit");
-            _key[38] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3ds\Shell\3D Print");
-            _key[39] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Edit");
-            _key[40] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.3mf\Shell\3D Print");
-            _key[41] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit");
-            _key[42] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dae\Shell\3D Print");
-            _key[43] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.dxf\Shell\3D Print");
-            _key[44] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.fbx\Shell\3D Edit");
-            _key[45] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit");
-            _key[46] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.glb\Shell\3D Edit");
-            _key[47] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jfif\Shell\3D Edit");
-            _key[48] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpe\Shell\3D Edit");
-            _key[49] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit");
-            _key[50] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit");
-            _key[51] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Edit");
-            _key[52] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.obj\Shell\3D Print");
-            _key[53] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Edit");
-            _key[54] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.ply\Shell\3D Print");
-            _key[55] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit");
-            _key[56] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit");
-            _key[57] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print");
-            _key[58] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tif\Shell\3D Edit");
-            _key[59] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.tiff\Shell\3D Edit");
-            _key[60] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Edit");
-            _key[61] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\SystemFileAssociations\.wrl\Shell\3D Print");
+            _key[96] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxGipSvc");
+            _key[97] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblAuthManager");
+            _key[98] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XboxNetApiSvc");
+            _key[99] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\XblGameSave");
 
-            if (_key[32] != null || _key[33] != null || _key[34] == null || _key[34].GetValue("ProgrammaticAccessOnly", null) == null ||
-               _key[35] != null || _key[36] != null || _key[37] != null || _key[38] != null || _key[39] != null || _key[40] != null || _key[41] != null
-               || _key[42] != null || _key[43] != null || _key[44] != null || _key[45] != null || _key[46] != null || _key[47] != null || _key[48] != null
-               || _key[49] != null || _key[50] != null || _key[51] != null || _key[52] != null || _key[53] != null || _key[54] != null || _key[55] != null || _key[56] != null
-               || _key[57] != null || _key[58] != null || _key[59] != null || _key[60] != null || _key[61] != null)
+            if (_key[96] == null || _key[96].GetValue("Start", null) == null || _key[96].GetValue("Start").ToString() != "4" || _key[97] == null || _key[97].GetValue("Start", null) == null || _key[97].GetValue("Start").ToString() != "4" ||
+                _key[98] == null || _key[98].GetValue("Start", null) == null || _key[98].GetValue("Start").ToString() != "4" || _key[99] == null || _key[99].GetValue("Start", null) == null || _key[99].GetValue("Start").ToString() != "4")
             {
                 _services.TButton2.State = true;
                 _services.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1659,11 +1626,14 @@ namespace Tweaker.Сlasses
             }
 
             //#3
-            _key[62] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.bmp\ShellNew]");
-            _key[63] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.contact\ShellNew");
-            _key[64] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.rtf\ShellNew");
+            _key[100] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WwanSvc");
+            _key[101] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wlpasvc");
+            _key[102] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\icssvc");
+            _key[103] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DusmSvc");
+            _key[104] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\autotimesvc");
 
-            if (_key[62] != null || _key[63] != null || _key[64] != null)
+            if (_key[100] == null || _key[100].GetValue("Start", null) == null || _key[100].GetValue("Start").ToString() != "4" || _key[101] == null || _key[101].GetValue("Start", null) == null || _key[101].GetValue("Start").ToString() != "4" || _key[102] == null || _key[102].GetValue("Start", null) == null || _key[102].GetValue("Start").ToString() != "4" ||
+                _key[103] == null || _key[103].GetValue("Start", null) == null || _key[103].GetValue("Start").ToString() != "4" || _key[104] == null || _key[104].GetValue("Start", null) == null || _key[104].GetValue("Start").ToString() != "4")
             {
                 _services.TButton3.State = true;
                 _services.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1675,12 +1645,9 @@ namespace Tweaker.Сlasses
             }
 
             //#4
-            _key[65] = _usersKey.OpenSubKey(@".DEFAULT\Control Panel\Colors");
-            _key[66] = _usersKey.OpenSubKey(@"S-1-5-19\Control Panel\Colors");
-            _key[67] = _usersKey.OpenSubKey(@"S-1-5-20\Control Panel\Colors");
+            _key[105] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SysMain");
 
-            if (_key[65] == null || _key[65].GetValue("InfoWindow", null) == null || _key[65].GetValue("InfoWindow").ToString() != "246 253 255" || _key[66] == null || _key[66].GetValue("InfoWindow", null) == null || _key[66].GetValue("InfoWindow").ToString() != "246 253 255" ||
-            _key[67] == null || _key[67].GetValue("InfoWindow", null) == null || _key[67].GetValue("InfoWindow").ToString() != "246 253 255")
+            if (_key[105] == null || _key[105].GetValue("Start", null) == null || _key[105].GetValue("Start").ToString() != "4")
             {
                 _services.TButton4.State = true;
                 _services.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1692,10 +1659,12 @@ namespace Tweaker.Сlasses
             }
 
             //#5
-            _key[68] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop\WindowMetrics");
+            _key[106] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wmiApSrv");
+            _key[107] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\pla");
+            _key[108] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PerfHost");
 
-            if (_key[68] == null || _key[68].GetValue("CaptionHeight", null) == null || _key[68].GetValue("CaptionHeight").ToString() != "-270" ||
-                _key[68] == null || _key[68].GetValue("CaptionWidth", null) == null || _key[68].GetValue("CaptionWidth").ToString() != "-270")
+            if (_key[106] == null || _key[106].GetValue("Start", null) == null || _key[106].GetValue("Start").ToString() != "4" || _key[107] == null || _key[107].GetValue("Start", null) == null || _key[107].GetValue("Start").ToString() != "4" ||
+                _key[108] == null || _key[108].GetValue("Start", null) == null || _key[108].GetValue("Start").ToString() != "4")
             {
                 _services.TButton5.State = true;
                 _services.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1707,10 +1676,9 @@ namespace Tweaker.Сlasses
             }
 
             //#6
-            _key[69] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
-            _key[70] = _localMachineKey.OpenSubKey(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}");
+            _key[109] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WbioSrvc");
 
-            if (_key[69] != null || _key[70] != null)
+            if (_key[109] == null || _key[109].GetValue("Start", null) == null || _key[109].GetValue("Start").ToString() != "4")
             {
                 _services.TButton6.State = true;
                 _services.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1722,14 +1690,12 @@ namespace Tweaker.Сlasses
             }
 
             //#7
-            _key[71] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}");
-            _key[72] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}");
-            _key[73] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}");
-            _key[74] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}");
-            _key[75] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}");
-            _key[76] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}");
+            _key[110] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\bthserv");
+            _key[111] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BthAvctpSvc");
+            _key[112] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BTAGService");
 
-            if (_key[71] != null || _key[72] != null || _key[73] != null || _key[74] != null || _key[75] != null || _key[76] != null)
+            if (_key[110] == null || _key[110].GetValue("Start", null) == null || _key[110].GetValue("Start").ToString() != "4" || _key[111] == null || _key[111].GetValue("Start", null) == null || _key[111].GetValue("Start").ToString() != "4" ||
+                _key[112] == null || _key[112].GetValue("Start", null) == null || _key[112].GetValue("Start").ToString() != "4")
             {
                 _services.TButton7.State = true;
                 _services.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1741,9 +1707,12 @@ namespace Tweaker.Сlasses
             }
 
             //#8
-            _key[77] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons");
+            _key[113] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Spooler");
+            _key[114] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PrintNotify");
+            _key[115] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\McpManagementService");
 
-            if (_key[77] == null || _key[77].GetValue("29", null) == null || _key[77].GetValue("29").ToString() != @"%systemroot%\\Blank.ico,0")
+            if (_key[113] == null || _key[113].GetValue("Start", null) == null || _key[113].GetValue("Start").ToString() != "4" || _key[114] == null || _key[114].GetValue("Start", null) == null || _key[114].GetValue("Start").ToString() != "4" ||
+                _key[115] == null || _key[115].GetValue("Start", null) == null || _key[115].GetValue("Start").ToString() != "4")
             {
                 _services.TButton8.State = true;
                 _services.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1755,9 +1724,9 @@ namespace Tweaker.Сlasses
             }
 
             //#9
-            _key[78] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
+            _key[116] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WiaRpc");
 
-            if (_key[78] == null || _key[78].GetValue("link", null) == null)
+            if (_key[116] == null || _key[116].GetValue("Start", null) == null || _key[116].GetValue("Start").ToString() != "4")
             {
                 _services.TButton9.State = true;
                 _services.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1769,9 +1738,12 @@ namespace Tweaker.Сlasses
             }
 
             //#10
-            _key[79] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+            _key[117] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TapiSrv");
+            _key[118] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PhoneSvc");
+            _key[119] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Fax");
 
-            if (_key[79] == null || _key[79].GetValue("CursorBlinkRate", null) == null || _key[79].GetValue("CursorBlinkRate").ToString() != "250")
+            if (_key[117] == null || _key[117].GetValue("Start", null) == null || _key[117].GetValue("Start").ToString() != "4" || _key[118] == null || _key[118].GetValue("Start", null) == null || _key[118].GetValue("Start").ToString() != "4" ||
+                _key[119] == null || _key[119].GetValue("Start", null) == null || _key[119].GetValue("Start").ToString() != "4")
             {
                 _services.TButton10.State = true;
                 _services.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1783,9 +1755,14 @@ namespace Tweaker.Сlasses
             }
 
             //#11
-            _key[80] = _currentUserKey.OpenSubKey(@"Control Panel\Mouse");
+            _key[120] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensrSvc");
+            _key[121] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorService");
+            _key[122] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SensorDataService");
+            _key[123] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SEMgrSvc");
+            _key[124] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lfsvc");
 
-            if (_key[80] == null || _key[80].GetValue("MouseHoverTime", null) == null || _key[80].GetValue("MouseHoverTime").ToString() != "20")
+            if (_key[120] == null || _key[120].GetValue("Start", null) == null || _key[120].GetValue("Start").ToString() != "4" || _key[121] == null || _key[121].GetValue("Start", null) == null || _key[121].GetValue("Start").ToString() != "4" || _key[122] == null || _key[122].GetValue("Start", null) == null || _key[122].GetValue("Start").ToString() != "4" ||
+                _key[123] == null || _key[123].GetValue("Start", null) == null || _key[123].GetValue("Start").ToString() != "4" || _key[124] == null || _key[124].GetValue("Start", null) == null || _key[124].GetValue("Start").ToString() != "4")
             {
                 _services.TButton11.State = true;
                 _services.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1797,9 +1774,11 @@ namespace Tweaker.Сlasses
             }
 
             //#12
-            _key[81] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel");
+            _key[125] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DispBrokerDesktopSvc");
+            _key[126] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WFDSConMgrSvc");
 
-            if (_key[81] == null || _key[81].GetValue("{645FF040-5081-101B-9F08-00AA002F954E}", null) == null || _key[81].GetValue("{645FF040-5081-101B-9F08-00AA002F954E}").ToString() != "1")
+            if (_key[125] == null || _key[125].GetValue("Start", null) == null || _key[125].GetValue("Start").ToString() != "4" ||
+                _key[126] == null || _key[126].GetValue("Start", null) == null || _key[126].GetValue("Start").ToString() != "4")
             {
                 _services.TButton12.State = true;
                 _services.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1811,9 +1790,12 @@ namespace Tweaker.Сlasses
             }
 
             //#13
-            _key[82] = _currentUserKey.OpenSubKey(@"Software\Policies\Microsoft\Windows\Explorer");
+            _key[127] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CDPSvc");
+            _key[128] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PushToInstall");
+            _key[129] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WpnService");
 
-            if (_key[82] == null || _key[82].GetValue("DisableNotificationCenter", null) == null || _key[82].GetValue("DisableNotificationCenter").ToString() != "1")
+            if (_key[127] == null || _key[127].GetValue("Start", null) == null || _key[127].GetValue("Start").ToString() != "4" || _key[128] == null || _key[128].GetValue("Start", null) == null || _key[128].GetValue("Start").ToString() != "4" ||
+                _key[129] == null || _key[129].GetValue("Start", null) == null || _key[129].GetValue("Start").ToString() != "4")
             {
                 _services.TButton13.State = true;
                 _services.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1825,10 +1807,17 @@ namespace Tweaker.Сlasses
             }
 
             //#14
-            _key[83] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop\WindowMetrics");
+            _key[130] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon");
+            _key[131] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CscService");
+            _key[132] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\lmhosts");
+            _key[133] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\FDResPub");
+            _key[134] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fdPHost");
+            _key[135] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanServer");
+            _key[136] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LanmanWorkstation");
 
-            if (_key[83] == null || _key[83].GetValue("ScrollHeight", null) == null || _key[83].GetValue("ScrollHeight").ToString() != "-210" ||
-                _key[83] == null || _key[83].GetValue("ScrollWidth", null) == null || _key[83].GetValue("ScrollWidth").ToString() != "-210")
+            if (_key[130] == null || _key[130].GetValue("Start", null) == null || _key[130].GetValue("Start").ToString() != "4" || _key[131] == null || _key[131].GetValue("Start", null) == null || _key[131].GetValue("Start").ToString() != "4" || _key[132] == null || _key[132].GetValue("Start", null) == null || _key[132].GetValue("Start").ToString() != "4" ||
+                _key[133] == null || _key[133].GetValue("Start", null) == null || _key[133].GetValue("Start").ToString() != "4" || _key[134] == null || _key[134].GetValue("Start", null) == null || _key[134].GetValue("Start").ToString() != "4" || _key[135] == null || _key[135].GetValue("Start", null) == null || _key[135].GetValue("Start").ToString() != "4" ||
+                _key[136] == null || _key[136].GetValue("Start", null) == null || _key[136].GetValue("Start").ToString() != "4")
             {
                 _services.TButton14.State = true;
                 _services.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1840,9 +1829,15 @@ namespace Tweaker.Сlasses
             }
 
             //#15
-            _key[84] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel");
+            _key[137] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wisvc");
+            _key[138] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DmEnrollmentSvc");
+            _key[139] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wuauserv");
+            _key[140] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WaaSMedicSvc");
+            _key[141] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DoSvc");
+            _key[142] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UsoSvc");
 
-            if (_key[84] == null || _key[84].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}", null) == null || _key[84].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}").ToString() != "0")
+            if (_key[137] == null || _key[137].GetValue("Start", null) == null || _key[137].GetValue("Start").ToString() != "4" || _key[138] == null || _key[138].GetValue("Start", null) == null || _key[138].GetValue("Start").ToString() != "4" || _key[139] == null || _key[139].GetValue("Start", null) == null || _key[139].GetValue("Start").ToString() != "4" ||
+                _key[140] == null || _key[140].GetValue("Start", null) == null || _key[140].GetValue("Start").ToString() != "4" || _key[141] == null || _key[141].GetValue("Start", null) == null || _key[141].GetValue("Start").ToString() != "4" || _key[142] == null || _key[142].GetValue("Start", null) == null || _key[142].GetValue("Start").ToString() != "4")
             {
                 _services.TButton15.State = true;
                 _services.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1854,9 +1849,12 @@ namespace Tweaker.Сlasses
             }
 
             //#16
-            _key[85] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+            _key[143] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\PolicyAgent");
+            _key[144] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\IKEEXT");
+            _key[145] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\p2pimsvc");
 
-            if (_key[85] == null || _key[85].GetValue("PersistBrowsers", null) == null || _key[85].GetValue("PersistBrowsers").ToString() != "1")
+            if (_key[143] == null || _key[143].GetValue("Start", null) == null || _key[143].GetValue("Start").ToString() != "4" || _key[144] == null || _key[144].GetValue("Start", null) == null || _key[144].GetValue("Start").ToString() != "4" ||
+                _key[145] == null || _key[145].GetValue("Start", null) == null || _key[145].GetValue("Start").ToString() != "4")
             {
                 _services.TButton16.State = true;
                 _services.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
@@ -1867,72 +1865,227 @@ namespace Tweaker.Сlasses
                 _services.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
-            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+            //#17
+            _key[146] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WPDBusEnum");
+            _key[147] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WMPNetworkSvc");
+
+            if (_key[146] == null || _key[146].GetValue("Start", null) == null || _key[146].GetValue("Start").ToString() != "4" || 
+                _key[147] == null || _key[147].GetValue("Start", null) == null || _key[147].GetValue("Start").ToString() != "4")
             {
-                //#17
-                _key[86] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
-                _key[87] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search");
-
-                if (_key[86] == null || _key[86].GetValue("ShowTaskViewButton", null) == null || _key[86].GetValue("ShowTaskViewButton").ToString() != "0" || _key[86] == null || _key[86].GetValue("TaskbarMn", null) == null || _key[86].GetValue("TaskbarMn").ToString() != "0"
-                    || _key[86] == null || _key[86].GetValue("TaskbarDa", null) == null || _key[86].GetValue("TaskbarDa").ToString() != "0" || _key[87] == null || _key[87].GetValue("SearchboxTaskbarMode", null) == null || _key[87].GetValue("SearchboxTaskbarMode").ToString() != "0")
-                {
-                    _services.TButton17.State = true;
-                    _services.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-                }
-                else
-                {
-                    _services.TButton17.State = false;
-                    _services.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-                }
-
-                //#18
-                _key[88] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
-                _key[89] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Privacy");
-                _key[90] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager");
-
-                if (_key[88] == null || _key[88].GetValue("Enabled", null) == null || _key[88].GetValue("Enabled").ToString() != "0" || _key[89] == null || _key[89].GetValue("TailoredExperiencesWithDiagnosticDataEnabled", null) == null || _key[89].GetValue("TailoredExperiencesWithDiagnosticDataEnabled").ToString() != "0" ||
-                    _key[90] == null || _key[90].GetValue("RotatingLockScreenEnabled", null) == null || _key[90].GetValue("RotatingLockScreenEnabled").ToString() != "0" || _key[90] == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled", null) == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled").ToString() != "0" ||
-                    _key[90] == null || _key[90].GetValue("SubscribedContent-338387Enabled", null) == null || _key[90].GetValue("SubscribedContent-338387Enabled").ToString() != "0")
-                {
-                    _services.TButton18.State = true;
-                    _services.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-                }
-                else
-                {
-                    _services.TButton18.State = false;
-                    _services.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-                }
-
-                //#19
-                _key[91] = _currentUserKey.OpenSubKey(@"Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32");
-
-                if (_key[91] == null)
-                {
-                    _services.TButton19.State = true;
-                    _services.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-                }
-                else
-                {
-                    _services.TButton19.State = false;
-                    _services.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-                }
-
-                //#20
-                _key[92] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager");
-                _key[93] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement");
-
-                if (_key[92] == null || _key[92].GetValue("SoftLandingEnabled", null) == null || _key[92].GetValue("SoftLandingEnabled").ToString() != "0" ||
-                    _key[93] == null || _key[93].GetValue("ScoobeSystemSettingEnabled ", null) == null || _key[93].GetValue("ScoobeSystemSettingEnabled ").ToString() != "0")
-                {
-                    _services.TButton20.State = true;
-                    _services.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-                }
-                else
-                {
-                    _services.TButton20.State = false;
-                    _services.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-                }
+                _services.TButton17.State = true;
+                _services.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
+            else
+            {
+                _services.TButton17.State = false;
+                _services.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#18
+            _key[148] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\UmRdpService");
+            _key[149] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TermService");
+            _key[150] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SessionEnv");
+            _key[151] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DsSvc");
+            _key[152] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry");
+
+            if (_key[148] == null || _key[148].GetValue("Start", null) == null || _key[148].GetValue("Start").ToString() != "4" || _key[149] == null || _key[149].GetValue("Start", null) == null || _key[149].GetValue("Start").ToString() != "4" || _key[150] == null || _key[150].GetValue("Start", null) == null || _key[150].GetValue("Start").ToString() != "4" ||
+                _key[151] == null || _key[151].GetValue("Start", null) == null || _key[151].GetValue("Start").ToString() != "4" || _key[152] == null || _key[152].GetValue("Start", null) == null || _key[152].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton18.State = true;
+                _services.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton18.State = false;
+                _services.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#19
+            _key[153] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WerSvc");
+            _key[154] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wercplsupport");
+            _key[155] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Wecsvc");
+
+            if (_key[153] == null || _key[153].GetValue("Start", null) == null || _key[153].GetValue("Start").ToString() != "4" || _key[154] == null || _key[154].GetValue("Start", null) == null || _key[154].GetValue("Start").ToString() != "4" ||
+                _key[155] == null || _key[155].GetValue("Start", null) == null || _key[155].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton19.State = true;
+                _services.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton19.State = false;
+                _services.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#20
+            _key[156] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WebClient");
+
+            if (_key[156] == null || _key[156].GetValue("Start", null) == null || _key[156].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton20.State = true;
+                _services.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton20.State = false;
+                _services.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#21
+            _key[157] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCPolicySvc");
+            _key[158] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\ScDeviceEnum");
+            _key[159] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SCardSvr");
+            _key[160] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\CertPropSvc");
+
+            if (_key[157] == null || _key[157].GetValue("Start", null) == null || _key[157].GetValue("Start").ToString() != "4" || _key[158] == null || _key[158].GetValue("Start", null) == null || _key[158].GetValue("Start").ToString() != "4" ||
+                _key[159] == null || _key[159].GetValue("Start", null) == null || _key[159].GetValue("Start").ToString() != "4" || _key[160] == null || _key[160].GetValue("Start", null) == null || _key[160].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton21.State = true;
+                _services.Tweak21.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton21.State = false;
+                _services.Tweak21.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#22
+            _key[161] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AssignedAccessManagerSvc");
+            _key[162] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppReadiness");
+
+            if (_key[161] == null || _key[161].GetValue("Start", null) == null || _key[161].GetValue("Start").ToString() != "4" || _key[162] == null || _key[162].GetValue("Start", null) == null || _key[162].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton22.State = true;
+                _services.Tweak22.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton22.State = false;
+                _services.Tweak22.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#23
+            _key[163] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\BDESVC");
+            _key[164] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EFS");
+
+            if (_key[163] == null || _key[163].GetValue("Start", null) == null || _key[163].GetValue("Start").ToString() != "4" || _key[164] == null || _key[164].GetValue("Start", null) == null || _key[164].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton23.State = true;
+                _services.Tweak23.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton23.State = false;
+                _services.Tweak23.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#24
+            _key[165] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\LxpSvc");
+
+            if (_key[165] == null || _key[165].GetValue("Start", null) == null || _key[165].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton24.State = true;
+                _services.Tweak24.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton24.State = false;
+                _services.Tweak24.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#25
+            _key[166] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WarpJITSvc");
+            _key[167] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc");
+
+            if (_key[166] == null || _key[166].GetValue("Start", null) == null || _key[166].GetValue("Start").ToString() != "4" || _key[167] == null || _key[167].GetValue("Start", null) == null || _key[167].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton25.State = true;
+                _services.Tweak25.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton25.State = false;
+                _services.Tweak25.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#26
+            _key[168] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost");
+            _key[169] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiServiceHost");
+            _key[170] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TroubleshootingSvc");
+            _key[171] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS");
+            _key[172] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service");
+
+            if (_key[168] == null || _key[168].GetValue("Start", null) == null || _key[168].GetValue("Start").ToString() != "4" || _key[169] == null || _key[169].GetValue("Start", null) == null || _key[169].GetValue("Start").ToString() != "4" || _key[170] == null || _key[170].GetValue("Start", null) == null || _key[170].GetValue("Start").ToString() != "4" ||
+                _key[171] == null || _key[171].GetValue("Start", null) == null || _key[171].GetValue("Start").ToString() != "4" || _key[172] == null || _key[172].GetValue("Start", null) == null || _key[172].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton26.State = true;
+                _services.Tweak26.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton26.State = false;
+                _services.Tweak26.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#27
+            _key[173] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc");
+            _key[174] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry");
+            _key[175] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon");
+            _key[176] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EntAppSvc");
+            _key[177] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dot3svc");
+            _key[178] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DevQueryBroker");
+            _key[179] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppMgmt");
+
+            if (_key[173] == null || _key[173].GetValue("Start", null) == null || _key[173].GetValue("Start").ToString() != "4" || _key[174] == null || _key[174].GetValue("Start", null) == null || _key[174].GetValue("Start").ToString() != "4" || _key[175] == null || _key[175].GetValue("Start", null) == null || _key[175].GetValue("Start").ToString() != "4" ||
+                _key[176] == null || _key[176].GetValue("Start", null) == null || _key[176].GetValue("Start").ToString() != "4" || _key[177] == null || _key[177].GetValue("Start", null) == null || _key[177].GetValue("Start").ToString() != "4" || _key[178] == null || _key[178].GetValue("Start", null) == null || _key[178].GetValue("Start").ToString() != "4" ||
+                _key[179] == null || _key[179].GetValue("Start", null) == null || _key[179].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton27.State = true;
+                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton27.State = false;
+                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#27
+            _key[173] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc");
+            _key[174] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\RemoteRegistry");
+            _key[175] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Netlogon");
+            _key[176] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\EntAppSvc");
+            _key[177] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\dot3svc");
+            _key[178] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DevQueryBroker");
+            _key[179] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\AppMgmt");
+
+            if (_key[173] == null || _key[173].GetValue("Start", null) == null || _key[173].GetValue("Start").ToString() != "4" || _key[174] == null || _key[174].GetValue("Start", null) == null || _key[174].GetValue("Start").ToString() != "4" || _key[175] == null || _key[175].GetValue("Start", null) == null || _key[175].GetValue("Start").ToString() != "4" ||
+                _key[176] == null || _key[176].GetValue("Start", null) == null || _key[176].GetValue("Start").ToString() != "4" || _key[177] == null || _key[177].GetValue("Start", null) == null || _key[177].GetValue("Start").ToString() != "4" || _key[178] == null || _key[178].GetValue("Start", null) == null || _key[178].GetValue("Start").ToString() != "4" ||
+                _key[179] == null || _key[179].GetValue("Start", null) == null || _key[179].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton27.State = true;
+                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton27.State = false;
+                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#28
+            _key[180] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Themes");
+
+            if (_key[180] == null || _key[180].GetValue("Start", null) == null || _key[180].GetValue("Start").ToString() != "4")
+            {
+                _services.TButton28.State = true;
+                _services.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _services.TButton28.State = false;
+                _services.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+
         }
         #endregion
     }

@@ -17,19 +17,23 @@
 
         <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <ScrollViewer MinHeight="375" IsTabStop="False">
-                <Grid Width="1034" Height="420">
+                <Grid Width="1034" Height="590">
 
                     <!--#region Left Tweks-->
-                    <Label x:Name="Tweak1" Content="Убрать задержку появления контекстного меню" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,370"/>
-                    <Label x:Name="Tweak2" Content="Удалить мусорные пункты контекстного меню" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,330"/>
-                    <Label x:Name="Tweak3" Content="Удалить мусорные пункты из контекстного меню Создать" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,290"/>
-                    <Label x:Name="Tweak4" Content="Нормальный цвет всплывающей подсказки" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,250"/>
-                    <Label x:Name="Tweak5" Content="Уменьшение кнопок Закрыть, Свернуть, Развернуть" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,210"/>
-                    <Label x:Name="Tweak6" Content="Удаление «Объёмные объекты» из проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,174"/>
-                    <Label x:Name="Tweak7" Content="Удаление папок из «Этот компьютер»" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,130"/>
-                    <Label x:Name="Tweak8" Content="Удаление стрелок с ярлыков" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,91"/>
-                    <Label x:Name="Tweak9" Content="Удаление префикса «Ярлык для...»/ постфикса «– Ярлык»" Style="{StaticResource Tweaks_OFF}" Margin="86,340,0,51" />
-                    <Label x:Name="Tweak10" Content="Ускорение частоты мерцания курсора" Style="{StaticResource Tweaks_OFF}" Margin="86,380,567,1"/>
+                    <Label x:Name="Tweak1" Content="Службы связанные с работой Windows Search" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,540"/>
+                    <Label x:Name="Tweak2" Content="Службы связанные с работой Xbox" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,500"/>
+                    <Label x:Name="Tweak3" Content="Службы связанные с работой USB-модемов и USB-роутеров" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,460"/>
+                    <Label x:Name="Tweak4" Content="Служба SysMain или же Superfetch" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,420"/>
+                    <Label x:Name="Tweak5" Content="Службы счётчиков производительности Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,380"/>
+                    <Label x:Name="Tweak6" Content="Биометрическая служба Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,216,0,340"/>
+                    <Label x:Name="Tweak7" Content="Службы связанные с работой Bluetooth" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,300"/>
+                    <Label x:Name="Tweak8" Content="Службы связанные с работой принтера" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,260"/>
+                    <Label x:Name="Tweak9" Content="Служба связанная с работой сканера" Style="{StaticResource Tweaks_OFF}" Margin="86,340,0,220"/>
+                    <Label x:Name="Tweak10" Content="Службы связанные с работай факса" Style="{StaticResource Tweaks_OFF}" Margin="86,380,0,180"/>
+                    <Label x:Name="Tweak11" Content="Службы связанные с работой в режиме планшета/смартфона" Style="{StaticResource Tweaks_OFF}" Margin="86,420,0,140"/>
+                    <Label x:Name="Tweak12" Content="Службы связанные с работой дополнительных мониторов" Style="{StaticResource Tweaks_OFF}" Margin="86,460,0,100"/>
+                    <Label x:Name="Tweak13" Content="Службы Виртуальные рабочие столы, Ваш телефон и Ночной свет" Style="{StaticResource Tweaks_OFF}" Margin="86,500,0,60"/>
+                    <Label x:Name="Tweak14" Content="Службы связанные с работой локальной сети" Style="{StaticResource Tweaks_OFF}" Margin="86,540,0,20"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton1_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton2_PreviewMouseDown"/>
@@ -41,30 +45,42 @@
                     <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="42,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton8_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="42,342,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="42,382,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton10_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="42,422,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="42,462,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="42,502,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="42,542,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton14_PreviewMouseDown"/>
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                    <Label x:Name="Tweak11" Content="Ускорение появления превью на панели задач" Style="{StaticResource Tweaks_OFF}" Margin="618,20,93,370"/>
-                    <Label x:Name="Tweak12" Content="Показать значок Корзины на Рабочем столе" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,330" Width="Auto" Cursor="Hand"/>
-                    <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="618,100,120,290"/>
-                    <Label x:Name="Tweak14" Content="Сделать скролл-бар (полосу прокрутки) тоньше" Style="{StaticResource Tweaks_OFF}" Margin="618,140,93,250"/>
-                    <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютер, а не ярлык" Style="{StaticResource Tweaks_OFF}" Margin="618,180,24,207"/>
-                    <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,166"/>
-                    <Label x:Name="Tweak17" Content="Убрать значки на панели задач (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,260,103,128"/>
-                    <Label x:Name="Tweak18" Content="Отключить персонализированную рекламу (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,89"/>
-                    <Label x:Name="Tweak19" Content="Классическое контекстное меню (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,340,103,51"/>
-                    <Label x:Name="Tweak20" Content="Отключить советы и предложения (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,380,45,11"/>
+                    <Label x:Name="Tweak15" Content="Службы связанные с обновлением Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,540"/>
+                    <Label x:Name="Tweak16" Content="Службы связанные с VPN-клиентами" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,500"/>
+                    <Label x:Name="Tweak17" Content="Службы связанные с работой Windows Media" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,460"/>
+                    <Label x:Name="Tweak18" Content="Службы связанные с работой удаленных рабочих столов" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,420"/>
+                    <Label x:Name="Tweak19" Content="Службы собирающие ошибки и журналы событий" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,380"/>
+                    <Label x:Name="Tweak20" Content="Служба удалённого управления файлами WebDAV" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,340"/>
+                    <Label x:Name="Tweak21" Content="Службы связанные с работой Смарт-карты" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,300"/>
+                    <Label x:Name="Tweak22" Content="Службы связанные с работой Windows Киоск" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,260"/>
+                    <Label x:Name="Tweak23" Content="Службы связанные с шифрованием файлов" Style="{StaticResource Tweaks_OFF}" Margin="618,340,0,220"/>
+                    <Label x:Name="Tweak24" Content="Служба связанная с локализацией Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,380,0,180"/>
+                    <Label x:Name="Tweak25" Content="Службы связанные с фоновой проверкой безопасности" Style="{StaticResource Tweaks_OFF}" Margin="618,420,0,140"/>
+                    <Label x:Name="Tweak26" Content="Службы связанные с фоновой диагностикой" Style="{StaticResource Tweaks_OFF}" Margin="618,460,0,100"/>
+                    <Label x:Name="Tweak27" Content="Службы связанные с кооперативными инструментами" Style="{StaticResource Tweaks_OFF}" Margin="618,500,0,60"/>
+                    <Label x:Name="Tweak28" Content="Служба связанная с работой Темы Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,540,0,20"/>
 
-                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,102,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton14_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton16_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton17" HorizontalAlignment="Left" Margin="574,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton17_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton18" HorizontalAlignment="Left" Margin="574,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton18_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton19" HorizontalAlignment="Left" Margin="574,342,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton19_PreviewMouseDown"/>
-                    <ToggleSwitch:ToggleButton x:Name="TButton20" HorizontalAlignment="Left" Margin="574,382,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton17" HorizontalAlignment="Left" Margin="574,102,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton18" HorizontalAlignment="Left" Margin="574,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton14_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton19" HorizontalAlignment="Left" Margin="574,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton20" HorizontalAlignment="Left" Margin="574,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton16_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton21" HorizontalAlignment="Left" Margin="574,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton17_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton22" HorizontalAlignment="Left" Margin="574,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton18_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton23" HorizontalAlignment="Left" Margin="574,342,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton19_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton24" HorizontalAlignment="Left" Margin="574,382,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton25" HorizontalAlignment="Left" Margin="574,422,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton26" HorizontalAlignment="Left" Margin="574,462,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton27" HorizontalAlignment="Left" Margin="574,502,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton28" HorizontalAlignment="Left" Margin="574,542,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton20_PreviewMouseDown"/>
                     <!--#endregion-->
 
                 </Grid>
