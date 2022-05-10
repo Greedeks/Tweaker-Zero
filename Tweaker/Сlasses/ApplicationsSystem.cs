@@ -128,7 +128,6 @@ namespace Tweaker.Сlasses
                 _process.StartInfo.Arguments = string.Format("Get-AppxPackage -Name " + _appDelete + " -AllUsers | Remove-AppxPackage");
                 _process.Start();
             }
-            _process.WaitForExit();
             _process.Dispose();
 
             if (_nameApp == "Widgets")

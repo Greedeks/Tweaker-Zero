@@ -145,12 +145,15 @@ namespace Tweaker.Pages
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                notificationWindow = new NotificationWindow
+                if (notificationWindow.IsLoaded == false)
                 {
-                    AddTitle = _Tittle,
-                    AddText = _Text
-                };
-                notificationWindow.Show();
+                    notificationWindow = new NotificationWindow
+                    {
+                        AddTitle = _Tittle,
+                        AddText = _Text
+                    };
+                    notificationWindow.Show();
+                }
             });
         }
     }

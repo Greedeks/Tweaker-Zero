@@ -13,7 +13,6 @@ namespace Tweaker.Pages
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
-
         public ServicesPage()
         {
             InitializeComponent();

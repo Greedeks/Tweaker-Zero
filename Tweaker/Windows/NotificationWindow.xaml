@@ -41,8 +41,8 @@
 
             <Grid Grid.Row="1">
                 <Image Source="\TweakerIcon.ico" Height="50" Width="50" HorizontalAlignment="Left" Margin="17,13,0,0" VerticalAlignment="Top"/>
-                <TextBlock x:Name="NotificationTitle" Style="{DynamicResource DescriptionTweaks}" Text="Title" Height="20" Width="161" Margin="87,13,0,57" HorizontalAlignment="Left" FontSize="11pt" TextAlignment="Left"/>
-                <TextBlock x:Name="NotificationText" Style="{DynamicResource DescriptionTweaks}"  Foreground="#C9C9C9" Text="Text" Height="Auto" Width="263" MaxWidth="263" TextWrapping="Wrap" Margin="87,33,0,4" HorizontalAlignment="Left" FontSize="10pt" TextAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                <TextBlock x:Name="NotificationTitle" Style="{DynamicResource DescriptionTweaks}" Text="Title" Height="20" Width="161" Margin="87,13,0,57" HorizontalAlignment="Left" FontSize="11pt" TextAlignment="Left" PreviewMouseDown="Notification_PreviewMouseDown"/>
+                <TextBlock x:Name="NotificationText" Style="{DynamicResource DescriptionTweaks}"  Foreground="#C9C9C9" Text="Text" Height="Auto" Width="263" MaxWidth="263" TextWrapping="Wrap" Margin="87,33,0,4" HorizontalAlignment="Left" FontSize="10pt" TextAlignment="Left" RenderTransformOrigin="0.5,0.5" PreviewMouseDown="Notification_PreviewMouseDown">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

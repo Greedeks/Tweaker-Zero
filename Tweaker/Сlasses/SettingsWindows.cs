@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Tweaker.Pages;
+using Tweaker.Windows;
 
 namespace Tweaker.Сlasses
 {
@@ -24,6 +25,7 @@ namespace Tweaker.Сlasses
         private Process _process;
         private BackgroundWorker _worker;
         private string _state = default;
+        private NotificationWindow notificationWindow = new NotificationWindow();
 
         #region Confidentiality
         internal void GetSettingConfidentiality(Confidentiality _confidentiality)
@@ -1224,6 +1226,7 @@ namespace Tweaker.Сlasses
                         }
                     case 5:
                         {
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                             {
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("CaptionHeight", "-270", RegistryValueKind.String);
@@ -1286,6 +1289,7 @@ namespace Tweaker.Сlasses
                         }
                     case 8:
                         {
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             Environment.SpecialFolder _folderWindows = Environment.SpecialFolder.Windows;
                             string _pathToWinF = Environment.GetFolderPath(_folderWindows);
                             try
@@ -1317,6 +1321,7 @@ namespace Tweaker.Сlasses
                         }
                     case 9:
                         {
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").SetValue("link", Encoding.Unicode.GetBytes("\0\0"), RegistryValueKind.Binary);
                             else
@@ -1325,6 +1330,7 @@ namespace Tweaker.Сlasses
                         }
                     case 10:
                         {
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("CursorBlinkRate", "250", RegistryValueKind.String);
                             else
@@ -1333,6 +1339,7 @@ namespace Tweaker.Сlasses
                         }
                     case 11:
                         {
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Control Panel\Mouse").SetValue("MouseHoverTime", "20", RegistryValueKind.String);
                             else
@@ -1357,6 +1364,7 @@ namespace Tweaker.Сlasses
                         }
                     case 14:
                         {
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                             {
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("ScrollHeight", "-210", RegistryValueKind.String);
@@ -1547,12 +1555,6 @@ namespace Tweaker.Сlasses
             {
                 if (_choose)
                 {
-                    RegistryKey _keyOneDrive = _classesRootKey.OpenSubKey(@"CLSID", true);
-                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-                    _keyOneDrive = _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID", true);
-                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-                    _keyOneDrive.Close();
-
                     string[] _onedrive = new string[6] { @"taskkill /f /im OneDrive.exe", @"%systemroot%\System32\OneDriveSetup.exe /uninstall", @"%systemroot%\SysWOW64\OneDriveSetup.exe /uninstall", @"rd /s /q %userprofile%\OneDrive", @"rd /s /q %userprofile%\AppData\Local\Microsoft\OneDrive", @"rd /s /q "" % allusersprofile %\Microsoft OneDrive""" };
                     _process = new Process();
                     _process.StartInfo.UseShellExecute = false;
@@ -1565,13 +1567,15 @@ namespace Tweaker.Сlasses
                         _process.Start();
                     }
                     _process.Dispose();
+
+                    RegistryKey _keyOneDrive = _classesRootKey.OpenSubKey(@"CLSID", true);
+                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _keyOneDrive = _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID", true);
+                    _keyOneDrive.DeleteSubKeyTree(@"{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _keyOneDrive.Close();
                 }
                 else
                 {
-                    _classesRootKey.CreateSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-                    _classesRootKey.CreateSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
-
-
                     string[] _onedrive = new string[2] { @"%systemroot%\System32\OneDriveSetup.exe", @"%systemroot%\SysWOW64\OneDriveSetup.exe" };
                     _process = new Process();
                     _process.StartInfo.UseShellExecute = false;
@@ -1584,6 +1588,9 @@ namespace Tweaker.Сlasses
                         _process.Start();
                     }
                     _process.Dispose();
+
+                    _classesRootKey.CreateSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                    _classesRootKey.CreateSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
                 }
             });
         }
@@ -2120,6 +2127,7 @@ namespace Tweaker.Сlasses
         {
             try
             {
+                ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                 switch (_select)
                 {
                     case 1:
@@ -2684,5 +2692,22 @@ namespace Tweaker.Сlasses
             catch { };
         }
         #endregion
+
+        private void ShowNotification(string _Tittle, string _Text, byte _Action)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                if (notificationWindow.IsLoaded == false)
+                {
+                    notificationWindow = new NotificationWindow
+                    {
+                        AddTitle = _Tittle,
+                        AddText = _Text,
+                        ActionChoice = _Action,
+                    };
+                    notificationWindow.Show();
+                }
+            });
+        }
     }
 }
