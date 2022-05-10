@@ -23,7 +23,7 @@
                     <Label x:Name="Tweak1" Content="Службы связанные с работой Windows Search" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,540"/>
                     <Label x:Name="Tweak2" Content="Службы связанные с работой Xbox" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,500"/>
                     <Label x:Name="Tweak3" Content="Службы связанные с работой USB-модемов и USB-роутеров" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,460"/>
-                    <Label x:Name="Tweak4" Content="Служба SysMain или же Superfetch" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,420"/>
+                    <Label x:Name="Tweak4" Content="Службы связанные с Магазином Windows и его приложениями" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,420"/>
                     <Label x:Name="Tweak5" Content="Службы счётчиков производительности Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,380"/>
                     <Label x:Name="Tweak6" Content="Биометрическая служба Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,216,0,340"/>
                     <Label x:Name="Tweak7" Content="Службы связанные с работой Bluetooth" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,300"/>
