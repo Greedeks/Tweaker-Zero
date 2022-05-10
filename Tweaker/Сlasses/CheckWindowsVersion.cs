@@ -16,7 +16,7 @@ namespace Tweaker.Сlasses
         internal void CheckVersion()
         {
             GetVerison();
-            if (_version.Substring(0, _version.LastIndexOf(' ')) != "10" || _version.Substring(0, _version.LastIndexOf(' ')) != "11")
+            if (_version.Substring(0, _version.LastIndexOf(' ')) != "10" && _version.Substring(0, _version.LastIndexOf(' ')) != "11")
             {
                 new MessageForUser("К сожалению ваша версия Windows, не поддерживается. Запуск будет отменен!").ShowDialog();
             }
