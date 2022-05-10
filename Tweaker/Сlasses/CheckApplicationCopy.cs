@@ -23,7 +23,7 @@ namespace Tweaker
                 {
                     if (mutex.WaitOne(0, false))
                     {
-                        new MessageForUser().ShowDialog();
+                        new MessageForUser("Создание копий программы запрещено, во избежание непредвиденных ситуаций").ShowDialog();
                     }
                 }
                 string _processName = Process.GetCurrentProcess().ProcessName;

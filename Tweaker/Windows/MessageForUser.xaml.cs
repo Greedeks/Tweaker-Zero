@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -11,7 +10,7 @@ namespace Tweaker
         private readonly DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(4);
 
-        public MessageForUser()
+        public MessageForUser(string _Text)
         {
             InitializeComponent();
 
@@ -26,12 +25,14 @@ namespace Tweaker
 
             _timer.Start();
             #endregion
+
+            TextMessage.Text = _Text;
         }
 
         private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-                this.Close();
+                Application.Current.Shutdown();
         }
 
         private void Header_MouseDown(object sender, MouseButtonEventArgs e)

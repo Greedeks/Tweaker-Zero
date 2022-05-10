@@ -15,11 +15,13 @@ namespace Tweaker
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly CheckApplicationCopy _checkApplicationCopy = new CheckApplicationCopy();
         private readonly StartScanner _startScanner = new StartScanner();
+        private readonly CheckWindowsVersion _checkWindowsVersion = new CheckWindowsVersion();
         #endregion
 
         public MainWindow()
         {
             Parallel.Invoke(() => { _checkApplicationCopy.CheckAC(); });
+            Parallel.Invoke(() => { _checkWindowsVersion.CheckVersion(); });
 
             InitializeComponent();
         }

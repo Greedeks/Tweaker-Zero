@@ -36,7 +36,7 @@
                 <Label  x:Name="ButtonOKText"  Content="Понятно (05)" Style="{DynamicResource ButtonsText}"/>
             </Button>
 
-            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Text="Создание копий программы запрещено, во избежание непредвиденных ситуаций" Foreground="White" FontFamily="/Fonts/#Nunito" FontStretch="Medium" FontSize="11pt" Height="53" Width="290" Margin="0,13,0,0">
+            <TextBlock x:Name="TextMessage" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Text="Text" Foreground="White" FontFamily="/Fonts/#Nunito" FontStretch="Medium" FontSize="11pt" Height="53" Width="290" Margin="0,13,0,0">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>

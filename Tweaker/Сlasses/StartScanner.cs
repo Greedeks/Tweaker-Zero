@@ -11,10 +11,10 @@ namespace Tweaker.Сlasses
         internal void ScantheSystem()
         {
             Parallel.Invoke(
-            () => { GetSystemInformation._urlImage = _getsystemInformation.SetImageUser(); }, 
-            () => { _getsystemInformation.GetInormationPC(); }, 
+            () => { GetSystemInformation._urlImage = _getsystemInformation.SetImageUser(); },
+            () => { _getsystemInformation.GetInormationPC(); },
             () => { _settingsWindows.TaskCheckStateConfidentiality(); }, 
-            () => { _applicationsSystem.CheckInstalledApps(); } 
+            () => { _applicationsSystem.CheckInstalledApps(); }
             );
         }
     }

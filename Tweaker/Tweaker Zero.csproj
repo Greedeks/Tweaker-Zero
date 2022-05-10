@@ -82,6 +82,7 @@
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Сlasses\ApplicationsSystem.cs" />
+    <Compile Include="Сlasses\CheckWindowsVersion.cs" />
     <Compile Include="Сlasses\SettingsWindows.cs" />
     <Compile Include="Сlasses\GetSystemInformation.cs" />
     <Compile Include="Сlasses\StartScanner.cs" />
