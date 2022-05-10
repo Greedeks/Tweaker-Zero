@@ -2223,7 +2223,7 @@ namespace Tweaker.Сlasses
                                     if(_winshop[i]== "MapsBroker")
                                         rkey.SetValue("Start", 2, RegistryValueKind.DWord);
                                     else
-                                        rkey.SetValue("Start", 4, RegistryValueKind.DWord);
+                                        rkey.SetValue("Start", 3, RegistryValueKind.DWord);
                                     rkey.Close();
                                 }
                             }   
@@ -2621,7 +2621,7 @@ namespace Tweaker.Сlasses
                                     if (_diag[i] == "DPS")
                                         rkey.SetValue("Start", 2, RegistryValueKind.DWord);
                                     else
-                                        rkey.SetValue("Start", 4, RegistryValueKind.DWord);
+                                        rkey.SetValue("Start", 3, RegistryValueKind.DWord);
                                     rkey.Close();
                                 }
                             }
