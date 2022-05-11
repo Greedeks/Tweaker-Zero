@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
-            <ScrollViewer MinHeight="375" IsTabStop="False">
+            <ScrollViewer MinHeight="375" FocusVisualStyle="{x:Null}" IsTabStop="False">
                 <Grid Width="1034" Height="420">
 
                     <!--#region Left Tweks-->
