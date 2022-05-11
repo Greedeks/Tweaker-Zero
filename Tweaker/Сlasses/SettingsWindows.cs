@@ -2737,7 +2737,7 @@ namespace Tweaker.Сlasses
             }
 
             //#5
-            if (_countPowercfgSystem > 0)
+            if (_countPowercfgSystem <= 0)
             {
                 _systemPage.TButton5.State = true;
                 _systemPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
