@@ -165,6 +165,7 @@ namespace Tweaker
                             Grid.SetColumn(ActivePage, 4);
 
                             ActivePageAnim(true);
+                            MainContainer.Content = new Pages.SystemPage();
                             _systemB = true;
                         }
                         else
