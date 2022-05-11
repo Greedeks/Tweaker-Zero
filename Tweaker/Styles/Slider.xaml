@@ -38,10 +38,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Border  x:Name="Ellipse" Height="12" Width="12" Background="#A03222" CornerRadius="3" BorderBrush="#B91F13" BorderThickness="1"></Border>
+                    <Border Cursor="Hand" x:Name="Switch" Height="12" Width="12" Background="#A03222" CornerRadius="3" BorderBrush="#B91F13" BorderThickness="1"></Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="Ellipse" Property="Background" Value="#FF2400"></Setter>
+                            <Setter TargetName="Switch" Property="Background" Value="#FF2400"></Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
