@@ -44,7 +44,7 @@
                     <Label x:Name="Tweak10" Content="User Account Control (Контроль учётных записей)" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285" Width="Auto"/>
                     <Label x:Name="Tweak11" Content="Диагностика оперативной памяти вашего ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,245"/>
                     <Label x:Name="Tweak12" Content="Протоколы Teredo, ISATAP и IPv6" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,205"/>
-                    <Label x:Name="Tweak13" Content="Увеличение кэша файловой системы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,160"/>
+                    <Label x:Name="Tweak13" Content="Увеличенный кэш файловой системы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,160"/>
                     <Label x:Name="Tweak14" Content="Ускорить запуск Windows и запуск программ из автозагрузки" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,125"/>
                     <Label x:Name="Tweak15" Content="История использования для панели быстрого доступа" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,88"/>
                     <Label x:Name="Tweak16" Content="Автозапуск съёмных носителей" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,48" Cursor="Hand"/>
