@@ -2969,7 +2969,7 @@ namespace Tweaker.Сlasses
             Process _process = new Process();
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
-            _process.StartInfo.CreateNoWindow = false;
+            _process.StartInfo.CreateNoWindow = true;
             _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
             _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             _process.StartInfo.FileName = "cmd";
