@@ -7,8 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="System" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded">
-
     <Grid>
-        
+        <Slider Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Center" Minimum="0" Maximum="20" Width="50"></Slider>
     </Grid>
 </Page>

@@ -66,8 +66,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
-                            <Setter Value="#B91F13" 
-                                            TargetName="Thumb" Property="Background"/>
+                            <Setter Value="#B91F13" TargetName="Thumb" Property="Background"/>
                         </Trigger>
                         <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
                             <Setter Value="#B91F13" TargetName="Thumb" Property="Background"/>
