@@ -9,7 +9,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
-                    <Border  BorderThickness="1" BorderBrush="#101010" Background="#101010" Height="5" CornerRadius="0,1,1,0"/>
+                    <Border BorderThickness="1" BorderBrush="#101010" Background="#101010" Height="5" CornerRadius="0,1,1,0"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -38,7 +38,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Border Cursor="Hand" x:Name="Switch" Height="12" Width="12" Background="#A03222" CornerRadius="3" BorderBrush="#B91F13" BorderThickness="1"></Border>
+                    <Border x:Name="Switch" Height="12" Width="12" Background="#A03222" CornerRadius="3" BorderBrush="#B91F13" BorderThickness="1"></Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter TargetName="Switch" Property="Background" Value="#FF2400"></Setter>
@@ -56,7 +56,7 @@
                 <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Track Grid.Row="1" x:Name="PART_Track"   >
+            <Track Grid.Row="1" x:Name="PART_Track" Cursor="Hand">
                 <Track.DecreaseRepeatButton>
                     <RepeatButton Style="{StaticResource SliderRepeatButton1}"  Command="Slider.DecreaseLarge" />
                 </Track.DecreaseRepeatButton>
