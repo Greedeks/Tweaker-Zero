@@ -3,11 +3,91 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Tweaker.Pages"
+      xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="System" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded">
-    <Grid>
-        <Slider Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Center" Minimum="0" Maximum="20" Width="50"></Slider>
+
+    <Grid ScrollViewer.CanContentScroll="False" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="375*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="89*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+            <ScrollViewer MinHeight="375" IsTabStop="False">
+                <Grid Width="1034" Height="375">
+
+                    <!--#region Left Tweks-->
+                    <Label x:Name="Tweak1" Content="Скорость курсора мыши" Style="{StaticResource Tweaks_ON}" Margin="42,20,0,325"/>
+                    <Label x:Name="Tweak2" Content="Задержка повтора клавиатуры" Style="{StaticResource Tweaks_ON}" Margin="42,60,0,288"/>
+                    <Label x:Name="Tweak3" Content="Скорость повторения клавиатуры" Style="{StaticResource Tweaks_ON}" Margin="42,100,0,245"/>
+                    <Label x:Name="Tweak4" Content="Повышенная точность установки указателя (Акселерация)" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,205"/>
+                    <Label x:Name="Tweak5" Content="Схема электропитания «Максимальная производительность»" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,165"/>
+                    <Label x:Name="Tweak6" Content="Уведомления о безопасности от Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,128"/>
+                    <Label x:Name="Tweak7" Content="Предупреждения при запуске любых exe" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,85"/>
+                    <Label x:Name="Tweak8" Content="Время ожидания до отключения экрана блокировки" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,45"/>
+
+                    <Slider x:Name="Slider1" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="20" Margin="213,22,681,0"/>
+                    <Slider x:Name="Slider2" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="3" Margin="257,66,637,0"/>
+                    <Slider x:Name="Slider3" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="31" Margin="275,106,619,0"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton4_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton5_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton6_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton7" HorizontalAlignment="Left" Margin="42,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton7_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="42,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton8_PreviewMouseDown"/>
+                    <!--#endregion-->
+
+                    <!--#region Right Tweaks-->
+                    <Label x:Name="Tweak9" Content="Защитник Windows и SmartScreen" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325"/>
+                    <Label x:Name="Tweak10" Content="User Account Control (Контроль учётных записей)" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285" Width="Auto"/>
+                    <Label x:Name="Tweak11" Content="Диагностика оперативной памяти вашего ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,245"/>
+                    <Label x:Name="Tweak12" Content="Протоколы Teredo, ISATAP и IPv6" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,205"/>
+                    <Label x:Name="Tweak13" Content="Увеличение кэша файловой системы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,160"/>
+                    <Label x:Name="Tweak14" Content="Ускорить запуск Windows и запуск программ из автозагрузки" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,125"/>
+                    <Label x:Name="Tweak15" Content="История использования для панели быстрого доступа" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,88"/>
+                    <Label x:Name="Tweak16" Content="Автозапуск съёмных носителей" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,48" Cursor="Hand"/>
+
+                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton10_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,102,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton14_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton16_PreviewMouseDown"/>
+                    <!--#endregion-->
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <!--#region Buttons-->
+        <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+
+            <Button x:Name="TweaksON" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
+                </Button.Effect>
+                <Label Content="Включить всё" Style="{DynamicResource ButtonsText}"/>
+            </Button>
+
+            <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
+                </Button.Effect>
+                <Label Content="Отключить всё" Style="{DynamicResource ButtonsText}"/>
+            </Button>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Description-->
+        <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
+            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
+        </Grid>
+        <!--#endregion-->
+
     </Grid>
 </Page>

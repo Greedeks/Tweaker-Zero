@@ -68,9 +68,9 @@
                 </Track.IncreaseRepeatButton>
             </Track>
             <TextBlock FocusVisualStyle="{x:Null}" Text="{Binding Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Slider}}}" 
-                       FontFamily="/Fonts/#Nunito" FontSize="12px" FontWeight="Medium" Grid.Row="2" Margin="0,-5,0,0" HorizontalAlignment="Center" Foreground="Red">
+                       FontFamily="/Fonts/#Nunito" FontSize="12px" FontWeight="Medium" Grid.Row="2" Margin="0,-5,0,0" HorizontalAlignment="Center" Foreground="#E8E8E8">
                 <TextBlock.Effect>
-                    <DropShadowEffect Opacity="0.5" Color="red" ShadowDepth="0"/>
+                    <DropShadowEffect Opacity="0.5"  ShadowDepth="0"/>
                 </TextBlock.Effect>
             </TextBlock>
         </Grid>
