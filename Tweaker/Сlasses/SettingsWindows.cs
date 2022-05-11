@@ -21,7 +21,7 @@ namespace Tweaker.Сlasses
             _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users,
             _currentConfigKey = Registry.CurrentConfig;
         private readonly RegistryKey[] _key = new RegistryKey[500];
-        private static byte _countTasksConfidentiality = default;
+        private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default, _countPowercfgSystem = default;
         private Process _process;
         private BackgroundWorker _worker;
         private string _state = default;
@@ -565,9 +565,10 @@ namespace Tweaker.Сlasses
             _process.StartInfo.FileName = "cmd.exe";
             foreach (string _taskName in TaskName)
             {
-                Parallel.Invoke(() => {
-                _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
-                _process.Start();
+                Parallel.Invoke(() =>
+                {
+                    _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
+                    _process.Start();
                 });
             }
             _process.Dispose();
@@ -1060,7 +1061,7 @@ namespace Tweaker.Сlasses
                                 _send.CreateSubKey(@"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}").SetValue("ContextMenuOptIn", "", RegistryValueKind.String);
                                 _send.Close();
 
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID\{7AD84985-87B4-4a16-BE58-8B72A5B390F7}",true);
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\CLSID\{7AD84985-87B4-4a16-BE58-8B72A5B390F7}", true);
 
                                 RegistryKey _photo = _classesRootKey.OpenSubKey(@"AppX43hnxtbyyps62jhe9sqpdzxn1790zetc\Shell\ShellEdit", true);
                                 _photo.DeleteValue("ProgrammaticAccessOnly");
@@ -1894,7 +1895,7 @@ namespace Tweaker.Сlasses
             _key[146] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WPDBusEnum");
             _key[147] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WMPNetworkSvc");
 
-            if (_key[146] == null || _key[146].GetValue("Start", null) == null || _key[146].GetValue("Start").ToString() != "4" || 
+            if (_key[146] == null || _key[146].GetValue("Start", null) == null || _key[146].GetValue("Start").ToString() != "4" ||
                 _key[147] == null || _key[147].GetValue("Start", null) == null || _key[147].GetValue("Start").ToString() != "4")
             {
                 _services.TButton17.State = true;
@@ -2195,7 +2196,7 @@ namespace Tweaker.Сlasses
                             {
                                 for (int i = 0; i < _winshop.Length; i++)
                                 {
-                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\"+_winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree);
+                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\" + _winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree);
                                     RegistrySecurity _registrySecurity = new RegistrySecurity();
                                     WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
                                     RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
@@ -2228,13 +2229,13 @@ namespace Tweaker.Сlasses
                                     NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
                                     _registrySecurity.SetOwner(SID);
                                     rkey.SetAccessControl(_registrySecurity);
-                                    if(_winshop[i]== "MapsBroker")
+                                    if (_winshop[i] == "MapsBroker")
                                         rkey.SetValue("Start", 2, RegistryValueKind.DWord);
                                     else
                                         rkey.SetValue("Start", 3, RegistryValueKind.DWord);
                                     rkey.Close();
                                 }
-                            }   
+                            }
                             break;
                         }
                     case 5:
@@ -2736,6 +2737,16 @@ namespace Tweaker.Сlasses
             }
 
             //#5
+            if (_countPowercfgSystem > 0)
+            {
+                _systemPage.TButton5.State = true;
+                _systemPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton5.State = false;
+                _systemPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
 
             //#6
             _key[206] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance");
@@ -2781,6 +2792,204 @@ namespace Tweaker.Сlasses
                 _systemPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
+            //#9
+            _key[210] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer");
+            _key[211] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter");
+            _key[212] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System");
+            _key[213] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender");
+            _key[214] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen");
+            _key[215] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\SecurityHealthService");
+            _key[216] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc");
+            _key[217] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AppHost");
+
+            if (_key[210] == null || _key[210].GetValue("SmartScreenEnabled", null) == null || _key[210].GetValue("SmartScreenEnabled").ToString() != "off" || _key[211] == null || _key[211].GetValue("EnabledV9", null) == null || _key[211].GetValue("EnabledV9").ToString() != "0" || _key[212] == null || _key[212].GetValue("EnableSmartScreen", null) == null || _key[212].GetValue("EnableSmartScreen").ToString() != "0" ||
+                _key[213] == null || _key[213].GetValue("DisableAntiSpyware", null) == null || _key[213].GetValue("DisableAntiSpyware").ToString() != "1" || _key[214] == null || _key[214].GetValue("ConfigureAppInstallControl", null) == null || _key[214].GetValue("ConfigureAppInstallControl").ToString() != "Anywhere" || _key[214] == null || _key[214].GetValue("ConfigureAppInstallControlEnabled", null) == null || _key[214].GetValue("ConfigureAppInstallControlEnabled").ToString() != "1" ||
+                _key[215] == null || _key[215].GetValue("Start", null) == null || _key[215].GetValue("Start").ToString() != "4" || _key[216] == null || _key[216].GetValue("Start", null) == null || _key[216].GetValue("Start").ToString() != "4" || _key[217] == null || _key[217].GetValue("EnableWebContentEvaluation", null) == null || _key[217].GetValue("EnableWebContentEvaluation").ToString() != "0")
+            {
+                _systemPage.TButton9.State = true;
+                _systemPage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton9.State = false;
+                _systemPage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#10
+            _key[218] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System");
+
+            if (_key[218] == null || _key[218].GetValue("ConsentPromptBehaviorAdmin", null) == null || _key[218].GetValue("ConsentPromptBehaviorAdmin").ToString() != "0" || _key[218] == null || _key[218].GetValue("EnableInstallerDetection", null) == null || _key[218].GetValue("EnableInstallerDetection").ToString() != "0" || _key[218] == null || _key[218].GetValue("EnableLUA", null) == null || _key[218].GetValue("EnableLUA").ToString() != "0" ||
+                _key[218] == null || _key[218].GetValue("EnableSecureUIAPaths", null) == null || _key[218].GetValue("EnableSecureUIAPaths").ToString() != "0" || _key[218] == null || _key[218].GetValue("EnableVirtualization", null) == null || _key[218].GetValue("EnableVirtualization").ToString() != "0" || _key[218] == null || _key[218].GetValue("FilterAdministratorToken", null) == null || _key[218].GetValue("FilterAdministratorToken").ToString() != "0" ||
+                _key[218] == null || _key[218].GetValue("PromptOnSecureDesktop", null) == null || _key[218].GetValue("PromptOnSecureDesktop").ToString() != "0")
+            {
+                _systemPage.TButton10.State = true;
+                _systemPage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton10.State = false;
+                _systemPage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#11
+            if (_countTaskSystem > 0)
+            {
+                _systemPage.TButton11.State = true;
+                _systemPage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton11.State = false;
+                _systemPage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#12
+            if (_countProtocolSystem > 0)
+            {
+                _systemPage.TButton12.State = true;
+                _systemPage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton12.State = false;
+                _systemPage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#13
+            _key[219] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management");
+
+            if (_key[219] == null || _key[219].GetValue("LargeSystemCache", null) == null || _key[219].GetValue("LargeSystemCache").ToString() != "1")
+            {
+                _systemPage.TButton13.State = true;
+                _systemPage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton13.State = false;
+                _systemPage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#14
+            _key[220] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize");
+
+            if (_key[220] == null || _key[220].GetValue("Startupdelayinmsec", null) == null || _key[220].GetValue("Startupdelayinmsec").ToString() != "0")
+            {
+                _systemPage.TButton14.State = true;
+                _systemPage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton14.State = false;
+                _systemPage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#15
+            _key[221] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
+            _key[222] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+
+            if (_key[221] == null || _key[221].GetValue("ShowFrequent", null) == null || _key[221].GetValue("ShowFrequent").ToString() != "0" || _key[221] == null || _key[221].GetValue("ShowRecent", null) == null || _key[221].GetValue("ShowRecent").ToString() != "0" ||
+                _key[222] == null || _key[222].GetValue("Start_TrackDocs", null) == null || _key[222].GetValue("Start_TrackDocs").ToString() != "0" || _key[222] == null || _key[222].GetValue("Start_TrackProgs", null) == null || _key[222].GetValue("Start_TrackProgs").ToString() != "0")
+            {
+                _systemPage.TButton15.State = true;
+                _systemPage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton15.State = false;
+                _systemPage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#16
+            _key[223] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers");
+
+            if (_key[223] == null || _key[223].GetValue("DisableAutoplay", null) == null || _key[223].GetValue("DisableAutoplay").ToString() != "1")
+            {
+                _systemPage.TButton16.State = true;
+                _systemPage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton16.State = false;
+                _systemPage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+        }
+
+        internal void TaskCheckStateSystem()
+        {
+            string[] TaskName = new string[2] { @"""Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents""", @"""Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic""" };
+
+            Process _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            _process.StartInfo.FileName = "cmd.exe";
+            _countTaskSystem = 0;
+            foreach (var _task in TaskName)
+            {
+                _process.StartInfo.Arguments = string.Format("/c chcp 65001 & schtasks /tn {0}", _task);
+                _process.Start();
+                _process.StandardOutput.ReadLine();
+                string _tbl = _process.StandardOutput.ReadToEnd();
+                if (_tbl.Split('A').Last().Trim() == "Ready")
+                    _countTaskSystem++;
+            }
+            _process.Dispose();
+        }
+
+        internal void ProtocolCheckStateSystem()
+        {
+            string[] TaskName = new string[2] { @"netsh interface isatap show state", "netsh int ipv6 isatap show state" };
+
+            Process _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            _process.StartInfo.FileName = "cmd.exe";
+            _countProtocolSystem = 0;
+            foreach (var _task in TaskName)
+            {
+                _process.StartInfo.Arguments = string.Format("/c chcp 65001 & {0}", _task);
+                _process.Start();
+                _process.StandardOutput.ReadLine();
+                string _tbl = _process.StandardOutput.ReadToEnd();
+                if (_tbl.Contains("default"))
+                    _countProtocolSystem++;
+            }
+            _process.Dispose();
+        }
+
+        internal void PowerCfgStateSystem()
+        {
+            string[] TaskName = new string[1] { @"powercfg list" };
+
+            Process _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = false;
+            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            _process.StartInfo.FileName = "cmd";
+            _countPowercfgSystem = 0;
+            foreach (var _task in TaskName)
+            {
+                _process.StartInfo.Arguments = string.Format("/c {0}", _task);
+                _process.Start();
+                _process.StandardOutput.ReadLine();
+                string _tbl = _process.StandardOutput.ReadToEnd();
+                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (Максимальная производительность) " }, StringSplitOptions.None).Count() - 1);
+                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (Ultimate Performance) " }, StringSplitOptions.None).Count() - 1);
+                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (???????????? ??????????????????) " }, StringSplitOptions.None).Count() - 1);
+                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (???????? ???????????)" }, StringSplitOptions.None).Count() - 1);
+            }
+
+           
+            
+            _process.Dispose();
+           // MessageBox.Show(_countPowercfgSystem.ToString());
         }
         #endregion
 

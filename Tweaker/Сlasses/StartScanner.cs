@@ -13,7 +13,10 @@ namespace Tweaker.Сlasses
             Parallel.Invoke(
             () => { GetSystemInformation._urlImage = _getsystemInformation.SetImageUser(); },
             () => { _getsystemInformation.GetInormationPC(); },
-            () => { _settingsWindows.TaskCheckStateConfidentiality(); }, 
+            () => { _settingsWindows.TaskCheckStateConfidentiality(); },
+            () => { _settingsWindows.TaskCheckStateSystem(); },
+            () => { _settingsWindows.ProtocolCheckStateSystem(); },
+            () => { _settingsWindows.PowerCfgStateSystem(); },
             () => { _applicationsSystem.CheckInstalledApps(); }
             );
         }
