@@ -2693,6 +2693,97 @@ namespace Tweaker.Сlasses
         }
         #endregion
 
+        #region System
+        internal void GetSettingSystem(SystemPage _systemPage)
+        {
+            //#1
+            _key[202] = _currentUserKey.OpenSubKey(@"Control Panel\Mouse");
+
+            if (_key[202] == null || _key[202].GetValue("MouseSensitivity", null) == null)
+                _systemPage.Slider1.Value = 0;
+            else
+                _systemPage.Slider1.Value = double.Parse(_key[202].GetValue("MouseSensitivity").ToString());
+
+            //#2
+            _key[203] = _currentUserKey.OpenSubKey(@"Control Panel\Keyboard");
+
+            if (_key[203] == null || _key[203].GetValue("KeyboardDelay", null) == null)
+                _systemPage.Slider2.Value = 0;
+            else
+                _systemPage.Slider2.Value = double.Parse(_key[203].GetValue("KeyboardDelay").ToString());
+
+            //#3
+            _key[204] = _currentUserKey.OpenSubKey(@"Control Panel\Keyboard");
+
+            if (_key[204] == null || _key[204].GetValue("KeyboardSpeed", null) == null)
+                _systemPage.Slider3.Value = 0;
+            else
+                _systemPage.Slider3.Value = double.Parse(_key[204].GetValue("KeyboardSpeed").ToString());
+
+            //#4
+            _key[205] = _currentUserKey.OpenSubKey(@"Control Panel\Mouse");
+
+            if (_key[205] == null || _key[205].GetValue("MouseSpeed", null) == null || _key[205].GetValue("MouseSpeed").ToString() != "0" || _key[205] == null || _key[205].GetValue("MouseThreshold1", null) == null || _key[205].GetValue("MouseThreshold1").ToString() != "0" ||
+                _key[205] == null || _key[205].GetValue("MouseThreshold2", null) == null || _key[205].GetValue("MouseThreshold2").ToString() != "0")
+            {
+                _systemPage.TButton4.State = true;
+                _systemPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton4.State = false;
+                _systemPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#5
+
+            //#6
+            _key[206] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance");
+
+            if (_key[206] == null || _key[206].GetValue("Enabled", null) == null || _key[206].GetValue("Enabled").ToString() != "0")
+            {
+                _systemPage.TButton6.State = true;
+                _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton6.State = false;
+                _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#7
+            _key[207] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Security");
+            _key[208] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3");
+
+            if (_key[207] == null || _key[207].GetValue("DisableSecuritySettingsCheck", null) == null || _key[207].GetValue("DisableSecuritySettingsCheck").ToString() != "1" ||
+                _key[208] == null || _key[208].GetValue("1806", null) == null || _key[208].GetValue("1806").ToString() != "0")
+            {
+                _systemPage.TButton7.State = true;
+                _systemPage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton7.State = false;
+                _systemPage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#8
+            _key[209] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7516b95f-f776-4464-8c53-06167f40cc99\8EC4B3A5-6868-48c2-BE75-4F3044BE88A7");
+
+            if (_key[209] == null || _key[209].GetValue("Attributes", null) == null || _key[209].GetValue("Attributes").ToString() != "2")
+            {
+                _systemPage.TButton8.State = true;
+                _systemPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _systemPage.TButton8.State = false;
+                _systemPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+        }
+        #endregion
+
         private void ShowNotification(string _Tittle, string _Text, byte _Action)
         {
             Application.Current.Dispatcher.Invoke(() =>

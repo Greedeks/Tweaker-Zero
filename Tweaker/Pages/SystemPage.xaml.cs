@@ -30,7 +30,7 @@ namespace Tweaker.Pages
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 if (_time.TotalSeconds % 60 == 0)
-                    //_settingsWindows.GetSettingServices(this);
+                    _settingsWindows.GetSettingSystem(this);
                 _time = _time.Add(TimeSpan.FromSeconds(+1));
             }, Application.Current.Dispatcher);
             #endregion
@@ -175,7 +175,7 @@ namespace Tweaker.Pages
             });
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { /*/_settingsWindows.GetSettingServices(this);/*/ });
+        private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingSystem(this); });
 
         private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
     }
