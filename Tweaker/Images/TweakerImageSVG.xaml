@@ -106,4 +106,15 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
+    <DrawingImage x:Key="AddImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V100 H100 V0 H0 Z">
+                <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,100">
+                    <GeometryDrawing Brush="{DynamicResource ColorRed}" Geometry="F1 M100,100z M0,0z M386,944C161,890 10,658 48,427 110,60 560,-86 821,175 1150,505 839,1054 386,944z M605,905C917,824 1023,432 796,204 555,-36 145,97 87,434 37,729 313,980 605,905z" />
+                    <GeometryDrawing Brush="{DynamicResource ColorRed}" Geometry="F1 M100,100z M0,0z M487,654C483,650,480,618,480,584L480,521 413,518C360,516 345,512 345,500 345,488 360,484 412,482L479,479 482,412C484,360 488,345 500,345 512,345 516,360 518,412L521,479 588,482C640,484 655,488 655,500 655,512 640,516 588,518L521,521 518,587C515,648,504,671,487,654z" />
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
 </ResourceDictionary>

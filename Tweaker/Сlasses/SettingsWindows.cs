@@ -21,7 +21,7 @@ namespace Tweaker.Сlasses
             _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users,
             _currentConfigKey = Registry.CurrentConfig;
         private readonly RegistryKey[] _key = new RegistryKey[500];
-        private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default, _countPowercfgSystem = default;
+        private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default;
         private Process _process;
         private BackgroundWorker _worker;
         private string _state = default;
@@ -2736,18 +2736,6 @@ namespace Tweaker.Сlasses
                 _systemPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
-            //#5
-            if (_countPowercfgSystem <= 0)
-            {
-                _systemPage.TButton5.State = true;
-                _systemPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            }
-            else
-            {
-                _systemPage.TButton5.State = false;
-                _systemPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-            }
-
             //#6
             _key[206] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance");
 
@@ -2960,36 +2948,6 @@ namespace Tweaker.Сlasses
                     _countProtocolSystem++;
             }
             _process.Dispose();
-        }
-
-        internal void PowerCfgStateSystem()
-        {
-            string[] TaskName = new string[1] { @"powercfg list" };
-
-            Process _process = new Process();
-            _process.StartInfo.UseShellExecute = false;
-            _process.StartInfo.RedirectStandardOutput = true;
-            _process.StartInfo.CreateNoWindow = true;
-            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
-            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            _process.StartInfo.FileName = "cmd";
-            _countPowercfgSystem = 0;
-            foreach (var _task in TaskName)
-            {
-                _process.StartInfo.Arguments = string.Format("/c {0}", _task);
-                _process.Start();
-                _process.StandardOutput.ReadLine();
-                string _tbl = _process.StandardOutput.ReadToEnd();
-                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (Максимальная производительность) " }, StringSplitOptions.None).Count() - 1);
-                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (Ultimate Performance) " }, StringSplitOptions.None).Count() - 1);
-                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (???????????? ??????????????????) " }, StringSplitOptions.None).Count() - 1);
-                _countPowercfgSystem += Convert.ToByte(_tbl.Split(new string[] { " (???????? ???????????)" }, StringSplitOptions.None).Count() - 1);
-            }
-
-           
-            
-            _process.Dispose();
-           // MessageBox.Show(_countPowercfgSystem.ToString());
         }
         #endregion
 

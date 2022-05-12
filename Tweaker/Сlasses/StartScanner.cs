@@ -16,7 +16,6 @@ namespace Tweaker.Сlasses
             () => { _settingsWindows.TaskCheckStateConfidentiality(); },
             () => { _settingsWindows.TaskCheckStateSystem(); },
             () => { _settingsWindows.ProtocolCheckStateSystem(); },
-            () => { _settingsWindows.PowerCfgStateSystem(); },
             () => { _applicationsSystem.CheckInstalledApps(); }
             );
         }
