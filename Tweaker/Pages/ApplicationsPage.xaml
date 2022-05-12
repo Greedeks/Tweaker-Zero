@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="Applications" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded">
+      Title="Applications" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded" KeyDown="Page_KeyDown">
 
     <Grid>
         <Grid.RowDefinitions>

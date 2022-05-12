@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="System" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded">
+      Title="System" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded" KeyDown="Page_KeyDown">
 
     <Grid ScrollViewer.CanContentScroll="False" Focusable="False" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>

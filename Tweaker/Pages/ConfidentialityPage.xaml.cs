@@ -199,5 +199,13 @@ namespace Tweaker.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e) => _settingsWindows.GetSettingConfidentiality(this);
 
         private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

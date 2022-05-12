@@ -305,5 +305,13 @@ namespace Tweaker.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e) => Parallel.Invoke(() => { _settingsWindows.GetSettingServices(this); });
 
         private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

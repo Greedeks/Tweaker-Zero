@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
@@ -15,6 +16,7 @@ using Tweaker.Windows;
 
 namespace Tweaker.Сlasses
 {
+
     internal sealed class SettingsWindows
     {
         private readonly RegistryKey _classesRootKey = Registry.ClassesRoot, _currentUserKey = Registry.CurrentUser,
@@ -26,6 +28,10 @@ namespace Tweaker.Сlasses
         private BackgroundWorker _worker;
         private string _state = default;
         private NotificationWindow notificationWindow = new NotificationWindow();
+
+        private const UInt32 SPI_SETMOUSESPEED = 0x0071;
+        private const UInt32 SPI_SETKEYBOARDDELAY = 0x0017;
+        private const UInt32 SPI_SETKEYBOARDSPEED = 0x000B;
 
         #region Confidentiality
         internal void GetSettingConfidentiality(Confidentiality _confidentiality)
@@ -2948,6 +2954,233 @@ namespace Tweaker.Сlasses
                     _countProtocolSystem++;
             }
             _process.Dispose();
+        }
+
+        [DllImport("User32.dll")]
+        static extern Boolean SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, UInt32 pvParam, UInt32 fWinIni);
+
+        internal void ChangeSettingSystem(in bool _choose, in byte _select, in uint _value)
+        {
+            try
+            {
+                switch (_select)
+                {
+                    case 1:
+                        {
+                            SystemParametersInfo(SPI_SETMOUSESPEED, _value, _value, 2);
+                            _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseSensitivity", _value, RegistryValueKind.String);
+                            break;
+                        }
+                    case 2:
+                        {
+                            SystemParametersInfo(SPI_SETKEYBOARDDELAY, _value, _value, 2);
+                            _currentUserKey.OpenSubKey(@"Control Panel\Keyboard", true).SetValue("KeyboardDelay", _value, RegistryValueKind.String);
+                            break;
+                        }
+                    case 3:
+                        {
+                            SystemParametersInfo(SPI_SETKEYBOARDSPEED, _value, _value, 2);
+                            _currentUserKey.OpenSubKey(@"Control Panel\Keyboard", true).SetValue("KeyboardSpeed", _value, RegistryValueKind.String);
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (_choose)
+                            {
+                                _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseSpeed", 0, RegistryValueKind.String);
+                                _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseThreshold1", 0, RegistryValueKind.String);
+                                _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseThreshold2", 0, RegistryValueKind.String);
+                            }
+                            else
+                            {
+                                _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseSpeed", 1, RegistryValueKind.String);
+                                _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseThreshold1", 6, RegistryValueKind.String);
+                                _currentUserKey.OpenSubKey(@"Control Panel\Mouse", true).SetValue("MouseThreshold2", 10, RegistryValueKind.String);
+                            }
+                            break;
+                        }
+                    case 5:
+                        {
+                            ShowNotification("Уведомление", "Схема электропитания «Максимальная производительность» добавлена", 0);
+                            Process _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                            _process.StartInfo.FileName = "cmd.exe";
+                            _process.StartInfo.Arguments = string.Format("/c powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61");
+                            _process.Start();
+                            _process.Dispose();
+                            break;
+                        }
+                    case 6:
+                        {
+                            if (_choose)
+                                _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance", true).SetValue("Enabled", 0, RegistryValueKind.DWord);
+                            else
+                                _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance", true).SetValue("Enabled", 1, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 7:
+                        {
+                            if (_choose)
+                            {
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Security").SetValue("DisableSecuritySettingsCheck", 1, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3").SetValue("1806", 0, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Security").DeleteValue("DisableSecuritySettingsCheck");
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3").DeleteValue("1806");
+                            }
+                            break;
+                        }
+                    case 8:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7516b95f-f776-4464-8c53-06167f40cc99\8EC4B3A5-6868-48c2-BE75-4F3044BE88A7").SetValue("Attributes", 2, RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7516b95f-f776-4464-8c53-06167f40cc99\8EC4B3A5-6868-48c2-BE75-4F3044BE88A7").SetValue("Attributes", 1, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 9:
+                        {
+
+                            string[] _winshop = new string[2] { "SecurityHealthService", "wscsvc" };
+
+                            if (_choose)
+                            {
+        
+
+                                    for (int i = 0; i < _winshop.Length; i++)
+                                {
+                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services" + _winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.ChangePermissions);
+                                    RegistrySecurity _registrySecurity = new RegistrySecurity();
+                                    WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
+                                    RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
+                                    _registrySecurity.AddAccessRule(new RegistryAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                  
+                                    rkey.SetAccessControl(_registrySecurity);
+
+                                    _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
+                                    NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
+                                    _registrySecurity.SetOwner(SID);
+                                    rkey.SetAccessControl(_registrySecurity);
+                                    rkey.SetValue("Start", 4, RegistryValueKind.DWord);
+                                    rkey.Close();
+                                }
+
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer").SetValue("SmartScreenEnabled", "off", RegistryValueKind.String);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter").SetValue("EnabledV9", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System").SetValue("EnableSmartScreen", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender").SetValue("DisableAntiSpyware", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").SetValue("ConfigureAppInstallControl", "Anywhere", RegistryValueKind.String);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").SetValue("ConfigureAppInstallControlEnabled", 1, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AppHost").SetValue("EnableWebContentEvaluation", 0, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                for (int i = 0; i < _winshop.Length; i++)
+                                {
+                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\" + _winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.ChangePermissions);
+                                    RegistrySecurity _registrySecurity = new RegistrySecurity();
+                                    WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
+                                    RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
+                                    _registrySecurity.AddAccessRule(_accessRule);
+                                    _registrySecurity.SetAccessRuleProtection(false, true);
+                                    rkey.SetAccessControl(_registrySecurity);
+
+                                    _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
+                                    NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
+                                    _registrySecurity.SetOwner(SID);
+                                    rkey.SetAccessControl(_registrySecurity);
+                                    rkey.SetValue("Start", 4, RegistryValueKind.DWord);
+                                    rkey.Close();
+                                }
+
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocation");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocationScripting");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableWindowsLocationProvider");
+                            }
+                            break;
+                        }
+                    case 10:
+                        {
+                            if (_choose)
+                            {
+                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("NumberOfSIUFInPeriod", 0, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("PeriodInNanoSeconds", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("DoNotShowFeedbackNotifications", 1, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("NumberOfSIUFInPeriod");
+                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("PeriodInNanoSeconds");
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true).DeleteValue("DoNotShowFeedbackNotifications");
+                            }
+                            break;
+                        }
+                    case 11:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").SetValue("AllowSpeechModelUpdate", 0, RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech", true).DeleteValue("AllowSpeechModelUpdate");
+                            break;
+                        }
+                    case 12:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 4, RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 2, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 13:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").SetValue("AllowExperimentation", 0, RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System", true).DeleteValue("AllowExperimentation");
+                            break;
+                        }
+                    case 14:
+                        {
+                            if (_choose)
+                            {
+                                RegistryKey _modl = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services", true);
+                                _modl.DeleteSubKeyTree(@"DiagTrack");
+                                _modl.DeleteSubKeyTree(@"dmwappushservice");
+                                _modl.Close();
+                            }
+                            else
+                            {
+                                RegistryKey _modl = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services", true);
+                                _modl.CreateSubKey(@"DiagTrack");
+                                _modl.CreateSubKey(@"dmwappushservice");
+                                _modl.Close();
+                            }
+                            break;
+                        }
+                    case 15:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 4, RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 3, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 16:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 4, RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 2, RegistryValueKind.DWord);
+                            break;
+                        }
+                }
+            }
+            catch { };
         }
         #endregion
 

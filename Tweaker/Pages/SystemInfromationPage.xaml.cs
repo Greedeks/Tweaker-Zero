@@ -99,6 +99,10 @@ namespace Tweaker.Pages
                     }
                 }
             }
+            if (e.Key == Key.F5)
+            {
+                e.Handled = true;
+            }
         }
         #endregion
 
