@@ -61,18 +61,21 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (TButton4.State)
-                {
-                    uint[] _acc = new uint[3] { 0, 0, 0 };
-                    SystemParametersInfo(SPI_SETMOUSE, _acc, _acc, 2);
-                }
-                else
-                {
-                    uint[] _acc = new uint[3] { 1, 6, 10 };
-                    SystemParametersInfo(SPI_SETMOUSE, _acc, _acc, 2);
-                }
-                Tweak4.Style = !TButton4.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
-                _settingsWindows.ChangeSettingSystem(TButton4.State, 4, 0);
+                Parallel.Invoke(() => {
+                    if (TButton4.State)
+                    {
+                        uint[] _acc = new uint[3] { 0, 0, 0 };
+                        SystemParametersInfo(SPI_SETMOUSE, _acc, _acc, 2);
+                    }
+                    else
+                    {
+                        uint[] _acc = new uint[3] { 1, 6, 10 };
+                        SystemParametersInfo(SPI_SETMOUSE, _acc, _acc, 2);
+                    }
+                 
+                    Tweak4.Style = !TButton4.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                    _settingsWindows.ChangeSettingSystem(TButton4.State, 4, 0);
+                });
             }
         }
 
