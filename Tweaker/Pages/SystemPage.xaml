@@ -43,7 +43,7 @@
                                     <DropShadowEffect Opacity="0.7"/>
                                 </Image.Effect>
                             </Image>
-                            <Label Padding="5,0,0,0" Content="Добавить" Style="{DynamicResource ButtonsText}" FontSize="12px"/>
+                            <Label Padding="7,0,0,0" Content="Добавить" Style="{DynamicResource ButtonsText}" FontSize="12px"/>
                         </StackPanel>
                     </Button>
                     <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton6_PreviewMouseDown"/>
