@@ -24,7 +24,6 @@ namespace Tweaker.Сlasses
             _currentConfigKey = Registry.CurrentConfig;
         private readonly RegistryKey[] _key = new RegistryKey[500];
         private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default;
-        private Process _process;
         private BackgroundWorker _worker;
         private string _state = default;
         private NotificationWindow notificationWindow = new NotificationWindow();
@@ -287,7 +286,7 @@ namespace Tweaker.Сlasses
                 @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
                 @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
 
-            _process = new Process();
+            Process _process = new Process();
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.CreateNoWindow = true;
@@ -369,7 +368,7 @@ namespace Tweaker.Сlasses
                          @"""Microsoft\Office\OfficeTelemetryAgentFallBack2016""", @"""Microsoft\Office\OfficeTelemetryAgentLogOn2016""", @"""Microsoft\Office\OfficeTelemetryAgentFallBack""",
                          @"""Microsoft\Office\OfficeTelemetryAgentLogOn""", @"""Microsoft\Office\Office 15 Subscription Heartbeat""",};
 
-                            _process = new Process();
+                            Process _process = new Process();
                             _process.StartInfo.UseShellExecute = false;
                             _process.StartInfo.RedirectStandardOutput = true;
                             _process.StartInfo.CreateNoWindow = true;
@@ -389,7 +388,7 @@ namespace Tweaker.Сlasses
                     case 4:
                         {
                             _worker = new BackgroundWorker();
-                            _worker.DoWork += Worker_DoWorkTaskConfidentiality; ;
+                            _worker.DoWork += Worker_DoWorkTaskConfidentiality;
                             _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                             if (_choose)
                             {
@@ -563,7 +562,7 @@ namespace Tweaker.Сlasses
                 @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
                 @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
 
-            _process = new Process();
+            Process _process = new Process();
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.CreateNoWindow = true;
@@ -1262,7 +1261,7 @@ namespace Tweaker.Сlasses
                                 _arguments = @"md /s /q "" % userprofile %\3D Objects\""";
                             }
 
-                            _process = new Process();
+                            Process _process = new Process();
                             _process.StartInfo.UseShellExecute = false;
                             _process.StartInfo.RedirectStandardOutput = true;
                             _process.StartInfo.CreateNoWindow = true;
@@ -1563,7 +1562,7 @@ namespace Tweaker.Сlasses
                 if (_choose)
                 {
                     string[] _onedrive = new string[6] { @"taskkill /f /im OneDrive.exe", @"%systemroot%\System32\OneDriveSetup.exe /uninstall", @"%systemroot%\SysWOW64\OneDriveSetup.exe /uninstall", @"rd /s /q %userprofile%\OneDrive", @"rd /s /q %userprofile%\AppData\Local\Microsoft\OneDrive", @"rd /s /q "" % allusersprofile %\Microsoft OneDrive""" };
-                    _process = new Process();
+                    Process _process = new Process();
                     _process.StartInfo.UseShellExecute = false;
                     _process.StartInfo.RedirectStandardOutput = true;
                     _process.StartInfo.CreateNoWindow = true;
@@ -1584,7 +1583,7 @@ namespace Tweaker.Сlasses
                 else
                 {
                     string[] _onedrive = new string[2] { @"%systemroot%\System32\OneDriveSetup.exe", @"%systemroot%\SysWOW64\OneDriveSetup.exe" };
-                    _process = new Process();
+                    Process _process = new Process();
                     _process.StartInfo.UseShellExecute = false;
                     _process.StartInfo.RedirectStandardOutput = true;
                     _process.StartInfo.CreateNoWindow = true;
@@ -2934,7 +2933,7 @@ namespace Tweaker.Сlasses
 
         internal void ProtocolCheckStateSystem()
         {
-            string[] TaskName = new string[2] { @"netsh interface isatap show state", "netsh int ipv6 isatap show state" };
+            string[] Protocols = new string[2] { @"netsh interface isatap show state", "netsh int ipv6 isatap show state" };
 
             Process _process = new Process();
             _process.StartInfo.UseShellExecute = false;
@@ -2944,9 +2943,9 @@ namespace Tweaker.Сlasses
             _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             _process.StartInfo.FileName = "cmd.exe";
             _countProtocolSystem = 0;
-            foreach (var _task in TaskName)
+            foreach (var _protocol in Protocols)
             {
-                _process.StartInfo.Arguments = string.Format("/c chcp 65001 & {0}", _task);
+                _process.StartInfo.Arguments = string.Format("/c chcp 65001 & {0}", _protocol);
                 _process.Start();
                 _process.StandardOutput.ReadLine();
                 string _tbl = _process.StandardOutput.ReadToEnd();
@@ -3050,16 +3049,16 @@ namespace Tweaker.Сlasses
 
                             if (_choose)
                             {
-        
 
-                                    for (int i = 0; i < _winshop.Length; i++)
+
+                                for (int i = 0; i < _winshop.Length; i++)
                                 {
                                     RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services" + _winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.ChangePermissions);
                                     RegistrySecurity _registrySecurity = new RegistrySecurity();
                                     WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
                                     RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
                                     _registrySecurity.AddAccessRule(new RegistryAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-                  
+
                                     rkey.SetAccessControl(_registrySecurity);
 
                                     _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
@@ -3106,76 +3105,143 @@ namespace Tweaker.Сlasses
                         }
                     case 10:
                         {
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
                             {
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("NumberOfSIUFInPeriod", 0, RegistryValueKind.DWord);
-                                _currentUserKey.CreateSubKey(@"SOFTWARE\Microsoft\Siuf\Rules").SetValue("PeriodInNanoSeconds", 0, RegistryValueKind.DWord);
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection").SetValue("DoNotShowFeedbackNotifications", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("ConsentPromptBehaviorAdmin", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableInstallerDetection", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableLUA", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableSecureUIAPaths", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableVirtualization", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("FilterAdministratorToken", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("PromptOnSecureDesktop", 0, RegistryValueKind.DWord);
                             }
                             else
                             {
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("NumberOfSIUFInPeriod");
-                                _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Siuf\Rules", true).DeleteValue("PeriodInNanoSeconds");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true).DeleteValue("DoNotShowFeedbackNotifications");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("ConsentPromptBehaviorAdmin", 5, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableInstallerDetection", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableLUA", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableSecureUIAPaths", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("EnableVirtualization", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("FilterAdministratorToken", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("PromptOnSecureDesktop", 1, RegistryValueKind.DWord);
                             }
                             break;
                         }
                     case 11:
                         {
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            string _state = default;
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech").SetValue("AllowSpeechModelUpdate", 0, RegistryValueKind.DWord);
+                            {
+                                _state = "/disable";
+                                _countTaskSystem = 0;
+                            }
                             else
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech", true).DeleteValue("AllowSpeechModelUpdate");
+                            {
+                                _state = "/enable";
+                                _countTaskSystem = 2;
+                            }
+
+                            string[] TaskName = new string[2] { @"""Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents""", @"""Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic""" };
+
+                            Process _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                            _process.StartInfo.FileName = "cmd.exe";
+                            foreach (var _task in TaskName)
+                            {
+                                Parallel.Invoke(() =>
+                                {
+                                    _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _task, _state);
+                                    _process.Start();
+                                    _process.StandardOutput.ReadLine();
+                                });
+                            }
+                            _process.Dispose();
                             break;
                         }
                     case 12:
                         {
+                            string[] ProtocolName = new string[6];
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 4, RegistryValueKind.DWord);
+                            {
+                                string[] protocolDisabled = {  @"netsh interface teredo set state disabled", @"netsh interface isatap set state disabled",
+                                @"netsh int ipv6 isatap set state disabled", @"netsh int ipv6 6to4 set state disabled", @"netsh interface IPV6 set global randomizeidentifier=disabled", @"netsh interface IPV6 set privacy state=disabled" };
+                                ProtocolName = protocolDisabled;
+                                _countProtocolSystem = 0;
+                            }
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\CDPUserSvc").SetValue("Start", 2, RegistryValueKind.DWord);
+                            {
+                                string[] protocolReset = {  @"netsh interface teredo set state default", @"netsh interface isatap set state default",
+                                @"netsh int ipv6 isatap set state default", @"netsh int ipv6 6to4 set state default", @"netsh interface IPV6 set global randomizeidentifier=enabled", @"netsh interface IPV6 set privacy state=enabled" };
+                                ProtocolName = protocolReset;
+                                _countProtocolSystem = 2;
+                            }
+
+                            Process _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                            _process.StartInfo.FileName = "cmd.exe";
+                            foreach (var _protocol in ProtocolName)
+                            {
+                                Parallel.Invoke(() =>
+                                {
+                                    _process.StartInfo.Arguments = string.Format(@"/c {0}", _protocol);
+                                    _process.Start();
+                                    _process.StandardOutput.ReadLine();
+                                });
+                            }
+                            _process.Dispose();
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             break;
                         }
                     case 13:
                         {
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System").SetValue("AllowExperimentation", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management").SetValue("LargeSystemCache", 1, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\System", true).DeleteValue("AllowExperimentation");
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management").SetValue("LargeSystemCache", 0, RegistryValueKind.DWord);
                             break;
                         }
                     case 14:
                         {
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
-                            {
-                                RegistryKey _modl = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services", true);
-                                _modl.DeleteSubKeyTree(@"DiagTrack");
-                                _modl.DeleteSubKeyTree(@"dmwappushservice");
-                                _modl.Close();
-                            }
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize").SetValue("Startupdelayinmsec", 0, RegistryValueKind.DWord);
                             else
-                            {
-                                RegistryKey _modl = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services", true);
-                                _modl.CreateSubKey(@"DiagTrack");
-                                _modl.CreateSubKey(@"dmwappushservice");
-                                _modl.Close();
-                            }
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize").DeleteValue("Startupdelayinmsec");
                             break;
                         }
                     case 15:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 4, RegistryValueKind.DWord);
+                            {
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").SetValue("ShowFrequent", 0, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").SetValue("ShowRecent", 0, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("Start_TrackDocs", 0, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("Start_TrackProgs", 0, RegistryValueKind.DWord);
+                            }
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service").SetValue("Start", 3, RegistryValueKind.DWord);
+                            {
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").DeleteValue("ShowFrequent");
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").DeleteValue("ShowRecent");
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").DeleteValue("Start_TrackDocs");
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").DeleteValue("Start_TrackProgs");
+                            }
                             break;
                         }
                     case 16:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 4, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers").SetValue("DisableAutoplay", 1, RegistryValueKind.DWord);
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 2, RegistryValueKind.DWord);
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers").SetValue("DisableAutoplay", 0, RegistryValueKind.DWord);
                             break;
                         }
                 }
@@ -3188,16 +3254,19 @@ namespace Tweaker.Сlasses
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                if (notificationWindow.IsLoaded == false)
+                Parallel.Invoke(() =>
                 {
-                    notificationWindow = new NotificationWindow
+                    if (notificationWindow.IsLoaded == false)
                     {
-                        AddTitle = _Tittle,
-                        AddText = _Text,
-                        ActionChoice = _Action,
-                    };
-                    notificationWindow.Show();
-                }
+                        notificationWindow = new NotificationWindow
+                        {
+                            AddTitle = _Tittle,
+                            AddText = _Text,
+                            ActionChoice = _Action,
+                        };
+                        notificationWindow.Show();
+                    }
+                });
             });
         }
     }

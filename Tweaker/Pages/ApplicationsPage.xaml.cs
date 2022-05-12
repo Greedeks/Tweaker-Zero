@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -145,15 +146,18 @@ namespace Tweaker.Pages
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                if (notificationWindow.IsLoaded == false)
+                Parallel.Invoke(() =>
                 {
-                    notificationWindow = new NotificationWindow
+                    if (notificationWindow.IsLoaded == false)
                     {
-                        AddTitle = _Tittle,
-                        AddText = _Text
-                    };
-                    notificationWindow.Show();
-                }
+                        notificationWindow = new NotificationWindow
+                        {
+                            AddTitle = _Tittle,
+                            AddText = _Text
+                        };
+                        notificationWindow.Show();
+                    }
+                });
             });
         }
 

@@ -194,14 +194,16 @@ namespace Tweaker.Pages
                     Button btn = (Button)sender;
                     if (btn.Name == "TweaksON")
                     {
-                        for (byte _tweak = 1; _tweak <= 28; _tweak++)
-                            _settingsWindows.ChangeSettingServices(false, _tweak);
+                        for (byte _tweak = 4; _tweak <= 16; _tweak++)
+                            if(_tweak != 5)
+                                _settingsWindows.ChangeSettingSystem(false, _tweak, 0);
                     }
                     else
-                        for (byte _tweak = 1; _tweak <= 28; _tweak++)
-                            _settingsWindows.ChangeSettingServices(true, _tweak);
+                        for (byte _tweak = 4; _tweak <= 16; _tweak++)
+                            if (_tweak != 5)
+                                _settingsWindows.ChangeSettingSystem(true, _tweak, 0);
 
-                    //_settingsWindows.GetSettingServices(this);
+                    _settingsWindows.GetSettingSystem(this);
                     _timer.Start();
                 }
             });
