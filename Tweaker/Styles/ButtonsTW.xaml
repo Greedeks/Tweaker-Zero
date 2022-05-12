@@ -29,14 +29,14 @@
             <EventTrigger RoutedEvent="Button.MouseEnter">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="5" To="10" Duration="0:0:01" SpeedRatio="13"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="5" To="12" Duration="0:0:1:0" SpeedRatio="270"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
             <EventTrigger RoutedEvent="Button.MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="10" To="5" Duration="0:0:01" SpeedRatio="12"/>
+                        <DoubleAnimation Storyboard.TargetProperty="Effect.BlurRadius" From="12" To="5" Duration="0:0:1:0" SpeedRatio="300"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

@@ -110,8 +110,8 @@
                 <EventTrigger.Actions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="1.04" Duration="0:0:0.2" SpeedRatio="2"/>
-                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="1.04" Duration="0:0:0.2" SpeedRatio="2"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="1.04" Duration="0:0:1.0" SpeedRatio="8"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="1.04" Duration="0:0:1.0" SpeedRatio="8"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger.Actions>
@@ -120,8 +120,8 @@
                 <EventTrigger.Actions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1.04" To="1" Duration="0:0:0.1"/>
-                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1.04" To="1" Duration="0:0:0.1"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1.04" To="1" Duration="0:0:1.0"  SpeedRatio="11"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1.04" To="1" Duration="0:0:1.0"  SpeedRatio="11"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger.Actions>

@@ -7,6 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
+using System.Security.Permissions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -3057,11 +3058,12 @@ namespace Tweaker.Сlasses
                                     RegistrySecurity _registrySecurity = new RegistrySecurity();
                                     WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
                                     RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
-                                    _registrySecurity.AddAccessRule(new RegistryAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-
+                                    _registrySecurity.AddAccessRule(_accessRule);
+                                    _registrySecurity.SetAccessRuleProtection(false, true);
                                     rkey.SetAccessControl(_registrySecurity);
 
-                                    _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
+
+                                    _registrySecurity.SetGroup(new NTAccount("TrustedInstaller"));
                                     NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
                                     _registrySecurity.SetOwner(SID);
                                     rkey.SetAccessControl(_registrySecurity);
@@ -3089,11 +3091,11 @@ namespace Tweaker.Сlasses
                                     _registrySecurity.SetAccessRuleProtection(false, true);
                                     rkey.SetAccessControl(_registrySecurity);
 
-                                    _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
+                                    _registrySecurity.SetGroup(new NTAccount("TrustedInstaller"));
                                     NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
                                     _registrySecurity.SetOwner(SID);
                                     rkey.SetAccessControl(_registrySecurity);
-                                    rkey.SetValue("Start", 4, RegistryValueKind.DWord);
+                                    rkey.SetValue("Start", 2, RegistryValueKind.DWord);
                                     rkey.Close();
                                 }
 
