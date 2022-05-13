@@ -52,7 +52,8 @@ namespace Tweaker.Pages
             {
                 From = 0,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.15)
+                Duration = TimeSpan.FromSeconds(1),
+                SpeedRatio = 2.7
             };
             Discription.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             Discription.Opacity = 1;
@@ -137,10 +138,7 @@ namespace Tweaker.Pages
         }
         #endregion
 
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            _timer.Stop();
-        }
+        private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
 
         private void ShowNotification(string _Tittle, string _Text)
         {
