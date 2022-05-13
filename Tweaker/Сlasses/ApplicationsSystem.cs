@@ -12,11 +12,11 @@ namespace Tweaker.Сlasses
     internal sealed class ApplicationsSystem
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private readonly static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(30);
+        private readonly static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(32);
 
         private static string _result = default;
         private Process _process;
-        private readonly Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(30)
+        private readonly Dictionary<string, List<string>> _appValue = new Dictionary<string, List<string>>(32)
         {
             ["MicrosoftStore"] = new List<string>(1) { "Microsoft.WindowsStore" },
             ["Todos"] = new List<string>(1) { "Microsoft.Todos" },
@@ -47,7 +47,9 @@ namespace Tweaker.Сlasses
             ["Mail"] = new List<string>(1) { "Microsoft.windowscommunicationsapps" },
             ["MicrosoftTeams"] = new List<string>(1) { "MicrosoftTeams" },
             ["PoweraAtomateDesktop"] = new List<string>(1) { "Microsoft.PowerAutomateDesktop" },
-            ["Cortana"] = new List<string>(1) { "Microsoft.549981C3F5F10" }
+            ["Cortana"] = new List<string>(1) { "Microsoft.549981C3F5F10" },
+            ["Clipchamp"] = new List<string>(1) { "Clipchamp.Clipchamp" },
+            ["Getstarted"] = new List<string>(1) { "Microsoft.Getstarted" }
         };
 
         internal void CheckInstalledApps()
@@ -112,6 +114,8 @@ namespace Tweaker.Сlasses
             _applicationsPages.MicrosoftTeams.Source = _CountCheck[27] == 1 ? (DrawingImage)Application.Current.Resources["MicrosoftTeamsImage"] : (DrawingImage)Application.Current.Resources["MicrosoftTeamsImageU"];
             _applicationsPages.PoweraAtomateDesktop.Source = _CountCheck[28] == 1 ? (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImage"] : (DrawingImage)Application.Current.Resources["PoweraAtomateDesktopImageU"];
             _applicationsPages.Cortana.Source = _CountCheck[29] == 1 ? (DrawingImage)Application.Current.Resources["CortanaImage"] : (DrawingImage)Application.Current.Resources["CortanaImageU"];
+            _applicationsPages.Clipchamp.Source = _CountCheck[30] == 1 ? (DrawingImage)Application.Current.Resources["ClipchampImage"] : (DrawingImage)Application.Current.Resources["ClipchampImageU"];
+            _applicationsPages.Getstarted.Source = _CountCheck[31] == 1 ? (DrawingImage)Application.Current.Resources["GetstartedImage"] : (DrawingImage)Application.Current.Resources["GetstartedImageU"];
             _applicationsPages.OneDrive.Source = _settingsWindows.AppOneDriveCheck() == 1 ? (DrawingImage)Application.Current.Resources["OneDriveImage"] : (DrawingImage)Application.Current.Resources["OneDriveImageU"];
         }
 

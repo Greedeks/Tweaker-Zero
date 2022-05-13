@@ -42,12 +42,14 @@
             <Image x:Name="Todos" Source="{DynamicResource TodosImage}" Style="{DynamicResource AppUnll}"  Margin="78,197,875,133" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="BingNews" Source="{DynamicResource BingNewsImage}" Style="{DynamicResource AppUnll}"  Margin="873,109,80,221" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="Mail" Source="{DynamicResource MailImage}" Style="{DynamicResource AppUnll}"  Margin="873,198,80,132" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
-            <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="78,106,875,224" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
+            <Image x:Name="MicrosoftStore" Source="{DynamicResource MicrosoftStoreImage}" Style="{DynamicResource AppUnll}"  Margin="78,110,875,224" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="MicrosoftTeams" Source="{DynamicResource MicrosoftTeamsImage}" Style="{DynamicResource AppUnll}"  Margin="715,21,238,309" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="PoweraAtomateDesktop" Source="{DynamicResource PoweraAtomateDesktopImage}" Style="{DynamicResource AppUnll}"  Margin="236,19,717,311" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="OneDrive" Source="{DynamicResource OneDriveImage}" Style="{DynamicResource AppUnll}"  Margin="396,21,557,309" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
             <Image x:Name="Cortana" Source="{DynamicResource CortanaImage}" Style="{DynamicResource AppUnll}"  Margin="556,19,397,311" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
-
+            <Image x:Name="Clipchamp" Source="{DynamicResource ClipchampImage}" Style="{DynamicResource AppUnll}"  Margin="78,19,875,311" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
+            <Image x:Name="Getstarted" Source="{DynamicResource GetstartedImage}" Style="{DynamicResource AppUnll}"  Margin="873,19,80,311" MouseEnter="App_MouseEnter" MouseLeave="App_MouseLeave" PreviewMouseDown="AppClick_PreviewMouseDown"/>
+            
             <TextBlock x:Name="Discription" Style="{DynamicResource DescriptionTweaks}" Text="Наведите курсор на любое изображение, чтобы получить название приложения" Width="Auto" Height="30" VerticalAlignment="Bottom" FontSize="11pt"/>
             <Rectangle Fill="#D90000" Width="804" Height="1" RadiusX="15" RadiusY="15" Margin="0,419,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Grid>

@@ -2742,17 +2742,35 @@ namespace Tweaker.Сlasses
             }
 
             //#6
-            _key[206] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance");
-
-            if (_key[206] == null || _key[206].GetValue("Enabled", null) == null || _key[206].GetValue("Enabled").ToString() != "0")
+            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "10")
             {
-                _systemPage.TButton6.State = true;
-                _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _key[206] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance");
+
+                if (_key[206] == null || _key[206].GetValue("Enabled", null) == null || _key[206].GetValue("Enabled").ToString() != "0")
+                {
+                    _systemPage.TButton6.State = true;
+                    _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                }
+                else
+                {
+                    _systemPage.TButton6.State = false;
+                    _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                }
             }
             else
             {
-                _systemPage.TButton6.State = false;
-                _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _key[206] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications");
+
+                if (_key[206] == null || _key[206].GetValue("ToastEnabled", null) == null || _key[206].GetValue("ToastEnabled").ToString() != "0")
+                {
+                    _systemPage.TButton6.State = true;
+                    _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                }
+                else
+                {
+                    _systemPage.TButton6.State = false;
+                    _systemPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                }
             }
 
             //#7
@@ -3015,9 +3033,15 @@ namespace Tweaker.Сlasses
                     case 6:
                         {
                             if (_choose)
-                                _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance", true).SetValue("Enabled", 0, RegistryValueKind.DWord);
+                                if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "10")
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 0, RegistryValueKind.DWord);
+                                else
+                                    _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications").SetValue("ToastEnabled", 0, RegistryValueKind.DWord);
                             else
-                                _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance", true).SetValue("Enabled", 1, RegistryValueKind.DWord);
+                                if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "10")
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 1, RegistryValueKind.DWord);
+                            else
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications").SetValue("ToastEnabled", 1, RegistryValueKind.DWord);
                             break;
                         }
                     case 7:

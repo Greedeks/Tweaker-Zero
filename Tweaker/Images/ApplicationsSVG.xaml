@@ -611,10 +611,126 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
+    <DrawingImage x:Key="ClipchampImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="0" Y="1703.4000244140625" />
+                </DrawingGroup.Transform>
+                <DrawingGroup Opacity="1">
+                    <GeometryDrawing Geometry="F1 M512,512z M0,0z M133,469.1L133,469.1 379,469.1 502,256 379,42.9 133,42.9 10,256z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="{DynamicResource ColorRed}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,225">
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M1187.7,1054.4C1180.3,1037,1177.8,816.3,1180.3,565.8L1187.7,107 1336.5,107 1485.3,107 1492.7,434.4 1500.1,764.3 2025.9,769.3 2551.7,776.7 2551.7,925.5 2551.7,1074.3 1874.6,1081.7C1339,1086.7,1195.2,1081.7,1187.7,1054.4z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="150" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M2378.2,233.5C2266.6,186.4 2142.6,72.3 2063.2,-51.7 1889.6,-327 2045.8,-738.7 2363.3,-845.3 2551.8,-907.3 2886.6,-842.8 2928.8,-733.7 2951.1,-674.2 2750.2,-478.3 2708.1,-520.4 2690.7,-537.8 2628.7,-550.2 2569.2,-550.2 2358.4,-550.2 2241.8,-329.5 2368.3,-168.3 2445.2,-69.0999999999998 2529.5,-44.2999999999998 2658.5,-81.4999999999998 2762.7,-111.3 2767.6,-108.8 2851.9,-26.8999999999998 2968.5,87.2000000000002 2961,126.9 2807.3,203.7 2663.4,275.7 2499.7,288.1 2378.2,233.5z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="150" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M3648,-738.7C3638.1,-748.6,3630.6,-899.9,3630.6,-1073.5L3630.6,-1393.4 3104.8,-1398.4 2576.5,-1405.8 2576.5,-1554.6 2576.5,-1703.4 3258.5,-1703.4 3940.5,-1703.4 3940.5,-1219.8 3940.5,-736.2 3804.1,-728.8C3727.3,-723.8,3657.9,-728.7,3648,-738.7z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGray}" Thickness="150" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="GetstartedImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                <GeometryDrawing Geometry="F1 M512,512z M0,0z M133,469.1L133,469.1 379,469.1 502,256 379,42.9 133,42.9 10,256z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource ColorRed}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+                <DrawingGroup Opacity="1">
+                    <GeometryDrawing Geometry="F1 M512,512z M0,0z M311,355L201,355C201,362.7 201,377 201,377 201,407.8 225.2,432 256,432 286.8,432 311,407.8 311,377 311,376.9 311,362.6 311,355z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="{DynamicResource ColorGray}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M512,512z M0,0z M365.9,190C365.9,129.5 316.4,80.1 256,80.1 195.6,80.1 146.1,129.6 146.1,190 146.1,245 201.1,289 201.1,343.9L201.1,354.9 311,354.9 311,343.9C311,289,365.9,245,365.9,190z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="{DynamicResource ColorGray}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
 
     <!--                 -->
     <!-- Apps Uninstalled-->
     <!--                 -->
+
+    <DrawingImage x:Key="ClipchampImageU">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="0" Y="1703.4000244140625" />
+                </DrawingGroup.Transform>
+                <DrawingGroup Opacity="1">
+                    <GeometryDrawing Geometry="F1 M512,512z M0,0z M133,469.1L133,469.1 379,469.1 502,256 379,42.9 133,42.9 10,256z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,225">
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M1187.7,1054.4C1180.3,1037,1177.8,816.3,1180.3,565.8L1187.7,107 1336.5,107 1485.3,107 1492.7,434.4 1500.1,764.3 2025.9,769.3 2551.7,776.7 2551.7,925.5 2551.7,1074.3 1874.6,1081.7C1339,1086.7,1195.2,1081.7,1187.7,1054.4z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="150" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M2378.2,233.5C2266.6,186.4 2142.6,72.3 2063.2,-51.7 1889.6,-327 2045.8,-738.7 2363.3,-845.3 2551.8,-907.3 2886.6,-842.8 2928.8,-733.7 2951.1,-674.2 2750.2,-478.3 2708.1,-520.4 2690.7,-537.8 2628.7,-550.2 2569.2,-550.2 2358.4,-550.2 2241.8,-329.5 2368.3,-168.3 2445.2,-69.0999999999998 2529.5,-44.2999999999998 2658.5,-81.4999999999998 2762.7,-111.3 2767.6,-108.8 2851.9,-26.8999999999998 2968.5,87.2000000000002 2961,126.9 2807.3,203.7 2663.4,275.7 2499.7,288.1 2378.2,233.5z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="150" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                        <GeometryDrawing Geometry="F1 M512,512z M0,0z M3648,-738.7C3638.1,-748.6,3630.6,-899.9,3630.6,-1073.5L3630.6,-1393.4 3104.8,-1398.4 2576.5,-1405.8 2576.5,-1554.6 2576.5,-1703.4 3258.5,-1703.4 3940.5,-1703.4 3940.5,-1219.8 3940.5,-736.2 3804.1,-728.8C3727.3,-723.8,3657.9,-728.7,3648,-738.7z">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="150" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="GetstartedImageU">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                <GeometryDrawing Geometry="F1 M512,512z M0,0z M133,469.1L133,469.1 379,469.1 502,256 379,42.9 133,42.9 10,256z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+                <DrawingGroup Opacity="1">
+                    <GeometryDrawing Geometry="F1 M512,512z M0,0z M311,355L201,355C201,362.7 201,377 201,377 201,407.8 225.2,432 256,432 286.8,432 311,407.8 311,377 311,376.9 311,362.6 311,355z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M512,512z M0,0z M365.9,190C365.9,129.5 316.4,80.1 256,80.1 195.6,80.1 146.1,129.6 146.1,190 146.1,245 201.1,289 201.1,343.9L201.1,354.9 311,354.9 311,343.9C311,289,365.9,245,365.9,190z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="{DynamicResource ColorGrayNotActive}" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
     
     <DrawingImage x:Key="MicrosoftTeamsImageU">
         <DrawingImage.Drawing>
