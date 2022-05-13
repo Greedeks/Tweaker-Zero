@@ -3018,7 +3018,6 @@ namespace Tweaker.Сlasses
                         }
                     case 5:
                         {
-                            ShowNotification("Уведомление", "Схема электропитания «Максимальная производительность» добавлена", 0);
                             Process _process = new Process();
                             _process.StartInfo.UseShellExecute = false;
                             _process.StartInfo.RedirectStandardOutput = true;
@@ -3028,6 +3027,7 @@ namespace Tweaker.Сlasses
                             _process.StartInfo.Arguments = string.Format("/c powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61");
                             _process.Start();
                             _process.Dispose();
+                            ShowNotification("Уведомление", "Схема электропитания «Максимальная производительность» добавлена", 0);
                             break;
                         }
                     case 6:
@@ -3042,6 +3042,7 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 1, RegistryValueKind.DWord);
                             else
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications").SetValue("ToastEnabled", 1, RegistryValueKind.DWord);
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             break;
                         }
                     case 7:
