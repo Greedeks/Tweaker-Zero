@@ -246,16 +246,16 @@ namespace Tweaker
             {
                 From = _primaryMonitorArea.Bottom,
                 To = (_primaryMonitorArea.Bottom / 2) - (this.Height / 2),
-                Duration = TimeSpan.FromSeconds(0.2),
-                SpeedRatio = 1
+                Duration = TimeSpan.FromSeconds(1),
+                SpeedRatio = 3.5
             };
 
             DoubleAnimation _animationLeft = new DoubleAnimation
             {
                 From = -_primaryMonitorArea.Right,
                 To = (_primaryMonitorArea.Right / 2) - (this.Width / 2),
-                Duration = TimeSpan.FromSeconds(0.2),
-                SpeedRatio = 1
+                Duration = TimeSpan.FromSeconds(1),
+                SpeedRatio = 3.5
             };
 
             TweakerWPF.BeginAnimation(Canvas.TopProperty, _animationTop);

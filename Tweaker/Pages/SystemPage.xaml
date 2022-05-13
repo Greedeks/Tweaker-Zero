@@ -59,7 +59,7 @@
                     <Label x:Name="Tweak13" Content="Увеличенный кэш файловой системы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,160"/>
                     <Label x:Name="Tweak14" Content="Ускорить запуск Windows и запуск программ из автозагрузки" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,125"/>
                     <Label x:Name="Tweak15" Content="История использования для панели быстрого доступа" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,88"/>
-                    <Label x:Name="Tweak16" Content="Автозапуск съёмных носителей" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,48"/>
+                    <Label x:Name="Tweak16" Content="Автозапуск съёмных носителей" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,48" Cursor="Hand"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton10_PreviewMouseDown"/>
