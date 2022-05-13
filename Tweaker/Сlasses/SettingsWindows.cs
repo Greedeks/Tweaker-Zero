@@ -7,7 +7,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
-using System.Security.Permissions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -3045,32 +3044,13 @@ namespace Tweaker.Сlasses
                         }
                     case 9:
                         {
-
-                            string[] _winshop = new string[2] { "SecurityHealthService", "wscsvc" };
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
 
                             if (_choose)
                             {
-
-
-                                for (int i = 0; i < _winshop.Length; i++)
-                                {
-                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services" + _winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.ChangePermissions);
-                                    RegistrySecurity _registrySecurity = new RegistrySecurity();
-                                    WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
-                                    RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
-                                    _registrySecurity.AddAccessRule(_accessRule);
-                                    _registrySecurity.SetAccessRuleProtection(false, true);
-                                    rkey.SetAccessControl(_registrySecurity);
-
-
-                                    _registrySecurity.SetGroup(new NTAccount("TrustedInstaller"));
-                                    NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
-                                    _registrySecurity.SetOwner(SID);
-                                    rkey.SetAccessControl(_registrySecurity);
-                                    rkey.SetValue("Start", 4, RegistryValueKind.DWord);
-                                    rkey.Close();
-                                }
-
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc").SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\SecurityHealthService").SetValue("Start", 4, RegistryValueKind.DWord);
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer").SetValue("SmartScreenEnabled", "off", RegistryValueKind.String);
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter").SetValue("EnabledV9", 0, RegistryValueKind.DWord);
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System").SetValue("EnableSmartScreen", 0, RegistryValueKind.DWord);
@@ -3081,28 +3061,17 @@ namespace Tweaker.Сlasses
                             }
                             else
                             {
-                                for (int i = 0; i < _winshop.Length; i++)
-                                {
-                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\" + _winshop[i], RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.ChangePermissions);
-                                    RegistrySecurity _registrySecurity = new RegistrySecurity();
-                                    WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
-                                    RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
-                                    _registrySecurity.AddAccessRule(_accessRule);
-                                    _registrySecurity.SetAccessRuleProtection(false, true);
-                                    rkey.SetAccessControl(_registrySecurity);
-
-                                    _registrySecurity.SetGroup(new NTAccount("TrustedInstaller"));
-                                    NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
-                                    _registrySecurity.SetOwner(SID);
-                                    rkey.SetAccessControl(_registrySecurity);
-                                    rkey.SetValue("Start", 2, RegistryValueKind.DWord);
-                                    rkey.Close();
-                                }
-
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocation");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableLocationScripting");
-                                _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors", true).DeleteValue("DisableWindowsLocationProvider");
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\wscsvc").SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\SecurityHealthService").SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer").DeleteValue("SmartScreenEnabled");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter").DeleteValue("EnabledV9");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System").DeleteValue("EnableSmartScreen");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender").DeleteValue("DisableAntiSpyware");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").DeleteValue("ConfigureAppInstallControl");
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").DeleteValue("ConfigureAppInstallControlEnabled");
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AppHost").DeleteValue("EnableWebContentEvaluation");
                             }
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             break;
                         }
                     case 10:
