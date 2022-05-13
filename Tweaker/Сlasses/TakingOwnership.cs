@@ -191,7 +191,7 @@ namespace Tweaker.Сlasses
         IntPtr OldAcl,
         ref IntPtr NewAcl);
 
-    public static void GrantAdministratorsAccess(string name, SE_OBJECT_TYPE type)
+    internal static void GrantAdministratorsAccess(string name, SE_OBJECT_TYPE type)
     {
         SID_IDENTIFIER_AUTHORITY sidNTAuthority = SECURITY_NT_AUTHORITY;
 
