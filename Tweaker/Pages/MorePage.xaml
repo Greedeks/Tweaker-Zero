@@ -30,8 +30,9 @@
                     <Label x:Name="Tweak2" Content="Проблемы со звуком - Realtek Sound driver" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,290" Cursor="Hand"/>
                     <Label x:Name="Tweak3" Content="Выравнивание панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,250"/>
                     <Label x:Name="Tweak4" Content="Эффект прозрачности панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,200"/>
-                    <Label x:Name="Tweak5" Content="Темная тема панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,158"/>
-                    <Label x:Name="Tweak6" Content="Темная тема приложений и проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,124"/>
+                    <Label x:Name="Tweak5" Content="Тёмная тема панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,158"/>
+                    <Label x:Name="Tweak6" Content="Тёмная тема приложений и проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,124"/>
+                    <Label x:Name="Tweak7" Content="Отключение «Гибернация» и «Быстрый запуск»" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,84" Cursor="Hand"/>
 
                     <Button x:Name="Button1" Height="24" Style="{StaticResource ButtonsTW}" Cursor="Hand" Margin="47,54,764,333" PreviewMouseDown="Button1_PreviewMouseDown">
                         <Button.Effect>
@@ -51,10 +52,23 @@
                     <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton4_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton5_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton6_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton7" HorizontalAlignment="Left" Margin="42,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton7_PreviewMouseDown"/>
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                  
+                    <Label x:Name="Tweak8" Content="Залипание клавиш и фильтрацию ввода" Style="{StaticResource Tweaks_OFF}" Margin="618,20,93,370"/>
+                    <Label x:Name="Tweak9" Content="Озвучивание клавиш «CAPS, NUMLOCK, SCROLL LOCK»" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,318"/>
+                    <Label x:Name="Tweak10" Content="Автообновление приложений через Microsoft Store" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,281"/>
+                    <Label x:Name="Tweak11" Content="Завершение работы без предупреждений" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,244"/>
+                    <Label x:Name="Tweak12" Content="Ускорить процесс завершения работы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,201"/>
+                    <Label x:Name="Tweak13" Content="Сжатие обоев .JPEG рабочего стола" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,164"/>
+
+                    <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton8_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,102,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton10_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
                     <!--#endregion-->
 
                 </Grid>

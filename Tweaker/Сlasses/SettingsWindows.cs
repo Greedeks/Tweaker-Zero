@@ -20,8 +20,7 @@ namespace Tweaker.Сlasses
     internal sealed class SettingsWindows
     {
         private readonly RegistryKey _classesRootKey = Registry.ClassesRoot, _currentUserKey = Registry.CurrentUser,
-            _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users,
-            _currentConfigKey = Registry.CurrentConfig;
+            _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users;
         private readonly RegistryKey[] _key = new RegistryKey[500];
         private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default;
         internal static byte _verificationW = default;
@@ -33,6 +32,8 @@ namespace Tweaker.Сlasses
         private const UInt32 SPI_SETMOUSESPEED = 0x0071;
         private const UInt32 SPI_SETKEYBOARDDELAY = 0x0017;
         private const UInt32 SPI_SETKEYBOARDSPEED = 0x000B;
+
+        private const UInt32 SPI_SETSTICKYKEYS = 0x003B;
 
         #region Confidentiality
         internal void GetSettingConfidentiality(Confidentiality _confidentiality)
@@ -658,7 +659,7 @@ namespace Tweaker.Сlasses
             }
 
             //#3
-            _key[62] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.bmp\ShellNew]");
+            _key[62] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.bmp\ShellNew");
             _key[63] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.contact\ShellNew");
             _key[64] = _localMachineKey.OpenSubKey(@"SOFTWARE\Classes\.rtf\ShellNew");
 
@@ -3285,7 +3286,6 @@ namespace Tweaker.Сlasses
                     RegistryKey key = _sound?.OpenSubKey(Keyname);
                     if (key?.GetValue("DriverDesc")?.ToString() == "Realtek High Definition Audio")
                     {
-
                         RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}\" + Keyname + @"\PowerSettings", true);
                         byte[] _ConservationIdleTime = (byte[])reg.GetValue(@"ConservationIdleTime");
                         byte[] _IdlePowerState = (byte[])reg.GetValue(@"IdlePowerState");
@@ -3363,6 +3363,105 @@ namespace Tweaker.Сlasses
             {
                 _morePage.TButton6.State = false;
                 _morePage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#7
+            _key[228] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Power");
+            _key[229] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Power");
+
+            if (_key[228] == null || _key[228].GetValue("HiberbootEnabled", null) == null || _key[228].GetValue("HiberbootEnabled").ToString() != "0" || _key[229] == null || _key[229].GetValue("HibernateEnabled", null) == null || _key[229].GetValue("HibernateEnabled").ToString() != "0")
+            {
+                _morePage.TButton7.State = true;
+                _morePage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton7.State = false;
+                _morePage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#8
+            _key[230] = _currentUserKey.OpenSubKey(@"Control Panel\Accessibility\StickyKeys");
+
+            if (_key[230] == null || _key[230].GetValue("Flags", null) == null || _key[230].GetValue("Flags").ToString() != "506")
+            {
+                _morePage.TButton8.State = true;
+                _morePage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton8.State = false;
+                _morePage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#9
+            _key[231] = _currentUserKey.OpenSubKey(@"Control Panel\Accessibility\ToggleKeys");
+
+            if (_key[231] == null || _key[231].GetValue("Flags", null) == null || _key[231].GetValue("Flags").ToString() != "62")
+            {
+                _morePage.TButton9.State = true;
+                _morePage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton9.State = false;
+                _morePage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#10
+            _key[232] = _localMachineKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\WindowsStore");
+
+            if (_key[232] == null || _key[232].GetValue("AutoDownload", null) == null || _key[232].GetValue("AutoDownload").ToString() != "2")
+            {
+                _morePage.TButton10.State = true;
+                _morePage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton10.State = false;
+                _morePage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#11
+            _key[233] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control");
+
+            if (_key[233] == null || _key[233].GetValue("AutoEndTasks", null) == null || _key[233].GetValue("AutoEndTasks").ToString() != "1")
+            {
+                _morePage.TButton11.State = true;
+                _morePage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton11.State = false;
+                _morePage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#12
+            _key[234] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control");
+
+            if (_key[234] == null || _key[234].GetValue("WaitToKillServiceTimeout", null) == null || _key[234].GetValue("WaitToKillServiceTimeout").ToString() != "2000")
+            {
+                _morePage.TButton12.State = true;
+                _morePage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton12.State = false;
+                _morePage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#13
+            _key[235] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
+
+            if (_key[235] == null || _key[235].GetValue("JPEGImportQuality", null) == null || _key[235].GetValue("JPEGImportQuality").ToString() != "100")
+            {
+                _morePage.TButton13.State = true;
+                _morePage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton13.State = false;
+                _morePage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
         }
 
@@ -3512,7 +3611,7 @@ namespace Tweaker.Сlasses
                                     }
                                 }
                             }
-                            break; 
+                            break;
                         }
                     case 3:
                         {
@@ -3546,6 +3645,76 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("AppsUseLightTheme", 0, RegistryValueKind.DWord);
                             break;
                         }
+                    case 7:
+                        {
+                            if (_choose)
+                            {
+
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Power").SetValue("HiberbootEnabled", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Power").SetValue("HibernateEnabled", 0, RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Power").SetValue("HiberbootEnabled", 1, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Power").SetValue("HibernateEnabled", 1, RegistryValueKind.DWord);
+                            }
+                            break;
+                        }
+                    case 8:
+                        {
+                            if (_choose)
+                                _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\StickyKeys").SetValue("Flags", "506", RegistryValueKind.String);
+                            else
+                                _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\StickyKeys").SetValue("Flags", "26", RegistryValueKind.String);
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            break;
+                        }
+                    case 9:
+                        {
+                            if (_choose)
+                                _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys").SetValue("Flags", "62", RegistryValueKind.String);
+                            else
+                                _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys").SetValue("Flags", "63", RegistryValueKind.String);
+                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            break;
+                        }
+                    case 10:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\WindowsStore").SetValue("AutoDownload", "2", RegistryValueKind.DWord);
+                            else
+                                _localMachineKey.DeleteSubKey(@"SOFTWARE\Policies\Microsoft\WindowsStore");
+                            break;
+                        }
+                    case 11:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control").SetValue("AutoEndTasks", "1", RegistryValueKind.String);
+                            else
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control").DeleteValue("AutoEndTasks");
+                            break;
+                        }
+                    case 12:
+                        {
+                            if (_choose)
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control").SetValue("WaitToKillServiceTimeout", "2000", RegistryValueKind.String);
+                            else
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control").SetValue("WaitToKillServiceTimeout", "5000", RegistryValueKind.String);
+                            break;
+                        }
+                    case 13:
+                        {
+                            if (_choose)
+                            {
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("JPEGImportQuality", 100, RegistryValueKind.DWord);
+                                ShowNotification("Информация", "Установите нужные обои формата JPEG, чтобы убедиться", 0);
+                            }
+                            else
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").DeleteValue("JPEGImportQuality");
+                            break;
+                        }
+
                 }
             }
             catch { };
