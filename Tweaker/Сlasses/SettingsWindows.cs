@@ -3274,6 +3274,40 @@ namespace Tweaker.Сlasses
             }
         }
 
+        internal void GetSettingMore(MorePage _morePage)
+        {
+            //#1
+            try
+            {
+                RegistryKey _sound = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}", true);
+
+                foreach (string Keyname in _sound.GetSubKeyNames())
+                {
+                    RegistryKey key = _sound?.OpenSubKey(Keyname);
+                    if (key?.GetValue("DriverDesc")?.ToString() == "Realtek High Definition Audio")
+                    {
+
+                        RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}\" + Keyname + @"\PowerSettings", true);
+                        byte[] _ConservationIdleTime = (byte[])reg.GetValue(@"ConservationIdleTime");
+                        byte[] _IdlePowerState = (byte[])reg.GetValue(@"IdlePowerState");
+                        byte[] _PerformanceIdleTime = (byte[])reg.GetValue(@"PerformanceIdleTime");
+
+                        if (_ConservationIdleTime[0].ToString() != "255" || _IdlePowerState[0].ToString() != "0" || _PerformanceIdleTime[0].ToString() != "255")
+                        {
+                            _morePage.TButton2.State = true;
+                            _morePage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                        }
+                        else
+                        {
+                            _morePage.TButton2.State = false;
+                            _morePage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                        }
+                    }
+                }
+            }
+            catch { }
+        }
+
         internal void ChangeSettingMore(in bool _choose, in byte _select)
         {
             try
@@ -3380,7 +3414,46 @@ namespace Tweaker.Сlasses
                         }
                     case 2:
                         {
+                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            if (_choose)
+                            {
+                                byte[] _data = new byte[] { 0xFF, 0xFF, 0xFF, 0xFF };
 
+                                RegistryKey _key = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}", true);
+
+                                foreach (string Keyname in _key.GetSubKeyNames())
+                                {
+                                    RegistryKey key = _key?.OpenSubKey(Keyname);
+                                    if (key?.GetValue("DriverDesc")?.ToString() == "Realtek High Definition Audio")
+                                    {
+
+                                        RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}\" + Keyname + @"\PowerSettings", true);
+                                        reg.SetValue("ConservationIdleTime", _data, RegistryValueKind.Binary);
+                                        reg.SetValue("IdlePowerState", Encoding.Unicode.GetBytes("\0\0"), RegistryValueKind.Binary);
+                                        reg.SetValue("PerformanceIdleTime", _data, RegistryValueKind.Binary);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                byte[] _data0 = new byte[] { 0x0a, 0x00, 0x00, 0x00 };
+                                byte[] _data1 = new byte[] { 0x03, 0x00, 0x00, 0x00 };
+
+                                RegistryKey _key = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}", true);
+
+                                foreach (string Keyname in _key.GetSubKeyNames())
+                                {
+                                    RegistryKey key = _key?.OpenSubKey(Keyname);
+                                    if (key?.GetValue("DriverDesc")?.ToString() == "Realtek High Definition Audio")
+                                    {
+
+                                        RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}\" + Keyname + @"\PowerSettings", true);
+                                        reg.SetValue("ConservationIdleTime", _data0, RegistryValueKind.Binary);
+                                        reg.SetValue("IdlePowerState", _data1, RegistryValueKind.Binary);
+                                        reg.SetValue("PerformanceIdleTime", _data0, RegistryValueKind.Binary);
+                                    }
+                                }
+                            }
                             break;
                         }
                 }

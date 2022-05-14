@@ -16,6 +16,7 @@ namespace Tweaker.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             StatusVerf.Text = SettingsWindows._verificationW == 1 ? "Активно" : "Неактивно";
+            _settingsWindows.GetSettingMore(this);
         }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
@@ -32,6 +33,15 @@ namespace Tweaker.Pages
             {
                 if(StatusVerf.Text == "Неактивно")
                     _settingsWindows.ChangeSettingMore(true, 1);
+            }
+        }
+
+        private void TButton2_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Tweak2.Style = !TButton2.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingMore(TButton2.State, 2);
             }
         }
     }

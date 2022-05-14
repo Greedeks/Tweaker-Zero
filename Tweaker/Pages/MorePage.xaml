@@ -11,16 +11,15 @@
     <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
-            <RowDefinition Height="50*"/>
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <ScrollViewer MinHeight="375" FocusVisualStyle="{x:Null}" IsTabStop="False">
-                <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+                <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None" Height="411">
 
                     <!--#region Left Tweks-->
-                    <StackPanel Height="30" Width="250" Orientation="Horizontal" Margin="47,25,737,320">
+                    <StackPanel Height="30" Width="250" Orientation="Horizontal" Margin="47,24,737,357" Cursor="Hand">
                         <TextBlock Style="{DynamicResource SystemINFO}" FontSize="14px" Text="Состояние активации:"  Cursor="Arrow">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
@@ -28,8 +27,9 @@
                         </TextBlock>
                         <TextBlock x:Name="StatusVerf" FontSize="14px" Padding="5,0,0,0" Style="{DynamicResource SystemINFO}" MaxWidth="310" Text="Неактивно" Foreground="{DynamicResource ColorGray}" Cursor="Arrow"/>
                     </StackPanel>
+                    <Label x:Name="Tweak2" Content="Исправление проблемы со звуком - Realtek Sound driver" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,290" Cursor="Hand"/>
 
-                    <Button x:Name="Button1" Height="24" Style="{StaticResource ButtonsTW}" Cursor="Hand" Margin="47,56,764,298" PreviewMouseDown="Button1_PreviewMouseDown">
+                    <Button x:Name="Button1" Height="24" Style="{StaticResource ButtonsTW}" Cursor="Hand" Margin="47,54,764,333" PreviewMouseDown="Button1_PreviewMouseDown">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                         </Button.Effect>
@@ -42,15 +42,12 @@
                             <Label Padding="7,0,0,0" Content="Активировать" Style="{DynamicResource ButtonsText}" FontSize="12px" Height="16"/>
                         </StackPanel>
                     </Button>
-
+                    <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,102,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton2_PreviewMouseDown"/>
 
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                    <Label x:Name="Tweak9" Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325"/>
-                    <Label x:Name="Tweak10" Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285"/>
-
-                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+                  
                     <!--#endregion-->
 
                 </Grid>
