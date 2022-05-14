@@ -31,6 +31,7 @@
                     <Label x:Name="Tweak3" Content="Выравнивание панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,250"/>
                     <Label x:Name="Tweak4" Content="Эффект прозрачности панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,200"/>
                     <Label x:Name="Tweak5" Content="Темная тема панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,158"/>
+                    <Label x:Name="Tweak6" Content="Темная тема приложений и проводника" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,124"/>
 
                     <Button x:Name="Button1" Height="24" Style="{StaticResource ButtonsTW}" Cursor="Hand" Margin="47,54,764,333" PreviewMouseDown="Button1_PreviewMouseDown">
                         <Button.Effect>
@@ -49,6 +50,7 @@
                     <ToggleSwitch:ToggleButton x:Name="TButton3" HorizontalAlignment="Left" Margin="42,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton3_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton4_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton5_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton6" HorizontalAlignment="Left" Margin="42,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton6_PreviewMouseDown"/>
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->

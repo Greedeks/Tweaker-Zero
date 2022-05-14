@@ -3350,6 +3350,20 @@ namespace Tweaker.Сlasses
                 _morePage.TButton5.State = false;
                 _morePage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
+
+            //#6
+            _key[227] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+
+            if (_key[227] == null || _key[227].GetValue("AppsUseLightTheme", null) == null || _key[227].GetValue("AppsUseLightTheme").ToString() != "1")
+            {
+                _morePage.TButton6.State = true;
+                _morePage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton6.State = false;
+                _morePage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
         }
 
         internal void ChangeSettingMore(in bool _choose, in byte _select)
@@ -3522,6 +3536,14 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("SystemUsesLightTheme", 1, RegistryValueKind.DWord);
                             else
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("SystemUsesLightTheme", 0, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 6:
+                        {
+                            if (_choose)
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("AppsUseLightTheme", 1, RegistryValueKind.DWord);
+                            else
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("AppsUseLightTheme", 0, RegistryValueKind.DWord);
                             break;
                         }
                 }

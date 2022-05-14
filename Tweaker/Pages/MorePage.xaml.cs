@@ -74,5 +74,14 @@ namespace Tweaker.Pages
                 _settingsWindows.ChangeSettingMore(TButton5.State, 5);
             }
         }
+
+        private void TButton6_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Tweak6.Style = !TButton6.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingMore(TButton6.State, 6);
+            }
+        }
     }
 }
