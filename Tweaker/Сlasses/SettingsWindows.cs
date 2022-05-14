@@ -3276,11 +3276,10 @@ namespace Tweaker.Сlasses
 
         internal void GetSettingMore(MorePage _morePage)
         {
-            //#1
             try
             {
+                //#2
                 RegistryKey _sound = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}", true);
-
                 foreach (string Keyname in _sound.GetSubKeyNames())
                 {
                     RegistryKey key = _sound?.OpenSubKey(Keyname);
@@ -3306,6 +3305,51 @@ namespace Tweaker.Сlasses
                 }
             }
             catch { }
+
+            //#3
+            if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
+            {
+                _key[224] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+
+                if (_key[224] == null || _key[224].GetValue("TaskbarAl", null) == null || _key[224].GetValue("TaskbarAl").ToString() != "0")
+                {
+                    _morePage.TButton3.State = true;
+                    _morePage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                }
+                else
+                {
+                    _morePage.TButton3.State = false;
+                    _morePage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                }
+            }
+
+            //#4
+            _key[225] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+
+            if (_key[225] == null || _key[225].GetValue("EnableTransparency", null) == null || _key[225].GetValue("EnableTransparency").ToString() != "0")
+            {
+                _morePage.TButton4.State = true;
+                _morePage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton4.State = false;
+                _morePage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#5
+            _key[226] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+
+            if (_key[226] == null || _key[226].GetValue("SystemUsesLightTheme", null) == null || _key[226].GetValue("SystemUsesLightTheme").ToString() != "1")
+            {
+                _morePage.TButton5.State = true;
+                _morePage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton5.State = false;
+                _morePage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
         }
 
         internal void ChangeSettingMore(in bool _choose, in byte _select)
@@ -3454,6 +3498,30 @@ namespace Tweaker.Сlasses
                                     }
                                 }
                             }
+                            break; 
+                        }
+                    case 3:
+                        {
+                            if (_choose)
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("TaskbarAl", 0, RegistryValueKind.DWord);
+                            else
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("TaskbarAl", 1, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (_choose)
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("EnableTransparency", 0, RegistryValueKind.DWord);
+                            else
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("EnableTransparency", 1, RegistryValueKind.DWord);
+                            break;
+                        }
+                    case 5:
+                        {
+                            if (_choose)
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("SystemUsesLightTheme", 1, RegistryValueKind.DWord);
+                            else
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize").SetValue("SystemUsesLightTheme", 0, RegistryValueKind.DWord);
                             break;
                         }
                 }

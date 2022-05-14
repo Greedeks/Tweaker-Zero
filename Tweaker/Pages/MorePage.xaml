@@ -27,7 +27,10 @@
                         </TextBlock>
                         <TextBlock x:Name="StatusVerf" FontSize="14px" Padding="5,0,0,0" Style="{DynamicResource SystemINFO}" MaxWidth="310" Text="Неактивно" Foreground="{DynamicResource ColorGray}" Cursor="Arrow"/>
                     </StackPanel>
-                    <Label x:Name="Tweak2" Content="Исправление проблемы со звуком - Realtek Sound driver" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,290" Cursor="Hand"/>
+                    <Label x:Name="Tweak2" Content="Проблемы со звуком - Realtek Sound driver" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,290" Cursor="Hand"/>
+                    <Label x:Name="Tweak3" Content="Выравнивание панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,250"/>
+                    <Label x:Name="Tweak4" Content="Эффект прозрачности панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,200"/>
+                    <Label x:Name="Tweak5" Content="Темная тема панели задач" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,158"/>
 
                     <Button x:Name="Button1" Height="24" Style="{StaticResource ButtonsTW}" Cursor="Hand" Margin="47,54,764,333" PreviewMouseDown="Button1_PreviewMouseDown">
                         <Button.Effect>
@@ -43,7 +46,9 @@
                         </StackPanel>
                     </Button>
                     <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,102,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton2_PreviewMouseDown"/>
-
+                    <ToggleSwitch:ToggleButton x:Name="TButton3" HorizontalAlignment="Left" Margin="42,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton3_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton4_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton5" HorizontalAlignment="Left" Margin="42,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton5_PreviewMouseDown"/>
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
