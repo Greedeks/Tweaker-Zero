@@ -238,7 +238,7 @@ namespace Tweaker
 
             #region Анимация загрузки
             this.Opacity = 0;
-            await Task.Delay(1);
+            await Task.Delay(200);
             this.Opacity = 1;
 
             Rect _primaryMonitorArea = SystemParameters.WorkArea;
