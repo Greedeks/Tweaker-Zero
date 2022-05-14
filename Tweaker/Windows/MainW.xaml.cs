@@ -201,6 +201,7 @@ namespace Tweaker
                             Grid.SetColumn(ActivePage, 6);
 
                             ActivePageAnim(true);
+                            MainContainer.Content = new Pages.MorePage();
                             _moreB = true;
                         }
                         else

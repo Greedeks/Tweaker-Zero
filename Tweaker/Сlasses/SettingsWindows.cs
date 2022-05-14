@@ -24,8 +24,10 @@ namespace Tweaker.Сlasses
             _currentConfigKey = Registry.CurrentConfig;
         private readonly RegistryKey[] _key = new RegistryKey[500];
         private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default;
+        internal static byte _verificationW = default;
         private BackgroundWorker _worker;
         private string _state = default;
+
         private NotificationWindow notificationWindow = new NotificationWindow();
 
         private const UInt32 SPI_SETMOUSESPEED = 0x0071;
@@ -3238,6 +3240,105 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers").SetValue("DisableAutoplay", 1, RegistryValueKind.DWord);
                             else
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers").SetValue("DisableAutoplay", 0, RegistryValueKind.DWord);
+                            break;
+                        }
+                }
+            }
+            catch { };
+        }
+        #endregion
+
+        #region More
+        internal void VerificationWindows()
+        {
+            Process _process = new Process();
+            _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.RedirectStandardOutput = true;
+            _process.StartInfo.CreateNoWindow = true;
+            _process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(866);
+            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            _process.StartInfo.FileName = "powershell";
+            _process.StartInfo.Arguments = @"Get - CimInstance SoftwareLicensingProduct - Filter “Name like 'Windows%'” | where { $_.PartialProductKey } | select LicenseStatus";
+            _process.Start();
+            _process.StandardOutput.ReadLine();
+            string _tbl = _process.StandardOutput.ReadToEnd();
+            if (_tbl.Contains("1"))
+                _verificationW = 1;
+            else
+                _verificationW = 0;
+        }
+
+        internal void ChangeSettingMore(in bool _choose, in byte _select)
+        {
+            try
+            {
+                switch (_select)
+                {
+                    case 1:
+                        {
+                            string[] _keyW = new string[8] { @"TX9XD-98N7V-6WMQ6-BX7FG-H8Q99", @"7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH", @"72RPG-7NV8T-TVQKR-7RRRW-78RBY",
+                                @"ND4DX-39KJY-FYWQ9-X6XKT-VCFCF", @"7YMNV-PG77F-K66KT-KG9VQ-TCQGB", @"KTNPV-KTRK4-3RRR8-39X6W-W44T3", @"BT79Q-G7N6G-PGBYW-4YWX6-6F4BT", @"8N67H-M3CY9-QT7C4-2TR7M-TXYCV"};
+                            int _index = default;
+
+                            if (CheckWindowsVersion._wedition.Contains("Home"))
+                                _index = 0;
+                            else if (CheckWindowsVersion._wedition.Contains("Home Single Language"))
+                                _index = 2;
+                            else if (CheckWindowsVersion._wedition.Contains("Education"))
+                                _index = 3;
+                            else if (CheckWindowsVersion._wedition.Contains("Enterprise"))
+                                _index = 4;
+                            else if (CheckWindowsVersion._wedition.Contains("Enterprise LSTB"))
+                                _index = 5;
+                            else if (CheckWindowsVersion._wedition.Contains("Core"))
+                                _index = 6;
+                            else if (CheckWindowsVersion._wedition.Contains("Core Single Language"))
+                                _index = 7;
+                            else if (CheckWindowsVersion._wedition.Contains("Pro"))
+                                _index = 8;
+
+                            Process _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                            _process.Exited += new EventHandler(_process_Exited0);
+                            _process.StartInfo.FileName = "cmd";
+                            _process.StartInfo.Arguments = string.Format("/c slmgr /ipk {0}", _keyW[_index]);
+                            _process.Start();
+
+                            void _process_Exited0(object sender, EventArgs e)
+                            {
+                                _process = new Process();
+                                _process.StartInfo.UseShellExecute = false;
+                                _process.StartInfo.RedirectStandardOutput = true;
+                                _process.StartInfo.CreateNoWindow = true;
+                                _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                                _process.Exited += new EventHandler(_process_Exited1);
+                                _process.StartInfo.FileName = "cmd";
+                                if(CheckWindowsVersion._wedition.Contains("Pro"))
+                                    _process.StartInfo.Arguments = string.Format("/c slmgr /skms kms.digiboy.ir");
+                                else
+                                    _process.StartInfo.Arguments = string.Format("/c slmgr /skms kms.xspace.in");
+                                _process.Start();
+                            }
+
+                            void _process_Exited1(object sender, EventArgs e)
+                            {
+                                _process = new Process();
+                                _process.StartInfo.UseShellExecute = false;
+                                _process.StartInfo.RedirectStandardOutput = true;
+                                _process.StartInfo.CreateNoWindow = true;
+                                _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                                _process.StartInfo.FileName = "cmd";
+                                _process.StartInfo.Arguments = string.Format("/c slmgr /ato");
+                                _process.Start();
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+
                             break;
                         }
                 }

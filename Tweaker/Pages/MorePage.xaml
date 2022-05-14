@@ -1,0 +1,70 @@
+﻿<Page x:Class="Tweaker.Pages.MorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
+      mc:Ignorable="d" 
+      d:DesignHeight="509" d:DesignWidth="1044"
+      Title="MorePage" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Loaded="Page_Loaded" KeyDown="Page_KeyDown">
+
+    <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="375*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="89*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+            <ScrollViewer MinHeight="375" FocusVisualStyle="{x:Null}" IsTabStop="False">
+                <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+
+                    <!--#region Left Tweks-->
+                    <StackPanel Height="30" Width="250" Orientation="Horizontal" Margin="47,25,737,320">
+                        <TextBlock Style="{DynamicResource SystemINFO}" FontSize="14px" Text="Состояние активации:"  Cursor="Arrow">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="StatusVerf" FontSize="14px" Padding="5,0,0,0" Style="{DynamicResource SystemINFO}" MaxWidth="310" Text="Неактивно" Foreground="{DynamicResource ColorGray}" Cursor="Arrow"/>
+                    </StackPanel>
+
+                    <Button x:Name="Button1" Height="24" Style="{StaticResource ButtonsTW}" Cursor="Hand" Margin="47,56,764,298" PreviewMouseDown="Button1_PreviewMouseDown">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
+                        </Button.Effect>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{DynamicResource KeyImage}" Height="17" Width="17">
+                                <Image.Effect>
+                                    <DropShadowEffect Opacity="0.7"/>
+                                </Image.Effect>
+                            </Image>
+                            <Label Padding="7,0,0,0" Content="Активировать" Style="{DynamicResource ButtonsText}" FontSize="12px" Height="16"/>
+                        </StackPanel>
+                    </Button>
+
+
+                    <!--#endregion-->
+
+                    <!--#region Right Tweaks-->
+                    <Label x:Name="Tweak9" Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325"/>
+                    <Label x:Name="Tweak10" Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285"/>
+
+                    <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587"/>
+                    <!--#endregion-->
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+
+
+        <!--#region Description-->
+        <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+            <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

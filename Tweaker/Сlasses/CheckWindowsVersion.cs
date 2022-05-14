@@ -6,10 +6,15 @@ namespace Tweaker.Сlasses
     internal class CheckWindowsVersion
     {
         private string _version = default;
+        internal static string _wedition = default;
+
         private string GetVerison()
         {
             foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption from Win32_OperatingSystem").Get())
+            {
                 _version = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W') + 8);
+                _wedition = Convert.ToString(managementObj["Caption"]);
+            }
             return _version;
         }
 
