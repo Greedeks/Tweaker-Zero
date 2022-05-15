@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -167,6 +168,28 @@ namespace Tweaker.Pages
             }
         }
         #endregion
+
+        private void BtnOnOff_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Parallel.Invoke(() =>
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    Button btn = (Button)sender;
+                    if (btn.Name == "TweaksON")
+                    {
+                        for (byte _tweak = 2; _tweak <= 15; _tweak++)
+                            _settingsWindows.ChangeSettingMore(false, _tweak);
+                    }
+                    else
+                        for (byte _tweak = 2; _tweak <= 15; _tweak++)
+                            _settingsWindows.ChangeSettingMore(true, _tweak);
+
+                    _settingsWindows.GetSettingMore(this);
+                    _timer.Start();
+                }
+            });
+        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

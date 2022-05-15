@@ -11,6 +11,7 @@
     <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
+            <RowDefinition Height="50*"/>
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
 
@@ -79,8 +80,25 @@
             </ScrollViewer>
         </Grid>
 
+        <!--#region Buttons-->
+        <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
+            <Button x:Name="TweaksON" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
+                </Button.Effect>
+                <Label Content="Вернуть всё" Style="{DynamicResource ButtonsText}"/>
+            </Button>
 
+            <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
+                </Button.Effect>
+                <Label Content="Применить всё" Style="{DynamicResource ButtonsText}"/>
+            </Button>
+        </Grid>
+        <!--#endregion-->
+        
         <!--#region Description-->
         <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>

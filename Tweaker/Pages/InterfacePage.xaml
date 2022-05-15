@@ -78,14 +78,14 @@
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
-                <Label Content="Включить всё" Style="{DynamicResource ButtonsText}"/>
+                <Label Content="Вернуть всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
 
             <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
-                <Label Content="Отключить всё" Style="{DynamicResource ButtonsText}"/>
+                <Label Content="Применить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
         </Grid>
         <!--#endregion-->
