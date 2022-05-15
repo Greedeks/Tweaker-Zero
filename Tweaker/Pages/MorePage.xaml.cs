@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Tweaker.Сlasses;
@@ -17,25 +16,12 @@ namespace Tweaker.Pages
                 TButton3.IsEnabled = false;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            StatusVerf.Text = SettingsWindows._verificationW == 1 ? "Активно" : "Неактивно";
-            _settingsWindows.GetSettingMore(this);
-        }
-
-        private void Page_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.F5)
-            {
-                e.Handled = true;
-            }
-        }
-
+        #region Tweaks
         private void Button1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if(StatusVerf.Text == "Неактивно")
+                if (StatusVerf.Text == "Неактивно")
                     _settingsWindows.ChangeSettingMore(true, 1);
             }
         }
@@ -145,6 +131,39 @@ namespace Tweaker.Pages
             {
                 Tweak13.Style = !TButton13.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
                 _settingsWindows.ChangeSettingMore(TButton13.State, 13);
+            }
+        }
+
+        private void TButton14_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Tweak14.Style = !TButton14.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingMore(TButton14.State, 14);
+            }
+        }
+
+        private void TButton15_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Tweak15.Style = !TButton14.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                _settingsWindows.ChangeSettingMore(TButton15.State, 15);
+            }
+        }
+        #endregion
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            StatusVerf.Text = SettingsWindows._verificationW == 1 ? "Активно" : "Неактивно";
+            _settingsWindows.GetSettingMore(this);
+        }
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                e.Handled = true;
             }
         }
     }

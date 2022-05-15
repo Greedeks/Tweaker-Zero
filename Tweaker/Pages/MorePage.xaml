@@ -62,6 +62,8 @@
                     <Label x:Name="Tweak11" Content="Завершение работы без предупреждений" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,244"/>
                     <Label x:Name="Tweak12" Content="Ускорить процесс завершения работы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,201"/>
                     <Label x:Name="Tweak13" Content="Сжатие обоев .JPEG рабочего стола" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,164"/>
+                    <Label x:Name="Tweak14" Content="Автоматическое обновление драйверов в Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,121"/>
+                    <Label x:Name="Tweak15" Content="Автоматическое обновление драйверов в Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,81"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton8_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>
@@ -69,6 +71,8 @@
                     <ToggleSwitch:ToggleButton x:Name="TButton11" HorizontalAlignment="Left" Margin="574,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton11_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton12" HorizontalAlignment="Left" Margin="574,182,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton12_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton13" HorizontalAlignment="Left" Margin="574,222,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton13_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton14" HorizontalAlignment="Left" Margin="574,262,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton14_PreviewMouseDown"/>
+                    <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,302,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>
                     <!--#endregion-->
 
                 </Grid>

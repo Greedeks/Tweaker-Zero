@@ -12,13 +12,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Tweaker.Pages;
-using Tweaker.Windows;
 
 namespace Tweaker.Сlasses
 {
 
     internal sealed class SettingsWindows
     {
+        private ToastNotification toastNotification = new ToastNotification();
         private readonly RegistryKey _classesRootKey = Registry.ClassesRoot, _currentUserKey = Registry.CurrentUser,
             _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users;
         private readonly RegistryKey[] _key = new RegistryKey[500];
@@ -26,8 +26,6 @@ namespace Tweaker.Сlasses
         internal static byte _verificationW = default;
         private BackgroundWorker _worker;
         private string _state = default;
-
-        private NotificationWindow notificationWindow = new NotificationWindow();
 
         private const UInt32 SPI_SETMOUSESPEED = 0x0071;
         private const UInt32 SPI_SETKEYBOARDDELAY = 0x0017;
@@ -1235,7 +1233,7 @@ namespace Tweaker.Сlasses
                         }
                     case 5:
                         {
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                             {
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("CaptionHeight", "-270", RegistryValueKind.String);
@@ -1298,7 +1296,7 @@ namespace Tweaker.Сlasses
                         }
                     case 8:
                         {
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             Environment.SpecialFolder _folderWindows = Environment.SpecialFolder.Windows;
                             string _pathToWinF = Environment.GetFolderPath(_folderWindows);
                             try
@@ -1330,7 +1328,7 @@ namespace Tweaker.Сlasses
                         }
                     case 9:
                         {
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer").SetValue("link", Encoding.Unicode.GetBytes("\0\0"), RegistryValueKind.Binary);
                             else
@@ -1339,7 +1337,7 @@ namespace Tweaker.Сlasses
                         }
                     case 10:
                         {
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("CursorBlinkRate", "250", RegistryValueKind.String);
                             else
@@ -1348,7 +1346,7 @@ namespace Tweaker.Сlasses
                         }
                     case 11:
                         {
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Control Panel\Mouse").SetValue("MouseHoverTime", "20", RegistryValueKind.String);
                             else
@@ -1373,7 +1371,7 @@ namespace Tweaker.Сlasses
                         }
                     case 14:
                         {
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             if (_choose)
                             {
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop\WindowMetrics").SetValue("ScrollHeight", "-210", RegistryValueKind.String);
@@ -2136,7 +2134,7 @@ namespace Tweaker.Сlasses
         {
             try
             {
-                ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                 switch (_select)
                 {
                     case 1:
@@ -3030,7 +3028,7 @@ namespace Tweaker.Сlasses
                             _process.StartInfo.Arguments = string.Format("/c powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61");
                             _process.Start();
                             _process.Dispose();
-                            ShowNotification("Уведомление", "Схема электропитания «Максимальная производительность» добавлена", 0);
+                            toastNotification.Show("Уведомление", "Схема электропитания «Максимальная производительность» добавлена", 0);
                             break;
                         }
                     case 6:
@@ -3045,7 +3043,7 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 1, RegistryValueKind.DWord);
                             else
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications").SetValue("ToastEnabled", 1, RegistryValueKind.DWord);
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             break;
                         }
                     case 7:
@@ -3099,12 +3097,12 @@ namespace Tweaker.Сlasses
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").DeleteValue("ConfigureAppInstallControlEnabled");
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AppHost").DeleteValue("EnableWebContentEvaluation");
                             }
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             break;
                         }
                     case 10:
                         {
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
                             {
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System").SetValue("ConsentPromptBehaviorAdmin", 0, RegistryValueKind.DWord);
@@ -3129,7 +3127,7 @@ namespace Tweaker.Сlasses
                         }
                     case 11:
                         {
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             string _state = default;
                             if (_choose)
                             {
@@ -3196,12 +3194,12 @@ namespace Tweaker.Сlasses
                                 });
                             }
                             _process.Dispose();
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             break;
                         }
                     case 13:
                         {
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
                                 _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management").SetValue("LargeSystemCache", 1, RegistryValueKind.DWord);
                             else
@@ -3210,7 +3208,7 @@ namespace Tweaker.Сlasses
                         }
                     case 14:
                         {
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize").SetValue("Startupdelayinmsec", 0, RegistryValueKind.DWord);
                             else
@@ -3463,6 +3461,23 @@ namespace Tweaker.Сlasses
                 _morePage.TButton13.State = false;
                 _morePage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
+
+            //#14
+            //_key[236] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Update");
+            //_key[237] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\Update");
+            //_key[238] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\WindowsUpdate\UX\Settings");
+
+            //if (_key[236] == null || _key[236].GetValue("ExcludeWUDriversInQualityUpdate ", null) == null || _key[236].GetValue("ExcludeWUDriversInQualityUpdate ").ToString() != "1" || _key[237] == null || _key[237].GetValue("ExcludeWUDriversInQualityUpdate ", null) == null || _key[237].GetValue("ExcludeWUDriversInQualityUpdate ").ToString() != "1" ||
+            //    _key[238] == null || _key[238].GetValue("ExcludeWUDriversInQualityUpdate ", null) == null || _key[238].GetValue("ExcludeWUDriversInQualityUpdate ").ToString() != "1")
+            //{
+            //    _morePage.TButton14.State = true;
+            //    _morePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            //}
+            //else
+            //{
+            //    _morePage.TButton14.State = false;
+            //    _morePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            //}
         }
 
         internal void ChangeSettingMore(in bool _choose, in byte _select)
@@ -3473,7 +3488,7 @@ namespace Tweaker.Сlasses
                 {
                     case 1:
                         {
-                            ShowNotification("Информация", "Процесс активации Windows начался, это займет некоторое время", 0);
+                            toastNotification.Show("Информация", "Процесс активации Windows начался, это займет некоторое время", 0);
 
                             Parallel.Invoke(() =>
                             {
@@ -3556,13 +3571,13 @@ namespace Tweaker.Сlasses
                                         {
                                             _verificationW = 1;
                                             _process.Dispose();
-                                            ShowNotification("Информация", "Активация Windows прошла успешно", 0);
+                                            toastNotification.Show("Информация", "Активация Windows прошла успешно", 0);
                                         }
                                         else
                                         {
                                             _verificationW = 0;
                                             _process.Dispose();
-                                            ShowNotification("Информация", "Не удалось активировать Windows", 0);
+                                            toastNotification.Show("Информация", "Не удалось активировать Windows", 0);
                                         }
                                     });
                                 }
@@ -3571,7 +3586,7 @@ namespace Tweaker.Сlasses
                         }
                     case 2:
                         {
-                            ShowNotification("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
+                            toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2);
                             if (_choose)
                             {
                                 byte[] _data = new byte[] { 0xFF, 0xFF, 0xFF, 0xFF };
@@ -3667,7 +3682,7 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\StickyKeys").SetValue("Flags", "506", RegistryValueKind.String);
                             else
                                 _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\StickyKeys").SetValue("Flags", "26", RegistryValueKind.String);
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             break;
                         }
                     case 9:
@@ -3676,7 +3691,7 @@ namespace Tweaker.Сlasses
                                 _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys").SetValue("Flags", "62", RegistryValueKind.String);
                             else
                                 _currentUserKey.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys").SetValue("Flags", "63", RegistryValueKind.String);
-                            ShowNotification("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
+                            toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1);
                             break;
                         }
                     case 10:
@@ -3708,10 +3723,23 @@ namespace Tweaker.Сlasses
                             if (_choose)
                             {
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("JPEGImportQuality", 100, RegistryValueKind.DWord);
-                                ShowNotification("Информация", "Установите нужные обои формата JPEG, чтобы убедиться", 0);
+                                toastNotification.Show("Информация", "Установите нужные обои формата JPEG, чтобы убедиться", 0);
                             }
                             else
                                 _currentUserKey.CreateSubKey(@"Control Panel\Desktop").DeleteValue("JPEGImportQuality");
+                            break;
+                        }
+                    case 14:
+                        {
+                            if (_choose)
+                            {
+
+                            }
+                            else
+                            {
+
+                            }
+                                
                             break;
                         }
 
@@ -3720,25 +3748,5 @@ namespace Tweaker.Сlasses
             catch { };
         }
         #endregion
-
-        private void ShowNotification(string _Tittle, string _Text, byte _Action)
-        {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Parallel.Invoke(() =>
-                {
-                    if (notificationWindow.IsLoaded == false)
-                    {
-                        notificationWindow = new NotificationWindow
-                        {
-                            AddTitle = _Tittle,
-                            AddText = _Text,
-                            ActionChoice = _Action,
-                        };
-                        notificationWindow.Show();
-                    }
-                });
-            });
-        }
     }
 }

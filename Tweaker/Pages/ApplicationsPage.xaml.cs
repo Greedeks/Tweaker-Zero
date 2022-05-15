@@ -1,22 +1,20 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using Tweaker.Windows;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
 {
     public partial class ApplicationsUL : Page
     {
+        private ToastNotification toastNotification = new ToastNotification();
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
-        private NotificationWindow notificationWindow = new NotificationWindow();
         private BackgroundWorker _worker;
         private string _nameApp = default;
         private DispatcherTimer _timer = default;
@@ -94,7 +92,7 @@ namespace Tweaker.Pages
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 try { _applicationsSystem.ApplicationRecovery(); } catch { };
-                Application.Current.Dispatcher.Invoke(() => { ShowNotification("Информация", "Процесс восстановления приложений начался, это займет некоторое время"); });
+                Application.Current.Dispatcher.Invoke(() => { toastNotification.Show("Информация", "Процесс восстановления приложений начался, это займет некоторое время",0); });
 
                 if (OneDrive.Source == (DrawingImage)Application.Current.Resources["OneDriveImageU"])
                     _settingsWindows.AppOneDrive(false);
@@ -111,7 +109,7 @@ namespace Tweaker.Pages
                 _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                 _worker.RunWorkerAsync();
                 _settingsWindows.AppOneDrive(true);
-                ShowNotification("Информация", "Процесс удаления приложений начался, это займет некоторое время");
+                toastNotification.Show("Информация", "Процесс удаления приложений начался, это займет некоторое время", 0);
             }
         }
         #endregion
@@ -139,25 +137,6 @@ namespace Tweaker.Pages
         #endregion
 
         private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
-
-        private void ShowNotification(string _Tittle, string _Text)
-        {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Parallel.Invoke(() =>
-                {
-                    if (notificationWindow.IsLoaded == false)
-                    {
-                        notificationWindow = new NotificationWindow
-                        {
-                            AddTitle = _Tittle,
-                            AddText = _Text
-                        };
-                        notificationWindow.Show();
-                    }
-                });
-            });
-        }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
