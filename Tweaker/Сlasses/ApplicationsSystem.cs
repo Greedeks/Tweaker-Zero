@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using Tweaker.Pages;
@@ -12,6 +13,7 @@ namespace Tweaker.Сlasses
     internal sealed class ApplicationsSystem
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+        private readonly ToastNotification toastNotification = new ToastNotification();
         private readonly static Dictionary<byte, byte> _CountCheck = new Dictionary<byte, byte>(32);
 
         private static string _result = default;
@@ -144,6 +146,8 @@ namespace Tweaker.Сlasses
         {
             if (AppCheckCountRemoval() < 30)
             {
+                Parallel.Invoke( () => { toastNotification.Show("Информация", "Процесс восстановления приложений начался, это займет некоторое время", 0); });
+
                 _process = Process.Start(new ProcessStartInfo
                 {
                     UseShellExecute = false,
@@ -165,6 +169,8 @@ namespace Tweaker.Сlasses
         {
             if (AppCheckCountRemoval() != 0)
             {
+                Parallel.Invoke(() => { toastNotification.Show("Информация", "Процесс удаления приложений начался, это займет некоторое время", 0); });
+
                 _process = new Process();
                 _process.StartInfo.UseShellExecute = false;
                 _process.StartInfo.RedirectStandardOutput = true;

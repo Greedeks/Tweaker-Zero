@@ -12,7 +12,6 @@ namespace Tweaker.Pages
 {
     public partial class ApplicationsUL : Page
     {
-        private readonly ToastNotification toastNotification = new ToastNotification();
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private BackgroundWorker _worker;
@@ -92,7 +91,6 @@ namespace Tweaker.Pages
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 try { _applicationsSystem.ApplicationRecovery(); } catch { };
-                Application.Current.Dispatcher.Invoke(() => { toastNotification.Show("Информация", "Процесс восстановления приложений начался, это займет некоторое время",0); });
 
                 if (OneDrive.Source == (DrawingImage)Application.Current.Resources["OneDriveImageU"])
                     _settingsWindows.AppOneDrive(false);
@@ -109,7 +107,6 @@ namespace Tweaker.Pages
                 _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
                 _worker.RunWorkerAsync();
                 _settingsWindows.AppOneDrive(true);
-                toastNotification.Show("Информация", "Процесс удаления приложений начался, это займет некоторое время", 0);
             }
         }
         #endregion
