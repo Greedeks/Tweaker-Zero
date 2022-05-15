@@ -12,7 +12,7 @@ namespace Tweaker.Pages
 {
     public partial class ApplicationsUL : Page
     {
-        private ToastNotification toastNotification = new ToastNotification();
+        private readonly ToastNotification toastNotification = new ToastNotification();
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private BackgroundWorker _worker;
