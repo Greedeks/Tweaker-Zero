@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tweaker.Windows"
         mc:Ignorable="d"
-        Title="Notification" x:Name="NotificationW" Height="120" Width="356" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded" Topmost="True" ShowInTaskbar="False" WindowStartupLocation="Manual" Closing="NotificationW_Closing">
+        Title="Tweaker Zero" x:Name="NotificationW" Height="120" Width="356" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded" Topmost="True" ShowInTaskbar="False" WindowStartupLocation="Manual" Closing="NotificationW_Closing">
     <Grid>
         <Border Background="{DynamicResource BackgroundColor}" Opacity="0.95">
             <Border.Clip>

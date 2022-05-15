@@ -554,32 +554,34 @@ namespace Tweaker.Сlasses
 
         private void Worker_DoWorkTaskConfidentiality(object sender, DoWorkEventArgs e)
         {
-            string[] TaskName = new string[12] {@"""Microsoft\Windows\Maintenance\WinSAT""", @"""Microsoft\Windows\Autochk\Proxy""", @"""Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser""",
+            try
+            {
+                string[] TaskName = new string[12] {@"""Microsoft\Windows\Maintenance\WinSAT""", @"""Microsoft\Windows\Autochk\Proxy""", @"""Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser""",
                 @"""Microsoft\Windows\Application Experience\ProgramDataUpdater""", @"""Microsoft\Windows\Application Experience\StartupAppTask""", @"""Microsoft\Windows\PI\Sqm-Tasks""",
                 @"""Microsoft\Windows\NetTrace\GatherNetworkInfo""", @"""Microsoft\Windows\Customer Experience Improvement Program\Consolidator""", @"""Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask""",
                 @"""Microsoft\Windows\Customer Experience Improvement Program\UsbCeip""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver""", @"""Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"""};
 
-            Process _process = new Process();
-            _process.StartInfo.UseShellExecute = false;
-            _process.StartInfo.RedirectStandardOutput = true;
-            _process.StartInfo.CreateNoWindow = true;
-            _process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            _process.StartInfo.FileName = "cmd.exe";
-            foreach (string _taskName in TaskName)
-            {
-                Parallel.Invoke(() =>
+                Process _process = new Process();
+                _process.StartInfo.UseShellExecute = false;
+                _process.StartInfo.RedirectStandardOutput = true;
+                _process.StartInfo.CreateNoWindow = true;
+                _process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                _process.StartInfo.FileName = "cmd.exe";
+                foreach (string _taskName in TaskName)
                 {
-                    _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
-                    _process.Start();
-                });
+                    Parallel.Invoke(() =>
+                    {
+                        _process.StartInfo.Arguments = string.Format(@"/c schtasks /change /tn {0} {1}", _taskName, _state);
+                        _process.Start();
+                    });
+                }
+                _process.Dispose();
             }
-            _process.Dispose();
+            catch { }
         }
 
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            _worker.Dispose();
-        }
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) => _worker.Dispose();
+ 
         #endregion
 
         #region Interface
@@ -3597,7 +3599,7 @@ namespace Tweaker.Сlasses
                             break;
                         }
                     case 2:
-                        {
+                        {        
                             Parallel.Invoke(() => { toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2); });
                             if (_choose)
                             {

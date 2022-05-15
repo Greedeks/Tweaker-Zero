@@ -69,5 +69,15 @@ namespace Tweaker.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] windowsNotf {
+            get {
+                object obj = ResourceManager.GetObject("windowsNotf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

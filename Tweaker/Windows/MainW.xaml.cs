@@ -16,12 +16,14 @@ namespace Tweaker
         private readonly CheckApplicationCopy _checkApplicationCopy = new CheckApplicationCopy();
         private readonly StartScanner _startScanner = new StartScanner();
         private readonly CheckWindowsVersion _checkWindowsVersion = new CheckWindowsVersion();
+        private readonly ToastNotification _toastNotification = new ToastNotification();
         #endregion
 
         public MainWindow()
         {
             Parallel.Invoke(() => { _checkApplicationCopy.CheckAC(); });
             Parallel.Invoke(() => { _checkWindowsVersion.CheckVersion(); });
+            Parallel.Invoke(() => { _toastNotification.Load(); });
 
             InitializeComponent();
         }
@@ -265,6 +267,11 @@ namespace Tweaker
             TweakerWPF.Left = (_primaryMonitorArea.Bottom / 2) - (this.Width / 2);
             TweakerWPF.Top = (_primaryMonitorArea.Right / 2) - (this.Height / 2);
             #endregion
+        }
+
+        private void TweakerWPF_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _toastNotification.Unloading();
         }
     }
 }
