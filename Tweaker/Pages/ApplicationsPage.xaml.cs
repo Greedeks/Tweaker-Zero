@@ -10,7 +10,7 @@ using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
 {
-    public partial class ApplicationsUL : Page
+    public partial class ApplicationsPage : Page
     {
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
@@ -19,7 +19,7 @@ namespace Tweaker.Pages
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
 
-        public ApplicationsUL()
+        public ApplicationsPage()
         {
             InitializeComponent();
 

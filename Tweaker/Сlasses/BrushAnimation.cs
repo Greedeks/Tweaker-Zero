@@ -59,10 +59,10 @@ namespace Tweaker.Сlasses
             Brush _fromVal = ((Brush)GetValue(BrushAnimation.FromProperty)).CloneCurrentValue();
             Brush _toVal = ((Brush)GetValue(BrushAnimation.ToProperty)).CloneCurrentValue();
 
-            if ((float)animationClock.CurrentProgress == 0.0)
+            if ((double)animationClock.CurrentProgress == 0.0)
                 return _fromVal;
 
-            if ((float)animationClock.CurrentProgress == 1.0)
+            if ((double)animationClock.CurrentProgress == 1.0)
                 return _toVal;
 
             _toVal.Opacity = (double)animationClock.CurrentProgress;

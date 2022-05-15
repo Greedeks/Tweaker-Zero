@@ -8,13 +8,13 @@ using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
 {
-    public partial class Confidentiality : Page
+    public partial class ConfidentialityPage : Page
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
 
-        public Confidentiality()
+        public ConfidentialityPage()
         {
             InitializeComponent();
 

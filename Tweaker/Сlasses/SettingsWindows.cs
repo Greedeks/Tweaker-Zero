@@ -30,7 +30,7 @@ namespace Tweaker.Сlasses
         private const uint SPI_SETKEYBOARDSPEED = 0x000B;
 
         #region Confidentiality
-        internal void GetSettingConfidentiality(Confidentiality _confidentiality)
+        internal void GetSettingConfidentiality(in ConfidentialityPage _confidentialityPage)
         {
             //#1
             _key[0] = _currentUserKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
@@ -38,13 +38,13 @@ namespace Tweaker.Сlasses
 
             if (_key[0] == null || _key[0].GetValue("Enabled", null) == null || _key[0].GetValue("Enabled").ToString() != "0" || _key[1] == null || _key[1].GetValue("AllowAdvertising", null) == null || _key[1].GetValue("AllowAdvertising").ToString() != "0")
             {
-                _confidentiality.TButton1.State = true;
-                _confidentiality.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton1.State = true;
+                _confidentialityPage.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton1.State = false;
-                _confidentiality.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton1.State = false;
+                _confidentialityPage.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#2
@@ -59,13 +59,13 @@ namespace Tweaker.Сlasses
                 _key[4] == null || _key[4].GetValue("Enabled", null) == null || _key[4].GetValue("Enabled").ToString() != "0" || _key[5] == null || _key[5].GetValue("Enabled", null) == null || _key[5].GetValue("Enabled").ToString() != "0" ||
                 _key[6] == null || _key[6].GetValue("Enabled", null) == null || _key[6].GetValue("Enabled").ToString() != "0" || _key[7] == null || _key[7].GetValue("Enabled", null) == null || _key[7].GetValue("Enabled").ToString() != "0")
             {
-                _confidentiality.TButton2.State = true;
-                _confidentiality.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton2.State = true;
+                _confidentialityPage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton2.State = false;
-                _confidentiality.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton2.State = false;
+                _confidentialityPage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#3
@@ -74,25 +74,25 @@ namespace Tweaker.Сlasses
 
             if (_key[8] == null || _key[8].GetValue("Start", null) == null || _key[8].GetValue("Start").ToString() != "0" || _key[9] == null || _key[9].GetValue("SaveZoneInformation", null) == null || _key[9].GetValue("SaveZoneInformation").ToString() != "1")
             {
-                _confidentiality.TButton3.State = true;
-                _confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton3.State = true;
+                _confidentialityPage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton3.State = false;
-                _confidentiality.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton3.State = false;
+                _confidentialityPage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#4
             if (_countTasksConfidentiality > 0)
             {
-                _confidentiality.TButton4.State = true;
-                _confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton4.State = true;
+                _confidentialityPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton4.State = false;
-                _confidentiality.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton4.State = false;
+                _confidentialityPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#5
@@ -100,13 +100,13 @@ namespace Tweaker.Сlasses
 
             if (_key[12] == null || _key[12].GetValue("DisableInventory", null) == null || _key[12].GetValue("DisableInventory").ToString() != "1")
             {
-                _confidentiality.TButton5.State = true;
-                _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton5.State = true;
+                _confidentialityPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton5.State = false;
-                _confidentiality.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton5.State = false;
+                _confidentialityPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#6
@@ -118,13 +118,13 @@ namespace Tweaker.Сlasses
             if (_key[13] == null || _key[13].GetValue("AllowTelemetry", null) == null || _key[13].GetValue("AllowTelemetry").ToString() != "0" || _key[14] == null || _key[14].GetValue("AITEnable", null) == null || _key[14].GetValue("AITEnable").ToString() != "0" ||
             _key[15] == null || _key[15].GetValue("AllowTelemetry", null) == null || _key[15].GetValue("AllowTelemetry").ToString() != "0" || _key[16].GetValue("Start_TrackProgs", null) == null || _key[16].GetValue("Start_TrackProgs").ToString() != "0")
             {
-                _confidentiality.TButton6.State = true;
-                _confidentiality.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton6.State = true;
+                _confidentialityPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton6.State = false;
-                _confidentiality.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton6.State = false;
+                _confidentialityPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#7
@@ -135,13 +135,13 @@ namespace Tweaker.Сlasses
             if (_key[17] == null || _key[17].GetValue("PreventHandwritingDataSharing", null) == null || _key[17].GetValue("PreventHandwritingDataSharing").ToString() != "1" || _key[18] == null || _key[18].GetValue("PreventHandwritingErrorReports", null) == null || _key[18].GetValue("PreventHandwritingErrorReports").ToString() != "1" ||
             _key[19] == null || _key[19].GetValue("Enabled", null) == null || _key[19].GetValue("Enabled").ToString() != "0")
             {
-                _confidentiality.TButton7.State = true;
-                _confidentiality.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton7.State = true;
+                _confidentialityPage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton7.State = false;
-                _confidentiality.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton7.State = false;
+                _confidentialityPage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#8
@@ -150,13 +150,13 @@ namespace Tweaker.Сlasses
 
             if (_key[20] == null || _key[20].GetValue("DisableUAR", null) == null || _key[20].GetValue("DisableUAR").ToString() != "1" || _key[21] == null || _key[21].GetValue("NoLockScreenCamera", null) == null || _key[21].GetValue("NoLockScreenCamera").ToString() != "1")
             {
-                _confidentiality.TButton8.State = true;
-                _confidentiality.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton8.State = true;
+                _confidentialityPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton8.State = false;
-                _confidentiality.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton8.State = false;
+                _confidentialityPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#9
@@ -165,13 +165,13 @@ namespace Tweaker.Сlasses
             if (_key[22] == null || _key[22].GetValue("DisableLocationScripting", null) == null || _key[22].GetValue("DisableLocationScripting").ToString() != "1" || _key[22] == null || _key[22].GetValue("DisableLocation", null) == null || _key[22].GetValue("DisableLocation").ToString() != "1" ||
             _key[22] == null || _key[22].GetValue("DisableWindowsLocationProvider", null) == null || _key[22].GetValue("DisableWindowsLocationProvider").ToString() != "1")
             {
-                _confidentiality.TButton9.State = true;
-                _confidentiality.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton9.State = true;
+                _confidentialityPage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton9.State = false;
-                _confidentiality.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton9.State = false;
+                _confidentialityPage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#10
@@ -181,13 +181,13 @@ namespace Tweaker.Сlasses
             if (_key[23] == null || _key[23].GetValue("NumberOfSIUFInPeriod", null) == null || _key[23].GetValue("NumberOfSIUFInPeriod").ToString() != "0" || _key[23] == null || _key[23].GetValue("PeriodInNanoSeconds", null) == null || _key[23].GetValue("PeriodInNanoSeconds").ToString() != "0" ||
             _key[24] == null || _key[24].GetValue("DoNotShowFeedbackNotifications", null) == null || _key[24].GetValue("DoNotShowFeedbackNotifications").ToString() != "1")
             {
-                _confidentiality.TButton10.State = true;
-                _confidentiality.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton10.State = true;
+                _confidentialityPage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton10.State = false;
-                _confidentiality.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton10.State = false;
+                _confidentialityPage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#11
@@ -195,13 +195,13 @@ namespace Tweaker.Сlasses
 
             if (_key[25] == null || _key[25].GetValue("AllowSpeechModelUpdate", null) == null || _key[25].GetValue("AllowSpeechModelUpdate").ToString() != "0")
             {
-                _confidentiality.TButton11.State = true;
-                _confidentiality.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton11.State = true;
+                _confidentialityPage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton11.State = false;
-                _confidentiality.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton11.State = false;
+                _confidentialityPage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#12
@@ -209,13 +209,13 @@ namespace Tweaker.Сlasses
 
             if (_key[26] == null || _key[26].GetValue("Start", null) == null || _key[26].GetValue("Start").ToString() != "4")
             {
-                _confidentiality.TButton12.State = true;
-                _confidentiality.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton12.State = true;
+                _confidentialityPage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton12.State = false;
-                _confidentiality.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton12.State = false;
+                _confidentialityPage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#13
@@ -223,13 +223,13 @@ namespace Tweaker.Сlasses
 
             if (_key[27] == null || _key[27].GetValue("AllowExperimentation", null) == null || _key[27].GetValue("AllowExperimentation").ToString() != "0")
             {
-                _confidentiality.TButton13.State = true;
-                _confidentiality.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton13.State = true;
+                _confidentialityPage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton13.State = false;
-                _confidentiality.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton13.State = false;
+                _confidentialityPage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#14
@@ -238,13 +238,13 @@ namespace Tweaker.Сlasses
 
             if (_key[28] != null || _key[29] != null)
             {
-                _confidentiality.TButton14.State = true;
-                _confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton14.State = true;
+                _confidentialityPage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton14.State = false;
-                _confidentiality.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton14.State = false;
+                _confidentialityPage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#15
@@ -252,13 +252,13 @@ namespace Tweaker.Сlasses
 
             if (_key[30] == null || _key[30].GetValue("Start", null) == null || _key[30].GetValue("Start").ToString() != "4")
             {
-                _confidentiality.TButton15.State = true;
-                _confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton15.State = true;
+                _confidentialityPage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton15.State = false;
-                _confidentiality.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton15.State = false;
+                _confidentialityPage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#16
@@ -266,13 +266,13 @@ namespace Tweaker.Сlasses
 
             if (_key[31] == null || _key[31].GetValue("Start", null) == null || _key[31].GetValue("Start").ToString() != "4")
             {
-                _confidentiality.TButton16.State = true;
-                _confidentiality.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _confidentialityPage.TButton16.State = true;
+                _confidentialityPage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _confidentiality.TButton16.State = false;
-                _confidentiality.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _confidentialityPage.TButton16.State = false;
+                _confidentialityPage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
         }
 
@@ -585,20 +585,20 @@ namespace Tweaker.Сlasses
         #endregion
 
         #region Interface
-        internal void GetSettingInterface(in Interface _interface)
+        internal void GetSettingInterface(in InterfacePage _interfacePage)
         {
             //#1
             _key[32] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
             if (_key[32] == null || _key[32].GetValue("MenuShowDelay", null) == null || _key[32].GetValue("MenuShowDelay").ToString() != "20")
             {
-                _interface.TButton1.State = true;
-                _interface.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton1.State = true;
+                _interfacePage.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton1.State = false;
-                _interface.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton1.State = false;
+                _interfacePage.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#2
@@ -645,13 +645,13 @@ namespace Tweaker.Сlasses
                || _key[49] != null || _key[50] != null || _key[51] != null || _key[52] != null || _key[53] != null || _key[54] != null || _key[55] != null || _key[56] != null
                || _key[57] != null || _key[58] != null || _key[59] != null || _key[60] != null || _key[61] != null)
             {
-                _interface.TButton2.State = true;
-                _interface.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton2.State = true;
+                _interfacePage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton2.State = false;
-                _interface.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton2.State = false;
+                _interfacePage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#3
@@ -661,13 +661,13 @@ namespace Tweaker.Сlasses
 
             if (_key[62] != null || _key[63] != null || _key[64] != null)
             {
-                _interface.TButton3.State = true;
-                _interface.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton3.State = true;
+                _interfacePage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton3.State = false;
-                _interface.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton3.State = false;
+                _interfacePage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#4
@@ -678,13 +678,13 @@ namespace Tweaker.Сlasses
             if (_key[65] == null || _key[65].GetValue("InfoWindow", null) == null || _key[65].GetValue("InfoWindow").ToString() != "246 253 255" || _key[66] == null || _key[66].GetValue("InfoWindow", null) == null || _key[66].GetValue("InfoWindow").ToString() != "246 253 255" ||
             _key[67] == null || _key[67].GetValue("InfoWindow", null) == null || _key[67].GetValue("InfoWindow").ToString() != "246 253 255")
             {
-                _interface.TButton4.State = true;
-                _interface.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton4.State = true;
+                _interfacePage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton4.State = false;
-                _interface.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton4.State = false;
+                _interfacePage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#5
@@ -693,13 +693,13 @@ namespace Tweaker.Сlasses
             if (_key[68] == null || _key[68].GetValue("CaptionHeight", null) == null || _key[68].GetValue("CaptionHeight").ToString() != "-270" ||
                 _key[68] == null || _key[68].GetValue("CaptionWidth", null) == null || _key[68].GetValue("CaptionWidth").ToString() != "-270")
             {
-                _interface.TButton5.State = true;
-                _interface.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton5.State = true;
+                _interfacePage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton5.State = false;
-                _interface.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton5.State = false;
+                _interfacePage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#6
@@ -708,13 +708,13 @@ namespace Tweaker.Сlasses
 
             if (_key[69] != null || _key[70] != null)
             {
-                _interface.TButton6.State = true;
-                _interface.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton6.State = true;
+                _interfacePage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton6.State = false;
-                _interface.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton6.State = false;
+                _interfacePage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#7
@@ -727,13 +727,13 @@ namespace Tweaker.Сlasses
 
             if (_key[71] != null || _key[72] != null || _key[73] != null || _key[74] != null || _key[75] != null || _key[76] != null)
             {
-                _interface.TButton7.State = true;
-                _interface.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton7.State = true;
+                _interfacePage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton7.State = false;
-                _interface.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton7.State = false;
+                _interfacePage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#8
@@ -741,13 +741,13 @@ namespace Tweaker.Сlasses
 
             if (_key[77] == null || _key[77].GetValue("29", null) == null || _key[77].GetValue("29").ToString() != @"%systemroot%\\Blank.ico,0")
             {
-                _interface.TButton8.State = true;
-                _interface.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton8.State = true;
+                _interfacePage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton8.State = false;
-                _interface.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton8.State = false;
+                _interfacePage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#9
@@ -755,13 +755,13 @@ namespace Tweaker.Сlasses
 
             if (_key[78] == null || _key[78].GetValue("link", null) == null)
             {
-                _interface.TButton9.State = true;
-                _interface.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton9.State = true;
+                _interfacePage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton9.State = false;
-                _interface.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton9.State = false;
+                _interfacePage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#10
@@ -769,13 +769,13 @@ namespace Tweaker.Сlasses
 
             if (_key[79] == null || _key[79].GetValue("CursorBlinkRate", null) == null || _key[79].GetValue("CursorBlinkRate").ToString() != "250")
             {
-                _interface.TButton10.State = true;
-                _interface.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton10.State = true;
+                _interfacePage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton10.State = false;
-                _interface.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton10.State = false;
+                _interfacePage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#11
@@ -783,13 +783,13 @@ namespace Tweaker.Сlasses
 
             if (_key[80] == null || _key[80].GetValue("MouseHoverTime", null) == null || _key[80].GetValue("MouseHoverTime").ToString() != "20")
             {
-                _interface.TButton11.State = true;
-                _interface.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton11.State = true;
+                _interfacePage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton11.State = false;
-                _interface.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton11.State = false;
+                _interfacePage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#12
@@ -797,13 +797,13 @@ namespace Tweaker.Сlasses
 
             if (_key[81] == null || _key[81].GetValue("{645FF040-5081-101B-9F08-00AA002F954E}", null) == null || _key[81].GetValue("{645FF040-5081-101B-9F08-00AA002F954E}").ToString() != "1")
             {
-                _interface.TButton12.State = true;
-                _interface.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton12.State = true;
+                _interfacePage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton12.State = false;
-                _interface.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton12.State = false;
+                _interfacePage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#13
@@ -811,13 +811,13 @@ namespace Tweaker.Сlasses
 
             if (_key[82] == null || _key[82].GetValue("DisableNotificationCenter", null) == null || _key[82].GetValue("DisableNotificationCenter").ToString() != "1")
             {
-                _interface.TButton13.State = true;
-                _interface.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton13.State = true;
+                _interfacePage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton13.State = false;
-                _interface.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton13.State = false;
+                _interfacePage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#14
@@ -826,13 +826,13 @@ namespace Tweaker.Сlasses
             if (_key[83] == null || _key[83].GetValue("ScrollHeight", null) == null || _key[83].GetValue("ScrollHeight").ToString() != "-210" ||
                 _key[83] == null || _key[83].GetValue("ScrollWidth", null) == null || _key[83].GetValue("ScrollWidth").ToString() != "-210")
             {
-                _interface.TButton14.State = true;
-                _interface.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton14.State = true;
+                _interfacePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton14.State = false;
-                _interface.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton14.State = false;
+                _interfacePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#15
@@ -840,13 +840,13 @@ namespace Tweaker.Сlasses
 
             if (_key[84] == null || _key[84].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}", null) == null || _key[84].GetValue("{20D04FE0-3AEA-1069-A2D8-08002B30309D}").ToString() != "0")
             {
-                _interface.TButton15.State = true;
-                _interface.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton15.State = true;
+                _interfacePage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton15.State = false;
-                _interface.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton15.State = false;
+                _interfacePage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#16
@@ -854,13 +854,13 @@ namespace Tweaker.Сlasses
 
             if (_key[85] == null || _key[85].GetValue("PersistBrowsers", null) == null || _key[85].GetValue("PersistBrowsers").ToString() != "1")
             {
-                _interface.TButton16.State = true;
-                _interface.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _interfacePage.TButton16.State = true;
+                _interfacePage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _interface.TButton16.State = false;
-                _interface.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _interfacePage.TButton16.State = false;
+                _interfacePage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) == "11")
@@ -872,13 +872,13 @@ namespace Tweaker.Сlasses
                 if (_key[86] == null || _key[86].GetValue("ShowTaskViewButton", null) == null || _key[86].GetValue("ShowTaskViewButton").ToString() != "0" || _key[86] == null || _key[86].GetValue("TaskbarMn", null) == null || _key[86].GetValue("TaskbarMn").ToString() != "0"
                     || _key[86] == null || _key[86].GetValue("TaskbarDa", null) == null || _key[86].GetValue("TaskbarDa").ToString() != "0" || _key[87] == null || _key[87].GetValue("SearchboxTaskbarMode", null) == null || _key[87].GetValue("SearchboxTaskbarMode").ToString() != "0")
                 {
-                    _interface.TButton17.State = true;
-                    _interface.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                    _interfacePage.TButton17.State = true;
+                    _interfacePage.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
                 }
                 else
                 {
-                    _interface.TButton17.State = false;
-                    _interface.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                    _interfacePage.TButton17.State = false;
+                    _interfacePage.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
                 }
 
                 //#18
@@ -890,13 +890,13 @@ namespace Tweaker.Сlasses
                     _key[90] == null || _key[90].GetValue("RotatingLockScreenEnabled", null) == null || _key[90].GetValue("RotatingLockScreenEnabled").ToString() != "0" || _key[90] == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled", null) == null || _key[90].GetValue("RotatingLockScreenOverlayEnabled").ToString() != "0" ||
                     _key[90] == null || _key[90].GetValue("SubscribedContent-338387Enabled", null) == null || _key[90].GetValue("SubscribedContent-338387Enabled").ToString() != "0")
                 {
-                    _interface.TButton18.State = true;
-                    _interface.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                    _interfacePage.TButton18.State = true;
+                    _interfacePage.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
                 }
                 else
                 {
-                    _interface.TButton18.State = false;
-                    _interface.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                    _interfacePage.TButton18.State = false;
+                    _interfacePage.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
                 }
 
                 //#19
@@ -904,13 +904,13 @@ namespace Tweaker.Сlasses
 
                 if (_key[91] == null)
                 {
-                    _interface.TButton19.State = true;
-                    _interface.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                    _interfacePage.TButton19.State = true;
+                    _interfacePage.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
                 }
                 else
                 {
-                    _interface.TButton19.State = false;
-                    _interface.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                    _interfacePage.TButton19.State = false;
+                    _interfacePage.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
                 }
 
                 //#20
@@ -920,13 +920,13 @@ namespace Tweaker.Сlasses
                 if (_key[92] == null || _key[92].GetValue("SoftLandingEnabled", null) == null || _key[92].GetValue("SoftLandingEnabled").ToString() != "0" ||
                     _key[93] == null || _key[93].GetValue("ScoobeSystemSettingEnabled ", null) == null || _key[93].GetValue("ScoobeSystemSettingEnabled ").ToString() != "0")
                 {
-                    _interface.TButton20.State = true;
-                    _interface.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                    _interfacePage.TButton20.State = true;
+                    _interfacePage.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
                 }
                 else
                 {
-                    _interface.TButton20.State = false;
-                    _interface.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                    _interfacePage.TButton20.State = false;
+                    _interfacePage.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
                 }
             }
         }
@@ -1607,7 +1607,7 @@ namespace Tweaker.Сlasses
         #endregion
 
         #region Services
-        internal void GetSettingServices(in ServicesPage _services)
+        internal void GetSettingServices(in ServicesPage _servicesPage)
         {
             //#1
             _key[94] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch");
@@ -1616,13 +1616,13 @@ namespace Tweaker.Сlasses
             if (_key[94] == null || _key[94].GetValue("Start", null) == null || _key[94].GetValue("Start").ToString() != "4" ||
                 _key[95] == null || _key[95].GetValue("Start", null) == null || _key[95].GetValue("Start").ToString() != "4")
             {
-                _services.TButton1.State = true;
-                _services.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton1.State = true;
+                _servicesPage.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton1.State = false;
-                _services.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton1.State = false;
+                _servicesPage.Tweak1.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#2
@@ -1634,13 +1634,13 @@ namespace Tweaker.Сlasses
             if (_key[96] == null || _key[96].GetValue("Start", null) == null || _key[96].GetValue("Start").ToString() != "4" || _key[97] == null || _key[97].GetValue("Start", null) == null || _key[97].GetValue("Start").ToString() != "4" ||
                 _key[98] == null || _key[98].GetValue("Start", null) == null || _key[98].GetValue("Start").ToString() != "4" || _key[99] == null || _key[99].GetValue("Start", null) == null || _key[99].GetValue("Start").ToString() != "4")
             {
-                _services.TButton2.State = true;
-                _services.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton2.State = true;
+                _servicesPage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton2.State = false;
-                _services.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton2.State = false;
+                _servicesPage.Tweak2.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#3
@@ -1653,13 +1653,13 @@ namespace Tweaker.Сlasses
             if (_key[100] == null || _key[100].GetValue("Start", null) == null || _key[100].GetValue("Start").ToString() != "4" || _key[101] == null || _key[101].GetValue("Start", null) == null || _key[101].GetValue("Start").ToString() != "4" || _key[102] == null || _key[102].GetValue("Start", null) == null || _key[102].GetValue("Start").ToString() != "4" ||
                 _key[103] == null || _key[103].GetValue("Start", null) == null || _key[103].GetValue("Start").ToString() != "4" || _key[104] == null || _key[104].GetValue("Start", null) == null || _key[104].GetValue("Start").ToString() != "4")
             {
-                _services.TButton3.State = true;
-                _services.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton3.State = true;
+                _servicesPage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton3.State = false;
-                _services.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton3.State = false;
+                _servicesPage.Tweak3.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#4
@@ -1684,13 +1684,13 @@ namespace Tweaker.Сlasses
                 _key[197] == null || _key[197].GetValue("Start", null) == null || _key[197].GetValue("Start").ToString() != "4" || _key[198] == null || _key[198].GetValue("Start", null) == null || _key[198].GetValue("Start").ToString() != "4" || _key[199] == null || _key[199].GetValue("Start", null) == null || _key[199].GetValue("Start").ToString() != "4" ||
                 _key[200] == null || _key[200].GetValue("Start", null) == null || _key[200].GetValue("Start").ToString() != "4" || _key[201] == null || _key[201].GetValue("Start", null) == null || _key[201].GetValue("Start").ToString() != "4")
             {
-                _services.TButton4.State = true;
-                _services.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton4.State = true;
+                _servicesPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton4.State = false;
-                _services.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton4.State = false;
+                _servicesPage.Tweak4.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#5
@@ -1701,13 +1701,13 @@ namespace Tweaker.Сlasses
             if (_key[106] == null || _key[106].GetValue("Start", null) == null || _key[106].GetValue("Start").ToString() != "4" || _key[107] == null || _key[107].GetValue("Start", null) == null || _key[107].GetValue("Start").ToString() != "4" ||
                 _key[108] == null || _key[108].GetValue("Start", null) == null || _key[108].GetValue("Start").ToString() != "4")
             {
-                _services.TButton5.State = true;
-                _services.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton5.State = true;
+                _servicesPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton5.State = false;
-                _services.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton5.State = false;
+                _servicesPage.Tweak5.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#6
@@ -1715,13 +1715,13 @@ namespace Tweaker.Сlasses
 
             if (_key[109] == null || _key[109].GetValue("Start", null) == null || _key[109].GetValue("Start").ToString() != "4")
             {
-                _services.TButton6.State = true;
-                _services.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton6.State = true;
+                _servicesPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton6.State = false;
-                _services.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton6.State = false;
+                _servicesPage.Tweak6.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#7
@@ -1732,13 +1732,13 @@ namespace Tweaker.Сlasses
             if (_key[110] == null || _key[110].GetValue("Start", null) == null || _key[110].GetValue("Start").ToString() != "4" || _key[111] == null || _key[111].GetValue("Start", null) == null || _key[111].GetValue("Start").ToString() != "4" ||
                 _key[112] == null || _key[112].GetValue("Start", null) == null || _key[112].GetValue("Start").ToString() != "4")
             {
-                _services.TButton7.State = true;
-                _services.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton7.State = true;
+                _servicesPage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton7.State = false;
-                _services.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton7.State = false;
+                _servicesPage.Tweak7.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#8
@@ -1749,13 +1749,13 @@ namespace Tweaker.Сlasses
             if (_key[113] == null || _key[113].GetValue("Start", null) == null || _key[113].GetValue("Start").ToString() != "4" || _key[114] == null || _key[114].GetValue("Start", null) == null || _key[114].GetValue("Start").ToString() != "4" ||
                 _key[115] == null || _key[115].GetValue("Start", null) == null || _key[115].GetValue("Start").ToString() != "4")
             {
-                _services.TButton8.State = true;
-                _services.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton8.State = true;
+                _servicesPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton8.State = false;
-                _services.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton8.State = false;
+                _servicesPage.Tweak8.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#9
@@ -1763,13 +1763,13 @@ namespace Tweaker.Сlasses
 
             if (_key[116] == null || _key[116].GetValue("Start", null) == null || _key[116].GetValue("Start").ToString() != "4")
             {
-                _services.TButton9.State = true;
-                _services.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton9.State = true;
+                _servicesPage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton9.State = false;
-                _services.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton9.State = false;
+                _servicesPage.Tweak9.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#10
@@ -1780,13 +1780,13 @@ namespace Tweaker.Сlasses
             if (_key[117] == null || _key[117].GetValue("Start", null) == null || _key[117].GetValue("Start").ToString() != "4" || _key[118] == null || _key[118].GetValue("Start", null) == null || _key[118].GetValue("Start").ToString() != "4" ||
                 _key[119] == null || _key[119].GetValue("Start", null) == null || _key[119].GetValue("Start").ToString() != "4")
             {
-                _services.TButton10.State = true;
-                _services.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton10.State = true;
+                _servicesPage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton10.State = false;
-                _services.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton10.State = false;
+                _servicesPage.Tweak10.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#11
@@ -1799,13 +1799,13 @@ namespace Tweaker.Сlasses
             if (_key[120] == null || _key[120].GetValue("Start", null) == null || _key[120].GetValue("Start").ToString() != "4" || _key[121] == null || _key[121].GetValue("Start", null) == null || _key[121].GetValue("Start").ToString() != "4" || _key[122] == null || _key[122].GetValue("Start", null) == null || _key[122].GetValue("Start").ToString() != "4" ||
                 _key[123] == null || _key[123].GetValue("Start", null) == null || _key[123].GetValue("Start").ToString() != "4" || _key[124] == null || _key[124].GetValue("Start", null) == null || _key[124].GetValue("Start").ToString() != "4")
             {
-                _services.TButton11.State = true;
-                _services.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton11.State = true;
+                _servicesPage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton11.State = false;
-                _services.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton11.State = false;
+                _servicesPage.Tweak11.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#12
@@ -1815,13 +1815,13 @@ namespace Tweaker.Сlasses
             if (_key[125] == null || _key[125].GetValue("Start", null) == null || _key[125].GetValue("Start").ToString() != "4" ||
                 _key[126] == null || _key[126].GetValue("Start", null) == null || _key[126].GetValue("Start").ToString() != "4")
             {
-                _services.TButton12.State = true;
-                _services.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton12.State = true;
+                _servicesPage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton12.State = false;
-                _services.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton12.State = false;
+                _servicesPage.Tweak12.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#13
@@ -1832,13 +1832,13 @@ namespace Tweaker.Сlasses
             if (_key[127] == null || _key[127].GetValue("Start", null) == null || _key[127].GetValue("Start").ToString() != "4" || _key[128] == null || _key[128].GetValue("Start", null) == null || _key[128].GetValue("Start").ToString() != "4" ||
                 _key[129] == null || _key[129].GetValue("Start", null) == null || _key[129].GetValue("Start").ToString() != "4")
             {
-                _services.TButton13.State = true;
-                _services.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton13.State = true;
+                _servicesPage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton13.State = false;
-                _services.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton13.State = false;
+                _servicesPage.Tweak13.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#14
@@ -1854,13 +1854,13 @@ namespace Tweaker.Сlasses
                 _key[133] == null || _key[133].GetValue("Start", null) == null || _key[133].GetValue("Start").ToString() != "4" || _key[134] == null || _key[134].GetValue("Start", null) == null || _key[134].GetValue("Start").ToString() != "4" || _key[135] == null || _key[135].GetValue("Start", null) == null || _key[135].GetValue("Start").ToString() != "4" ||
                 _key[136] == null || _key[136].GetValue("Start", null) == null || _key[136].GetValue("Start").ToString() != "4")
             {
-                _services.TButton14.State = true;
-                _services.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton14.State = true;
+                _servicesPage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton14.State = false;
-                _services.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton14.State = false;
+                _servicesPage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#15
@@ -1874,13 +1874,13 @@ namespace Tweaker.Сlasses
             if (_key[137] == null || _key[137].GetValue("Start", null) == null || _key[137].GetValue("Start").ToString() != "4" || _key[138] == null || _key[138].GetValue("Start", null) == null || _key[138].GetValue("Start").ToString() != "4" || _key[139] == null || _key[139].GetValue("Start", null) == null || _key[139].GetValue("Start").ToString() != "4" ||
                 _key[140] == null || _key[140].GetValue("Start", null) == null || _key[140].GetValue("Start").ToString() != "4" || _key[141] == null || _key[141].GetValue("Start", null) == null || _key[141].GetValue("Start").ToString() != "4" || _key[142] == null || _key[142].GetValue("Start", null) == null || _key[142].GetValue("Start").ToString() != "4")
             {
-                _services.TButton15.State = true;
-                _services.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton15.State = true;
+                _servicesPage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton15.State = false;
-                _services.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton15.State = false;
+                _servicesPage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#16
@@ -1891,13 +1891,13 @@ namespace Tweaker.Сlasses
             if (_key[143] == null || _key[143].GetValue("Start", null) == null || _key[143].GetValue("Start").ToString() != "4" || _key[144] == null || _key[144].GetValue("Start", null) == null || _key[144].GetValue("Start").ToString() != "4" ||
                 _key[145] == null || _key[145].GetValue("Start", null) == null || _key[145].GetValue("Start").ToString() != "4")
             {
-                _services.TButton16.State = true;
-                _services.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton16.State = true;
+                _servicesPage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton16.State = false;
-                _services.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton16.State = false;
+                _servicesPage.Tweak16.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#17
@@ -1907,13 +1907,13 @@ namespace Tweaker.Сlasses
             if (_key[146] == null || _key[146].GetValue("Start", null) == null || _key[146].GetValue("Start").ToString() != "4" ||
                 _key[147] == null || _key[147].GetValue("Start", null) == null || _key[147].GetValue("Start").ToString() != "4")
             {
-                _services.TButton17.State = true;
-                _services.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton17.State = true;
+                _servicesPage.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton17.State = false;
-                _services.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton17.State = false;
+                _servicesPage.Tweak17.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#18
@@ -1926,13 +1926,13 @@ namespace Tweaker.Сlasses
             if (_key[148] == null || _key[148].GetValue("Start", null) == null || _key[148].GetValue("Start").ToString() != "4" || _key[149] == null || _key[149].GetValue("Start", null) == null || _key[149].GetValue("Start").ToString() != "4" || _key[150] == null || _key[150].GetValue("Start", null) == null || _key[150].GetValue("Start").ToString() != "4" ||
                 _key[151] == null || _key[151].GetValue("Start", null) == null || _key[151].GetValue("Start").ToString() != "4" || _key[152] == null || _key[152].GetValue("Start", null) == null || _key[152].GetValue("Start").ToString() != "4")
             {
-                _services.TButton18.State = true;
-                _services.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton18.State = true;
+                _servicesPage.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton18.State = false;
-                _services.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton18.State = false;
+                _servicesPage.Tweak18.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#19
@@ -1943,13 +1943,13 @@ namespace Tweaker.Сlasses
             if (_key[153] == null || _key[153].GetValue("Start", null) == null || _key[153].GetValue("Start").ToString() != "4" || _key[154] == null || _key[154].GetValue("Start", null) == null || _key[154].GetValue("Start").ToString() != "4" ||
                 _key[155] == null || _key[155].GetValue("Start", null) == null || _key[155].GetValue("Start").ToString() != "4")
             {
-                _services.TButton19.State = true;
-                _services.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton19.State = true;
+                _servicesPage.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton19.State = false;
-                _services.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton19.State = false;
+                _servicesPage.Tweak19.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#20
@@ -1957,13 +1957,13 @@ namespace Tweaker.Сlasses
 
             if (_key[156] == null || _key[156].GetValue("Start", null) == null || _key[156].GetValue("Start").ToString() != "4")
             {
-                _services.TButton20.State = true;
-                _services.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton20.State = true;
+                _servicesPage.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton20.State = false;
-                _services.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton20.State = false;
+                _servicesPage.Tweak20.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#21
@@ -1975,13 +1975,13 @@ namespace Tweaker.Сlasses
             if (_key[157] == null || _key[157].GetValue("Start", null) == null || _key[157].GetValue("Start").ToString() != "4" || _key[158] == null || _key[158].GetValue("Start", null) == null || _key[158].GetValue("Start").ToString() != "4" ||
                 _key[159] == null || _key[159].GetValue("Start", null) == null || _key[159].GetValue("Start").ToString() != "4" || _key[160] == null || _key[160].GetValue("Start", null) == null || _key[160].GetValue("Start").ToString() != "4")
             {
-                _services.TButton21.State = true;
-                _services.Tweak21.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton21.State = true;
+                _servicesPage.Tweak21.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton21.State = false;
-                _services.Tweak21.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton21.State = false;
+                _servicesPage.Tweak21.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#22
@@ -1990,13 +1990,13 @@ namespace Tweaker.Сlasses
 
             if (_key[161] == null || _key[161].GetValue("Start", null) == null || _key[161].GetValue("Start").ToString() != "4" || _key[162] == null || _key[162].GetValue("Start", null) == null || _key[162].GetValue("Start").ToString() != "4")
             {
-                _services.TButton22.State = true;
-                _services.Tweak22.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton22.State = true;
+                _servicesPage.Tweak22.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton22.State = false;
-                _services.Tweak22.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton22.State = false;
+                _servicesPage.Tweak22.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#23
@@ -2005,13 +2005,13 @@ namespace Tweaker.Сlasses
 
             if (_key[163] == null || _key[163].GetValue("Start", null) == null || _key[163].GetValue("Start").ToString() != "4" || _key[164] == null || _key[164].GetValue("Start", null) == null || _key[164].GetValue("Start").ToString() != "4")
             {
-                _services.TButton23.State = true;
-                _services.Tweak23.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton23.State = true;
+                _servicesPage.Tweak23.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton23.State = false;
-                _services.Tweak23.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton23.State = false;
+                _servicesPage.Tweak23.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#24
@@ -2019,13 +2019,13 @@ namespace Tweaker.Сlasses
 
             if (_key[165] == null || _key[165].GetValue("Start", null) == null || _key[165].GetValue("Start").ToString() != "4")
             {
-                _services.TButton24.State = true;
-                _services.Tweak24.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton24.State = true;
+                _servicesPage.Tweak24.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton24.State = false;
-                _services.Tweak24.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton24.State = false;
+                _servicesPage.Tweak24.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#25
@@ -2034,13 +2034,13 @@ namespace Tweaker.Сlasses
 
             if (_key[166] == null || _key[166].GetValue("Start", null) == null || _key[166].GetValue("Start").ToString() != "4" || _key[167] == null || _key[167].GetValue("Start", null) == null || _key[167].GetValue("Start").ToString() != "4")
             {
-                _services.TButton25.State = true;
-                _services.Tweak25.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton25.State = true;
+                _servicesPage.Tweak25.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton25.State = false;
-                _services.Tweak25.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton25.State = false;
+                _servicesPage.Tweak25.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#26
@@ -2053,13 +2053,13 @@ namespace Tweaker.Сlasses
             if (_key[168] == null || _key[168].GetValue("Start", null) == null || _key[168].GetValue("Start").ToString() != "4" || _key[169] == null || _key[169].GetValue("Start", null) == null || _key[169].GetValue("Start").ToString() != "4" || _key[170] == null || _key[170].GetValue("Start", null) == null || _key[170].GetValue("Start").ToString() != "4" ||
                 _key[171] == null || _key[171].GetValue("Start", null) == null || _key[171].GetValue("Start").ToString() != "4" || _key[172] == null || _key[172].GetValue("Start", null) == null || _key[172].GetValue("Start").ToString() != "4")
             {
-                _services.TButton26.State = true;
-                _services.Tweak26.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton26.State = true;
+                _servicesPage.Tweak26.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton26.State = false;
-                _services.Tweak26.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton26.State = false;
+                _servicesPage.Tweak26.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#27
@@ -2075,13 +2075,13 @@ namespace Tweaker.Сlasses
                 _key[176] == null || _key[176].GetValue("Start", null) == null || _key[176].GetValue("Start").ToString() != "4" || _key[177] == null || _key[177].GetValue("Start", null) == null || _key[177].GetValue("Start").ToString() != "4" || _key[178] == null || _key[178].GetValue("Start", null) == null || _key[178].GetValue("Start").ToString() != "4" ||
                 _key[179] == null || _key[179].GetValue("Start", null) == null || _key[179].GetValue("Start").ToString() != "4")
             {
-                _services.TButton27.State = true;
-                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton27.State = true;
+                _servicesPage.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton27.State = false;
-                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton27.State = false;
+                _servicesPage.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#27
@@ -2097,13 +2097,13 @@ namespace Tweaker.Сlasses
                 _key[176] == null || _key[176].GetValue("Start", null) == null || _key[176].GetValue("Start").ToString() != "4" || _key[177] == null || _key[177].GetValue("Start", null) == null || _key[177].GetValue("Start").ToString() != "4" || _key[178] == null || _key[178].GetValue("Start", null) == null || _key[178].GetValue("Start").ToString() != "4" ||
                 _key[179] == null || _key[179].GetValue("Start", null) == null || _key[179].GetValue("Start").ToString() != "4")
             {
-                _services.TButton27.State = true;
-                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton27.State = true;
+                _servicesPage.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton27.State = false;
-                _services.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton27.State = false;
+                _servicesPage.Tweak27.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
             //#28
@@ -2121,13 +2121,13 @@ namespace Tweaker.Сlasses
                 _key[183] == null || _key[183].GetValue("Start", null) == null || _key[183].GetValue("Start").ToString() != "4" || _key[184] == null || _key[184].GetValue("Start", null) == null || _key[184].GetValue("Start").ToString() != "4" || _key[185] == null || _key[185].GetValue("Start", null) == null || _key[185].GetValue("Start").ToString() != "4" ||
                 _key[186] == null || _key[186].GetValue("Start", null) == null || _key[186].GetValue("Start").ToString() != "4" || _key[187] == null || _key[187].GetValue("Start", null) == null || _key[187].GetValue("Start").ToString() != "4" || _key[188] == null || _key[188].GetValue("Start", null) == null || _key[188].GetValue("Start").ToString() != "4")
             {
-                _services.TButton28.State = true;
-                _services.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+                _servicesPage.TButton28.State = true;
+                _servicesPage.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_ON"];
             }
             else
             {
-                _services.TButton28.State = false;
-                _services.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+                _servicesPage.TButton28.State = false;
+                _servicesPage.Tweak28.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
             }
 
 
@@ -2704,7 +2704,7 @@ namespace Tweaker.Сlasses
         #endregion
 
         #region System
-        internal void GetSettingSystem(SystemPage _systemPage)
+        internal void GetSettingSystem(in SystemPage _systemPage)
         {
             //#1
             _key[202] = _currentUserKey.OpenSubKey(@"Control Panel\Mouse");

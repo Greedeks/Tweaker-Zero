@@ -8,12 +8,12 @@ using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
 {
-    public partial class Interface : Page
+    public partial class InterfacePage : Page
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
-        public Interface()
+        public InterfacePage()
         {
             InitializeComponent();
 

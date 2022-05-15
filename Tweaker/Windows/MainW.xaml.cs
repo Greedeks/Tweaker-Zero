@@ -95,7 +95,7 @@ namespace Tweaker
                             Grid.SetColumn(ActivePage, 0);
 
                             ActivePageAnim(true);
-                            MainContainer.Content = new Pages.Confidentiality();
+                            MainContainer.Content = new Pages.ConfidentialityPage();
                             _confidentialityB = true;
                         }
                         else
@@ -113,7 +113,7 @@ namespace Tweaker
                             Grid.SetColumn(ActivePage, 1);
 
                             ActivePageAnim(true);
-                            MainContainer.Content = new Pages.Interface();
+                            MainContainer.Content = new Pages.InterfacePage();
                             _interfaceB = true;
                         }
                         else
@@ -131,7 +131,7 @@ namespace Tweaker
                             Grid.SetColumn(ActivePage, 2);
 
                             ActivePageAnim(true);
-                            MainContainer.Content = new Pages.ApplicationsUL();
+                            MainContainer.Content = new Pages.ApplicationsPage();
                             _applicationB = true;
                         }
                         else
@@ -229,12 +229,12 @@ namespace Tweaker
                 StandStateBtnN();
                 ActivePageAnim(false);
                 CleaningPages();
-
+                MainContainer.Content = new Pages.SettingsPage();
             }
         }
         #endregion
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void TweakerWPF_Loaded(object sender, RoutedEventArgs e)
         {
             _startScanner.ScantheSystem();
 
@@ -272,9 +272,6 @@ namespace Tweaker
             _toastNotification.Volume(100);
         }
 
-        private void TweakerWPF_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            _toastNotification.Unloading();
-        }
+        private void TweakerWPF_Closing(object sender, System.ComponentModel.CancelEventArgs e) => _toastNotification.Unloading();
     }
 }
