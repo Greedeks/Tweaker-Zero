@@ -272,6 +272,6 @@ namespace Tweaker
             _toastNotification.Volume(100);
         }
 
-        private void TweakerWPF_Closing(object sender, System.ComponentModel.CancelEventArgs e) => _toastNotification.Unloading();
+        private void TweakerWPF_Closed(object sender, EventArgs e) => _toastNotification.Unloading();
     }
 }

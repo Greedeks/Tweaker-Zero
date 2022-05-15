@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
@@ -13,7 +12,6 @@ namespace Tweaker.Сlasses
     {
         private NotificationWindow notificationWindow = new NotificationWindow();
         private readonly MediaPlayer _mediaPlayer = new MediaPlayer();
-        private BackgroundWorker _worker;
         string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
 
         internal void Show(string _Tittle, string _Text, byte _Action)
@@ -34,7 +32,7 @@ namespace Tweaker.Сlasses
 
                         Parallel.Invoke(() =>
                         {
-                            _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\Toast.mp3"));
+                            _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\ToastSound.mp3"));
                             _mediaPlayer.Play();
                         });
                     }
@@ -56,27 +54,20 @@ namespace Tweaker.Сlasses
                 }
 
                 Directory.CreateDirectory(_path + "/Tweaker Zero");
-                File.WriteAllBytes(_path + @"\Tweaker Zero\Toast.mp3", _soundbyte);
+                File.WriteAllBytes(_path + @"\Tweaker Zero\ToastSound.mp3", _soundbyte);
 
                 Volume(0);
-                _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\Toast.mp3"));
+                _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\ToastSound.mp3"));
                 _mediaPlayer.Play();
             });
         }
 
         internal void Unloading()
         {
-            _worker = new BackgroundWorker();
-            _worker.DoWork += Worker_DoWorkDeleted;
-            _worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            _mediaPlayer.Close();
+            Directory.Delete(_path + @"\Tweaker Zero", true);
         }
 
         internal void Volume(byte _value) => Parallel.Invoke(() => { _mediaPlayer.Volume = _value / 100.0f; });
-
-        private void Worker_DoWorkDeleted(object sender, DoWorkEventArgs e) => Directory.Delete(_path + @"\Tweaker Zero", false);
-
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) => _worker.Dispose();
-
     }
-
 }
