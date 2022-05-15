@@ -19,15 +19,15 @@ namespace Tweaker.Сlasses
         private readonly ToastNotification toastNotification = new ToastNotification();
         private readonly RegistryKey _classesRootKey = Registry.ClassesRoot, _currentUserKey = Registry.CurrentUser,
             _localMachineKey = Registry.LocalMachine, _usersKey = Registry.Users;
-        private readonly RegistryKey[] _key = new RegistryKey[500];
+        private readonly RegistryKey[] _key = new RegistryKey[238];
         private static byte _countTasksConfidentiality = default, _countTaskSystem = default, _countProtocolSystem = default;
         internal static byte _verificationW = default;
         private BackgroundWorker _worker;
         private string _state = default;
 
-        private const UInt32 SPI_SETMOUSESPEED = 0x0071;
-        private const UInt32 SPI_SETKEYBOARDDELAY = 0x0017;
-        private const UInt32 SPI_SETKEYBOARDSPEED = 0x000B;
+        private const uint SPI_SETMOUSESPEED = 0x0071;
+        private const uint SPI_SETKEYBOARDDELAY = 0x0017;
+        private const uint SPI_SETKEYBOARDSPEED = 0x000B;
 
         #region Confidentiality
         internal void GetSettingConfidentiality(Confidentiality _confidentiality)
@@ -2971,7 +2971,7 @@ namespace Tweaker.Сlasses
         }
 
         [DllImport("User32.dll")]
-        static extern Boolean SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, UInt32 pvParam, UInt32 fWinIni);
+        static extern bool SystemParametersInfo(uint uiAction, uint uiParam, uint pvParam, uint fWinIni);
 
         internal void ChangeSettingSystem(in bool _choose, in byte _select, in uint _value)
         {
@@ -3417,7 +3417,7 @@ namespace Tweaker.Сlasses
             }
 
             //#11
-            _key[233] = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control");
+            _key[233] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
             if (_key[233] == null || _key[233].GetValue("AutoEndTasks", null) == null || _key[233].GetValue("AutoEndTasks").ToString() != "1")
             {
@@ -3459,21 +3459,32 @@ namespace Tweaker.Сlasses
             }
 
             //#14
-            //_key[236] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Update");
-            //_key[237] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\Update");
-            //_key[238] = _localMachineKey.OpenSubKey(@"SOFTWARE\Microsoft\WindowsUpdate\UX\Settings");
+            _key[236] = _currentUserKey.OpenSubKey(@"Control Panel\Desktop");
 
-            //if (_key[236] == null || _key[236].GetValue("ExcludeWUDriversInQualityUpdate ", null) == null || _key[236].GetValue("ExcludeWUDriversInQualityUpdate ").ToString() != "1" || _key[237] == null || _key[237].GetValue("ExcludeWUDriversInQualityUpdate ", null) == null || _key[237].GetValue("ExcludeWUDriversInQualityUpdate ").ToString() != "1" ||
-            //    _key[238] == null || _key[238].GetValue("ExcludeWUDriversInQualityUpdate ", null) == null || _key[238].GetValue("ExcludeWUDriversInQualityUpdate ").ToString() != "1")
-            //{
-            //    _morePage.TButton14.State = true;
-            //    _morePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
-            //}
-            //else
-            //{
-            //    _morePage.TButton14.State = false;
-            //    _morePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
-            //}
+            if (_key[236] == null || _key[236].GetValue("HungAppTimeout", null) == null || _key[236].GetValue("HungAppTimeout").ToString() != "1000")
+            {
+                _morePage.TButton14.State = true;
+                _morePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton14.State = false;
+                _morePage.Tweak14.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
+
+            //#15
+            _key[237] = _currentUserKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+
+            if (_key[237] == null || _key[237].GetValue("ShowInfoTip", null) == null || _key[237].GetValue("ShowInfoTip").ToString() != "0")
+            {
+                _morePage.TButton15.State = true;
+                _morePage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_ON"];
+            }
+            else
+            {
+                _morePage.TButton15.State = false;
+                _morePage.Tweak15.Style = (Style)Application.Current.Resources["Tweaks_OFF"];
+            }
         }
 
         internal void ChangeSettingMore(in bool _choose, in byte _select)
@@ -3693,7 +3704,7 @@ namespace Tweaker.Сlasses
                     case 10:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\WindowsStore").SetValue("AutoDownload", "2", RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\WindowsStore").SetValue("AutoDownload", 2, RegistryValueKind.DWord);
                             else
                                 _localMachineKey.DeleteSubKey(@"SOFTWARE\Policies\Microsoft\WindowsStore");
                             break;
@@ -3701,9 +3712,9 @@ namespace Tweaker.Сlasses
                     case 11:
                         {
                             if (_choose)
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control").SetValue("AutoEndTasks", "1", RegistryValueKind.String);
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("AutoEndTasks", "1", RegistryValueKind.String);
                             else
-                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control").DeleteValue("AutoEndTasks");
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").DeleteValue("AutoEndTasks");
                             break;
                         }
                     case 12:
@@ -3728,27 +3739,18 @@ namespace Tweaker.Сlasses
                     case 14:
                         {
                             if (_choose)
-                            {
-
-                            }
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").SetValue("HungAppTimeout", "1000", RegistryValueKind.String);
                             else
-                            {
-
-                            }
-                                
+                                _currentUserKey.CreateSubKey(@"Control Panel\Desktop").DeleteValue("HungAppTimeout");
                             break;
                         }
                     case 15:
                         {
                             if (_choose)
-                            {
-
-                            }
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("ShowInfoTip", 0, RegistryValueKind.DWord);
                             else
-                            {
-
-                            }
-
+                                _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").SetValue("ShowInfoTip", 1, RegistryValueKind.DWord);
+                            Parallel.Invoke(() => { toastNotification.Show("Внимание", "Необходим выход, нажмите на данный текст, чтобы произвести его", 1); });
                             break;
                         }
 

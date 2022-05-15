@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
-      Title="MorePage" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Loaded="Page_Loaded" KeyDown="Page_KeyDown">
+      Title="MorePage" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" Loaded="Page_Loaded" KeyDown="Page_KeyDown" Unloaded="Page_Unloaded">
 
     <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
@@ -62,8 +62,8 @@
                     <Label x:Name="Tweak11" Content="Завершение работы без предупреждений" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,244"/>
                     <Label x:Name="Tweak12" Content="Ускорить процесс завершения работы" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,201"/>
                     <Label x:Name="Tweak13" Content="Сжатие обоев .JPEG рабочего стола" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,164"/>
-                    <Label x:Name="Tweak14" Content="Автоматическое обновление драйверов в Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,121"/>
-                    <Label x:Name="Tweak15" Content="Автоматическое обновление драйверов в Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,81"/>
+                    <Label x:Name="Tweak14" Content="Уменьшить время закрытия приложения или процесса" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,121"/>
+                    <Label x:Name="Tweak15" Content="Всплывающие подсказки для элементов рабочего стола" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,81" Cursor="Hand"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton8" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton8_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton9_PreviewMouseDown"/>

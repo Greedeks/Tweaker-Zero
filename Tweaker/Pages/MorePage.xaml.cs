@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Tweaker.Сlasses;
 
 namespace Tweaker.Pages
@@ -8,12 +10,25 @@ namespace Tweaker.Pages
     public partial class MorePage : Page
     {
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
+        private DispatcherTimer _timer = default;
+        private TimeSpan _time = TimeSpan.FromSeconds(0);
+
         public MorePage()
         {
             InitializeComponent();
 
             if (GetSystemInformation._windowsV.Substring(0, GetSystemInformation._windowsV.LastIndexOf(' ')) != "11")
                 TButton3.IsEnabled = false;
+
+            #region Update
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                if (_time.TotalSeconds % 60 == 0)
+                    _settingsWindows.GetSettingMore(this);
+                _time = _time.Add(TimeSpan.FromSeconds(+1));
+            }, Application.Current.Dispatcher);
+            #endregion
+
         }
 
         #region Tweaks
@@ -147,7 +162,7 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Tweak15.Style = !TButton14.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
+                Tweak15.Style = !TButton15.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
                 _settingsWindows.ChangeSettingMore(TButton15.State, 15);
             }
         }
@@ -158,6 +173,8 @@ namespace Tweaker.Pages
             StatusVerf.Text = SettingsWindows._verificationW == 1 ? "Активно" : "Неактивно";
             _settingsWindows.GetSettingMore(this);
         }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e) => _timer.Stop();
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {

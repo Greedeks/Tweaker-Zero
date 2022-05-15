@@ -14,10 +14,10 @@ namespace Tweaker.Pages
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private DispatcherTimer _timer = default;
         private TimeSpan _time = TimeSpan.FromSeconds(0);
-        private const UInt32 SPI_SETMOUSE = 0x0004;
+        private const uint SPI_SETMOUSE = 0x0004;
 
         [DllImport("User32.dll")]
-        static extern Boolean SystemParametersInfo(UInt32 uiAction, UInt32[] uiParam, UInt32[] pvParam, UInt32 fWinIni);
+        static extern Boolean SystemParametersInfo(uint uiAction, uint[] uiParam, uint[] pvParam, uint fWinIni);
         public SystemPage()
         {
             InitializeComponent();
