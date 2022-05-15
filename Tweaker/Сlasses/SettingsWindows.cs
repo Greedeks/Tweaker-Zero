@@ -14,7 +14,6 @@ using Tweaker.Pages;
 
 namespace Tweaker.Сlasses
 {
-
     internal sealed class SettingsWindows
     {
         private readonly ToastNotification toastNotification = new ToastNotification();
