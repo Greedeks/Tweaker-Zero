@@ -267,6 +267,9 @@ namespace Tweaker
             TweakerWPF.Left = (_primaryMonitorArea.Bottom / 2) - (this.Width / 2);
             TweakerWPF.Top = (_primaryMonitorArea.Right / 2) - (this.Height / 2);
             #endregion
+
+            await Task.Delay(500);
+            _toastNotification.Volume(100);
         }
 
         private void TweakerWPF_Closing(object sender, System.ComponentModel.CancelEventArgs e)

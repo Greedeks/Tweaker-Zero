@@ -38,7 +38,6 @@ namespace Tweaker.Сlasses
                             _mediaPlayer.Play();
                         });
                     }
-
                 });
             });
         }
@@ -58,6 +57,10 @@ namespace Tweaker.Сlasses
 
                 Directory.CreateDirectory(_path + "/Tweaker Zero");
                 File.WriteAllBytes(_path + @"\Tweaker Zero\Toast.mp3", _soundbyte);
+
+                Volume(0);
+                _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\Toast.mp3"));
+                _mediaPlayer.Play();
             });
         }
 
