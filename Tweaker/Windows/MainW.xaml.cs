@@ -68,26 +68,30 @@ namespace Tweaker
             Unclickable.Width = _stateAnimSettingsPanel ? 1084 : 0;
             Unclickable.Height = _stateAnimSettingsPanel ? 509 : 0;
 
-            DoubleAnimation _animation = new DoubleAnimation
-            {
-                From = _stateAnimSettingsPanel ? SettingsPanel.Width : 400,
-                To = _stateAnimSettingsPanel ? 400 : 0,
-                Duration = TimeSpan.FromSeconds(1),
-                SpeedRatio = 10
-            };
-            Timeline.SetDesiredFrameRate(_animation, 200);
-            DoubleAnimation _animationOp = new DoubleAnimation
-            {
-                From = _stateAnimSettingsPanel ? MainContainer.Opacity : 0.5,
-                To = _stateAnimSettingsPanel ? 0.5 : 1,
-                Duration = TimeSpan.FromSeconds(1),
-                SpeedRatio = 6
-            };
-            Timeline.SetDesiredFrameRate(_animationOp, 200);
-            MainContainer.BeginAnimation(ContextMenu.OpacityProperty, _animationOp);
-            SettingsPanel.BeginAnimation(FrameworkElement.WidthProperty, _animation);
-            SettingsPanel.Width = _stateAnimSettingsPanel ? 400 : 0;
-            MainContainer.Opacity = _stateAnimSettingsPanel ? 0.5 : 1;
+            Parallel.Invoke(
+                () =>{
+                    DoubleAnimation _animation = new DoubleAnimation
+                    {
+                        From = _stateAnimSettingsPanel ? SettingsPanel.Width : 400,
+                        To = _stateAnimSettingsPanel ? 400 : 0,
+                        Duration = TimeSpan.FromSeconds(1),
+                        SpeedRatio = 25
+                    };
+                    Timeline.SetDesiredFrameRate(_animation, 200);
+                    DoubleAnimation _animationOp = new DoubleAnimation
+                    {
+                        From = _stateAnimSettingsPanel ? MainContainer.Opacity : 0.5,
+                        To = _stateAnimSettingsPanel ? 0.5 : 1,
+                        Duration = TimeSpan.FromSeconds(0.3),
+                        SpeedRatio = 3
+                    };
+                    Timeline.SetDesiredFrameRate(_animationOp, 200);
+                    MainContainer.BeginAnimation(ContextMenu.OpacityProperty, _animationOp);
+                    SettingsPanel.BeginAnimation(FrameworkElement.WidthProperty, _animation);
+                    SettingsPanel.Width = _stateAnimSettingsPanel ? 400 : 0;
+                    MainContainer.Opacity = _stateAnimSettingsPanel ? 0.5 : 1;
+                }
+            );
 
         }
         #endregion
