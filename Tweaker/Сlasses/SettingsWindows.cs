@@ -3506,7 +3506,7 @@ namespace Tweaker.Сlasses
 
                             Parallel.Invoke(() =>
                             {
-                                string[] _keyW = new string[8] { @"TX9XD-98N7V-6WMQ6-BX7FG-H8Q99", @"7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH", @"72RPG-7NV8T-TVQKR-7RRRW-78RBY",
+                                string[] _kmsKeyW = new string[8] { @"TX9XD-98N7V-6WMQ6-BX7FG-H8Q99", @"7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH", @"72RPG-7NV8T-TVQKR-7RRRW-78RBY",
                                 @"ND4DX-39KJY-FYWQ9-X6XKT-VCFCF", @"7YMNV-PG77F-K66KT-KG9VQ-TCQGB", @"KTNPV-KTRK4-3RRR8-39X6W-W44T3", @"BT79Q-G7N6G-PGBYW-4YWX6-6F4BT", @"8N67H-M3CY9-QT7C4-2TR7M-TXYCV"};
                                 int _index = default;
 
@@ -3527,46 +3527,27 @@ namespace Tweaker.Сlasses
                                 else if (CheckWindowsVersion._wedition.Contains("Pro"))
                                     _index = 8;
 
+                                string _kmsName = default;
+
+                                if (CheckWindowsVersion._wedition.Contains("Pro"))
+                                    _kmsName = "slmgr /skms kms.xspace.in";
+                                else
+                                    _kmsName = "slmgr /skms kms.digiboy.ir";
+
+                                string _kmsActivated = "slmgr /skms zh.us.to";
+
+
                                 Process _process = new Process();
                                 _process.StartInfo.UseShellExecute = false;
                                 _process.StartInfo.RedirectStandardOutput = true;
                                 _process.StartInfo.CreateNoWindow = true;
                                 _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                                _process.Exited += new EventHandler(_process_Exited0);
+                                _process.Exited += new EventHandler(Process_Exited);
                                 _process.StartInfo.FileName = "cmd";
-                                _process.StartInfo.Arguments = string.Format("/c slmgr /ipk {0}", _keyW[_index]);
+                                _process.StartInfo.Arguments = string.Format("/c slmgr /ipk {0} && {1} && {2}", _kmsKeyW[_index], _kmsName, _kmsActivated);
                                 _process.Start();
 
-                                void _process_Exited0(object sender, EventArgs e)
-                                {
-                                    _process = new Process();
-                                    _process.StartInfo.UseShellExecute = false;
-                                    _process.StartInfo.RedirectStandardOutput = true;
-                                    _process.StartInfo.CreateNoWindow = true;
-                                    _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                                    _process.Exited += new EventHandler(_process_Exited1);
-                                    _process.StartInfo.FileName = "cmd";
-                                    if (CheckWindowsVersion._wedition.Contains("Pro"))
-                                        _process.StartInfo.Arguments = string.Format("/c slmgr /skms kms.digiboy.ir");
-                                    else
-                                        _process.StartInfo.Arguments = string.Format("/c slmgr /skms kms.xspace.in");
-                                    _process.Start();
-                                }
-
-                                void _process_Exited1(object sender, EventArgs e)
-                                {
-                                    _process = new Process();
-                                    _process.StartInfo.UseShellExecute = false;
-                                    _process.StartInfo.RedirectStandardOutput = true;
-                                    _process.StartInfo.CreateNoWindow = true;
-                                    _process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                                    _process.Exited += new EventHandler(_process_Exited2);
-                                    _process.StartInfo.FileName = "cmd";
-                                    _process.StartInfo.Arguments = string.Format("/c slmgr /ato");
-                                    _process.Start();
-                                }
-
-                                void _process_Exited2(object sender, EventArgs e)
+                                void Process_Exited(object sender, EventArgs e)
                                 {
                                     Parallel.Invoke(() =>
                                     {
