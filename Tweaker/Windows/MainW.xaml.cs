@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Tweaker.Сlasses;
 
@@ -266,10 +265,13 @@ namespace Tweaker
               
                     SettingsPanelAnim(true);
                     _settings = true;
+                    SettingsContrainer.Content = new Pages.SettingsPage();
                 }
                 else
                 {
-         
+                    while (SettingsContrainer.NavigationService.RemoveBackEntry() != null) ;
+                    SettingsContrainer.Content = null;
+
                     SettingsPanelAnim(false);
                     _settings = false;
                 }
