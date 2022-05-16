@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Tweaker.Сlasses;
 
@@ -48,6 +49,7 @@ namespace Tweaker
         }
         #endregion
 
+        #region Animation
         private void ActivePageAnim(bool _stateAnimActivePage)
         {
             DoubleAnimation _animation = new DoubleAnimation
@@ -60,6 +62,35 @@ namespace Tweaker
             ActivePage.BeginAnimation(ContextMenu.OpacityProperty, _animation);
             ActivePage.Opacity = !_stateAnimActivePage ? 0 : 1;
         }
+
+        private void SettingsPanelAnim(bool _stateAnimSettingsPanel)
+        {
+            Unclickable.Width = _stateAnimSettingsPanel ? 1084 : 0;
+            Unclickable.Height = _stateAnimSettingsPanel ? 509 : 0;
+
+            DoubleAnimation _animation = new DoubleAnimation
+            {
+                From = _stateAnimSettingsPanel ? SettingsPanel.Width : 400,
+                To = _stateAnimSettingsPanel ? 400 : 0,
+                Duration = TimeSpan.FromSeconds(1),
+                SpeedRatio = 10
+            };
+            Timeline.SetDesiredFrameRate(_animation, 200);
+            DoubleAnimation _animationOp = new DoubleAnimation
+            {
+                From = _stateAnimSettingsPanel ? MainContainer.Opacity : 0.5,
+                To = _stateAnimSettingsPanel ? 0.5 : 1,
+                Duration = TimeSpan.FromSeconds(1),
+                SpeedRatio = 6
+            };
+            Timeline.SetDesiredFrameRate(_animationOp, 200);
+            MainContainer.BeginAnimation(ContextMenu.OpacityProperty, _animationOp);
+            SettingsPanel.BeginAnimation(FrameworkElement.WidthProperty, _animation);
+            SettingsPanel.Width = _stateAnimSettingsPanel ? 400 : 0;
+            MainContainer.Opacity = _stateAnimSettingsPanel ? 0.5 : 1;
+
+        }
+        #endregion
 
         private void StandStateBtnN()
         {
@@ -79,7 +110,7 @@ namespace Tweaker
         #region Кнопки
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed & !_settings)
             {
                 ActivePageAnim(false);
                 CleaningPages();
@@ -224,12 +255,20 @@ namespace Tweaker
 
         private void Button_Settings_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && !_settings)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                StandStateBtnN();
-                ActivePageAnim(false);
-                CleaningPages();
-                MainContainer.Content = new Pages.SettingsPage();
+                if (!_settings)
+                {
+              
+                    SettingsPanelAnim(true);
+                    _settings = true;
+                }
+                else
+                {
+         
+                    SettingsPanelAnim(false);
+                    _settings = false;
+                }
             }
         }
         #endregion
