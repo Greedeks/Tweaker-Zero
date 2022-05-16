@@ -11,26 +11,49 @@
         <Grid>
             <ScrollViewer FocusVisualStyle="{x:Null}" IsTabStop="False">
                 <Grid>
-                    <TextBlock x:Name="UserName" Width="Auto" Text="Настройки" FontFamily="/Fonts/#Nunito" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top"  KeyboardNavigation.IsTabStop="False" Margin="0,10,0,0">
+                    <TextBlock x:Name="TitleSettings" Width="Auto" Text="Настройки" FontFamily="/Fonts/#Nunito" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top"  KeyboardNavigation.IsTabStop="False" Margin="0,10,0,0">
                         <TextBlock.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                         </TextBlock.Effect>
                     </TextBlock>
 
                     <StackPanel Orientation="Horizontal" Margin="50,60,0,0" Height="25" VerticalAlignment="Top">
-                        <TextBlock x:Name="SelectLangText" Style="{DynamicResource SystemINFO}" Foreground="{DynamicResource ColorGray}" Height="20" FontSize="14px" Text="Язык интерфейса:"/>
+                        <TextBlock x:Name="SelectLangText" Style="{DynamicResource SystemINFO}" Foreground="{DynamicResource ColorRed}" Height="20" FontSize="14px" Text="Язык интерфейса:"/>
                         <Label Width="5"/>
                         <ComboBox x:Name="SelectLang"  Width="200">
                             <ComboBoxItem x:Name="rus" IsSelected="True" Content="Русский"/>
                             <ComboBoxItem x:Name="eng" Content="Английский"/>
                         </ComboBox>
                     </StackPanel>
+
                     <Border Margin="35,105,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
 
-                    <Label x:Name="ToastShow" Content="Показывать уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,124,0,357"/>
-                    <ToggleSwitch:ToggleButton x:Name="TNotifShow" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="39" Margin="50,127,0,0"/>
-                    
-                    
+                    <Label x:Name="ToastShow" Content="Показывать уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,124,0,397"/>
+                    <ToggleSwitch:ToggleButton x:Name="TSettings1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="39" Margin="50,127,0,0"/>
+
+                    <Label x:Name="ToastSound" Content="Звук уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,164,0,357"/>
+                    <ToggleSwitch:ToggleButton x:Name="TSettings2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="39" Margin="50,166,0,0"/>
+
+                    <StackPanel Margin="50,204,0,297" Orientation="Horizontal">
+                        <Label x:Name="ToastSoundChanged" Content="Громкость уведомления" Style="{StaticResource Tweaks_ON}" VerticalAlignment="Top"/>
+                        <Slider x:Name="Slider1" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="100" Width="150" Margin="5,5,0,0"/>
+                    </StackPanel>
+
+                    <Border Margin="35,260,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
+
+                    <Label x:Name="PinOfTop" Content="Закрепить поверх всех окон" Style="{StaticResource Tweaks_OFF}" Margin="94,276,0,245"/>
+                    <ToggleSwitch:ToggleButton x:Name="TSettings3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="39" Margin="50,278,0,0"/>
+
+                    <Border Margin="35,320,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
+
+                    <TextBlock x:Name="UserAgreement" Width="Auto" Text="Пользовательское соглашение" FontFamily="/Fonts/#Nunito" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"  KeyboardNavigation.IsTabStop="False" Margin="78,338,0,0">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock x:Name="TextUserAgreement" Text="Текст" Style="{DynamicResource DescriptionTweaks}" Width="325" Height="Auto"  Margin="48,380,0,-14" TextAlignment="Left" HorizontalAlignment="Left"/>
+
                 </Grid>
             </ScrollViewer>
         </Grid>

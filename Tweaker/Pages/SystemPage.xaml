@@ -29,8 +29,8 @@
                     <Label x:Name="Tweak7" Content="Предупреждения при запуске любых exe" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,85"/>
                     <Label x:Name="Tweak8" Content="Время ожидания до отключения экрана блокировки" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,45"/>
 
-                    <Slider x:Name="Slider1" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="20" Margin="213,22,681,0" ValueChanged="Slider1_ValueChanged"/>
-                    <Slider x:Name="Slider2" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="3" Margin="257,66,637,0" ValueChanged="Slider2_ValueChanged"/>
+                    <Slider x:Name="Slider1" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="20" Margin="213,25,681,0" ValueChanged="Slider1_ValueChanged"/>
+                    <Slider x:Name="Slider2" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="3" Margin="257,65,637,0" ValueChanged="Slider2_ValueChanged"/>
                     <Slider x:Name="Slider3" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="31" Margin="275,106,619,0" ValueChanged="Slider3_ValueChanged"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton4" HorizontalAlignment="Left" Margin="42,142,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton4_PreviewMouseDown"/>
                     <Button x:Name="Button5" Style="{StaticResource ButtonsTW}" Height="26" Width="Auto" Cursor="Hand" Margin="344,184,580,165" PreviewMouseDown="Button5_PreviewMouseDown">
