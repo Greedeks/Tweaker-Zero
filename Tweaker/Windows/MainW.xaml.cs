@@ -74,7 +74,7 @@ namespace Tweaker
                         From = _stateAnimSettingsPanel ? SettingsPanel.Width : 400,
                         To = _stateAnimSettingsPanel ? 400 : 0,
                         Duration = TimeSpan.FromSeconds(1),
-                        SpeedRatio = 25
+                        SpeedRatio = 15
                     };
                     Timeline.SetDesiredFrameRate(_animation, 200);
                     DoubleAnimation _animationOp = new DoubleAnimation
