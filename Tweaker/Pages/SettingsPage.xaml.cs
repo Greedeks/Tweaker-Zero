@@ -8,7 +8,6 @@ namespace Tweaker.Pages
         {
             InitializeComponent();
 
- 
         }
     }
 }
