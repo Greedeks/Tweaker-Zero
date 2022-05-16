@@ -62,7 +62,7 @@ namespace ToggleSwitch
                     {
                         From = _LeftSide,
                         To = _RightSide,
-                        SpeedRatio = 2.5,
+                        SpeedRatio = 4,
                         Duration = !_firstStart ? TimeSpan.FromSeconds(0.2) : _timeline
                     };
                     Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
