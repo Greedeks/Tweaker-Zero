@@ -48,7 +48,7 @@ namespace Tweaker
         }
         #endregion
 
-        #region Animation
+        #region Анимации
         private void ActivePageAnim(bool _stateAnimActivePage)
         {
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
@@ -90,8 +90,11 @@ namespace Tweaker
 
         private void SettingsPanelAnim(bool _stateAnimSettingsPanel)
         {
-            Unclickable.Width = _stateAnimSettingsPanel ? 1084 : 0;
-            Unclickable.Height = _stateAnimSettingsPanel ? 509 : 0;
+            Parallel.Invoke(() =>
+            {
+                Unclickable.Width = _stateAnimSettingsPanel ? 1084 : 0;
+                Unclickable.Height = _stateAnimSettingsPanel ? 509 : 0;
+            });
 
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
 
@@ -177,8 +180,11 @@ namespace Tweaker
 
         private void CleaningPages()
         {
-            while (MainContainer.NavigationService.RemoveBackEntry() != null) ;
-            MainContainer.Content = null;
+            Parallel.Invoke(() =>
+            {
+                while (MainContainer.NavigationService.RemoveBackEntry() != null) ;
+                MainContainer.Content = null;
+            });
         }
 
         #region Кнопки
@@ -186,145 +192,149 @@ namespace Tweaker
         {
             if (e.LeftButton == MouseButtonState.Pressed & !_settings)
             {
-                ActivePageAnim(false);
-                CleaningPages();
-
-                Button btn = (Button)sender;
-                switch (btn.Name)
+                Parallel.Invoke(() =>
                 {
-                    case "Button_Confidentiality":
-                        if (!_confidentialityB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 0);
+                    ActivePageAnim(false);
+                    CleaningPages();
 
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.ConfidentialityPage();
-                            _confidentialityB = true;
-                        }
-                        else
-                        {
+                    Button btn = (Button)sender;
+                    switch (btn.Name)
+                    {
+                        case "Button_Confidentiality":
+                            if (!_confidentialityB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 0);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.ConfidentialityPage();
+                                _confidentialityB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        case "Button_Interface":
+                            if (!_interfaceB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 1);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.InterfacePage();
+                                _interfaceB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        case "Button_Application":
+                            if (!_applicationB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 2);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.ApplicationsPage();
+                                _applicationB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        case "Button_Services":
+                            if (!_servicesB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 3);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.ServicesPage();
+                                _servicesB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        case "Button_System":
+                            if (!_systemB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 4);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.SystemPage();
+                                _systemB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        case "Button_SystemInfo":
+                            if (!_systeminfoB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 5);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.SystemInfromation();
+                                _systeminfoB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        case "Button_More":
+                            if (!_moreB)
+                            {
+                                StandStateBtnN();
+                                btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+                                Grid.SetColumn(ActivePage, 6);
+
+                                ActivePageAnim(true);
+                                MainContainer.Content = new Pages.MorePage();
+                                _moreB = true;
+                            }
+                            else
+                            {
+                                StandStateBtnN();
+                                ActivePageAnim(false);
+                                CleaningPages();
+                            }
+                            break;
+                        default:
                             StandStateBtnN();
                             ActivePageAnim(false);
                             CleaningPages();
-                        }
-                        break;
-                    case "Button_Interface":
-                        if (!_interfaceB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 1);
-
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.InterfacePage();
-                            _interfaceB = true;
-                        }
-                        else
-                        {
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
-                        }
-                        break;
-                    case "Button_Application":
-                        if (!_applicationB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 2);
-
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.ApplicationsPage();
-                            _applicationB = true;
-                        }
-                        else
-                        {
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
-                        }
-                        break;
-                    case "Button_Services":
-                        if (!_servicesB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 3);
-
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.ServicesPage();
-                            _servicesB = true;
-                        }
-                        else
-                        {
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
-                        }
-                        break;
-                    case "Button_System":
-                        if (!_systemB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 4);
-
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.SystemPage();
-                            _systemB = true;
-                        }
-                        else
-                        {
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
-                        }
-                        break;
-                    case "Button_SystemInfo":
-                        if (!_systeminfoB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 5);
-
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.SystemInfromation();
-                            _systeminfoB = true;
-                        }
-                        else
-                        {
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
-                        }
-                        break;
-                    case "Button_More":
-                        if (!_moreB)
-                        {
-                            StandStateBtnN();
-                            btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-                            Grid.SetColumn(ActivePage, 6);
-
-                            ActivePageAnim(true);
-                            MainContainer.Content = new Pages.MorePage();
-                            _moreB = true;
-                        }
-                        else
-                        {
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
-                        }
-                        break;
-                    default:
-                        StandStateBtnN();
-                        ActivePageAnim(false);
-                        CleaningPages();
-                        break;
-                }
+                            break;
+                    }
+                });
             }
+
         }
 
         private void Button_Settings_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -333,17 +343,23 @@ namespace Tweaker
             {
                 if (!_settings)
                 {
-                    SettingsPanelAnim(true);
-                    _settings = true;
-                    SettingsContrainer.Content = new Pages.SettingsPage();
+                    Parallel.Invoke(() =>
+                    {
+                        SettingsPanelAnim(true);
+                        _settings = true;
+                        SettingsContrainer.Content = new Pages.SettingsPage();
+                    });
                 }
                 else
                 {
-                    while (SettingsContrainer.NavigationService.RemoveBackEntry() != null) ;
-                    SettingsContrainer.Content = null;
+                    Parallel.Invoke(() =>
+                    {
+                        while (SettingsContrainer.NavigationService.RemoveBackEntry() != null) ;
+                        SettingsContrainer.Content = null;
 
-                    SettingsPanelAnim(false);
-                    _settings = false;
+                        SettingsPanelAnim(false);
+                        _settings = false;
+                    });
                 }
             }
         }
