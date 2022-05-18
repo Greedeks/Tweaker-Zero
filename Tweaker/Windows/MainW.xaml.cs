@@ -14,7 +14,6 @@ namespace Tweaker
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly StartScanner _startScanner = new StartScanner();
-
         #endregion
 
         public MainWindow()

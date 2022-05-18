@@ -84,11 +84,11 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Effect">
+        <!--<Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect Opacity="0.7"/>
+                <DropShadowEffect Opacity="0.7" BlurRadius="10" RenderOptions.BitmapScalingMode="LowQuality" RenderingBias="Performance" />
             </Setter.Value>
-        </Setter>
+        </Setter>-->
     </Style>
 
     <Style TargetType="{x:Type Image}" x:Key="AppUnll">
