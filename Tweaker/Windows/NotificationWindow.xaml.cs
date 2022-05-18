@@ -11,7 +11,7 @@ namespace Tweaker.Windows
     public partial class NotificationWindow : Window
     {
         private readonly DispatcherTimer _timer = default;
-        private TimeSpan _time = TimeSpan.FromSeconds(4);
+        private TimeSpan _time = TimeSpan.FromSeconds(3);
 
         private byte _action = 0;
         internal string AddTitle { get => NotificationTitle.Text; set => NotificationTitle.Text = value; }
