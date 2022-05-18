@@ -45,15 +45,21 @@ namespace Tweaker.Pages
         private void DiscriptionAnim(string _text)
         {
             Discription.Text = _text;
-            DoubleAnimation _animation = new DoubleAnimation
+
+            DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
             {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(1),
-                SpeedRatio = 2.7
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
             };
-            Discription.BeginAnimation(ContextMenu.OpacityProperty, _animation);
-            Discription.Opacity = 1;
+
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150))
+            };
+
+            doubleAnimation.KeyFrames.Add(_fromFrame);
+            doubleAnimation.KeyFrames.Add(_toFrame);
+            Discription.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
         }
 
         private void App_MouseEnter(object sender, MouseEventArgs e)

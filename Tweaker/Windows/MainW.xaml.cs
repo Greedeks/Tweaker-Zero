@@ -51,7 +51,6 @@ namespace Tweaker
         #region Animation
         private void ActivePageAnim(bool _stateAnimActivePage)
         {
-
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
 
             if (_stateAnimActivePage)
