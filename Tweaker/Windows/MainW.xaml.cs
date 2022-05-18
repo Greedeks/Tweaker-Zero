@@ -51,36 +51,39 @@ namespace Tweaker
         #region Animation
         private void ActivePageAnim(bool _stateAnimActivePage)
         {
-            Storyboard story = new Storyboard();
-            Storyboard.SetTargetProperty(story, new PropertyPath("Opacity"));
-            Storyboard.SetTarget(story, ActivePage);
 
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
 
             if (_stateAnimActivePage)
             {
-                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0);
-                _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+                };
 
-                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1);
-                _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200));
-   
+                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
+                };
+
                 doubleAnimation.KeyFrames.Add(_fromFrame);
                 doubleAnimation.KeyFrames.Add(_toFrame);
-                story.Children.Add(doubleAnimation);
                 ActivePage.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
             }
             else
             {
-                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(1);
-                _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(1)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+                };
 
-                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(0);
-                _toFrame. KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200));
-             
+                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(0)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
+                };
+
                 doubleAnimation.KeyFrames.Add(_fromFrame);
                 doubleAnimation.KeyFrames.Add(_toFrame);
-                story.Children.Add(doubleAnimation);
                 ActivePage.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
 
             }
@@ -91,39 +94,37 @@ namespace Tweaker
             Unclickable.Width = _stateAnimSettingsPanel ? 1084 : 0;
             Unclickable.Height = _stateAnimSettingsPanel ? 509 : 0;
 
-            Storyboard story = new Storyboard();
-            Storyboard.SetTargetProperty(story, new PropertyPath("Width"));
-            Storyboard.SetTarget(story, SettingsPanel);
-
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
 
             if (_stateAnimSettingsPanel)
             {
-                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0);
-                _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+                };
 
-                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(400);
-                _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150));
-       
+                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(400)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150))
+                };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
                 doubleAnimation.KeyFrames.Add(_toFrame);
-                story.Children.Add(doubleAnimation);
                 SettingsPanel.BeginAnimation(FrameworkElement.WidthProperty, doubleAnimation);
 
-                Storyboard.SetTargetProperty(story, new PropertyPath("Opacity"));
-                Storyboard.SetTarget(story, MainContainer);
-
                 doubleAnimation = new DoubleAnimationUsingKeyFrames();
-                _fromFrame = new EasingDoubleKeyFrame(1);
-                _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+                _fromFrame = new EasingDoubleKeyFrame(1)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+                };
 
-                _toFrame = new EasingDoubleKeyFrame(0.5);
-                _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200));
+                _toFrame = new EasingDoubleKeyFrame(0.5)
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
+                };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
                 doubleAnimation.KeyFrames.Add(_toFrame);
-                story.Children.Add(doubleAnimation);
                 MainContainer.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
             }
             else
@@ -142,11 +143,7 @@ namespace Tweaker
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
                 doubleAnimation.KeyFrames.Add(_toFrame);
-                story.Children.Add(doubleAnimation);
                 SettingsPanel.BeginAnimation(FrameworkElement.WidthProperty, doubleAnimation);
-
-                Storyboard.SetTargetProperty(story, new PropertyPath("Opacity"));
-                Storyboard.SetTarget(story, MainContainer);
 
                 doubleAnimation = new DoubleAnimationUsingKeyFrames();
                 _fromFrame = new EasingDoubleKeyFrame(0.5)
@@ -163,7 +160,6 @@ namespace Tweaker
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
                 doubleAnimation.KeyFrames.Add(_toFrame);
-                story.Children.Add(doubleAnimation);
                 MainContainer.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
             }
 
@@ -365,35 +361,34 @@ namespace Tweaker
 
             Rect _primaryMonitorArea = SystemParameters.WorkArea;
 
-            Storyboard story = new Storyboard();
-            Storyboard.SetTargetProperty(story, new PropertyPath("Top"));
-            Storyboard.SetTarget(story, TweakerWPF);
-
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Bottom);
-            _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Bottom)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+            };
 
-            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame((_primaryMonitorArea.Bottom / 2) - (this.Height / 2));
-            _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(270));
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame((_primaryMonitorArea.Bottom / 2) - (this.Height / 2))
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(270))
+            };
 
             doubleAnimation.KeyFrames.Add(_fromFrame);
             doubleAnimation.KeyFrames.Add(_toFrame);
-            story.Children.Add(doubleAnimation);
             TweakerWPF.BeginAnimation(Canvas.TopProperty, doubleAnimation);
 
-            Storyboard.SetTargetProperty(story, new PropertyPath("Left"));
-            Storyboard.SetTarget(story, TweakerWPF);
-
             doubleAnimation = new DoubleAnimationUsingKeyFrames();
-            _fromFrame = new EasingDoubleKeyFrame(-_primaryMonitorArea.Right);
-            _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+            _fromFrame = new EasingDoubleKeyFrame(-_primaryMonitorArea.Right)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+            };
 
-            _toFrame = new EasingDoubleKeyFrame((_primaryMonitorArea.Right / 2) - (this.Width / 2));
-            _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(270));
+            _toFrame = new EasingDoubleKeyFrame((_primaryMonitorArea.Right / 2) - (this.Width / 2))
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(270))
+            };
 
             doubleAnimation.KeyFrames.Add(_fromFrame);
             doubleAnimation.KeyFrames.Add(_toFrame);
-            story.Children.Add(doubleAnimation);
             TweakerWPF.BeginAnimation(Canvas.LeftProperty, doubleAnimation);
             #endregion
 

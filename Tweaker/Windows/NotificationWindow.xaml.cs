@@ -42,21 +42,20 @@ namespace Tweaker.Windows
             Rect _primaryMonitorArea = SystemParameters.WorkArea;
             NotificationW.Top = _primaryMonitorArea.Bottom - this.Height - 10;
 
-            Storyboard story = new Storyboard();
-            Storyboard.SetTargetProperty(story, new PropertyPath("Left"));
-            Storyboard.SetTarget(story, NotificationW);
-
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
 
-            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Right);
-            _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Right)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+            };
 
-            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Right - this.Width - 10);
-            _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150));
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Right - this.Width - 10)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150))
+            };
 
             doubleAnimation.KeyFrames.Add(_fromFrame);
             doubleAnimation.KeyFrames.Add(_toFrame);
-            story.Children.Add(doubleAnimation);
             NotificationW.BeginAnimation(Canvas.LeftProperty, doubleAnimation);
 
 

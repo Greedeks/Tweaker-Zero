@@ -15,7 +15,7 @@ namespace ToggleSwitch
         private readonly Thickness _LeftSide = new Thickness(-40, 0, 0, 0), _RightSide = new Thickness(0, 0, -40, 0);
         private readonly LinearGradientBrush _OffColor = new LinearGradientBrush(), _OnColor = new LinearGradientBrush();
         private bool _Toggle = false;
-        private TimeSpan _timeline = TimeSpan.FromSeconds(0);
+        private TimeSpan _timeline = TimeSpan.FromMilliseconds(0);
 
         public ToggleButton()
         {
@@ -56,16 +56,23 @@ namespace ToggleSwitch
         {
             Parallel.Invoke(() =>
             {
+                ThicknessAnimationUsingKeyFrames doubleAnimation = new ThicknessAnimationUsingKeyFrames();
+
                 if (_cheack && Dot.Margin != _RightSide)
                 {
-                    ThicknessAnimation _animation = new ThicknessAnimation
+                    EasingThicknessKeyFrame _fromFrame = new EasingThicknessKeyFrame(_LeftSide)
                     {
-                        From = _LeftSide,
-                        To = _RightSide,
-                        SpeedRatio = 4,
-                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.2) : _timeline
+                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
                     };
-                    Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+
+                    EasingThicknessKeyFrame _toFrame = new EasingThicknessKeyFrame(_RightSide)
+                    {
+                        KeyTime = !_firstStart ? KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(70)) : _timeline
+                    };
+
+                    doubleAnimation.KeyFrames.Add(_fromFrame);
+                    doubleAnimation.KeyFrames.Add(_toFrame);
+                    Dot.BeginAnimation(ContentControl.MarginProperty, doubleAnimation);
 
                     BrushAnimation _brushanimation = new BrushAnimation
                     {
@@ -79,14 +86,19 @@ namespace ToggleSwitch
 
                 else if (!_cheack && Dot.Margin != _LeftSide)
                 {
-                    ThicknessAnimation _animation = new ThicknessAnimation
+                    EasingThicknessKeyFrame _fromFrame = new EasingThicknessKeyFrame(_RightSide)
                     {
-                        From = _RightSide,
-                        To = _LeftSide,
-                        SpeedRatio = 2.5,
-                        Duration = !_firstStart ? TimeSpan.FromSeconds(0.2) : _timeline
+                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
                     };
-                    Dot.BeginAnimation(ContentControl.MarginProperty, _animation);
+
+                    EasingThicknessKeyFrame _toFrame = new EasingThicknessKeyFrame(_LeftSide)
+                    {
+                        KeyTime = !_firstStart ? KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(90)) : _timeline
+                    };
+
+                    doubleAnimation.KeyFrames.Add(_fromFrame);
+                    doubleAnimation.KeyFrames.Add(_toFrame);
+                    Dot.BeginAnimation(ContentControl.MarginProperty, doubleAnimation);
 
                     BrushAnimation _brushanimation = new BrushAnimation
                     {
@@ -101,7 +113,7 @@ namespace ToggleSwitch
 
         }
 
-        private void Dot_Loaded(object sender, RoutedEventArgs e) =>  _timeline = TimeSpan.FromSeconds(0.07);
+        private void Dot_Loaded(object sender, RoutedEventArgs e) =>  _timeline = TimeSpan.FromMilliseconds(90);
 
     }
 }
