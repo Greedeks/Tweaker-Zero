@@ -42,13 +42,23 @@ namespace Tweaker.Windows
             Rect _primaryMonitorArea = SystemParameters.WorkArea;
             NotificationW.Top = _primaryMonitorArea.Bottom - this.Height - 10;
 
-            DoubleAnimation _animationLeft = new DoubleAnimation
-            {
-                From = _primaryMonitorArea.Right,
-                To = _primaryMonitorArea.Right - this.Width - 10,
-                SpeedRatio = 7,
-                Duration = TimeSpan.FromSeconds(1)
-            };
+            Storyboard story = new Storyboard();
+            Storyboard.SetTargetProperty(story, new PropertyPath("Left"));
+            Storyboard.SetTarget(story, NotificationW);
+
+            DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
+
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Right);
+            _fromFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0));
+
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(_primaryMonitorArea.Right - this.Width - 10);
+            _toFrame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150));
+
+            doubleAnimation.KeyFrames.Add(_fromFrame);
+            doubleAnimation.KeyFrames.Add(_toFrame);
+            story.Children.Add(doubleAnimation);
+            NotificationW.BeginAnimation(Canvas.LeftProperty, doubleAnimation);
+
 
             DoubleAnimation _animation = new DoubleAnimation
             {
@@ -57,7 +67,6 @@ namespace Tweaker.Windows
                 Duration = TimeSpan.FromSeconds(0.3)
             };
             NotificationW.BeginAnimation(UIElement.OpacityProperty, _animation);
-            NotificationW.BeginAnimation(Canvas.LeftProperty, _animationLeft);
 
 
             NotificationW.Left = _primaryMonitorArea.Right - this.Width - 10;
