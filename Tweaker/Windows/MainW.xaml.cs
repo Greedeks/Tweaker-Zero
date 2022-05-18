@@ -13,17 +13,13 @@ namespace Tweaker
         #region Параметры
         private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
             _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
-        private readonly CheckApplicationCopy _checkApplicationCopy = new CheckApplicationCopy();
         private readonly StartScanner _startScanner = new StartScanner();
-        private readonly CheckWindowsVersion _checkWindowsVersion = new CheckWindowsVersion();
-        private readonly ToastNotification _toastNotification = new ToastNotification();
+
         #endregion
 
         public MainWindow()
         {
-            Parallel.Invoke(() => { _checkApplicationCopy.CheckAC(); });
-            Parallel.Invoke(() => { _checkWindowsVersion.CheckVersion(); });
-            Parallel.Invoke(() => { _toastNotification.Load(); });
+            _startScanner.BeforeLoadingCheck();
 
             InitializeComponent();
         }
@@ -409,6 +405,6 @@ namespace Tweaker
 
         }
 
-        private void TweakerWPF_Closed(object sender, EventArgs e) => _toastNotification.Unloading();
+        private void TweakerWPF_Closed(object sender, EventArgs e) => _startScanner._toastNotification.Unloading();
     }
 }
