@@ -65,13 +65,16 @@ namespace Tweaker.Сlasses
 
         internal void Unloading()
         {
-            _mediaPlayer.Close();
-            ProcessStartInfo _processStartInfo = new ProcessStartInfo();
-            _processStartInfo.Arguments = string.Format("/C rd /s /q \"{0}",_path+ "\\Tweaker Zero");
-            _processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            _processStartInfo.CreateNoWindow = true;
-            _processStartInfo.FileName = "cmd.exe";
-            Process.Start(_processStartInfo);
+            Parallel.Invoke(() =>
+            {
+                _mediaPlayer.Close();
+                ProcessStartInfo _processStartInfo = new ProcessStartInfo();
+                _processStartInfo.Arguments = string.Format("/C rd /s /q \"{0}", _path + "\\Tweaker Zero");
+                _processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                _processStartInfo.CreateNoWindow = true;
+                _processStartInfo.FileName = "cmd.exe";
+                Process.Start(_processStartInfo);
+            });
         }
 
         internal void Volume(byte _value) => Parallel.Invoke(() => { _mediaPlayer.Volume = _value / 100.0f; });
