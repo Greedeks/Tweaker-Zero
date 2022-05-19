@@ -67,7 +67,7 @@ namespace ToggleSwitch
 
                     EasingThicknessKeyFrame _toFrame = new EasingThicknessKeyFrame(_RightSide)
                     {
-                        KeyTime = !_firstStart ? KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(70)) : _timeline
+                        KeyTime = !_firstStart ? KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(50)) : _timeline
                     };
 
                     doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -93,7 +93,7 @@ namespace ToggleSwitch
 
                     EasingThicknessKeyFrame _toFrame = new EasingThicknessKeyFrame(_LeftSide)
                     {
-                        KeyTime = !_firstStart ? KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(90)) : _timeline
+                        KeyTime = !_firstStart ? KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(60)) : _timeline
                     };
 
                     doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -113,7 +113,7 @@ namespace ToggleSwitch
 
         }
 
-        private void Dot_Loaded(object sender, RoutedEventArgs e) =>  _timeline = TimeSpan.FromMilliseconds(90);
+        private void Dot_Loaded(object sender, RoutedEventArgs e) =>  _timeline = TimeSpan.FromMilliseconds(60);
 
     }
 }
