@@ -91,7 +91,6 @@ namespace Tweaker
             });
 
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
-
             if (_stateAnimSettingsPanel)
             {
                 EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
@@ -101,7 +100,7 @@ namespace Tweaker
 
                 EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(400)
                 {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(100))
                 };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -116,7 +115,7 @@ namespace Tweaker
 
                 _toFrame = new EasingDoubleKeyFrame(0.5)
                 {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(100))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(80))
                 };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -134,7 +133,7 @@ namespace Tweaker
                 EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(0)
                 {
 
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(60))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150))
                 };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -348,11 +347,10 @@ namespace Tweaker
                 {
                     Parallel.Invoke(() =>
                     {
-                        while (SettingsContrainer.NavigationService.RemoveBackEntry() != null) ;
-                        SettingsContrainer.Content = null;
-
                         SettingsPanelAnim(false);
                         _settings = false;
+                        while (SettingsContrainer.NavigationService.RemoveBackEntry() != null) ;
+                        SettingsContrainer.Content = null;
                     });
                 }
             }

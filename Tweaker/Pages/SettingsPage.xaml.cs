@@ -72,7 +72,7 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                settingsTweaker.DeletedSettingsTweaker();
+                settingsTweaker.SelfRemoval();
             }
         }
     }

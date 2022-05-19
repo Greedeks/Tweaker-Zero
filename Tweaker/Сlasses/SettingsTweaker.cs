@@ -1,10 +1,16 @@
 ﻿using Microsoft.Win32;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Tweaker.Сlasses
 {
     internal sealed class SettingsTweaker
     {
+        private LanguageTranslate languageTranslate = new LanguageTranslate();
         private static string _language = default;
         private static bool _notification = default;
         private static bool _notificationSound = default;
@@ -23,7 +29,7 @@ namespace Tweaker.Сlasses
             if (_registryKey == null)
             {
                 _registryKey = Registry.CurrentUser.CreateSubKey(@"Software\Tweaker Zero");
-                _registryKey.SetValue("Language", "ru", RegistryValueKind.String);
+                _registryKey.SetValue("Language", languageTranslate.GetLanguageWindows(), RegistryValueKind.String);
                 _registryKey.SetValue("Notification", "True", RegistryValueKind.String);
                 _registryKey.SetValue("NotificationSound", "True", RegistryValueKind.String);
                 _registryKey.SetValue("NotificationVolume", "100", RegistryValueKind.String);
@@ -85,9 +91,17 @@ namespace Tweaker.Сlasses
             TopMost = bool.Parse(_registryKey.GetValue("TopMost").ToString());
         }
 
-        internal void DeletedSettingsTweaker()
+        internal void SelfRemoval()
         {
             Registry.CurrentUser.DeleteSubKey(@"Software\Tweaker Zero", true);
+            Application.Current.Shutdown();
+            Process.Start(new ProcessStartInfo()
+            {
+                Arguments = "/C choice /C Y /N /D Y /T 3 & Del \"" + (new FileInfo((new Uri(Assembly.GetExecutingAssembly().CodeBase)).LocalPath)).Name + "\"",
+                WindowStyle = ProcessWindowStyle.Hidden,
+                CreateNoWindow = true,
+                FileName = "cmd.exe"
+            });
         }
     }
 }
