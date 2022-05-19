@@ -3087,6 +3087,7 @@ namespace Tweaker.Сlasses
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").SetValue("ConfigureAppInstallControl", "Anywhere", RegistryValueKind.String);
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").SetValue("ConfigureAppInstallControlEnabled", 1, RegistryValueKind.DWord);
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AppHost").SetValue("EnableWebContentEvaluation", 0, RegistryValueKind.DWord);
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\DeviceGuard").SetValue("EnableVirtualizationBasedSecurity", 0, RegistryValueKind.DWord);
                             }
                             else
                             {
@@ -3099,6 +3100,7 @@ namespace Tweaker.Сlasses
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").DeleteValue("ConfigureAppInstallControl");
                                 _localMachineKey.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen").DeleteValue("ConfigureAppInstallControlEnabled");
                                 _currentUserKey.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AppHost").DeleteValue("EnableWebContentEvaluation");
+                                _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\DeviceGuard").DeleteValue("EnableVirtualizationBasedSecurity");
                             }
                             Parallel.Invoke(() => { toastNotification.Show("Внимание", "Необходима перезагрузка, нажмите на данный текст, чтобы произвести её", 2); });
                             break;

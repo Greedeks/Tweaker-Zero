@@ -52,7 +52,7 @@
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                    <Label x:Name="Tweak9" Content="Защитник Windows, Antimalware и SmartScreen" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325"/>
+                    <Label x:Name="Tweak9" Content="Защитник Windows, Antimalware, SmartScreen и VBS" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325" Cursor="Hand"/>
                     <Label x:Name="Tweak10" Content="User Account Control (Контроль учётных записей)" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285" Width="Auto"/>
                     <Label x:Name="Tweak11" Content="Диагностика оперативной памяти вашего ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,245"/>
                     <Label x:Name="Tweak12" Content="Протоколы Teredo, ISATAP и IPv6" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,205"/>
