@@ -82,7 +82,6 @@ namespace Tweaker
 
             }
         }
-
         private void SettingsPanelAnim(bool _stateAnimSettingsPanel)
         {
             Parallel.Invoke(() =>
@@ -363,6 +362,7 @@ namespace Tweaker
         private async void TweakerWPF_Loaded(object sender, RoutedEventArgs e)
         {
             _startScanner.ScantheSystem();
+            TweakerWPF.Topmost = SettingsTweaker.TopMost;
 
             #region Анимация загрузки
             this.Opacity = 0;
@@ -405,5 +405,7 @@ namespace Tweaker
         }
 
         private void TweakerWPF_Closed(object sender, EventArgs e) => _startScanner._toastNotification.Unloading();
+
+        private void SettingsContrainer_QueryCursor(object sender, QueryCursorEventArgs e) => TweakerWPF.Topmost = SettingsTweaker.TopMost;
     }
 }

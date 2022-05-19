@@ -11,6 +11,7 @@ namespace Tweaker.Сlasses
         private readonly SettingsWindows _settingsWindows = new SettingsWindows();
         private readonly GetSystemInformation _getsystemInformation = new GetSystemInformation();
         private readonly ApplicationsSystem _applicationsSystem = new ApplicationsSystem();
+        private readonly SettingsTweaker _settingsTweaker = new SettingsTweaker();
 
 
         internal void BeforeLoadingCheck()
@@ -18,6 +19,7 @@ namespace Tweaker.Сlasses
             Parallel.Invoke(() => { _checkApplicationCopy.CheckAC(); });
             Parallel.Invoke(() => { _checkWindowsVersion.CheckVersion(); });
             Parallel.Invoke(() => { _toastNotification.Load(); });
+            Parallel.Invoke(() => { _settingsTweaker.CheckStettingsTweaker(); });
         }
 
         internal void ScantheSystem()
@@ -29,7 +31,8 @@ namespace Tweaker.Сlasses
             () => { _settingsWindows.TaskCheckStateSystem(); },
             () => { _settingsWindows.ProtocolCheckStateSystem(); },
             () => { _settingsWindows.VerificationWindows(); },
-            () => { _applicationsSystem.CheckInstalledApps(); }
+            () => { _applicationsSystem.CheckInstalledApps(); },
+            () => { _settingsTweaker.Update(); }
             );
         }
     }

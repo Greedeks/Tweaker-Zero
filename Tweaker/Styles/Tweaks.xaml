@@ -84,11 +84,6 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <!--<Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect Opacity="0.7" BlurRadius="10" RenderOptions.BitmapScalingMode="LowQuality" RenderingBias="Performance" />
-            </Setter.Value>
-        </Setter>-->
     </Style>
 
     <Style TargetType="{x:Type Image}" x:Key="AppUnll">
@@ -96,11 +91,6 @@
         <Setter Property="Height" Value="91"/>
         <Setter Property="CacheMode" Value="BitmapCache"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect/>
-            </Setter.Value>
-        </Setter>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <ScaleTransform x:Name="ImageScale" ScaleX="1" ScaleY="1"/>

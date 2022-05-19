@@ -102,7 +102,7 @@
                 <Grid x:Name="Unclickable" Background="Transparent" Width="0" Height="0" PreviewMouseDown="Button_Settings_PreviewMouseDown"/>
 
                 <Grid x:Name="SettingsPanel" HorizontalAlignment="Right" Width="0" Background="Transparent">
-                    <Frame x:Name="SettingsContrainer" Background="{DynamicResource BackgroundButtonHead}" Margin="0,0,0,0" NavigationUIVisibility="Hidden" SnapsToDevicePixels="True" Opacity="0.9"/>
+                    <Frame x:Name="SettingsContrainer" Background="{DynamicResource BackgroundButtonHead}" Margin="0,0,0,0" NavigationUIVisibility="Hidden" SnapsToDevicePixels="True" Opacity="0.9" QueryCursor="SettingsContrainer_QueryCursor"/>
                 </Grid>
 
             </Grid>

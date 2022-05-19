@@ -21,7 +21,7 @@ namespace Tweaker.Сlasses
             {
                 Parallel.Invoke(() =>
                 {
-                    if (notificationWindow.IsLoaded == false)
+                    if (notificationWindow.IsLoaded == false && SettingsTweaker.Notification)
                     {
                         notificationWindow = new NotificationWindow
                         {
@@ -31,11 +31,15 @@ namespace Tweaker.Сlasses
                         };
                         notificationWindow.Show();
 
-                        Parallel.Invoke(() =>
+                        if (SettingsTweaker.NotificationSound)
                         {
-                            _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\ToastSound.mp3"));
-                            _mediaPlayer.Play();
-                        });
+                            Parallel.Invoke(() =>
+                            {
+                                Volume(SettingsTweaker.NotificationVolume);
+                                _mediaPlayer.Open(new Uri(_path + @"\Tweaker Zero\ToastSound.mp3"));
+                                _mediaPlayer.Play();
+                            });
+                        }
                     }
                 });
             });

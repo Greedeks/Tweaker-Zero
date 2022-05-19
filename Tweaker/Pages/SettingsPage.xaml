@@ -19,8 +19,7 @@
 
                     <StackPanel Orientation="Horizontal" Margin="50,60,0,0" Height="25" VerticalAlignment="Top">
                         <TextBlock x:Name="SelectLangText" Style="{DynamicResource SystemINFO}" Foreground="{DynamicResource ColorRed}" Height="20" FontSize="14px" Text="Язык интерфейса:"/>
-                        <Label Width="5"/>
-                        <ComboBox x:Name="SelectLang"  Width="200">
+                        <ComboBox x:Name="SelectLang"  Width="200" Margin="5,0,0,0" SelectionChanged="SelectLang_SelectionChanged">
                             <ComboBoxItem x:Name="rus" IsSelected="True" Content="Русский"/>
                             <ComboBoxItem x:Name="eng" Content="Английский"/>
                         </ComboBox>
@@ -28,31 +27,44 @@
 
                     <Border Margin="35,105,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
 
-                    <Label x:Name="ToastShow" Content="Показывать уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,124,0,397"/>
-                    <ToggleSwitch:ToggleButton x:Name="TSettings1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="39" Margin="50,127,0,0"/>
+                    <Label x:Name="ToastShow" Content="Показывать уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,124,0,674" Cursor="Hand"/>
+                    <ToggleSwitch:ToggleButton x:Name="TSettings1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="39" Margin="50,127,0,0" PreviewMouseDown="TSettings1_PreviewMouseDown"/>
 
-                    <Label x:Name="ToastSound" Content="Звук уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,164,0,357"/>
-                    <ToggleSwitch:ToggleButton x:Name="TSettings2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="39" Margin="50,166,0,0"/>
+                    <Label x:Name="ToastSound" Content="Звук уведомления" Style="{StaticResource Tweaks_OFF}" Margin="94,164,0,634"/>
+                    <ToggleSwitch:ToggleButton x:Name="TSettings2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="39" Margin="50,166,0,0" PreviewMouseDown="TSettings2_PreviewMouseDown"/>
 
-                    <StackPanel Margin="50,204,0,297" Orientation="Horizontal">
+                    <StackPanel Margin="50,204,0,573" Orientation="Horizontal">
                         <Label x:Name="ToastSoundChanged" Content="Громкость уведомления" Style="{StaticResource Tweaks_ON}" VerticalAlignment="Top"/>
-                        <Slider x:Name="Slider1" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="100" Width="150" Margin="5,5,0,0"/>
+                        <Slider x:Name="Slider1" Style="{StaticResource Horizontal_Slider}" IsSnapToTickEnabled="True" VerticalAlignment="Top" Minimum="0" Maximum="100" Width="150" Margin="5,5,0,0" ValueChanged="Slider1_ValueChanged"/>
                     </StackPanel>
 
                     <Border Margin="35,260,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
 
-                    <Label x:Name="PinOfTop" Content="Закрепить поверх всех окон" Style="{StaticResource Tweaks_OFF}" Margin="94,276,0,245"/>
-                    <ToggleSwitch:ToggleButton x:Name="TSettings3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="39" Margin="50,278,0,0"/>
+                    <Label x:Name="PinOfTop" Content="Закрепить поверх всех окон" Style="{StaticResource Tweaks_OFF}" Margin="94,276,0,522"/>
+                    <ToggleSwitch:ToggleButton x:Name="TSettings3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="39" Margin="50,278,0,0" PreviewMouseDown="TSettings3_PreviewMouseDown"/>
 
                     <Border Margin="35,320,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
 
-                    <TextBlock x:Name="UserAgreement" Width="Auto" Text="Пользовательское соглашение" FontFamily="/Fonts/#Nunito" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"  KeyboardNavigation.IsTabStop="False" Margin="78,338,0,0">
+                    <StackPanel Orientation="Horizontal" Height="30" Width="300" Margin="48,336,38,462">
+                        <Label x:Name="DeleteTW" Content="Удалить «Tweaker Zero» c ПК" Style="{StaticResource Tweaks_ON}"/>
+                        <Button Margin="5,0,0,0" x:Name="TSettings4" Style="{StaticResource ButtonsTW}" Height="22" Width="100" Cursor="Hand" PreviewMouseDown="TSettings4_PreviewMouseDown">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
+                            </Button.Effect>
+                            <Label Content="Удалить" Style="{DynamicResource ButtonsText}" FontSize="12px" Height="24"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Border Margin="35,380,0,0" Width="325" Background="{DynamicResource ColorRedNotActive}" Height="1" VerticalAlignment="Top"/>
+
+                    <TextBlock x:Name="UserAgreement" Width="Auto" Text="Пользовательское соглашение" FontFamily="/Fonts/#Nunito" FontSize="18px" Foreground="{DynamicResource ColorRed}" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"  KeyboardNavigation.IsTabStop="False" Margin="70,395,0,0">
                         <TextBlock.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="0" Opacity="0.7" Color="#FF2400" />
                         </TextBlock.Effect>
                     </TextBlock>
 
-                    <TextBlock x:Name="TextUserAgreement" Text="Текст" Style="{DynamicResource DescriptionTweaks}" Width="325" Height="Auto"  Margin="48,380,0,-14" TextAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="TextUserAgreement" Text="Используя и/или неиспользуя программное обеспечение «Tweaker Zero», вы соглашаетесь с тем, что вся ответственность ложиться исключительно на Вас и правообладатель не предоставляет никаких гарантий в отношении безошибочной и бесперебойной работы (ПО), а также не предоставляет никаких иных гарантий. Правообладатель не несёт никакой ответственности за какие-либо прямые или косвенные последствия какого-либо 
+использования или неиспользования (ПО) и/или ущерб причиненный Пользователя/Третьим лицам, в том числе из-за возможных ошибок/сбоев в работе (ПО). Использование и/или неиспользования (ПО) ниже ОС Windows 10, может привести/приведёт к критическим ошибкам, в работоспособности ОС/(ПО)/других (ПО)." Style="{DynamicResource DescriptionTweaks}" Width="324" Height="Auto" HorizontalAlignment="Left" TextAlignment="Justify" Margin="40,435,0,37" />
 
                 </Grid>
             </ScrollViewer>
