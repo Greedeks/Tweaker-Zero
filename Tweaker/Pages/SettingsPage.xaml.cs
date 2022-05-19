@@ -75,5 +75,13 @@ namespace Tweaker.Pages
                 settingsTweaker.SelfRemoval();
             }
         }
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -1513,7 +1513,6 @@ namespace Tweaker.Сlasses
             if (_classesRootKey.OpenSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}") == null && _classesRootKey.OpenSubKey(@"Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}") == null)
                 return 0;
             else
-
                 return 1;
         }
 

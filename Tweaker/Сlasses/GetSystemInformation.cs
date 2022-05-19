@@ -56,24 +56,28 @@ namespace Tweaker.Сlasses
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Caption, OSArchitecture, Version from Win32_OperatingSystem").Get()) {
-                    _INFthisPC[0] = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace((string)managementObj["OSArchitecture"], @"\-.+", "-bit") + ", V" + (string)managementObj["Version"];
+                    _INFthisPC[0] = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W')) + ", " + System.Text.RegularExpressions.Regex.Replace((string)managementObj["OSArchitecture"], @"\-.+", "-bit") + ", V" + (string)managementObj["Version"] + "\n";
                     _windowsV = Convert.ToString(managementObj["Caption"]).Substring(Convert.ToString(managementObj["Caption"]).IndexOf('W') + 8);
                 }
+                _INFthisPC[0] = _INFthisPC[0].TrimEnd('\n');
             },
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name, SerialNumber from Win32_BIOS").Get())
-                    _INFthisPC[1] = ((string)managementObj["Name"] + ", S/N-" + (string)managementObj["SerialNumber"]);
+                    _INFthisPC[1] = (string)managementObj["Name"] + ", S/N-" + (string)managementObj["SerialNumber"] +"\n";
+                _INFthisPC[1] = _INFthisPC[1].TrimEnd('\n');
             },
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Manufacturer, Product, Version from Win32_BaseBoard").Get())
-                    _INFthisPC[2] = ((string)managementObj["Manufacturer"] + (string)managementObj["Product"] + ", V" + (string)managementObj["Version"]);
+                    _INFthisPC[2] = (string)managementObj["Manufacturer"] + (string)managementObj["Product"] + ", V" + (string)managementObj["Version"] +"\n";
+                _INFthisPC[2] = _INFthisPC[2].TrimEnd('\n');
             },
             () =>
             {
                 foreach (var managementObj in new ManagementObjectSearcher("root\\cimv2", "select Name from Win32_Processor").Get())
-                    _INFthisPC[3] = ((string)managementObj["Name"]);
+                    _INFthisPC[3] = (string)managementObj["Name"]+"\n";
+                _INFthisPC[3] = _INFthisPC[3].TrimEnd('\n');
             },
             () =>
             {

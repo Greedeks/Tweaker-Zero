@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="400"
-      Title="SettingsPage" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}">
+      Title="SettingsPage" SnapsToDevicePixels="True" UseLayoutRounding="True" Style="{StaticResource PageStyle}" KeyDown="Page_KeyDown">
     <Grid>
         <Grid>
             <ScrollViewer FocusVisualStyle="{x:Null}" IsTabStop="False">
