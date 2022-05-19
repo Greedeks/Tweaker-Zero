@@ -101,7 +101,7 @@ namespace Tweaker
 
                 EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(400)
                 {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(90))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
                 };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -116,7 +116,7 @@ namespace Tweaker
 
                 _toFrame = new EasingDoubleKeyFrame(0.5)
                 {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(100))
                 };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -134,7 +134,7 @@ namespace Tweaker
                 EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(0)
                 {
 
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(80))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(60))
                 };
 
                 doubleAnimation.KeyFrames.Add(_fromFrame);
