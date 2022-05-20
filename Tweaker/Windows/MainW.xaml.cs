@@ -17,6 +17,13 @@ namespace Tweaker
             _startScanner.BeforeLoadingCheck();
 
             InitializeComponent();
+
+            #region First Page
+            Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+            Grid.SetColumn(ActivePage, 0);
+            ActivePageAnim();
+            MainContainer.Navigate(new Pages.ConfidentialityPage());
+            #endregion
         }
 
         #region Movements/Closure/Collapsing the Form
@@ -283,17 +290,9 @@ namespace Tweaker
             _startScanner.ScantheSystem();
             TweakerWPF.Topmost = SettingsTweaker.TopMost;
 
-            #region First Page
-            DefaultStyleBtnN();
-            Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
-            Grid.SetColumn(ActivePage, 0);
-            ActivePageAnim();
-            MainContainer.Navigate (new Pages.ConfidentialityPage());
-            #endregion
-
             #region Loading animation
             this.Opacity = 0;
-            await Task.Delay(100);
+            await Task.Delay(200);
             this.Opacity = 1;
 
             Rect _primaryMonitorArea = SystemParameters.WorkArea;
@@ -306,7 +305,7 @@ namespace Tweaker
 
             EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame((_primaryMonitorArea.Bottom / 2) - (this.Height / 2))
             {
-                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(270))
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(250))
             };
 
             doubleAnimation.KeyFrames.Add(_fromFrame);
@@ -321,7 +320,7 @@ namespace Tweaker
 
             _toFrame = new EasingDoubleKeyFrame((_primaryMonitorArea.Right / 2) - (this.Width / 2))
             {
-                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(270))
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(250))
             };
 
             doubleAnimation.KeyFrames.Add(_fromFrame);
