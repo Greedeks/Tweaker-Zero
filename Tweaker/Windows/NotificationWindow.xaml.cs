@@ -21,7 +21,7 @@ namespace Tweaker.Windows
         {
             InitializeComponent();
 
-            #region Таймер закрытия окна
+            #region Window closing timer
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 if (_time == TimeSpan.Zero) { _timer.Stop(); this.Close(); }

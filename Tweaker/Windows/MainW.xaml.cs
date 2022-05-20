@@ -10,11 +10,7 @@ namespace Tweaker
 {
     public partial class MainWindow : Window
     {
-        #region Параметры
-        private bool _confidentialityB = false, _interfaceB = false, _applicationB = false, _servicesB = false,
-            _systemB = false, _systeminfoB = false, _moreB = false, _settings = false;
         private readonly StartScanner _startScanner = new StartScanner();
-        #endregion
 
         public MainWindow()
         {
@@ -23,7 +19,7 @@ namespace Tweaker
             InitializeComponent();
         }
 
-        #region Перемещения/Закрытие/Сворачивание Формы
+        #region Movements/Closure/Collapsing the Form
         private void Header_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -43,44 +39,24 @@ namespace Tweaker
         }
         #endregion
 
-        #region Анимации
-        private void ActivePageAnim(bool _stateAnimActivePage)
+        #region Animations
+        private void ActivePageAnim()
         {
             DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
 
-            if (_stateAnimActivePage)
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
             {
-                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
-                {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
-                };
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+            };
 
-                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1)
-                {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
-                };
-
-                doubleAnimation.KeyFrames.Add(_fromFrame);
-                doubleAnimation.KeyFrames.Add(_toFrame);
-                ActivePage.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
-            }
-            else
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1)
             {
-                EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(1)
-                {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
-                };
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
+            };
 
-                EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(0)
-                {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200))
-                };
-
-                doubleAnimation.KeyFrames.Add(_fromFrame);
-                doubleAnimation.KeyFrames.Add(_toFrame);
-                ActivePage.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
-
-            }
+            doubleAnimation.KeyFrames.Add(_fromFrame);
+            doubleAnimation.KeyFrames.Add(_toFrame);
+            ActivePage.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
         }
         private void SettingsPanelAnim(bool _stateAnimSettingsPanel)
         {
@@ -162,11 +138,8 @@ namespace Tweaker
         }
         #endregion
 
-        private void StandStateBtnN()
+        private void DefaultStyleBtnN()
         {
-            _confidentialityB = _interfaceB = _applicationB
-            = _servicesB = _systemB = _systeminfoB = _moreB = _settings = false;
-
             Button_Confidentiality.Style = Button_Interface.Style = Button_Application.Style = Button_Services.Style = Button_System.Style
             = Button_SystemInfo.Style = Button_More.Style = (Style)Application.Current.Resources["ButtonNav"];
         }
@@ -180,149 +153,99 @@ namespace Tweaker
             });
         }
 
-        #region Кнопки
+        #region Buttons
         private void Button_Navigations_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed & !_settings)
+            if (e.LeftButton == MouseButtonState.Pressed & Unclickable.Width == 0)
             {
                 Parallel.Invoke(() =>
                 {
-                    ActivePageAnim(false);
-                    CleaningPages();
-
                     Button btn = (Button)sender;
                     switch (btn.Name)
                     {
                         case "Button_Confidentiality":
-                            if (!_confidentialityB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.ConfidentialityPage")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 0);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.ConfidentialityPage();
-                                _confidentialityB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.ConfidentialityPage());
                             }
                             break;
                         case "Button_Interface":
-                            if (!_interfaceB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.InterfacePage")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 1);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.InterfacePage();
-                                _interfaceB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.InterfacePage());
                             }
                             break;
                         case "Button_Application":
-                            if (!_applicationB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.ApplicationsPage")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 2);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.ApplicationsPage();
-                                _applicationB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.ApplicationsPage());
                             }
                             break;
                         case "Button_Services":
-                            if (!_servicesB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.ServicesPage")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 3);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.ServicesPage();
-                                _servicesB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.ServicesPage());
                             }
                             break;
                         case "Button_System":
-                            if (!_systemB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.SystemPage")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 4);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.SystemPage();
-                                _systemB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.SystemPage());
                             }
                             break;
                         case "Button_SystemInfo":
-                            if (!_systeminfoB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.SystemInfromation")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 5);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.SystemInfromation();
-                                _systeminfoB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.SystemInfromation());
                             }
                             break;
                         case "Button_More":
-                            if (!_moreB)
+                            if (MainContainer.Content.ToString() != "Tweaker.Pages.MorePage")
                             {
-                                StandStateBtnN();
+                                DefaultStyleBtnN();
                                 btn.Style = (Style)Application.Current.Resources["ButtonNav_S"];
                                 Grid.SetColumn(ActivePage, 6);
 
-                                ActivePageAnim(true);
-                                MainContainer.Content = new Pages.MorePage();
-                                _moreB = true;
-                            }
-                            else
-                            {
-                                StandStateBtnN();
-                                ActivePageAnim(false);
+                                ActivePageAnim();
                                 CleaningPages();
+                                MainContainer.Navigate(new Pages.MorePage());
                             }
-                            break;
-                        default:
-                            StandStateBtnN();
-                            ActivePageAnim(false);
-                            CleaningPages();
                             break;
                     }
                 });
@@ -334,13 +257,12 @@ namespace Tweaker
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (!_settings)
+                if (Unclickable.Width==0)
                 {
                     Parallel.Invoke(() =>
                     {
                         SettingsPanelAnim(true);
-                        _settings = true;
-                        SettingsContrainer.Content = new Pages.SettingsPage();
+                        SettingsContrainer.Navigate(new Pages.SettingsPage());
                     });
                 }
                 else
@@ -348,7 +270,6 @@ namespace Tweaker
                     Parallel.Invoke(() =>
                     {
                         SettingsPanelAnim(false);
-                        _settings = false;
                         while (SettingsContrainer.NavigationService.RemoveBackEntry() != null) ;
                         SettingsContrainer.Content = null;
                     });
@@ -362,7 +283,15 @@ namespace Tweaker
             _startScanner.ScantheSystem();
             TweakerWPF.Topmost = SettingsTweaker.TopMost;
 
-            #region Анимация загрузки
+            #region First Page
+            DefaultStyleBtnN();
+            Button_Confidentiality.Style = (Style)Application.Current.Resources["ButtonNav_S"];
+            Grid.SetColumn(ActivePage, 0);
+            ActivePageAnim();
+            MainContainer.Navigate (new Pages.ConfidentialityPage());
+            #endregion
+
+            #region Loading animation
             this.Opacity = 0;
             await Task.Delay(100);
             this.Opacity = 1;

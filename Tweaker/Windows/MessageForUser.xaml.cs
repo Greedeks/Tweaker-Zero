@@ -14,7 +14,7 @@ namespace Tweaker
         {
             InitializeComponent();
 
-            #region Таймер закрытия окна
+            #region Window closing timer
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 string _texttimer = _time.ToString("ss");
