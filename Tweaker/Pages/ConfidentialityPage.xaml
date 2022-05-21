@@ -3,11 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch"
+      xmlns:local="clr-namespace:Tweaker.Pages" xmlns:ToggleSwitch="clr-namespace:ToggleSwitch" xmlns:local1="clr-namespace:Tweaker.Сlasses"
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded" KeyDown="Page_KeyDown">
-
+    <Page.Resources>
+        <local1:LanguageTranslate x:Key="ln" />
+    </Page.Resources>
     <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
@@ -87,7 +89,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
+            <TextBlock x:Name="DescriptionT" Text="" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 
