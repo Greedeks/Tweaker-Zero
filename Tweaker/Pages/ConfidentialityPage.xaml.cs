@@ -28,6 +28,16 @@ namespace Tweaker.Pages
             #endregion
         }
 
+        private void Tweaks_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Tweaks_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
         #region Tweaks
         private void TButton1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {

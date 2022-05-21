@@ -20,20 +20,20 @@
                 <Grid Width="1034" Height="590">
 
                     <!--#region Left Tweks-->
-                    <Label x:Name="Tweak1" Content="Службы связанные с работой Windows Search" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,540"/>
-                    <Label x:Name="Tweak2" Content="Службы связанные с работой Xbox" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,500"/>
-                    <Label x:Name="Tweak3" Content="Службы связанные с работой USB-модемов и USB-роутеров" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,460"/>
-                    <Label x:Name="Tweak4" Content="Службы связанные с Магазином Windows и его приложениями" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,420"/>
-                    <Label x:Name="Tweak5" Content="Службы счётчиков производительности Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,380"/>
-                    <Label x:Name="Tweak6" Content="Биометрическая служба Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,216,0,340"/>
-                    <Label x:Name="Tweak7" Content="Службы связанные с работой Bluetooth" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,300"/>
-                    <Label x:Name="Tweak8" Content="Службы связанные с работой принтера" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,260"/>
-                    <Label x:Name="Tweak9" Content="Служба связанная с работой сканера" Style="{StaticResource Tweaks_OFF}" Margin="86,340,0,220"/>
-                    <Label x:Name="Tweak10" Content="Службы связанные с работай факса" Style="{StaticResource Tweaks_OFF}" Margin="86,380,0,180"/>
-                    <Label x:Name="Tweak11" Content="Службы связанные с работой в режиме планшета/смартфона" Style="{StaticResource Tweaks_OFF}" Margin="86,420,0,140"/>
-                    <Label x:Name="Tweak12" Content="Службы связанные с работой дополнительных мониторов" Style="{StaticResource Tweaks_OFF}" Margin="86,460,0,100"/>
-                    <Label x:Name="Tweak13" Content="Службы Виртуальные рабочие столы, Ваш телефон и Ночной свет" Style="{StaticResource Tweaks_OFF}" Margin="86,500,0,60"/>
-                    <Label x:Name="Tweak14" Content="Службы связанные с работой локальной сети" Style="{StaticResource Tweaks_OFF}" Margin="86,540,0,20"/>
+                    <Label x:Name="Tweak1" Content="Службы связанные с работой Windows Search" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,540" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak2" Content="Службы связанные с работой Xbox" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,500" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak3" Content="Службы связанные с работой USB-модемов и USB-роутеров" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,460" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak4" Content="Службы связанные с Магазином Windows и его приложениями" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,420" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak5" Content="Службы счётчиков производительности Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,380" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak6" Content="Биометрическая служба Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,216,0,340" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak7" Content="Службы связанные с работой Bluetooth" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,300" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak8" Content="Службы связанные с работой принтера" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,260" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak9" Content="Служба связанная с работой сканера" Style="{StaticResource Tweaks_OFF}" Margin="86,340,0,220" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak10" Content="Службы связанные с работай факса" Style="{StaticResource Tweaks_OFF}" Margin="86,380,0,180" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak11" Content="Службы связанные с работой в режиме планшета/смартфона" Style="{StaticResource Tweaks_OFF}" Margin="86,420,0,140" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak12" Content="Службы связанные с работой дополнительных мониторов" Style="{StaticResource Tweaks_OFF}" Margin="86,460,0,100" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak13" Content="Службы Виртуальные рабочие столы, Ваш телефон и Ночной свет" Style="{StaticResource Tweaks_OFF}" Margin="86,500,0,60" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak14" Content="Службы связанные с работой локальной сети" Style="{StaticResource Tweaks_OFF}" Margin="86,540,0,20" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton1_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton2_PreviewMouseDown"/>
@@ -52,20 +52,20 @@
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                    <Label x:Name="Tweak15" Content="Службы связанные с обновлением Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,540"/>
-                    <Label x:Name="Tweak16" Content="Службы связанные с VPN-клиентами" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,500"/>
-                    <Label x:Name="Tweak17" Content="Службы связанные с работой Windows Media" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,460"/>
-                    <Label x:Name="Tweak18" Content="Службы связанные с работой удаленных рабочих столов" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,420"/>
-                    <Label x:Name="Tweak19" Content="Службы собирающие ошибки и журналы событий" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,380"/>
-                    <Label x:Name="Tweak20" Content="Служба удалённого управления файлами WebDAV" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,340"/>
-                    <Label x:Name="Tweak21" Content="Службы связанные с работой Смарт-карты" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,300"/>
-                    <Label x:Name="Tweak22" Content="Службы связанные с работой Windows Киоск" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,260"/>
-                    <Label x:Name="Tweak23" Content="Службы связанные с шифрованием файлов" Style="{StaticResource Tweaks_OFF}" Margin="618,340,0,220"/>
-                    <Label x:Name="Tweak24" Content="Служба связанная с локализацией Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,380,0,180"/>
-                    <Label x:Name="Tweak25" Content="Службы связанные с фоновой проверкой безопасности" Style="{StaticResource Tweaks_OFF}" Margin="618,420,0,140"/>
-                    <Label x:Name="Tweak26" Content="Службы связанные с фоновой диагностикой" Style="{StaticResource Tweaks_OFF}" Margin="618,460,0,100"/>
-                    <Label x:Name="Tweak27" Content="Службы связанные с кооперативными инструментами" Style="{StaticResource Tweaks_OFF}" Margin="618,500,0,60"/>
-                    <Label x:Name="Tweak28" Content="Служба связанная с работой виртуальной машиной Hyper-V" Style="{StaticResource Tweaks_OFF}" Margin="618,540,0,20"/>
+                    <Label x:Name="Tweak15" Content="Службы связанные с обновлением Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,540" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak16" Content="Службы связанные с VPN-клиентами" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,500" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak17" Content="Службы связанные с работой Windows Media" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,460" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak18" Content="Службы связанные с работой удаленных рабочих столов" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,420" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak19" Content="Службы собирающие ошибки и журналы событий" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,380" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak20" Content="Служба удалённого управления файлами WebDAV" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,340" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak21" Content="Службы связанные с работой Смарт-карты" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,300" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak22" Content="Службы связанные с работой Windows Киоск" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,260" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak23" Content="Службы связанные с шифрованием файлов" Style="{StaticResource Tweaks_OFF}" Margin="618,340,0,220" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak24" Content="Служба связанная с локализацией Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,380,0,180" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak25" Content="Службы связанные с фоновой проверкой безопасности" Style="{StaticResource Tweaks_OFF}" Margin="618,420,0,140" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak26" Content="Службы связанные с фоновой диагностикой" Style="{StaticResource Tweaks_OFF}" Margin="618,460,0,100" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak27" Content="Службы связанные с кооперативными инструментами" Style="{StaticResource Tweaks_OFF}" Margin="618,500,0,60" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak28" Content="Служба связанная с работой виртуальной машиной Hyper-V" Style="{StaticResource Tweaks_OFF}" Margin="618,540,0,20" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton16" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton16_PreviewMouseDown"/>

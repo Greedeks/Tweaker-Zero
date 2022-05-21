@@ -541,10 +541,35 @@ namespace Tweaker.Сlasses
                         }
                     case 16:
                         {
+                            string[] NvTelemetry = new string[6];
                             if (_choose)
+                            {
                                 _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 4, RegistryValueKind.DWord);
+                                NvTelemetry = new string[6] { "schtasks /change /tn NvTmRepOnLogon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable", "schtasks /change /tn NvTmRep_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable", "schtasks /change /tn NvTmMon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable",
+                            "net stop NvTelemetryContainer", "sc config NvTelemetryContainer start= disabled", "sc stop NvTelemetryContainer"};
+                            }
                             else
+                            {
                                 _localMachineKey.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\NvTelemetryContainer").SetValue("Start", 2, RegistryValueKind.DWord);
+                                NvTelemetry = new string[6] { "schtasks /change /tn NvTmRepOnLogon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /enable", "schtasks /change /tn NvTmRep_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /enable", "schtasks /change /tn NvTmMon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /enable",
+                            "net start NvTelemetryContainer", "sc config NvTelemetryContainer start= auto", "sc start NvTelemetryContainer"};
+                            }
+
+                            Process _process = new Process();
+                            _process.StartInfo.UseShellExecute = false;
+                            _process.StartInfo.RedirectStandardOutput = true;
+                            _process.StartInfo.CreateNoWindow = true;
+                            _process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                            _process.StartInfo.FileName = "cmd.exe";
+                            foreach (string _nvtelemetry in NvTelemetry)
+                            {
+                                Parallel.Invoke(() =>
+                                {
+                                    _process.StartInfo.Arguments = string.Format(@"/c {0}", _nvtelemetry);
+                                    _process.Start();
+                                });
+                            }
+                            _process.Dispose();
                             break;
                         }
                 }
@@ -1217,9 +1242,9 @@ namespace Tweaker.Сlasses
                         {
                             if (_choose)
                             {
-                                _usersKey.CreateSubKey(@".DEFAULT\Control Panel\Colors").SetValue("InfoWindow", "246 253 255", RegistryValueKind.String);
-                                _usersKey.CreateSubKey(@"S-1-5-19\Control Panel\Colors").SetValue("InfoWindow", "246 253 255", RegistryValueKind.String);
-                                _usersKey.CreateSubKey(@"S-1-5-20\Control Panel\Colors").SetValue("InfoWindow", "246 253 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@".DEFAULT\Control Panel\Colors").SetValue("InfoWindow", "240 255 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@"S-1-5-19\Control Panel\Colors").SetValue("InfoWindow", "240 255 255", RegistryValueKind.String);
+                                _usersKey.CreateSubKey(@"S-1-5-20\Control Panel\Colors").SetValue("InfoWindow", "240 255 255", RegistryValueKind.String);
                             }
                             else
                             {

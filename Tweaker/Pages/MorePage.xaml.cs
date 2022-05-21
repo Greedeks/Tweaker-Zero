@@ -37,7 +37,7 @@ namespace Tweaker.Pages
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (StatusVerf.Text == "Неактивно")
+                if (StatusVerf.Content.ToString() == "Неактивно")
                     _settingsWindows.ChangeSettingMore(true, 1);
             }
         }
@@ -193,7 +193,7 @@ namespace Tweaker.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            StatusVerf.Text = SettingsWindows._verificationW == 1 ? "Активно" : "Неактивно";
+            StatusVerf.Content = SettingsWindows._verificationW == 1 ? "Активно" : "Неактивно";
             _settingsWindows.GetSettingMore(this);
         }
 

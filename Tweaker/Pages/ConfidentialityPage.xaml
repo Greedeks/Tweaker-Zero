@@ -20,14 +20,14 @@
                 <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
                     <!--#region Left Tweks-->
-                    <Label x:Name="Tweak1" Content="Отключение рекламного идентификатора и рекламы" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,325"/>
-                    <Label x:Name="Tweak2" Content="Отключение всех типов синхронизаций Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,285"/>
-                    <Label x:Name="Tweak3" Content="Отключение всех видов телеметрий Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,245"/>
-                    <Label x:Name="Tweak4" Content="Отключение сбора данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,205"/>
-                    <Label x:Name="Tweak5" Content="Отключение сбора данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,165"/>
-                    <Label x:Name="Tweak6" Content="Отключение сбора статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Margin="86,222,0,123"/>
-                    <Label x:Name="Tweak7" Content="Отключение сбора и отправки данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,85"/>
-                    <Label x:Name="Tweak8" Content="Отключение ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,45"/>
+                    <Label x:Name="Tweak1" Content="Рекламный идентификатор и таргетированная реклама" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,325" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak2" Content="Все типы синхронизация ваших данных" Style="{StaticResource Tweaks_OFF}" Margin="86,60,0,285" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak3" Content="Отслеживание телеметрии Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,245" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak4" Content="Сбор данных через события планировщика" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,205" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak5" Content="Сбор данных об установленных приложениях" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,165" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak6" Content="Сбор статистики использования приложений" Style="{StaticResource Tweaks_OFF}" Margin="86,222,0,123" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak7" Content="Сбор и отправка данных рукописного ввода" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,85" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak8" Content="Ведения записи поведения пользователя" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,45" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton1" HorizontalAlignment="Left" Margin="42,22,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton1_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton2" HorizontalAlignment="Left" Margin="42,62,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton2_PreviewMouseDown"/>
@@ -41,14 +41,14 @@
                     <!--#endregion-->
 
                     <!--#region Right Tweaks-->
-                    <Label x:Name="Tweak9" Content="Отключение определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325"/>
-                    <Label x:Name="Tweak10" Content="Отключение проверки обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285"/>
-                    <Label x:Name="Tweak11" Content="Отключение скрытого фонового обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,245"/>
-                    <Label x:Name="Tweak12" Content="Отключение скрытого мониторинга системы" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,205"/>
-                    <Label x:Name="Tweak13" Content="Отключение удалённых экспериментов над ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,165"/>
-                    <Label x:Name="Tweak14" Content="Отключение и выпиливание шпионских модулей Microsoft" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,125"/>
-                    <Label x:Name="Tweak15" Content="Отключение «журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,85"/>
-                    <Label x:Name="Tweak16" Content="Отключение телеметрии NVIDIA" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,45"/>
+                    <Label x:Name="Tweak9" Content="Определения местоположения пользователя" Style="{StaticResource Tweaks_OFF}" Margin="618,20,0,325" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak10" Content="Проверка обращений через Обратную связь" Style="{StaticResource Tweaks_OFF}" Margin="618,60,0,285" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak11" Content="Скрытое фоновое обновления синтеза речи" Style="{StaticResource Tweaks_OFF}" Margin="618,100,0,245" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak12" Content="Скрытый мониторинг вашей системы" Style="{StaticResource Tweaks_OFF}" Margin="618,140,0,205" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak13" Content="Проводить удалённые эксперименты над вашим ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,165" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak14" Content="Шпионские модули по сборе и отправке данных" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,125" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak15" Content="«Журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,85" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak16" Content="Отслеживание телеметрии Nvidia" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,45" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton9_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton10_PreviewMouseDown"/>
@@ -72,14 +72,14 @@
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
-                <Label Content="Вернуть всё" Style="{DynamicResource ButtonsText}" Cursor="Hand"/>
+                <Label Content="Включить всё" Style="{DynamicResource ButtonsText}" Cursor="Hand"/>
             </Button>
 
             <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
-                <Label Content="Применить всё" Style="{DynamicResource ButtonsText}"/>
+                <Label Content="Отключить всё" Style="{DynamicResource ButtonsText}"/>
             </Button>
         </Grid>
         <!--#endregion-->
