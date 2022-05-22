@@ -7,9 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="509" d:DesignWidth="1044"
       Title="Confidentiality" SnapsToDevicePixels="True" UseLayoutRounding="True" Loaded="Page_Loaded" Style="{StaticResource PageStyle}" Unloaded="Page_Unloaded" KeyDown="Page_KeyDown">
-    <Page.Resources>
-        <local1:LanguageTranslate x:Key="ln" />
-    </Page.Resources>
     <Grid ScrollViewer.CanContentScroll="False" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
         <Grid.RowDefinitions>
             <RowDefinition Height="375*"/>
@@ -19,7 +16,7 @@
 
         <Grid Grid.Row="0" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <ScrollViewer MinHeight="375" FocusVisualStyle="{x:Null}" IsTabStop="False">
-                <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
+                <Grid Width="1034" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None" Height="375">
 
                     <!--#region Left Tweks-->
                     <Label x:Name="Tweak1" Content="Рекламный идентификатор и таргетированная реклама" Style="{StaticResource Tweaks_OFF}" Margin="86,20,0,325" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
@@ -50,7 +47,7 @@
                     <Label x:Name="Tweak13" Content="Проводить удалённые эксперименты над вашим ПК" Style="{StaticResource Tweaks_OFF}" Margin="618,180,0,165" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak14" Content="Шпионские модули по сборе и отправке данных" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,125" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak15" Content="«Журналирования» Событий Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,260,0,85" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
-                    <Label x:Name="Tweak16" Content="Отслеживание телеметрии Nvidia" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,45" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak16" Content="Отслеживание телеметрии Nvidia" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,45" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave" Cursor="Hand"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton9" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton9_PreviewMouseDown"/>
                     <ToggleSwitch:ToggleButton x:Name="TButton10" HorizontalAlignment="Left" Margin="574,62,0,0" VerticalAlignment="Top" Height="25" Width="39" RenderTransformOrigin="0.885,0.587" PreviewMouseDown="TButton10_PreviewMouseDown"/>
@@ -70,14 +67,14 @@
         <!--#region Buttons-->
         <Grid Grid.Row="1" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
 
-            <Button x:Name="TweaksON" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
+            <Button x:Name="BTweaksON" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="349.5,12,546,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000"/>
                 </Button.Effect>
                 <Label Content="Включить всё" Style="{DynamicResource ButtonsText}" Cursor="Hand"/>
             </Button>
 
-            <Button x:Name="TweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
+            <Button x:Name="BTweaksOFF" Style="{StaticResource ButtonsTW}" Height="26" Cursor="Hand" Margin="546,12,349.5,12" PreviewMouseDown="BtnOnOff_PreviewMouseDown">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity="0.8" Color="#FF0000" />
                 </Button.Effect>
@@ -89,7 +86,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DescriptionT" Text="" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
+            <TextBlock x:Name="DescriptionT" Text="Наведите указатель мыши на любую функцию, чтобы получить ее описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 

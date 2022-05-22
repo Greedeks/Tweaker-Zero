@@ -11,7 +11,6 @@ namespace Tweaker
     public partial class MainWindow : Window
     {
         private readonly StartScanner _startScanner = new StartScanner();
-
         public MainWindow()
         {
             _startScanner.BeforeLoadingCheck();

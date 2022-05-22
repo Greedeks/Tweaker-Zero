@@ -42,7 +42,7 @@
         <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="10.2pt"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Height" Value="76"/>
@@ -55,26 +55,7 @@
         </Setter>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
     </Style>
-    
-    <Style TargetType="{x:Type TextBlock}" x:Key="DescriptionTweaks_View">
-        <Setter Property="Foreground" Value="{DynamicResource ColorGray}"/>
-        <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-        <Setter Property="FontSize" Value="10.2pt"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="TextAlignment" Value="Left"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
-        <Setter Property="Height" Value="76"/>
-        <Setter Property="Width" Value="850"/>
-        <Setter Property="Margin" Value="0,6,0,6"/>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect Opacity="0.7"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-    </Style>
-    
+
     <Style TargetType="{x:Type TextBlock}" x:Key="SystemINFO">
         <Setter Property="Foreground" Value="{DynamicResource ColorRed}"/>
         <Setter Property="FontFamily" Value="/Fonts/#Nunito"/>

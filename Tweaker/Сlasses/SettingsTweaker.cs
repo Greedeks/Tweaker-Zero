@@ -10,14 +10,11 @@ namespace Tweaker.Сlasses
 {
     internal sealed class SettingsTweaker
     {
-        private LanguageTranslate languageTranslate = new LanguageTranslate();
-        private static string _language = default;
         private static bool _notification = default;
         private static bool _notificationSound = default;
         private static byte _notificationVolume = default;
         private static bool _topMost = default;
 
-        internal static string Language { get => _language; set => _language = value; }
         internal static bool Notification { get => _notification; set => _notification = value; }
         internal static bool NotificationSound { get => _notificationSound; set => _notificationSound = value; }
         internal static byte NotificationVolume { get => _notificationVolume; set => _notificationVolume = value; }
@@ -29,7 +26,6 @@ namespace Tweaker.Сlasses
             if (_registryKey == null)
             {
                 _registryKey = Registry.CurrentUser.CreateSubKey(@"Software\Tweaker Zero");
-                _registryKey.SetValue("Language", languageTranslate.GetLanguageWindows(), RegistryValueKind.String);
                 _registryKey.SetValue("Notification", "True", RegistryValueKind.String);
                 _registryKey.SetValue("NotificationSound", "True", RegistryValueKind.String);
                 _registryKey.SetValue("NotificationVolume", "100", RegistryValueKind.String);
@@ -45,22 +41,11 @@ namespace Tweaker.Сlasses
             Parallel.Invoke(() =>
             {
                 _registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Tweaker Zero");
-                Language = _registryKey.GetValue("Language").ToString();
                 Notification = bool.Parse(_registryKey.GetValue("Notification").ToString());
                 NotificationSound = bool.Parse(_registryKey.GetValue("NotificationSound").ToString());
                 NotificationVolume = byte.Parse(_registryKey.GetValue("NotificationVolume").ToString());
                 TopMost = bool.Parse(_registryKey.GetValue("TopMost").ToString());
             });
-        }
-
-        internal void LanguageNotification(in int _state)
-        {
-            RegistryKey _registryKey = Registry.CurrentUser.CreateSubKey(@"Software\Tweaker Zero");
-            if (_state == 0)
-                _registryKey.SetValue("Language", "ru", RegistryValueKind.String);
-            else
-                _registryKey.SetValue("Language", "eng", RegistryValueKind.String);
-            Language = _registryKey.GetValue("Language").ToString();
         }
 
         internal void ChangeNotificationState(in bool _state)

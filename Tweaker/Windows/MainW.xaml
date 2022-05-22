@@ -128,7 +128,7 @@
                 <Button x:Name="Button_Services" Grid.Column="3" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Службы"/>
                 <Button x:Name="Button_System" Grid.Column="4" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Система"/>
                 <Button x:Name="Button_SystemInfo" Grid.Column="5" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Системная информация"/>
-                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Прочее" Cursor="Hand"/>
+                <Button x:Name="Button_More" Grid.Column="6" Style="{StaticResource ButtonNav}" PreviewMouseDown="Button_Navigations_PreviewMouseDown" Content="Прочее"/>
 
                 <Border x:Name="ActivePage" Background="{DynamicResource ColorRed}" Height="1" VerticalAlignment="Top" Grid.Column="0" Opacity="0"/>
             </Grid>

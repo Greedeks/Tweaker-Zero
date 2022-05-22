@@ -12,7 +12,6 @@ namespace Tweaker.Pages
         {
             InitializeComponent();
 
-            SelectLang.SelectedIndex = SettingsTweaker.Language == "ru" ? 0 : 1;
             TSettings1.State = SettingsTweaker.Notification;
             ToastShow.Style = TSettings1.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
             TSettings2.State = SettingsTweaker.NotificationSound;
@@ -20,11 +19,6 @@ namespace Tweaker.Pages
             Slider1.Value = SettingsTweaker.NotificationVolume;
             TSettings3.State = SettingsTweaker.TopMost;
             PinOfTop.Style = TSettings3.State ? (Style)Application.Current.Resources["Tweaks_ON"] : (Style)Application.Current.Resources["Tweaks_OFF"];
-        }
-
-        private void SelectLang_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            settingsTweaker.LanguageNotification(SelectLang.SelectedIndex);
         }
 
         private void TSettings1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
