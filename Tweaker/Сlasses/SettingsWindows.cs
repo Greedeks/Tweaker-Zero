@@ -2170,11 +2170,13 @@ namespace Tweaker.Сlasses
                             {
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("Start", 4, RegistryValueKind.DWord);
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
                             }
                             else
                             {
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("Start", 2, RegistryValueKind.DWord);
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
                             }
                             break;
                         }
@@ -2621,51 +2623,28 @@ namespace Tweaker.Сlasses
                         }
                     case 26:
                         {
-                            string[] _diag = new string[5] { "WdiSystemHost", "WdiServiceHost", "TroubleshootingSvc", "DPS", "diagnosticshub.standardcollector.service" };
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\WdiSystemHost", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\WdiServiceHost", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\TroubleshootingSvc", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\DPS", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
+                            TakingOwnership.GrantAdministratorsAccess(@"MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", TakingOwnership.SE_OBJECT_TYPE.SE_REGISTRY_KEY);
 
                             if (_choose)
                             {
-                                for (int i = 0; i < _diag.Length; i++)
-                                {
-                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\" + _diag[i], RegistryKeyPermissionCheck.ReadWriteSubTree);
-                                    RegistrySecurity _registrySecurity = new RegistrySecurity();
-                                    WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
-                                    RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
-                                    _registrySecurity.AddAccessRule(_accessRule);
-                                    _registrySecurity.SetAccessRuleProtection(false, true);
-                                    rkey.SetAccessControl(_registrySecurity);
-
-                                    _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
-                                    NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
-                                    _registrySecurity.SetOwner(SID);
-                                    rkey.SetAccessControl(_registrySecurity);
-                                    rkey.SetValue("Start", 4, RegistryValueKind.DWord);
-                                    rkey.Close();
-                                }
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiServiceHost", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TroubleshootingSvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS", true).SetValue("Start", 4, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", true).SetValue("Start", 4, RegistryValueKind.DWord);
 
                             }
                             else
                             {
-                                for (int i = 0; i < _diag.Length; i++)
-                                {
-                                    RegistryKey rkey = _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\" + _diag[i], RegistryKeyPermissionCheck.ReadWriteSubTree);
-                                    RegistrySecurity _registrySecurity = new RegistrySecurity();
-                                    WindowsIdentity _windowsIdentity = WindowsIdentity.GetCurrent();
-                                    RegistryAccessRule _accessRule = new RegistryAccessRule(_windowsIdentity.Name, RegistryRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None, AccessControlType.Allow);
-                                    _registrySecurity.AddAccessRule(_accessRule);
-                                    _registrySecurity.SetAccessRuleProtection(false, true);
-                                    rkey.SetAccessControl(_registrySecurity);
-
-                                    _registrySecurity.SetGroup(new NTAccount("SYSTEM"));
-                                    NTAccount SID = new NTAccount(Environment.UserDomainName + "\\" + Environment.UserName);
-                                    _registrySecurity.SetOwner(SID);
-                                    rkey.SetAccessControl(_registrySecurity);
-                                    if (_diag[i] == "DPS")
-                                        rkey.SetValue("Start", 2, RegistryValueKind.DWord);
-                                    else
-                                        rkey.SetValue("Start", 3, RegistryValueKind.DWord);
-                                    rkey.Close();
-                                }
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiSystemHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WdiServiceHost", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\TroubleshootingSvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\DPS", true).SetValue("Start", 2, RegistryValueKind.DWord);
+                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", true).SetValue("Start", 3, RegistryValueKind.DWord);
                             }
                             break;
                         }

@@ -25,7 +25,7 @@
                     <Label x:Name="Tweak3" Content="Службы связанные с работой USB-модемов и USB-роутеров" Style="{StaticResource Tweaks_OFF}" Margin="86,100,0,460" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak4" Content="Службы связанные с Магазином Windows и его приложениями" Style="{StaticResource Tweaks_OFF}" Margin="86,140,0,420" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak5" Content="Службы счётчиков производительности Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,180,0,380" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
-                    <Label x:Name="Tweak6" Content="Биометрическая служба Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,216,0,340" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak6" Content="Биометрическая служба Windows" Style="{StaticResource Tweaks_OFF}" Margin="86,220,0,340" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak7" Content="Службы связанные с работой Bluetooth" Style="{StaticResource Tweaks_OFF}" Margin="86,260,0,300" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak8" Content="Службы связанные с работой принтера" Style="{StaticResource Tweaks_OFF}" Margin="86,300,0,260" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak9" Content="Служба связанная с работой сканера" Style="{StaticResource Tweaks_OFF}" Margin="86,340,0,220" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>

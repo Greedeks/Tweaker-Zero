@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Tweaker.Сlasses;
 
@@ -26,15 +28,66 @@ namespace Tweaker.Pages
             }, Application.Current.Dispatcher);
             #endregion
         }
+
+        private Dictionary<string, string> TweaksHover = new Dictionary<string, string>
+        {
+            ["Tweak1"] = "Отключайте если вы не используете историю файлов и индексирование контента.",
+            ["Tweak2"] = "Отключайте если вы не используете Xbox и геймпады Microsoft.",
+            ["Tweak3"] = "Отключайте если вы подключены к интернету через кабель или Wi-Fi.",
+            ["Tweak4"] = "Отключайте если вы не используете Магазин Windows и его UWP приложения.",
+            ["Tweak5"] = "Отключайте если вы не хотите, чтобы службы анализировали производительность вашей системы.",
+            ["Tweak6"] = "Отключайте если вы не используете авторизацию с помощью Windows Hello, по отпечатку пальца или распзования лица.",
+            ["Tweak7"] = "Отключайте если вы не используете Bluetooth и устройства чья работа связана с Bluetooth",
+            ["Tweak8"] = "Отключайте если у вас нет принтера.",
+            ["Tweak9"] = "Отключайте если у вас нет сканера.",
+            ["Tweak10"] = "Отключайте если у вас нет факса.",
+            ["Tweak11"] = "Отключайте если у вас стационарный компьютер, ноутбук или нетбук.",
+            ["Tweak12"] = "Отключайте если у вас только один монитор и вы не планируете подключать дополнительные.",
+            ["Tweak13"] = "Отключайте если вы не используете все эти приложения.",
+            ["Tweak14"] = "Отключайте если вы не используете и не планируете использовать локальную сеть",
+            ["Tweak15"] = "Отключайте если вы не планируете обновлять Windows.",
+            ["Tweak16"] = "Отключайте если вы не используете VPN-клиенты. Может повлиять на работу Xbox.",
+            ["Tweak17"] = "Отключайте если вы не используете Проигрыватель Windows Media.",
+            ["Tweak18"] = "Отключайте если вы не пользуетесь удалённым рабочим столом и не используете серверное подключение к ним.",
+            ["Tweak19"] = "Отключайте если вы не хотите чтобы службы нагружали ваш ПК, пока они занимаются обработкой ошибок.",
+            ["Tweak20"] = "Отключайте если вы не управляете удаленно файлами через Общий доступ или с помощью WebDAV.",
+            ["Tweak21"] = "Отключайте если вы не используете смарт-карты или не знаете что это.",
+            ["Tweak22"] = "Отключайте если вы",
+            ["Tweak23"] = "Отключайте если вы",
+            ["Tweak24"] = "Отключайте если вы",
+            ["Tweak25"] = "Отключайте если вы",
+            ["Tweak26"] = "Отключайте если вы",
+            ["Tweak27"] = "Отключайте если вы",
+            ["Tweak28"] = "Отключайте если вы"
+        };
+
+        private void DiscriptionAnim(string _text)
+        {
+            DescriptionT.Text = _text;
+
+            DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+            };
+
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150))
+            };
+
+            doubleAnimation.KeyFrames.Add(_fromFrame);
+            doubleAnimation.KeyFrames.Add(_toFrame);
+            DescriptionT.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
+        }
+
         private void Tweaks_MouseEnter(object sender, MouseEventArgs e)
         {
-
+            Label label = (Label)sender;
+            DiscriptionAnim(TweaksHover[label.Name]);
         }
 
-        private void Tweaks_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
+        private void Tweaks_MouseLeave(object sender, MouseEventArgs e) => DiscriptionAnim("Наведите указатель мыши на любую функцию, чтобы получить ее описание");
 
         #region Tweaks
         private void TButton1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
