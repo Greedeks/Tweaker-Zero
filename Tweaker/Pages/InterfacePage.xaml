@@ -49,7 +49,7 @@
                     <Label x:Name="Tweak13" Content="Полное отключение Центра уведомлений" Style="{StaticResource Tweaks_OFF}" Margin="618,100,120,290" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak14" Content="Стандартный размер Scrollbar Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,140,93,250" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak15" Content="Добавить на Рабочий стол значок Компьютера" Style="{StaticResource Tweaks_OFF}" Margin="618,180,24,207" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
-                    <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Height="Auto" Margin="618,220,0,166" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave" Cursor="Hand"/>
+                    <Label x:Name="Tweak16" Content="Восстанавливать прежние окна папок при входе в систему" Style="{StaticResource Tweaks_OFF}" Margin="618,220,0,166" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak17" Content="Значки на панели задач (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,260,103,128" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak18" Content="Показывать персонализированную рекламу (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,300,0,89" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak19" Content="Новое урезанное контекстное меню (Windows 11)" Style="{StaticResource Tweaks_OFF}" Margin="618,340,0,50" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
@@ -93,7 +93,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
+            <TextBlock x:Name="DescriptionT" Text="Наведите указатель мыши на любую функцию, чтобы получить ее описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 

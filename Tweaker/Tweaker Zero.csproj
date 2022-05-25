@@ -97,7 +97,6 @@
     </Compile>
     <Compile Include="Сlasses\ApplicationsSystem.cs" />
     <Compile Include="Сlasses\CheckWindowsVersion.cs" />
-    <Compile Include="Сlasses\LanguageTranslate.cs" />
     <Compile Include="Сlasses\SettingsTweaker.cs" />
     <Compile Include="Сlasses\TakingOwnership.cs" />
     <Compile Include="Сlasses\SettingsWindows.cs" />
@@ -151,10 +150,6 @@
     <Page Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\ComboBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Pages.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Tweaker.Сlasses;
 
@@ -31,15 +33,58 @@ namespace Tweaker.Pages
             }, Application.Current.Dispatcher);
             #endregion
         }
+        private Dictionary<string, string> TweaksHover = new Dictionary<string, string>
+        {
+            ["Tweak1"] = "По умолчанию, дополнительные пункты контекстного меню появляются с задержкой 400 мс. Если вы хотите быстрее, можно эту задежку сократить до 20 мс.",
+            ["Tweak2"] = "Данный твик уберет пункты контекстного меню, которые мало кто использует: Отправить (поделиться), Передать на устройство, Изменить с помощью приложения «Фотографии», Добавить в библиотеку, Поиск музыки в Интернете, Изменить в Paint 3D / Print 3D.",
+            ["Tweak3"] = "Удаляет из контекстного меню Создать пункты: Точечный рисунок, Контакт, Документ в формате RTF.",
+            ["Tweak4"] = "Изменят цвет всплывающей подсказки с жёлтого на «Небесная лазурь».",
+            ["Tweak5"] = "Твик уменьшит размер кнопок Свернуть, Развернуть, Закрыть в окнах на 20%. Кнопки станут аккуратнее не только у Проводника, но и у всех окон, включая изображения, браузеры и прочие программы.",
+            ["Tweak6"] = "Уберёт из Обзора Проводника в левом списке меню (из дерева списка проводника) пункт 3D Objects (Объёмные объекты)",
+            ["Tweak7"] = "Твик скроет из «Этот компьютер» папки: Рабочий стол, Видео, Документы, Загрузки, Изображения, Музыка.",
+            ["Tweak8"] = "Твик позволит убрать стрелки с ярлыков с помощью подмены файла стрелки.",
+            ["Tweak9"] = "Удаление слишком интуитивного префикса-постфикса для ярлыков.",
+            ["Tweak10"] = "Ускоряет частоту мерцания курсора, по умолчанию значение: 530. Данный твик изменит значение на 250.",
+            ["Tweak11"] = "По умолчанию, предпросмотр на Панели задач показывает превью запущенных приложений слишком долго. Чтобы превьюшки показывались быстрее, примените данный твик.",
+            ["Tweak12"] = "Если вам не нужен значок Корзины на рабочем столе и вы не хотите тратить время на поиски отключение, то можете воспользоваться твикам.",
+            ["Tweak13"] = "Для тех, кому Центр уведомлений не нужен вовсе, твик позволит полностью отключить его и убрать иконку в трее.",
+            ["Tweak14"] = "Твик сделает scroll-bar в окнах, включая браузеры и программы, тоньше на 17%.",
+            ["Tweak15"] = "Значок Компьютера, в отличие от ярлыка Компьютера, лучше тем, что он имеет нужные свойства контекстного меню и избавлен от лишних.",
+            ["Tweak16"] = "По умолчанию, Windows не сохраняет позиции окон, как и их состояние при Выключении. Этот твик позволит запомнить вид открытых папок, чтобы восстановить их после Выхода, Перезагрузки и Выключения.",
+            ["Tweak17"] = "Нет времени на поиски? Твик уберет значки с панели задач: Поиск, Предаставление задач, Чат.",
+            ["Tweak18"] = "Вы можете отключить персонализированную рекламу во всех приложениях Магазина. По умолчанию Windows использует собранную информацию для таргетинга рекламы, т. е. для показа рекламы, соответствующей вашим интересам.",
+            ["Tweak19"] = "Непонятно зачем, но Windows 11 заменяет нормальное контекстное меню, новым урезанным. В катором даже нет пукнта:Свойства. И для того чтобы его открыть, необходимо воспользоваться старым меню. Твик исправит данный велосипед, и вы сможете сразу открыть нормальное контекстное меню.",
+            ["Tweak20"] = "Windows 11 иногда показывает подсказки о том, как использовать ту или иную функцию, например, новое меню «Пуск» или «Быстрые настройки». Они полезны, если вы впервые видите Windows 11, а так это бесполезный хлам.",
+        };
+
+        private void DiscriptionAnim(string _text)
+        {
+            DescriptionT.Text = _text;
+
+            DoubleAnimationUsingKeyFrames doubleAnimation = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame _fromFrame = new EasingDoubleKeyFrame(0)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))
+            };
+
+            EasingDoubleKeyFrame _toFrame = new EasingDoubleKeyFrame(1)
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150))
+            };
+
+            doubleAnimation.KeyFrames.Add(_fromFrame);
+            doubleAnimation.KeyFrames.Add(_toFrame);
+            DescriptionT.BeginAnimation(ContextMenu.OpacityProperty, doubleAnimation);
+        }
+
         private void Tweaks_MouseEnter(object sender, MouseEventArgs e)
         {
-
+            Label label = (Label)sender;
+            DiscriptionAnim(TweaksHover[label.Name]);
         }
 
-        private void Tweaks_MouseLeave(object sender, MouseEventArgs e)
-        {
+        private void Tweaks_MouseLeave(object sender, MouseEventArgs e) => DiscriptionAnim("Наведите указатель мыши на любую функцию, чтобы получить ее описание");
 
-        }
 
         #region Tweaks
         private void TButton1_PreviewMouseDown(object sender, MouseButtonEventArgs e)

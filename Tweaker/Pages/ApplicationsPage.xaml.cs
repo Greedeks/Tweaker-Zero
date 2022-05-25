@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,6 +43,42 @@ namespace Tweaker.Pages
             #endregion
         }
 
+        private Dictionary<string, string> TweaksHover = new Dictionary<string, string>
+        {
+            ["MicrosoftStore"] = "Microsoft Store",
+            ["Todos"] = "Microsoft To Do",
+            ["BingWeather"] = "Bing Weather",
+            ["Microsoft3DViewer"] = "Microsoft 3D Viewer",
+            ["Music"] = "Microsoft Zune Music",
+            ["GetHelp"] = "Get Help",
+            ["MicrosoftOfficeHub"] = "Microsoft Office Hub",
+            ["MicrosoftSolitaireCollection"] = "Microsoft Solitaire Collection",
+            ["MixedReality"] = "Windows Mixed Reality",
+            ["Xbox"] = "Microsoft Xbox",
+            ["Paint3D"] = "Microsoft Paint3D",
+            ["OneNote"] = "Microsoft Office OneNote",
+            ["People"] = "Microsoft People",
+            ["MicrosoftStickyNotes"] = "Microsoft Sticky Notes",
+            ["Widgets"] = "Виджеты (Windows 11)",
+            ["ScreenSketch"] = "Screen Sketch",
+            ["Phone"] = "Microsoft Phone",
+            ["Photos"] = "Microsoft Photos",
+            ["FeedbackHub"] = "Windows Feedback Hub",
+            ["SoundRecorder"] = "Microsoft Sound Recorder",
+            ["Alarms"] = "Windows Alarms & Clock",
+            ["SkypeApp"] = "Microsoft SkypeApp",
+            ["Maps"] = "Windows Maps",
+            ["Camera"] = "Microsoft Camera",
+            ["Video"] = "Microsoft Zune Video",
+            ["BingNews"] = "Bing News",
+            ["Mail"] = "Mail Windows",
+            ["MicrosoftTeams"] = "Microsoft Teams",
+            ["PoweraAtomateDesktop"] = "Power Atomate",
+            ["Cortana"] = "Cortana",
+            ["Clipchamp"] = "Windows Clipchamp",
+            ["Getstarted"] = "Get Started Windows",
+            ["OneDrive"] = "OneDrive"
+        };
         private void DiscriptionAnim(string _text)
         {
             Discription.Text = _text;
@@ -65,10 +102,10 @@ namespace Tweaker.Pages
         private void App_MouseEnter(object sender, MouseEventArgs e)
         {
             Image _AppImage = (Image)sender;
-            DiscriptionAnim(_AppImage.Name);
+            DiscriptionAnim(TweaksHover[_AppImage.Name]);
         }
 
-        private void App_MouseLeave(object sender, MouseEventArgs e) => DiscriptionAnim("Наведите курсор на любое приложения, чтобы получить его название");
+        private void App_MouseLeave(object sender, MouseEventArgs e) => DiscriptionAnim("Наведите указатель мыши на любое изображение, чтобы получить название приложения");
 
         #region Click
         private void AppClick_PreviewMouseDown(object sender, MouseButtonEventArgs e)

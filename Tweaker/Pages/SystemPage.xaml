@@ -97,7 +97,7 @@
         <!--#region Description-->
         <Grid Grid.Row="2" KeyboardNavigation.IsTabStop="False" KeyboardNavigation.TabNavigation="None">
             <Rectangle Fill="#D90000" Width="800" Height="1" RadiusX="15" RadiusY="15" Margin="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DescriptionT" Text="Наведите курсор на любую функцию, чтобы получить её описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
+            <TextBlock x:Name="DescriptionT" Text="Наведите указатель мыши на любую функцию, чтобы получить ее описание" Style="{DynamicResource DescriptionTweaks}" Margin="0,6,0,7"/>
         </Grid>
         <!--#endregion-->
 
