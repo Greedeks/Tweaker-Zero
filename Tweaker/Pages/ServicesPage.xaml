@@ -64,7 +64,7 @@
                     <Label x:Name="Tweak24" Content="Служба связанная с локализацией Windows" Style="{StaticResource Tweaks_OFF}" Margin="618,380,0,180" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak25" Content="Службы связанные с фоновой проверкой безопасности" Style="{StaticResource Tweaks_OFF}" Margin="618,420,0,140" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
                     <Label x:Name="Tweak26" Content="Службы связанные с фоновой диагностикой" Style="{StaticResource Tweaks_OFF}" Margin="618,460,0,100" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
-                    <Label x:Name="Tweak27" Content="Службы связанные с кооперативными инструментами" Style="{StaticResource Tweaks_OFF}" Margin="618,500,0,60" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
+                    <Label x:Name="Tweak27" Content="Службы связанные с кооперативными инструментами" Style="{StaticResource Tweaks_OFF}" Margin="618,500,0,60" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave" Cursor="Hand"/>
                     <Label x:Name="Tweak28" Content="Служба связанная с работой виртуальной машиной Hyper-V" Style="{StaticResource Tweaks_OFF}" Margin="618,540,0,20" MouseEnter="Tweaks_MouseEnter" MouseLeave="Tweaks_MouseLeave"/>
 
                     <ToggleSwitch:ToggleButton x:Name="TButton15" HorizontalAlignment="Left" Margin="574,22,0,0" VerticalAlignment="Top" Height="25" Width="39" PreviewMouseDown="TButton15_PreviewMouseDown"/>

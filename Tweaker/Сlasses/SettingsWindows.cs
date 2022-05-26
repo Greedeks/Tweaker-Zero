@@ -2170,13 +2170,11 @@ namespace Tweaker.Сlasses
                             {
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("Start", 4, RegistryValueKind.DWord);
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
-                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("Start", 4, RegistryValueKind.DWord);
                             }
                             else
                             {
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\WSearch", true).SetValue("Start", 2, RegistryValueKind.DWord);
                                 _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\fhsvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
-                                _localMachineKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\workfolderssvc", true).SetValue("Start", 3, RegistryValueKind.DWord);
                             }
                             break;
                         }
